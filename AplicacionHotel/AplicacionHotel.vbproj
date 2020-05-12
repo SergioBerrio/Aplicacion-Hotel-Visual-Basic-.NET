@@ -73,6 +73,30 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAnimacion.Designer.vb">
+      <DependentUpon>FormAnimacion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormAnimacion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCocina.Designer.vb">
+      <DependentUpon>FormCocina.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCocina.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDirector.Designer.vb">
+      <DependentUpon>FormDirector.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormDirector.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEntrada.Designer.vb">
+      <DependentUpon>FormEntrada.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormEntrada.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormInicio.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -80,10 +104,65 @@
       <DependentUpon>FormInicio.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormInicioSesionTrabajadores.Designer.vb">
+      <DependentUpon>FormInicioSesionTrabajadores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormInicioSesionTrabajadores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLimpieza.Designer.vb">
+      <DependentUpon>FormLimpieza.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormLimpieza.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMantenimiento.Designer.vb">
+      <DependentUpon>FormMantenimiento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormMantenimiento.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPantallaTrabajadores.Designer.vb">
+      <DependentUpon>FormPantallaTrabajadores.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPantallaTrabajadores.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPantallaTrabajadores2.Designer.vb">
+      <DependentUpon>FormPantallaTrabajadores2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPantallaTrabajadores2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRecepcion.Designer.vb">
+      <DependentUpon>FormRecepcion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormRecepcion.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConserjeria.Designer.vb">
+      <DependentUpon>FormConserjeria.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormConserjeria.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSeguridad.Designer.vb">
+      <DependentUpon>FormSeguridad.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSeguridad.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSocorrista.Designer.vb">
+      <DependentUpon>FormSocorrista.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSocorrista.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -97,8 +176,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormEntrada.resx">
+      <DependentUpon>FormEntrada.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInicio.resx">
       <DependentUpon>FormInicio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormInicioSesionTrabajadores.resx">
+      <DependentUpon>FormInicioSesionTrabajadores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPantallaTrabajadores.resx">
+      <DependentUpon>FormPantallaTrabajadores.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPantallaTrabajadores2.resx">
+      <DependentUpon>FormPantallaTrabajadores2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

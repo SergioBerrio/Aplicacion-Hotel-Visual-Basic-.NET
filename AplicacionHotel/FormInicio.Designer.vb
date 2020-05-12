@@ -22,16 +22,56 @@ Partial Class FormInicio
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.btnEntrar = New System.Windows.Forms.Button()
+        Me.btnSalir = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
+        '
+        'btnEntrar
+        '
+        Me.btnEntrar.Location = New System.Drawing.Point(145, 297)
+        Me.btnEntrar.Name = "btnEntrar"
+        Me.btnEntrar.Size = New System.Drawing.Size(183, 53)
+        Me.btnEntrar.TabIndex = 0
+        Me.btnEntrar.Text = "Entrar"
+        Me.btnEntrar.UseVisualStyleBackColor = True
+        '
+        'btnSalir
+        '
+        Me.btnSalir.Location = New System.Drawing.Point(423, 297)
+        Me.btnSalir.Name = "btnSalir"
+        Me.btnSalir.Size = New System.Drawing.Size(186, 50)
+        Me.btnSalir.TabIndex = 1
+        Me.btnSalir.Text = "Salir"
+        Me.btnSalir.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(201, 120)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(353, 50)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "Bienvenido al hotel Paradise resort," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "su hotel de confianza"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'FormInicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.btnSalir)
+        Me.Controls.Add(Me.btnEntrar)
         Me.Name = "FormInicio"
-        Me.Text = "Form1"
+        Me.Text = "FormInicio"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
+
+    Friend WithEvents btnEntrar As Button
+    Friend WithEvents btnSalir As Button
+    Friend WithEvents Label1 As Label
 End Class
