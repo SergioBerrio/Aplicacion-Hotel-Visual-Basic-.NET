@@ -25,7 +25,7 @@ Partial Class FormInicioSesionTrabajadores
         Me.lblContrasena = New System.Windows.Forms.Label()
         Me.lblUsuario = New System.Windows.Forms.Label()
         Me.txtbUsuario = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtbContrasena = New System.Windows.Forms.TextBox()
         Me.btnIniciarSesion = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
@@ -56,12 +56,12 @@ Partial Class FormInicioSesionTrabajadores
         Me.txtbUsuario.Size = New System.Drawing.Size(139, 20)
         Me.txtbUsuario.TabIndex = 1
         '
-        'TextBox1
+        'txtbContrasena
         '
-        Me.TextBox1.Location = New System.Drawing.Point(358, 165)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(139, 20)
-        Me.TextBox1.TabIndex = 2
+        Me.txtbContrasena.Location = New System.Drawing.Point(358, 165)
+        Me.txtbContrasena.Name = "txtbContrasena"
+        Me.txtbContrasena.Size = New System.Drawing.Size(139, 20)
+        Me.txtbContrasena.TabIndex = 2
         '
         'btnIniciarSesion
         '
@@ -73,17 +73,17 @@ Partial Class FormInicioSesionTrabajadores
         Me.btnIniciarSesion.Text = "Iniciar Sesión"
         Me.btnIniciarSesion.UseVisualStyleBackColor = True
         '
-        'FormInicioTrabajadores
+        'FormInicioSesionTrabajadores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.btnIniciarSesion)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtbContrasena)
         Me.Controls.Add(Me.txtbUsuario)
         Me.Controls.Add(Me.lblContrasena)
         Me.Controls.Add(Me.lblUsuario)
-        Me.Name = "FormInicioTrabajadores"
+        Me.Name = "FormInicioSesionTrabajadores"
         Me.Text = "FormInicioTrabajadores"
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -93,6 +93,6 @@ Partial Class FormInicioSesionTrabajadores
     Friend WithEvents lblContrasena As Label
     Friend WithEvents lblUsuario As Label
     Friend WithEvents txtbUsuario As TextBox
-    Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents txtbContrasena As TextBox
     Friend WithEvents btnIniciarSesion As Button
 End Class

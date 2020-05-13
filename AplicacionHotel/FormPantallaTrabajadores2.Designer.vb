@@ -87,7 +87,7 @@ Partial Class FormPantallaTrabajadores2
         '
         'btnPrimerosPuestos
         '
-        Me.btnPrimerosPuestos.Location = New System.Drawing.Point(11, 197)
+        Me.btnPrimerosPuestos.Location = New System.Drawing.Point(21, 197)
         Me.btnPrimerosPuestos.Name = "btnPrimerosPuestos"
         Me.btnPrimerosPuestos.Size = New System.Drawing.Size(101, 43)
         Me.btnPrimerosPuestos.TabIndex = 13

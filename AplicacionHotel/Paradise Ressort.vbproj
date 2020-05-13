@@ -50,8 +50,12 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.OleDb, Version=4.0.1.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.OleDb.4.7.1\lib\net461\System.Data.OleDb.dll</HintPath>
+    </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -73,6 +77,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Datos\ConexionDatos.vb" />
     <Compile Include="FormAnimacion.Designer.vb">
       <DependentUpon>FormAnimacion.vb</DependentUpon>
     </Compile>
@@ -146,6 +151,12 @@
     <Compile Include="FormConserjeria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormHacerReservas.Designer.vb">
+      <DependentUpon>FormHacerReservas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormHacerReservas.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormSeguridad.Designer.vb">
       <DependentUpon>FormSeguridad.vb</DependentUpon>
     </Compile>
@@ -158,6 +169,14 @@
     <Compile Include="FormSocorrista.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormVerReservas.Designer.vb">
+      <DependentUpon>FormVerReservas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVerReservas.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modelos\Clientes.vb" />
+    <Compile Include="Modulo1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -191,6 +210,15 @@
     <EmbeddedResource Include="FormPantallaTrabajadores2.resx">
       <DependentUpon>FormPantallaTrabajadores2.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRecepcion.resx">
+      <DependentUpon>FormRecepcion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHacerReservas.resx">
+      <DependentUpon>FormHacerReservas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVerReservas.resx">
+      <DependentUpon>FormVerReservas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -209,6 +237,7 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

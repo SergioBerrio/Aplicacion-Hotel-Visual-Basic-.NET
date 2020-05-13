@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormEntrada
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,10 +20,11 @@ Partial Class FormEntrada
     'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
     'Se puede modificar usando el Diseñador de Windows Forms.  
     'No lo modifique con el editor de código.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.bntAtras1 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnControl = New System.Windows.Forms.Button()
+        Me.btnReserva = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'bntAtras1
@@ -31,20 +32,30 @@ Partial Class FormEntrada
         Me.bntAtras1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bntAtras1.Location = New System.Drawing.Point(460, 274)
         Me.bntAtras1.Name = "bntAtras1"
-        Me.bntAtras1.Size = New System.Drawing.Size(206, 78)
-        Me.bntAtras1.TabIndex = 2
+        Me.bntAtras1.Size = New System.Drawing.Size(206, 60)
+        Me.bntAtras1.TabIndex = 4
         Me.bntAtras1.Text = "Atrás"
         Me.bntAtras1.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnControl
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(67, 274)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(190, 78)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "Control de los trabajadores"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnControl.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnControl.Location = New System.Drawing.Point(283, 115)
+        Me.btnControl.Name = "btnControl"
+        Me.btnControl.Size = New System.Drawing.Size(190, 59)
+        Me.btnControl.TabIndex = 3
+        Me.btnControl.Text = "Control de los trabajadores"
+        Me.btnControl.UseVisualStyleBackColor = True
+        '
+        'btnReserva
+        '
+        Me.btnReserva.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReserva.Location = New System.Drawing.Point(109, 276)
+        Me.btnReserva.Name = "btnReserva"
+        Me.btnReserva.Size = New System.Drawing.Size(183, 59)
+        Me.btnReserva.TabIndex = 1
+        Me.btnReserva.Text = "Hacer una reserva"
+        Me.btnReserva.UseVisualStyleBackColor = True
         '
         'FormEntrada
         '
@@ -52,7 +63,8 @@ Partial Class FormEntrada
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnReserva)
+        Me.Controls.Add(Me.btnControl)
         Me.Controls.Add(Me.bntAtras1)
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Name = "FormEntrada"
@@ -62,5 +74,6 @@ Partial Class FormEntrada
     End Sub
 
     Friend WithEvents bntAtras1 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnControl As Button
+    Friend WithEvents btnReserva As Button
 End Class
