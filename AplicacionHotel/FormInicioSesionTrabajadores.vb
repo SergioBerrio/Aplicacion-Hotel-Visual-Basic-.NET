@@ -4,14 +4,16 @@
     End Sub
 
     Private Sub btnIniciarSesion_Click(sender As Object, e As EventArgs) Handles btnIniciarSesion.Click
-
+        If txtbUsuario.Text = "Empleado" And txtbContrasena.Text = "ParadiseRessort" Then
+            MsgBox("Credenciales de inicio de sesión correctos!!")
+            FormPantallaTrabajadores.Show()
+            Me.Hide()
+        Else
+            MsgBox("Credenciales de inicio de sesión incorrectos!!")
+        End If
     End Sub
 
-    Private Sub txtbContrasena_TextChanged(sender As Object, e As EventArgs) Handles txtbContrasena.TextChanged
-
-    End Sub
-
-    Private Sub txtbUsuario_TextChanged(sender As Object, e As EventArgs) Handles txtbUsuario.TextChanged
+    Private Sub FormInicioSesionTrabajadores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 End Class

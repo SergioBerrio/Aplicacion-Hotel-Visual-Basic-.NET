@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormHacerReservas
+Partial Class FormReservasClientes
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -41,8 +41,8 @@ Partial Class FormHacerReservas
         Me.Button1.Location = New System.Drawing.Point(284, 340)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(186, 64)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "Hacer reserva"
+        Me.Button1.TabIndex = 12
+        Me.Button1.Text = "Acceder a reservar"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'txtbNombre
@@ -130,7 +130,7 @@ Partial Class FormHacerReservas
         Me.lblApellidos.TabIndex = 5
         Me.lblApellidos.Text = "Apellidos"
         '
-        'FormHacerReservas
+        'FormReservasClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -146,7 +146,7 @@ Partial Class FormHacerReservas
         Me.Controls.Add(Me.lblNombre)
         Me.Controls.Add(Me.lblDNI)
         Me.Controls.Add(Me.Button1)
-        Me.Name = "FormHacerReservas"
+        Me.Name = "FormReservasClientes"
         Me.Text = "FormReservas"
         Me.ResumeLayout(False)
         Me.PerformLayout()

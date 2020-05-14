@@ -37,7 +37,7 @@ Partial Class FormPantallaTrabajadores2
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(137, 117)
         Me.Button6.TabIndex = 12
-        Me.Button6.Text = "Entrar como personal de seguridad"
+        Me.Button6.Text = "Entrar como servicio de barra y mesa"
         Me.Button6.UseVisualStyleBackColor = True
         '
         'Button5
@@ -46,7 +46,7 @@ Partial Class FormPantallaTrabajadores2
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(137, 117)
         Me.Button5.TabIndex = 11
-        Me.Button5.Text = "Entrar como socorrista"
+        Me.Button5.Text = "Entrar como camarera de habitación"
         Me.Button5.UseVisualStyleBackColor = True
         '
         'Button4
@@ -55,7 +55,7 @@ Partial Class FormPantallaTrabajadores2
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(137, 117)
         Me.Button4.TabIndex = 10
-        Me.Button4.Text = "Entrar como animación"
+        Me.Button4.Text = "Entrar como gobernanta"
         Me.Button4.UseVisualStyleBackColor = True
         '
         'btnDirector
@@ -73,7 +73,7 @@ Partial Class FormPantallaTrabajadores2
         Me.btnMantenimiento.Name = "btnMantenimiento"
         Me.btnMantenimiento.Size = New System.Drawing.Size(137, 117)
         Me.btnMantenimiento.TabIndex = 8
-        Me.btnMantenimiento.Text = "Entrar como limpieza"
+        Me.btnMantenimiento.Text = "Entrar como mantenimiento"
         Me.btnMantenimiento.UseVisualStyleBackColor = True
         '
         'btnLimpieza

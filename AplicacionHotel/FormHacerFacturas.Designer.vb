@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormVerReservas
+Partial Class FormHacerFacturas
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -23,7 +23,7 @@ Partial Class FormVerReservas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.btnEliminarReserva = New System.Windows.Forms.Button()
+        Me.btnHacerFactura = New System.Windows.Forms.Button()
         Me.btnAnterior = New System.Windows.Forms.Button()
         Me.btnSiguiente = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
@@ -33,23 +33,23 @@ Partial Class FormVerReservas
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(23, 21)
+        Me.DataGridView1.Location = New System.Drawing.Point(27, 28)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(490, 407)
+        Me.DataGridView1.Size = New System.Drawing.Size(488, 393)
         Me.DataGridView1.TabIndex = 0
         '
-        'btnEliminarReserva
+        'btnHacerFactura
         '
-        Me.btnEliminarReserva.Location = New System.Drawing.Point(554, 21)
-        Me.btnEliminarReserva.Name = "btnEliminarReserva"
-        Me.btnEliminarReserva.Size = New System.Drawing.Size(191, 47)
-        Me.btnEliminarReserva.TabIndex = 1
-        Me.btnEliminarReserva.Text = "Eliminar reservas"
-        Me.btnEliminarReserva.UseVisualStyleBackColor = True
+        Me.btnHacerFactura.Location = New System.Drawing.Point(553, 42)
+        Me.btnHacerFactura.Name = "btnHacerFactura"
+        Me.btnHacerFactura.Size = New System.Drawing.Size(191, 47)
+        Me.btnHacerFactura.TabIndex = 1
+        Me.btnHacerFactura.Text = "Hacer factura"
+        Me.btnHacerFactura.UseVisualStyleBackColor = True
         '
         'btnAnterior
         '
-        Me.btnAnterior.Location = New System.Drawing.Point(554, 228)
+        Me.btnAnterior.Location = New System.Drawing.Point(553, 212)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(191, 47)
         Me.btnAnterior.TabIndex = 2
@@ -58,7 +58,7 @@ Partial Class FormVerReservas
         '
         'btnSiguiente
         '
-        Me.btnSiguiente.Location = New System.Drawing.Point(554, 302)
+        Me.btnSiguiente.Location = New System.Drawing.Point(553, 289)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(191, 47)
         Me.btnSiguiente.TabIndex = 3
@@ -67,14 +67,14 @@ Partial Class FormVerReservas
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(554, 381)
+        Me.btnSalir.Location = New System.Drawing.Point(553, 374)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(191, 47)
         Me.btnSalir.TabIndex = 4
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
-        'FormVerReservas
+        'FormHacerFacturas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -82,17 +82,17 @@ Partial Class FormVerReservas
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnSiguiente)
         Me.Controls.Add(Me.btnAnterior)
-        Me.Controls.Add(Me.btnEliminarReserva)
+        Me.Controls.Add(Me.btnHacerFactura)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Name = "FormVerReservas"
-        Me.Text = "FormVerReservas"
+        Me.Name = "FormHacerFacturas"
+        Me.Text = "FormHacerFacturas"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents btnEliminarReserva As Button
+    Friend WithEvents btnHacerFactura As Button
     Friend WithEvents btnAnterior As Button
     Friend WithEvents btnSiguiente As Button
     Friend WithEvents btnSalir As Button

@@ -14,5 +14,4 @@ Module Modulo1
             estado = "desconectado"
         End Try
     End Sub
-
 End Module

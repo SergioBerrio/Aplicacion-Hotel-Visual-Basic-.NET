@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class FormVerReservas
+Partial Class FormVerFacturas
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -33,23 +33,23 @@ Partial Class FormVerReservas
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(23, 21)
+        Me.DataGridView1.Location = New System.Drawing.Point(23, 25)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(490, 407)
+        Me.DataGridView1.Size = New System.Drawing.Size(491, 399)
         Me.DataGridView1.TabIndex = 0
         '
         'btnEliminarReserva
         '
-        Me.btnEliminarReserva.Location = New System.Drawing.Point(554, 21)
+        Me.btnEliminarReserva.Location = New System.Drawing.Point(555, 25)
         Me.btnEliminarReserva.Name = "btnEliminarReserva"
         Me.btnEliminarReserva.Size = New System.Drawing.Size(191, 47)
         Me.btnEliminarReserva.TabIndex = 1
-        Me.btnEliminarReserva.Text = "Eliminar reservas"
+        Me.btnEliminarReserva.Text = "Eliminar facturas"
         Me.btnEliminarReserva.UseVisualStyleBackColor = True
         '
         'btnAnterior
         '
-        Me.btnAnterior.Location = New System.Drawing.Point(554, 228)
+        Me.btnAnterior.Location = New System.Drawing.Point(555, 223)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(191, 47)
         Me.btnAnterior.TabIndex = 2
@@ -58,7 +58,7 @@ Partial Class FormVerReservas
         '
         'btnSiguiente
         '
-        Me.btnSiguiente.Location = New System.Drawing.Point(554, 302)
+        Me.btnSiguiente.Location = New System.Drawing.Point(555, 298)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(191, 47)
         Me.btnSiguiente.TabIndex = 3
@@ -67,14 +67,14 @@ Partial Class FormVerReservas
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(554, 381)
+        Me.btnSalir.Location = New System.Drawing.Point(555, 377)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(191, 47)
         Me.btnSalir.TabIndex = 4
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
-        'FormVerReservas
+        'FormVerFacturas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -84,8 +84,8 @@ Partial Class FormVerReservas
         Me.Controls.Add(Me.btnAnterior)
         Me.Controls.Add(Me.btnEliminarReserva)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Name = "FormVerReservas"
-        Me.Text = "FormVerReservas"
+        Me.Name = "FormVerFacturas"
+        Me.Text = "FormVerFacturas"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

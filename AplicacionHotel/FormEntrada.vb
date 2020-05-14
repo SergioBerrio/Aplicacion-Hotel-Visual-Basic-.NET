@@ -10,7 +10,7 @@
     End Sub
 
     Private Sub btnReserva_Click(sender As Object, e As EventArgs) Handles btnReserva.Click
-        FormHacerReservas.Show()
+        FormReservasClientes.Show()
         Me.Hide()
     End Sub
 End Class

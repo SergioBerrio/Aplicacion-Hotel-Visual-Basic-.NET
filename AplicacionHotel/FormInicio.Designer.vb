@@ -31,7 +31,7 @@ Partial Class FormInicio
         'btnEntrar
         '
         Me.btnEntrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEntrar.Location = New System.Drawing.Point(145, 297)
+        Me.btnEntrar.Location = New System.Drawing.Point(185, 294)
         Me.btnEntrar.Name = "btnEntrar"
         Me.btnEntrar.Size = New System.Drawing.Size(183, 53)
         Me.btnEntrar.TabIndex = 0
@@ -41,7 +41,7 @@ Partial Class FormInicio
         'btnSalir
         '
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Location = New System.Drawing.Point(423, 297)
+        Me.btnSalir.Location = New System.Drawing.Point(409, 295)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(186, 50)
         Me.btnSalir.TabIndex = 1
@@ -51,10 +51,10 @@ Partial Class FormInicio
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(202, 137)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(180, 154)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(372, 50)
+        Me.Label1.Size = New System.Drawing.Size(415, 58)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Bienvenido al hotel Paradise Ressort," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "su hotel de confianza"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter

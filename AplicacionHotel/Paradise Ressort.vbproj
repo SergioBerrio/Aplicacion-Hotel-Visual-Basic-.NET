@@ -84,6 +84,12 @@
     <Compile Include="FormAnimacion.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormCamarerasPiso.Designer.vb">
+      <DependentUpon>FormCamarerasPiso.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormCamarerasPiso.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormCocina.Designer.vb">
       <DependentUpon>FormCocina.vb</DependentUpon>
     </Compile>
@@ -100,6 +106,18 @@
       <DependentUpon>FormEntrada.vb</DependentUpon>
     </Compile>
     <Compile Include="FormEntrada.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGobernanta.Designer.vb">
+      <DependentUpon>FormGobernanta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormGobernanta.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHacerFacturas.Designer.vb">
+      <DependentUpon>FormHacerFacturas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormHacerFacturas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormInicio.vb">
@@ -151,10 +169,16 @@
     <Compile Include="FormConserjeria.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormHacerReservas.Designer.vb">
-      <DependentUpon>FormHacerReservas.vb</DependentUpon>
+    <Compile Include="FormReservasClientes.Designer.vb">
+      <DependentUpon>FormReservasClientes.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormHacerReservas.vb">
+    <Compile Include="FormReservasClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReservaHabitaciones.Designer.vb">
+      <DependentUpon>FormReservaHabitaciones.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormReservaHabitaciones.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormSeguridad.Designer.vb">
@@ -163,10 +187,28 @@
     <Compile Include="FormSeguridad.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormServicioMesaBarra.Designer.vb">
+      <DependentUpon>FormServicioMesaBarra.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormServicioMesaBarra.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormSocorrista.Designer.vb">
       <DependentUpon>FormSocorrista.vb</DependentUpon>
     </Compile>
     <Compile Include="FormSocorrista.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVerClientes.Designer.vb">
+      <DependentUpon>FormVerClientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVerClientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVerFacturas.Designer.vb">
+      <DependentUpon>FormVerFacturas.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVerFacturas.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormVerReservas.Designer.vb">
@@ -198,6 +240,9 @@
     <EmbeddedResource Include="FormEntrada.resx">
       <DependentUpon>FormEntrada.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormHacerFacturas.resx">
+      <DependentUpon>FormHacerFacturas.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormInicio.resx">
       <DependentUpon>FormInicio.vb</DependentUpon>
     </EmbeddedResource>
@@ -213,8 +258,17 @@
     <EmbeddedResource Include="FormRecepcion.resx">
       <DependentUpon>FormRecepcion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormHacerReservas.resx">
-      <DependentUpon>FormHacerReservas.vb</DependentUpon>
+    <EmbeddedResource Include="FormReservaHabitaciones.resx">
+      <DependentUpon>FormReservaHabitaciones.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReservasClientes.resx">
+      <DependentUpon>FormReservasClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVerClientes.resx">
+      <DependentUpon>FormVerClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVerFacturas.resx">
+      <DependentUpon>FormVerFacturas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVerReservas.resx">
       <DependentUpon>FormVerReservas.vb</DependentUpon>
