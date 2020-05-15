@@ -55,6 +55,7 @@
     </Reference>
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -77,6 +78,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BDHotelDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BDHotelDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Datos\ConexionDatos.vb" />
     <Compile Include="FormAnimacion.Designer.vb">
       <DependentUpon>FormAnimacion.vb</DependentUpon>
@@ -155,6 +161,12 @@
       <DependentUpon>FormPantallaTrabajadores2.vb</DependentUpon>
     </Compile>
     <Compile Include="FormPantallaTrabajadores2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPapelFactura.Designer.vb">
+      <DependentUpon>FormPapelFactura.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormPapelFactura.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormRecepcion.Designer.vb">
@@ -237,6 +249,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormDirector.resx">
+      <DependentUpon>FormDirector.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEntrada.resx">
       <DependentUpon>FormEntrada.vb</DependentUpon>
     </EmbeddedResource>
@@ -281,6 +296,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="BDHotelDataSet.xsc">
+      <DependentUpon>BDHotelDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BDHotelDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BDHotelDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BDHotelDataSet.xss">
+      <DependentUpon>BDHotelDataSet.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -292,6 +318,15 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="BBDD\BDHotel.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BDHotel.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

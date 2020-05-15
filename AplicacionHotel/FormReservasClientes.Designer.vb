@@ -33,12 +33,13 @@ Partial Class FormReservasClientes
         Me.lblTelefono = New System.Windows.Forms.Label()
         Me.txtbApellidos = New System.Windows.Forms.TextBox()
         Me.lblApellidos = New System.Windows.Forms.Label()
+        Me.btnAtras = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(284, 340)
+        Me.Button1.Location = New System.Drawing.Point(171, 338)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(186, 64)
         Me.Button1.TabIndex = 12
@@ -47,7 +48,7 @@ Partial Class FormReservasClientes
         '
         'txtbNombre
         '
-        Me.txtbNombre.Location = New System.Drawing.Point(376, 140)
+        Me.txtbNombre.Location = New System.Drawing.Point(376, 138)
         Me.txtbNombre.Name = "txtbNombre"
         Me.txtbNombre.Size = New System.Drawing.Size(139, 20)
         Me.txtbNombre.TabIndex = 4
@@ -63,7 +64,7 @@ Partial Class FormReservasClientes
         '
         Me.lblNombre.AutoSize = True
         Me.lblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre.Location = New System.Drawing.Point(249, 140)
+        Me.lblNombre.Location = New System.Drawing.Point(249, 138)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(65, 20)
         Me.lblNombre.TabIndex = 3
@@ -97,7 +98,7 @@ Partial Class FormReservasClientes
         '
         Me.lblEmail.AutoSize = True
         Me.lblEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblEmail.Location = New System.Drawing.Point(249, 250)
+        Me.lblEmail.Location = New System.Drawing.Point(249, 252)
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(48, 20)
         Me.lblEmail.TabIndex = 9
@@ -130,11 +131,22 @@ Partial Class FormReservasClientes
         Me.lblApellidos.TabIndex = 5
         Me.lblApellidos.Text = "Apellidos"
         '
+        'btnAtras
+        '
+        Me.btnAtras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAtras.Location = New System.Drawing.Point(422, 338)
+        Me.btnAtras.Name = "btnAtras"
+        Me.btnAtras.Size = New System.Drawing.Size(186, 64)
+        Me.btnAtras.TabIndex = 13
+        Me.btnAtras.Text = "Atrás"
+        Me.btnAtras.UseVisualStyleBackColor = True
+        '
         'FormReservasClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnAtras)
         Me.Controls.Add(Me.txtbApellidos)
         Me.Controls.Add(Me.lblApellidos)
         Me.Controls.Add(Me.txtbEmail)
@@ -164,4 +176,5 @@ Partial Class FormReservasClientes
     Friend WithEvents lblTelefono As Label
     Friend WithEvents txtbApellidos As TextBox
     Friend WithEvents lblApellidos As Label
+    Friend WithEvents btnAtras As Button
 End Class

@@ -31,7 +31,7 @@ Partial Class FormEntrada
         'bntAtras1
         '
         Me.bntAtras1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.bntAtras1.Location = New System.Drawing.Point(460, 274)
+        Me.bntAtras1.Location = New System.Drawing.Point(460, 293)
         Me.bntAtras1.Name = "bntAtras1"
         Me.bntAtras1.Size = New System.Drawing.Size(206, 60)
         Me.bntAtras1.TabIndex = 2
@@ -41,9 +41,9 @@ Partial Class FormEntrada
         'btnControl
         '
         Me.btnControl.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnControl.Location = New System.Drawing.Point(281, 155)
+        Me.btnControl.Location = New System.Drawing.Point(108, 171)
         Me.btnControl.Name = "btnControl"
-        Me.btnControl.Size = New System.Drawing.Size(190, 59)
+        Me.btnControl.Size = New System.Drawing.Size(183, 59)
         Me.btnControl.TabIndex = 3
         Me.btnControl.Text = "Control de los trabajadores"
         Me.btnControl.UseVisualStyleBackColor = True
@@ -51,7 +51,7 @@ Partial Class FormEntrada
         'btnReserva
         '
         Me.btnReserva.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReserva.Location = New System.Drawing.Point(108, 276)
+        Me.btnReserva.Location = New System.Drawing.Point(108, 295)
         Me.btnReserva.Name = "btnReserva"
         Me.btnReserva.Size = New System.Drawing.Size(183, 59)
         Me.btnReserva.TabIndex = 1

@@ -22,78 +22,191 @@ Partial Class FormVerReservas
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.components = New System.ComponentModel.Container()
         Me.btnEliminarReserva = New System.Windows.Forms.Button()
         Me.btnAnterior = New System.Windows.Forms.Button()
         Me.btnSiguiente = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ReservasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDHotelDataSet2 = New AplicacionHotel.BDHotelDataSet()
+        Me.dgvReservas = New System.Windows.Forms.DataGridView()
+        Me.ReservasBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ReservasTableAdapter2 = New AplicacionHotel.BDHotelDataSetTableAdapters.ReservasTableAdapter()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        CType(Me.ReservasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BDHotelDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvReservas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ReservasBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(23, 21)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(490, 407)
-        Me.DataGridView1.TabIndex = 0
         '
         'btnEliminarReserva
         '
-        Me.btnEliminarReserva.Location = New System.Drawing.Point(554, 21)
+        Me.btnEliminarReserva.Location = New System.Drawing.Point(395, 373)
         Me.btnEliminarReserva.Name = "btnEliminarReserva"
-        Me.btnEliminarReserva.Size = New System.Drawing.Size(191, 47)
+        Me.btnEliminarReserva.Size = New System.Drawing.Size(162, 47)
         Me.btnEliminarReserva.TabIndex = 1
         Me.btnEliminarReserva.Text = "Eliminar reservas"
         Me.btnEliminarReserva.UseVisualStyleBackColor = True
         '
         'btnAnterior
         '
-        Me.btnAnterior.Location = New System.Drawing.Point(554, 228)
+        Me.btnAnterior.Location = New System.Drawing.Point(10, 373)
         Me.btnAnterior.Name = "btnAnterior"
-        Me.btnAnterior.Size = New System.Drawing.Size(191, 47)
+        Me.btnAnterior.Size = New System.Drawing.Size(158, 47)
         Me.btnAnterior.TabIndex = 2
         Me.btnAnterior.Text = "Anterior"
         Me.btnAnterior.UseVisualStyleBackColor = True
         '
         'btnSiguiente
         '
-        Me.btnSiguiente.Location = New System.Drawing.Point(554, 302)
+        Me.btnSiguiente.Location = New System.Drawing.Point(205, 373)
         Me.btnSiguiente.Name = "btnSiguiente"
-        Me.btnSiguiente.Size = New System.Drawing.Size(191, 47)
+        Me.btnSiguiente.Size = New System.Drawing.Size(157, 47)
         Me.btnSiguiente.TabIndex = 3
         Me.btnSiguiente.Text = "Siguiente"
         Me.btnSiguiente.UseVisualStyleBackColor = True
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(554, 381)
+        Me.btnSalir.Location = New System.Drawing.Point(595, 373)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(191, 47)
+        Me.btnSalir.Size = New System.Drawing.Size(160, 47)
         Me.btnSalir.TabIndex = 4
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
+        '
+        'ReservasBindingSource
+        '
+        Me.ReservasBindingSource.DataMember = "Reservas"
+        Me.ReservasBindingSource.DataSource = Me.BindingSource1
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataSource = Me.BDHotelDataSet2
+        Me.BindingSource1.Position = 0
+        '
+        'BDHotelDataSet2
+        '
+        Me.BDHotelDataSet2.DataSetName = "BDHotelDataSet"
+        Me.BDHotelDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'dgvReservas
+        '
+        Me.dgvReservas.AutoGenerateColumns = False
+        Me.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvReservas.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7})
+        Me.dgvReservas.DataSource = Me.ReservasBindingSource1
+        Me.dgvReservas.Location = New System.Drawing.Point(10, 14)
+        Me.dgvReservas.Name = "dgvReservas"
+        Me.dgvReservas.Size = New System.Drawing.Size(745, 327)
+        Me.dgvReservas.TabIndex = 5
+        '
+        'ReservasBindingSource1
+        '
+        Me.ReservasBindingSource1.DataMember = "Reservas"
+        Me.ReservasBindingSource1.DataSource = Me.BindingSource1
+        '
+        'ReservasTableAdapter2
+        '
+        Me.ReservasTableAdapter2.ClearBeforeFill = True
+        '
+        'DataGridViewTextBoxColumn1
+        '
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "IDReserva"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "IDReserva"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        '
+        'DataGridViewTextBoxColumn2
+        '
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "DNI"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "DNI"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "Fecha"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "Fecha"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "CantPers"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "CantPers"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        '
+        'DataGridViewTextBoxColumn5
+        '
+        Me.DataGridViewTextBoxColumn5.DataPropertyName = "FechaInicio"
+        Me.DataGridViewTextBoxColumn5.HeaderText = "FechaInicio"
+        Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
+        '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "FechaFin"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "FechaFin"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "NumHabitacion"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "NumHabitacion"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
         '
         'FormVerReservas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(769, 454)
+        Me.Controls.Add(Me.dgvReservas)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnSiguiente)
         Me.Controls.Add(Me.btnAnterior)
         Me.Controls.Add(Me.btnEliminarReserva)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Name = "FormVerReservas"
         Me.Text = "FormVerReservas"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ReservasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BDHotelDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvReservas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ReservasBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents btnEliminarReserva As Button
     Friend WithEvents btnAnterior As Button
     Friend WithEvents btnSiguiente As Button
     Friend WithEvents btnSalir As Button
+    Friend WithEvents BDHotelDataSet As BDHotelDataSet
+    Friend WithEvents ReservasTableAdapter As BDHotelDataSetTableAdapters.ReservasTableAdapter
+    Friend WithEvents FacturasTableAdapter As BDHotelDataSetTableAdapters.FacturasTableAdapter
+    Friend WithEvents IDReservaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents DNIDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FechaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents CantPersDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FechaInicioDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents FechaFinDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NumHabitacionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents BindingSource1 As BindingSource
+    Friend WithEvents BDHotelDataSet1 As BDHotelDataSet
+    Friend WithEvents ReservasBindingSource As BindingSource
+    Friend WithEvents ReservasTableAdapter1 As BDHotelDataSetTableAdapters.ReservasTableAdapter
+    Friend WithEvents BDHotelDataSet2 As BDHotelDataSet
+    Friend WithEvents dgvReservas As DataGridView
+    Friend WithEvents ReservasBindingSource1 As BindingSource
+    Friend WithEvents ReservasTableAdapter2 As BDHotelDataSetTableAdapters.ReservasTableAdapter
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
 End Class

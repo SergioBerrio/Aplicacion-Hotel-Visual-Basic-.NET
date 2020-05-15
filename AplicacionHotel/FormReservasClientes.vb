@@ -9,7 +9,18 @@
         comando.Parameters.AddWithValue("@Email", txtbEmail.Text.ToUpper)
         'comando.ExecuteNonQuery()
 
+        MsgBox("Datos personales almacenados correctamente!!")
+
         FormReservaHabitaciones.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub btnAtras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
+        FormEntrada.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub FormReservasClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class

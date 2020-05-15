@@ -38,6 +38,12 @@ Partial Class FormReservaHabitaciones
         Me.lblIDHabitacion = New System.Windows.Forms.Label()
         Me.cmbPersonas = New System.Windows.Forms.ComboBox()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.txtbNumeroHabitacion = New System.Windows.Forms.TextBox()
+        Me.lblNumeroHabitacion = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.cmbNumeroCamas = New System.Windows.Forms.ComboBox()
+        Me.cmbTipoHabitacion = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'lblApellidos
@@ -121,14 +127,14 @@ Partial Class FormReservaHabitaciones
         Me.dtpInicio.Location = New System.Drawing.Point(580, 76)
         Me.dtpInicio.Name = "dtpInicio"
         Me.dtpInicio.Size = New System.Drawing.Size(139, 20)
-        Me.dtpInicio.TabIndex = 16
+        Me.dtpInicio.TabIndex = 17
         '
         'dtpFin
         '
         Me.dtpFin.Location = New System.Drawing.Point(580, 116)
         Me.dtpFin.Name = "dtpFin"
         Me.dtpFin.Size = New System.Drawing.Size(139, 20)
-        Me.dtpFin.TabIndex = 17
+        Me.dtpFin.TabIndex = 18
         '
         'txtbIDReserva
         '
@@ -151,16 +157,16 @@ Partial Class FormReservaHabitaciones
         'txtbIDHabitacion
         '
         Me.txtbIDHabitacion.Enabled = False
-        Me.txtbIDHabitacion.Location = New System.Drawing.Point(580, 159)
+        Me.txtbIDHabitacion.Location = New System.Drawing.Point(580, 155)
         Me.txtbIDHabitacion.Name = "txtbIDHabitacion"
         Me.txtbIDHabitacion.Size = New System.Drawing.Size(139, 20)
-        Me.txtbIDHabitacion.TabIndex = 21
+        Me.txtbIDHabitacion.TabIndex = 19
         '
         'lblIDHabitacion
         '
         Me.lblIDHabitacion.AutoSize = True
         Me.lblIDHabitacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIDHabitacion.Location = New System.Drawing.Point(453, 159)
+        Me.lblIDHabitacion.Location = New System.Drawing.Point(453, 155)
         Me.lblIDHabitacion.Name = "lblIDHabitacion"
         Me.lblIDHabitacion.Size = New System.Drawing.Size(125, 20)
         Me.lblIDHabitacion.TabIndex = 20
@@ -184,11 +190,71 @@ Partial Class FormReservaHabitaciones
         Me.Button1.Text = "Atrás"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'txtbNumeroHabitacion
+        '
+        Me.txtbNumeroHabitacion.Enabled = False
+        Me.txtbNumeroHabitacion.Location = New System.Drawing.Point(580, 193)
+        Me.txtbNumeroHabitacion.Name = "txtbNumeroHabitacion"
+        Me.txtbNumeroHabitacion.Size = New System.Drawing.Size(139, 20)
+        Me.txtbNumeroHabitacion.TabIndex = 20
+        '
+        'lblNumeroHabitacion
+        '
+        Me.lblNumeroHabitacion.AutoSize = True
+        Me.lblNumeroHabitacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNumeroHabitacion.Location = New System.Drawing.Point(453, 193)
+        Me.lblNumeroHabitacion.Name = "lblNumeroHabitacion"
+        Me.lblNumeroHabitacion.Size = New System.Drawing.Size(125, 20)
+        Me.lblNumeroHabitacion.TabIndex = 23
+        Me.lblNumeroHabitacion.Text = "Nº de habitación"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(68, 231)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(138, 20)
+        Me.Label2.TabIndex = 25
+        Me.Label2.Text = "Tipo de habitación"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(453, 229)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(99, 20)
+        Me.Label4.TabIndex = 27
+        Me.Label4.Text = "Nº de camas"
+        '
+        'cmbNumeroCamas
+        '
+        Me.cmbNumeroCamas.FormattingEnabled = True
+        Me.cmbNumeroCamas.Location = New System.Drawing.Point(580, 233)
+        Me.cmbNumeroCamas.Name = "cmbNumeroCamas"
+        Me.cmbNumeroCamas.Size = New System.Drawing.Size(139, 21)
+        Me.cmbNumeroCamas.TabIndex = 28
+        '
+        'cmbTipoHabitacion
+        '
+        Me.cmbTipoHabitacion.FormattingEnabled = True
+        Me.cmbTipoHabitacion.Location = New System.Drawing.Point(236, 233)
+        Me.cmbTipoHabitacion.Name = "cmbTipoHabitacion"
+        Me.cmbTipoHabitacion.Size = New System.Drawing.Size(139, 21)
+        Me.cmbTipoHabitacion.TabIndex = 29
+        '
         'FormReservaHabitaciones
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.cmbTipoHabitacion)
+        Me.Controls.Add(Me.cmbNumeroCamas)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.txtbNumeroHabitacion)
+        Me.Controls.Add(Me.lblNumeroHabitacion)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.cmbPersonas)
         Me.Controls.Add(Me.txtbIDHabitacion)
@@ -227,4 +293,10 @@ Partial Class FormReservaHabitaciones
     Friend WithEvents lblIDHabitacion As Label
     Friend WithEvents cmbPersonas As ComboBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents txtbNumeroHabitacion As TextBox
+    Friend WithEvents lblNumeroHabitacion As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents cmbNumeroCamas As ComboBox
+    Friend WithEvents cmbTipoHabitacion As ComboBox
 End Class

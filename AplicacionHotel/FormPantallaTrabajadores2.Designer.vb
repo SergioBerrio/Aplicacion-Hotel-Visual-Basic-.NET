@@ -22,41 +22,41 @@ Partial Class FormPantallaTrabajadores2
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.btnBarraMesa = New System.Windows.Forms.Button()
+        Me.btnCamareraHabitacion = New System.Windows.Forms.Button()
+        Me.btnGobernanta = New System.Windows.Forms.Button()
         Me.btnDirector = New System.Windows.Forms.Button()
         Me.btnMantenimiento = New System.Windows.Forms.Button()
         Me.btnLimpieza = New System.Windows.Forms.Button()
         Me.btnPrimerosPuestos = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
-        'Button6
+        'btnBarraMesa
         '
-        Me.Button6.Location = New System.Drawing.Point(584, 272)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(137, 117)
-        Me.Button6.TabIndex = 12
-        Me.Button6.Text = "Entrar como servicio de barra y mesa"
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.btnBarraMesa.Location = New System.Drawing.Point(584, 272)
+        Me.btnBarraMesa.Name = "btnBarraMesa"
+        Me.btnBarraMesa.Size = New System.Drawing.Size(137, 117)
+        Me.btnBarraMesa.TabIndex = 12
+        Me.btnBarraMesa.Text = "Entrar como servicio de barra y mesa"
+        Me.btnBarraMesa.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnCamareraHabitacion
         '
-        Me.Button5.Location = New System.Drawing.Point(310, 272)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(137, 117)
-        Me.Button5.TabIndex = 11
-        Me.Button5.Text = "Entrar como camarera de habitación"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnCamareraHabitacion.Location = New System.Drawing.Point(310, 272)
+        Me.btnCamareraHabitacion.Name = "btnCamareraHabitacion"
+        Me.btnCamareraHabitacion.Size = New System.Drawing.Size(137, 117)
+        Me.btnCamareraHabitacion.TabIndex = 11
+        Me.btnCamareraHabitacion.Text = "Entrar como camarera de habitación"
+        Me.btnCamareraHabitacion.UseVisualStyleBackColor = True
         '
-        'Button4
+        'btnGobernanta
         '
-        Me.Button4.Location = New System.Drawing.Point(45, 272)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(137, 117)
-        Me.Button4.TabIndex = 10
-        Me.Button4.Text = "Entrar como gobernanta"
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.btnGobernanta.Location = New System.Drawing.Point(45, 272)
+        Me.btnGobernanta.Name = "btnGobernanta"
+        Me.btnGobernanta.Size = New System.Drawing.Size(137, 117)
+        Me.btnGobernanta.TabIndex = 10
+        Me.btnGobernanta.Text = "Entrar como gobernanta"
+        Me.btnGobernanta.UseVisualStyleBackColor = True
         '
         'btnDirector
         '
@@ -64,7 +64,7 @@ Partial Class FormPantallaTrabajadores2
         Me.btnDirector.Name = "btnDirector"
         Me.btnDirector.Size = New System.Drawing.Size(137, 117)
         Me.btnDirector.TabIndex = 9
-        Me.btnDirector.Text = "Entrar como director"
+        Me.btnDirector.Text = "Entrar como director/administrador"
         Me.btnDirector.UseVisualStyleBackColor = True
         '
         'btnMantenimiento
@@ -100,9 +100,9 @@ Partial Class FormPantallaTrabajadores2
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.btnPrimerosPuestos)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button5)
-        Me.Controls.Add(Me.Button4)
+        Me.Controls.Add(Me.btnBarraMesa)
+        Me.Controls.Add(Me.btnCamareraHabitacion)
+        Me.Controls.Add(Me.btnGobernanta)
         Me.Controls.Add(Me.btnDirector)
         Me.Controls.Add(Me.btnMantenimiento)
         Me.Controls.Add(Me.btnLimpieza)
@@ -111,9 +111,9 @@ Partial Class FormPantallaTrabajadores2
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Button6 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents Button4 As Button
+    Friend WithEvents btnBarraMesa As Button
+    Friend WithEvents btnCamareraHabitacion As Button
+    Friend WithEvents btnGobernanta As Button
     Friend WithEvents btnDirector As Button
     Friend WithEvents btnMantenimiento As Button
     Friend WithEvents btnLimpieza As Button
