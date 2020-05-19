@@ -102,10 +102,10 @@
     <Compile Include="FormCocina.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDirector.Designer.vb">
-      <DependentUpon>FormDirector.vb</DependentUpon>
+    <Compile Include="FormDarAltaTrabajadores.Designer.vb">
+      <DependentUpon>FormDarAltaTrabajadores.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormDirector.vb">
+    <Compile Include="FormDarAltaTrabajadores.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormEntrada.Designer.vb">
@@ -181,6 +181,18 @@
     <Compile Include="FormConserjeria.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormReservasClientes2.Designer.vb">
+      <DependentUpon>FormReservasClientes2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormReservasClientes2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReservaHabitaciones2.Designer.vb">
+      <DependentUpon>FormReservaHabitaciones2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormReservaHabitaciones2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormReservasClientes.Designer.vb">
       <DependentUpon>FormReservasClientes.vb</DependentUpon>
     </Compile>
@@ -229,6 +241,12 @@
     <Compile Include="FormVerReservas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormVerReservas2.Designer.vb">
+      <DependentUpon>FormVerReservas2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVerReservas2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modelos\Clientes.vb" />
     <Compile Include="Modulo1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -249,8 +267,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormDirector.resx">
-      <DependentUpon>FormDirector.vb</DependentUpon>
+    <EmbeddedResource Include="FormAnimacion.resx">
+      <DependentUpon>FormAnimacion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDarAltaTrabajadores.resx">
+      <DependentUpon>FormDarAltaTrabajadores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEntrada.resx">
       <DependentUpon>FormEntrada.vb</DependentUpon>
@@ -273,11 +294,20 @@
     <EmbeddedResource Include="FormRecepcion.resx">
       <DependentUpon>FormRecepcion.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReservasClientes2.resx">
+      <DependentUpon>FormReservasClientes2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReservaHabitaciones.resx">
       <DependentUpon>FormReservaHabitaciones.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormReservaHabitaciones2.resx">
+      <DependentUpon>FormReservaHabitaciones2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReservasClientes.resx">
       <DependentUpon>FormReservasClientes.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServicioMesaBarra.resx">
+      <DependentUpon>FormServicioMesaBarra.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVerClientes.resx">
       <DependentUpon>FormVerClientes.vb</DependentUpon>
@@ -287,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormVerReservas.resx">
       <DependentUpon>FormVerReservas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVerReservas2.resx">
+      <DependentUpon>FormVerReservas2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

@@ -14,7 +14,8 @@
         Me.Hide()
     End Sub
 
-    Private Sub FormEntrada_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Sub btnVerReservas_Click(sender As Object, e As EventArgs) Handles btnVerReservas.Click
+        FormVerReservas.Show()
+        Me.Hide()
     End Sub
 End Class

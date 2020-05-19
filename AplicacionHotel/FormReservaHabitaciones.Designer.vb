@@ -68,7 +68,6 @@ Partial Class FormReservaHabitaciones
         '
         'txtbDNICliente
         '
-        Me.txtbDNICliente.Enabled = False
         Me.txtbDNICliente.Location = New System.Drawing.Point(236, 116)
         Me.txtbDNICliente.Name = "txtbDNICliente"
         Me.txtbDNICliente.Size = New System.Drawing.Size(139, 20)
@@ -114,7 +113,7 @@ Partial Class FormReservaHabitaciones
         '
         'btnReservar
         '
-        Me.btnReservar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReservar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnReservar.Location = New System.Drawing.Point(72, 316)
         Me.btnReservar.Name = "btnReservar"
         Me.btnReservar.Size = New System.Drawing.Size(264, 68)
@@ -182,7 +181,7 @@ Partial Class FormReservaHabitaciones
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(457, 316)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(264, 68)

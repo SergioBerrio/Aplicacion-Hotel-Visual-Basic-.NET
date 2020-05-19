@@ -28,46 +28,51 @@ Partial Class FormVerFacturas
         Me.btnSiguiente = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.dgvFacturas = New System.Windows.Forms.DataGridView()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BDHotelDataSet2 = New AplicacionHotel.BDHotelDataSet()
-        Me.FacturasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.FacturasTableAdapter1 = New AplicacionHotel.BDHotelDataSetTableAdapters.FacturasTableAdapter()
         Me.IDTrabajadorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DNIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ImporteTotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FacturasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDHotelDataSet2 = New AplicacionHotel.BDHotelDataSet()
+        Me.FacturasTableAdapter1 = New AplicacionHotel.BDHotelDataSetTableAdapters.FacturasTableAdapter()
         CType(Me.dgvFacturas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FacturasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BDHotelDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FacturasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnEliminarReserva
         '
+        Me.btnEliminarReserva.BackColor = System.Drawing.Color.Firebrick
+        Me.btnEliminarReserva.ForeColor = System.Drawing.SystemColors.Control
         Me.btnEliminarReserva.Location = New System.Drawing.Point(555, 25)
         Me.btnEliminarReserva.Name = "btnEliminarReserva"
         Me.btnEliminarReserva.Size = New System.Drawing.Size(191, 47)
         Me.btnEliminarReserva.TabIndex = 2
         Me.btnEliminarReserva.Text = "Eliminar facturas"
-        Me.btnEliminarReserva.UseVisualStyleBackColor = True
+        Me.btnEliminarReserva.UseVisualStyleBackColor = False
         '
         'btnAnterior
         '
+        Me.btnAnterior.BackColor = System.Drawing.Color.Orange
+        Me.btnAnterior.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btnAnterior.Location = New System.Drawing.Point(555, 223)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(191, 47)
         Me.btnAnterior.TabIndex = 3
         Me.btnAnterior.Text = "Anterior"
-        Me.btnAnterior.UseVisualStyleBackColor = True
+        Me.btnAnterior.UseVisualStyleBackColor = False
         '
         'btnSiguiente
         '
+        Me.btnSiguiente.BackColor = System.Drawing.Color.Orange
         Me.btnSiguiente.Location = New System.Drawing.Point(555, 298)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(191, 47)
         Me.btnSiguiente.TabIndex = 4
         Me.btnSiguiente.Text = "Siguiente"
-        Me.btnSiguiente.UseVisualStyleBackColor = True
+        Me.btnSiguiente.UseVisualStyleBackColor = False
         '
         'btnSalir
         '
@@ -88,25 +93,6 @@ Partial Class FormVerFacturas
         Me.dgvFacturas.Name = "dgvFacturas"
         Me.dgvFacturas.Size = New System.Drawing.Size(446, 415)
         Me.dgvFacturas.TabIndex = 6
-        '
-        'BindingSource1
-        '
-        Me.BindingSource1.DataSource = Me.BDHotelDataSet2
-        Me.BindingSource1.Position = 0
-        '
-        'BDHotelDataSet2
-        '
-        Me.BDHotelDataSet2.DataSetName = "BDHotelDataSet"
-        Me.BDHotelDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'FacturasBindingSource
-        '
-        Me.FacturasBindingSource.DataMember = "Facturas"
-        Me.FacturasBindingSource.DataSource = Me.BindingSource1
-        '
-        'FacturasTableAdapter1
-        '
-        Me.FacturasTableAdapter1.ClearBeforeFill = True
         '
         'IDTrabajadorDataGridViewTextBoxColumn
         '
@@ -132,6 +118,25 @@ Partial Class FormVerFacturas
         Me.FechaDataGridViewTextBoxColumn.HeaderText = "Fecha"
         Me.FechaDataGridViewTextBoxColumn.Name = "FechaDataGridViewTextBoxColumn"
         '
+        'FacturasBindingSource
+        '
+        Me.FacturasBindingSource.DataMember = "Facturas"
+        Me.FacturasBindingSource.DataSource = Me.BindingSource1
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataSource = Me.BDHotelDataSet2
+        Me.BindingSource1.Position = 0
+        '
+        'BDHotelDataSet2
+        '
+        Me.BDHotelDataSet2.DataSetName = "BDHotelDataSet"
+        Me.BDHotelDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'FacturasTableAdapter1
+        '
+        Me.FacturasTableAdapter1.ClearBeforeFill = True
+        '
         'FormVerFacturas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -145,9 +150,9 @@ Partial Class FormVerFacturas
         Me.Name = "FormVerFacturas"
         Me.Text = "FormVerFacturas"
         CType(Me.dgvFacturas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FacturasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BDHotelDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FacturasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

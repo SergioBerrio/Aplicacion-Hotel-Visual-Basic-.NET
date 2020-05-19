@@ -26,10 +26,10 @@ Public Class FormVerClientes
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
             conexion.Open()
 
-            MsgBox("Se ha establecido la conexión con la base de datos!!", MsgBoxStyle.Information, "información")
+            MsgBox("Se ha establecido la conexión con la base de datos!!", MsgBoxStyle.Information, "Información")
             CargarDatosDataGridView()
         Catch ex As Exception
-            MsgBox("No se ha podido establecer la conexión!!", MsgBoxStyle.Critical, "error")
+            MsgBox("No se ha podido establecer la conexión!!", MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
@@ -46,7 +46,7 @@ Public Class FormVerClientes
                 dgvClientes.CurrentCell = dgvClientes.Rows(atras).Cells(0)
                 dgvClientes.Rows(atras).Selected = True
             Else
-                MsgBox("Has llegado al principio", , "Mensaje de advertencia")
+                MsgBox("Has llegado al principio", MsgBoxStyle.Information, "Advertencia")
             End If
 
         Catch ex As Exception
@@ -62,22 +62,27 @@ Public Class FormVerClientes
                 dgvClientes.CurrentCell = dgvClientes.Rows(siguiente).Cells(0)
                 dgvClientes.Rows(siguiente).Selected = True
             Else
-                MsgBox("Has llegado al final", , "Mensaje de advertencia")
+                MsgBox("Has llegado al final", MsgBoxStyle.Information, "Advertencia")
             End If
-
         Catch ex As Exception
             MsgBox("No se realizó el proceso por: " & ex.Message)
         End Try
     End Sub
 
     Private Sub btnEliminarClientes_Click(sender As Object, e As EventArgs) Handles btnEliminarClientes.Click
+        dgvClientes.Rows.Remove(dgvClientes.CurrentRow)
+
         Dim eliminarRegistro As String
-        eliminarRegistro = "DELETE * FROM Clientes WHERE IDReserva = " & FormReservaHabitaciones.txtbDNICliente.Text & ""
+        eliminarRegistro = "DELETE * FROM Clientes WHERE DNI = " & FormReservasClientes.txtbDNI.Text & ""
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
+        MsgBox("Registro eliminado", MsgBoxStyle.Information, "Eliminado")
 
-        If dgvClientes.Rows.Count > 0 Then
-            dgvClientes.Rows.RemoveAt(dgvClientes.CurrentRow.Index)
-        End If
+        conexion.Close()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        FormReservasClientes2.Show()
+        Me.Hide()
     End Sub
 End Class

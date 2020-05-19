@@ -31,19 +31,19 @@ Partial Class FormVerClientes
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.dgvClientes = New System.Windows.Forms.DataGridView()
-        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BDHotelDataSet1 = New AplicacionHotel.BDHotelDataSet()
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DNIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ApellidosDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TelefonoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmailDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BDHotelDataSet1 = New AplicacionHotel.BDHotelDataSet()
         CType(Me.BDHotelDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BDHotelDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'BDHotelDataSet
@@ -57,34 +57,38 @@ Partial Class FormVerClientes
         '
         'btnEliminarClientes
         '
-        Me.btnEliminarClientes.Location = New System.Drawing.Point(584, 163)
+        Me.btnEliminarClientes.BackColor = System.Drawing.Color.Firebrick
+        Me.btnEliminarClientes.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnEliminarClientes.Location = New System.Drawing.Point(620, 163)
         Me.btnEliminarClientes.Name = "btnEliminarClientes"
         Me.btnEliminarClientes.Size = New System.Drawing.Size(191, 47)
         Me.btnEliminarClientes.TabIndex = 1
         Me.btnEliminarClientes.Text = "Eliminar clientes"
-        Me.btnEliminarClientes.UseVisualStyleBackColor = True
+        Me.btnEliminarClientes.UseVisualStyleBackColor = False
         '
         'btnAnterior
         '
-        Me.btnAnterior.Location = New System.Drawing.Point(584, 230)
+        Me.btnAnterior.BackColor = System.Drawing.Color.Orange
+        Me.btnAnterior.Location = New System.Drawing.Point(620, 230)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(191, 47)
         Me.btnAnterior.TabIndex = 2
         Me.btnAnterior.Text = "Anterior"
-        Me.btnAnterior.UseVisualStyleBackColor = True
+        Me.btnAnterior.UseVisualStyleBackColor = False
         '
         'btnSiguiente
         '
-        Me.btnSiguiente.Location = New System.Drawing.Point(584, 303)
+        Me.btnSiguiente.BackColor = System.Drawing.Color.Orange
+        Me.btnSiguiente.Location = New System.Drawing.Point(620, 303)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(191, 47)
         Me.btnSiguiente.TabIndex = 3
         Me.btnSiguiente.Text = "Siguiente"
-        Me.btnSiguiente.UseVisualStyleBackColor = True
+        Me.btnSiguiente.UseVisualStyleBackColor = False
         '
         'btnSalir
         '
-        Me.btnSalir.Location = New System.Drawing.Point(584, 381)
+        Me.btnSalir.Location = New System.Drawing.Point(620, 381)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(191, 47)
         Me.btnSalir.TabIndex = 4
@@ -93,12 +97,14 @@ Partial Class FormVerClientes
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(584, 12)
+        Me.Button1.BackColor = System.Drawing.Color.RoyalBlue
+        Me.Button1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button1.Location = New System.Drawing.Point(620, 12)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(191, 47)
         Me.Button1.TabIndex = 10
         Me.Button1.Text = "Crear clientes"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'dgvClientes
         '
@@ -110,21 +116,6 @@ Partial Class FormVerClientes
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.Size = New System.Drawing.Size(545, 413)
         Me.dgvClientes.TabIndex = 11
-        '
-        'BindingSource1
-        '
-        Me.BindingSource1.DataSource = Me.BDHotelDataSet1
-        Me.BindingSource1.Position = 0
-        '
-        'BDHotelDataSet1
-        '
-        Me.BDHotelDataSet1.DataSetName = "BDHotelDataSet"
-        Me.BDHotelDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "Clientes"
-        Me.ClientesBindingSource.DataSource = Me.BindingSource1
         '
         'DNIDataGridViewTextBoxColumn
         '
@@ -156,6 +147,21 @@ Partial Class FormVerClientes
         Me.EmailDataGridViewTextBoxColumn.HeaderText = "Email"
         Me.EmailDataGridViewTextBoxColumn.Name = "EmailDataGridViewTextBoxColumn"
         '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "Clientes"
+        Me.ClientesBindingSource.DataSource = Me.BindingSource1
+        '
+        'BindingSource1
+        '
+        Me.BindingSource1.DataSource = Me.BDHotelDataSet1
+        Me.BindingSource1.Position = 0
+        '
+        'BDHotelDataSet1
+        '
+        Me.BDHotelDataSet1.DataSetName = "BDHotelDataSet"
+        Me.BDHotelDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'FormVerClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -171,9 +177,9 @@ Partial Class FormVerClientes
         Me.Text = "FormVerClientes"
         CType(Me.BDHotelDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BDHotelDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

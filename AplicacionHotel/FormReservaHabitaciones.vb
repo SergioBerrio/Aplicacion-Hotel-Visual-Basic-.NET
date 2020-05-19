@@ -18,7 +18,10 @@
         comando.Parameters.AddWithValue("@IDTipo", cmbTipoHabitacion.Text.ToUpper)
         comando.ExecuteNonQuery()
 
-        MsgBox("Datos de la reserva guardados correctamente!!")
+        MsgBox("Datos de la reserva guardados correctamente!!", MsgBoxStyle.Information, "Información")
+
+        FormEntrada.Show()
+        Me.Hide()
     End Sub
 
     Private Sub txtbDNICliente_TextChanged(sender As Object, e As EventArgs) Handles txtbDNICliente.TextChanged
@@ -27,8 +30,6 @@
 
     Private Sub FormReservaHabitaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtbIDReserva.Text = Val(txtbIDReserva.Text) + 1
-
-        txtbDNICliente.Text = FormReservasClientes.txtbDNI.Text
 
         txtbIDHabitacion.Text = Val(txtbIDHabitacion.Text) + 1
 

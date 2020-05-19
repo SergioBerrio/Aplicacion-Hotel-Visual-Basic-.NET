@@ -31,8 +31,6 @@ Partial Class FormVerReservas
         Me.BindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.BDHotelDataSet2 = New AplicacionHotel.BDHotelDataSet()
         Me.dgvReservas = New System.Windows.Forms.DataGridView()
-        Me.ReservasBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ReservasTableAdapter2 = New AplicacionHotel.BDHotelDataSetTableAdapters.ReservasTableAdapter()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -40,6 +38,8 @@ Partial Class FormVerReservas
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ReservasBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ReservasTableAdapter2 = New AplicacionHotel.BDHotelDataSetTableAdapters.ReservasTableAdapter()
         CType(Me.ReservasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BDHotelDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,30 +49,34 @@ Partial Class FormVerReservas
         '
         'btnEliminarReserva
         '
+        Me.btnEliminarReserva.BackColor = System.Drawing.Color.Firebrick
+        Me.btnEliminarReserva.ForeColor = System.Drawing.SystemColors.Control
         Me.btnEliminarReserva.Location = New System.Drawing.Point(395, 373)
         Me.btnEliminarReserva.Name = "btnEliminarReserva"
         Me.btnEliminarReserva.Size = New System.Drawing.Size(162, 47)
         Me.btnEliminarReserva.TabIndex = 1
         Me.btnEliminarReserva.Text = "Eliminar reservas"
-        Me.btnEliminarReserva.UseVisualStyleBackColor = True
+        Me.btnEliminarReserva.UseVisualStyleBackColor = False
         '
         'btnAnterior
         '
+        Me.btnAnterior.BackColor = System.Drawing.Color.Orange
         Me.btnAnterior.Location = New System.Drawing.Point(10, 373)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(158, 47)
         Me.btnAnterior.TabIndex = 2
         Me.btnAnterior.Text = "Anterior"
-        Me.btnAnterior.UseVisualStyleBackColor = True
+        Me.btnAnterior.UseVisualStyleBackColor = False
         '
         'btnSiguiente
         '
+        Me.btnSiguiente.BackColor = System.Drawing.Color.Orange
         Me.btnSiguiente.Location = New System.Drawing.Point(205, 373)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(157, 47)
         Me.btnSiguiente.TabIndex = 3
         Me.btnSiguiente.Text = "Siguiente"
-        Me.btnSiguiente.UseVisualStyleBackColor = True
+        Me.btnSiguiente.UseVisualStyleBackColor = False
         '
         'btnSalir
         '
@@ -108,15 +112,6 @@ Partial Class FormVerReservas
         Me.dgvReservas.Name = "dgvReservas"
         Me.dgvReservas.Size = New System.Drawing.Size(745, 327)
         Me.dgvReservas.TabIndex = 5
-        '
-        'ReservasBindingSource1
-        '
-        Me.ReservasBindingSource1.DataMember = "Reservas"
-        Me.ReservasBindingSource1.DataSource = Me.BindingSource1
-        '
-        'ReservasTableAdapter2
-        '
-        Me.ReservasTableAdapter2.ClearBeforeFill = True
         '
         'DataGridViewTextBoxColumn1
         '
@@ -159,6 +154,15 @@ Partial Class FormVerReservas
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "NumHabitacion"
         Me.DataGridViewTextBoxColumn7.HeaderText = "NumHabitacion"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        '
+        'ReservasBindingSource1
+        '
+        Me.ReservasBindingSource1.DataMember = "Reservas"
+        Me.ReservasBindingSource1.DataSource = Me.BindingSource1
+        '
+        'ReservasTableAdapter2
+        '
+        Me.ReservasTableAdapter2.ClearBeforeFill = True
         '
         'FormVerReservas
         '

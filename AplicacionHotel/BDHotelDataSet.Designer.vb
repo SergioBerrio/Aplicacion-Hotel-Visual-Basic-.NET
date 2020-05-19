@@ -502,7 +502,7 @@ Partial Public Class BDHotelDataSet
         Me.Relations.Add(Me.relationClientesActXCliente)
         Me.relationClientesFacturas = New Global.System.Data.DataRelation("ClientesFacturas", New Global.System.Data.DataColumn() {Me.tableClientes.DNIColumn}, New Global.System.Data.DataColumn() {Me.tableFacturas.DNIColumn}, false)
         Me.Relations.Add(Me.relationClientesFacturas)
-        Me.relationTrabajadoresFacturas = New Global.System.Data.DataRelation("TrabajadoresFacturas", New Global.System.Data.DataColumn() {Me.tableTrabajadores.IDTrabajadoresColumn}, New Global.System.Data.DataColumn() {Me.tableFacturas.IDTrabajadorColumn}, false)
+        Me.relationTrabajadoresFacturas = New Global.System.Data.DataRelation("TrabajadoresFacturas", New Global.System.Data.DataColumn() {Me.tableTrabajadores.IDTrabajadorColumn}, New Global.System.Data.DataColumn() {Me.tableFacturas.IDTrabajadorColumn}, false)
         Me.Relations.Add(Me.relationTrabajadoresFacturas)
         Me.relationTipoHabitaciónHabitaciones = New Global.System.Data.DataRelation("TipoHabitaciónHabitaciones", New Global.System.Data.DataColumn() {Me.tableTipoHabitación.IDTipoColumn}, New Global.System.Data.DataColumn() {Me.tableHabitaciones.IDTipoColumn}, false)
         Me.Relations.Add(Me.relationTipoHabitaciónHabitaciones)
@@ -687,6 +687,8 @@ Partial Public Class BDHotelDataSet
         
         Private columnImporteActividad As Global.System.Data.DataColumn
         
+        Private columnNombre As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -739,6 +741,14 @@ Partial Public Class BDHotelDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property NombreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNombre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -775,9 +785,9 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddActividadesRow(ByVal IDActividades As Integer, ByVal ImporteActividad As Decimal) As ActividadesRow
+        Public Overloads Function AddActividadesRow(ByVal IDActividades As Integer, ByVal ImporteActividad As Decimal, ByVal Nombre As String) As ActividadesRow
             Dim rowActividadesRow As ActividadesRow = CType(Me.NewRow,ActividadesRow)
-            Dim columnValuesArray() As Object = New Object() {IDActividades, ImporteActividad}
+            Dim columnValuesArray() As Object = New Object() {IDActividades, ImporteActividad, Nombre}
             rowActividadesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowActividadesRow)
             Return rowActividadesRow
@@ -808,6 +818,7 @@ Partial Public Class BDHotelDataSet
         Friend Sub InitVars()
             Me.columnIDActividades = MyBase.Columns("IDActividades")
             Me.columnImporteActividad = MyBase.Columns("ImporteActividad")
+            Me.columnNombre = MyBase.Columns("Nombre")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -817,9 +828,12 @@ Partial Public Class BDHotelDataSet
             MyBase.Columns.Add(Me.columnIDActividades)
             Me.columnImporteActividad = New Global.System.Data.DataColumn("ImporteActividad", GetType(Decimal), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnImporteActividad)
+            Me.columnNombre = New Global.System.Data.DataColumn("Nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNombre)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDActividades}, true))
             Me.columnIDActividades.AllowDBNull = false
             Me.columnIDActividades.Unique = true
+            Me.columnNombre.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1555,6 +1569,8 @@ Partial Public Class BDHotelDataSet
     Partial Public Class FacturasDataTable
         Inherits Global.System.Data.TypedTableBase(Of FacturasRow)
         
+        Private columnIDFactura As Global.System.Data.DataColumn
+        
         Private columnIDTrabajador As Global.System.Data.DataColumn
         
         Private columnDNI As Global.System.Data.DataColumn
@@ -1597,6 +1613,14 @@ Partial Public Class BDHotelDataSet
             MyBase.New(info, context)
             Me.InitVars
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property IDFacturaColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIDFactura
+            End Get
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -1669,12 +1693,12 @@ Partial Public Class BDHotelDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Overloads Function AddFacturasRow(ByVal parentTrabajadoresRowByTrabajadoresFacturas As TrabajadoresRow, ByVal parentClientesRowByClientesFacturas As ClientesRow, ByVal ImporteTotal As Decimal, ByVal Fecha As Date) As FacturasRow
             Dim rowFacturasRow As FacturasRow = CType(Me.NewRow,FacturasRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, ImporteTotal, Fecha}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Nothing, ImporteTotal, Fecha}
             If (Not (parentTrabajadoresRowByTrabajadoresFacturas) Is Nothing) Then
-                columnValuesArray(0) = parentTrabajadoresRowByTrabajadoresFacturas(0)
+                columnValuesArray(1) = parentTrabajadoresRowByTrabajadoresFacturas(0)
             End If
             If (Not (parentClientesRowByClientesFacturas) Is Nothing) Then
-                columnValuesArray(1) = parentClientesRowByClientesFacturas(0)
+                columnValuesArray(2) = parentClientesRowByClientesFacturas(0)
             End If
             rowFacturasRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowFacturasRow)
@@ -1683,8 +1707,8 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByIDTrabajadorDNIFecha(ByVal IDTrabajador As Integer, ByVal DNI As String, ByVal Fecha As Date) As FacturasRow
-            Return CType(Me.Rows.Find(New Object() {IDTrabajador, DNI, Fecha}),FacturasRow)
+        Public Function FindByIDFacturaIDTrabajadorDNIFecha(ByVal IDFactura As Integer, ByVal IDTrabajador As Integer, ByVal DNI As String, ByVal Fecha As Date) As FacturasRow
+            Return CType(Me.Rows.Find(New Object() {IDFactura, IDTrabajador, DNI, Fecha}),FacturasRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1704,6 +1728,7 @@ Partial Public Class BDHotelDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
+            Me.columnIDFactura = MyBase.Columns("IDFactura")
             Me.columnIDTrabajador = MyBase.Columns("IDTrabajador")
             Me.columnDNI = MyBase.Columns("DNI")
             Me.columnImporteTotal = MyBase.Columns("ImporteTotal")
@@ -1713,6 +1738,8 @@ Partial Public Class BDHotelDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
+            Me.columnIDFactura = New Global.System.Data.DataColumn("IDFactura", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIDFactura)
             Me.columnIDTrabajador = New Global.System.Data.DataColumn("IDTrabajador", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIDTrabajador)
             Me.columnDNI = New Global.System.Data.DataColumn("DNI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -1721,7 +1748,11 @@ Partial Public Class BDHotelDataSet
             MyBase.Columns.Add(Me.columnImporteTotal)
             Me.columnFecha = New Global.System.Data.DataColumn("Fecha", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnFecha)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDTrabajador, Me.columnDNI, Me.columnFecha}, true))
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDFactura, Me.columnIDTrabajador, Me.columnDNI, Me.columnFecha}, true))
+            Me.columnIDFactura.AutoIncrement = true
+            Me.columnIDFactura.AutoIncrementSeed = -1
+            Me.columnIDFactura.AutoIncrementStep = -1
+            Me.columnIDFactura.AllowDBNull = false
             Me.columnIDTrabajador.AllowDBNull = false
             Me.columnDNI.AllowDBNull = false
             Me.columnDNI.MaxLength = 255
@@ -2011,7 +2042,7 @@ Partial Public Class BDHotelDataSet
             MyBase.Columns.Add(Me.columnNumHabitacion)
             Me.columnNumCamas = New Global.System.Data.DataColumn("NumCamas", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNumCamas)
-            Me.columnIDTipo = New Global.System.Data.DataColumn("IDTipo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnIDTipo = New Global.System.Data.DataColumn("IDTipo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIDTipo)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNumHabitacion}, true))
             Me.columnNumHabitacion.AutoIncrement = true
@@ -2019,6 +2050,7 @@ Partial Public Class BDHotelDataSet
             Me.columnNumHabitacion.AutoIncrementStep = -1
             Me.columnNumHabitacion.AllowDBNull = false
             Me.columnNumHabitacion.Unique = true
+            Me.columnIDTipo.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2508,6 +2540,8 @@ Partial Public Class BDHotelDataSet
         
         Private columnIDServicios As Global.System.Data.DataColumn
         
+        Private columnNombre As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub New()
@@ -2552,6 +2586,14 @@ Partial Public Class BDHotelDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public ReadOnly Property NombreColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnNombre
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -2588,9 +2630,9 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddServiciosRow(ByVal IDServicios As Integer) As ServiciosRow
+        Public Overloads Function AddServiciosRow(ByVal IDServicios As Integer, ByVal Nombre As String) As ServiciosRow
             Dim rowServiciosRow As ServiciosRow = CType(Me.NewRow,ServiciosRow)
-            Dim columnValuesArray() As Object = New Object() {IDServicios}
+            Dim columnValuesArray() As Object = New Object() {IDServicios, Nombre}
             rowServiciosRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowServiciosRow)
             Return rowServiciosRow
@@ -2620,6 +2662,7 @@ Partial Public Class BDHotelDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnIDServicios = MyBase.Columns("IDServicios")
+            Me.columnNombre = MyBase.Columns("Nombre")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2627,9 +2670,12 @@ Partial Public Class BDHotelDataSet
         Private Sub InitClass()
             Me.columnIDServicios = New Global.System.Data.DataColumn("IDServicios", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIDServicios)
+            Me.columnNombre = New Global.System.Data.DataColumn("Nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnNombre)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDServicios}, true))
             Me.columnIDServicios.AllowDBNull = false
             Me.columnIDServicios.Unique = true
+            Me.columnNombre.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3130,7 +3176,7 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddTipoHabitaciónRow(ByVal IDTipo As Integer) As TipoHabitaciónRow
+        Public Overloads Function AddTipoHabitaciónRow(ByVal IDTipo As String) As TipoHabitaciónRow
             Dim rowTipoHabitaciónRow As TipoHabitaciónRow = CType(Me.NewRow,TipoHabitaciónRow)
             Dim columnValuesArray() As Object = New Object() {IDTipo}
             rowTipoHabitaciónRow.ItemArray = columnValuesArray
@@ -3140,7 +3186,7 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByIDTipo(ByVal IDTipo As Integer) As TipoHabitaciónRow
+        Public Function FindByIDTipo(ByVal IDTipo As String) As TipoHabitaciónRow
             Return CType(Me.Rows.Find(New Object() {IDTipo}),TipoHabitaciónRow)
         End Function
         
@@ -3167,11 +3213,12 @@ Partial Public Class BDHotelDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnIDTipo = New Global.System.Data.DataColumn("IDTipo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnIDTipo = New Global.System.Data.DataColumn("IDTipo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIDTipo)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDTipo}, true))
             Me.columnIDTipo.AllowDBNull = false
             Me.columnIDTipo.Unique = true
+            Me.columnIDTipo.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3311,7 +3358,7 @@ Partial Public Class BDHotelDataSet
         
         Private columnIDTipoTrabajador As Global.System.Data.DataColumn
         
-        Private columnIDTrabajador As Global.System.Data.DataColumn
+        Private columnPuesto As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
@@ -3358,9 +3405,9 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property IDTrabajadorColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property PuestoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnIDTrabajador
+                Return Me.columnPuesto
             End Get
         End Property
         
@@ -3401,9 +3448,9 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Overloads Function AddTipoTrabajadorRow(ByVal IDTipoTrabajador As Integer, ByVal IDTrabajador As Integer) As TipoTrabajadorRow
+        Public Overloads Function AddTipoTrabajadorRow(ByVal IDTipoTrabajador As Integer, ByVal Puesto As String) As TipoTrabajadorRow
             Dim rowTipoTrabajadorRow As TipoTrabajadorRow = CType(Me.NewRow,TipoTrabajadorRow)
-            Dim columnValuesArray() As Object = New Object() {IDTipoTrabajador, IDTrabajador}
+            Dim columnValuesArray() As Object = New Object() {IDTipoTrabajador, Puesto}
             rowTipoTrabajadorRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowTipoTrabajadorRow)
             Return rowTipoTrabajadorRow
@@ -3433,7 +3480,7 @@ Partial Public Class BDHotelDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnIDTipoTrabajador = MyBase.Columns("IDTipoTrabajador")
-            Me.columnIDTrabajador = MyBase.Columns("IDTrabajador")
+            Me.columnPuesto = MyBase.Columns("Puesto")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3441,11 +3488,12 @@ Partial Public Class BDHotelDataSet
         Private Sub InitClass()
             Me.columnIDTipoTrabajador = New Global.System.Data.DataColumn("IDTipoTrabajador", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIDTipoTrabajador)
-            Me.columnIDTrabajador = New Global.System.Data.DataColumn("IDTrabajador", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIDTrabajador)
+            Me.columnPuesto = New Global.System.Data.DataColumn("Puesto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnPuesto)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDTipoTrabajador}, true))
             Me.columnIDTipoTrabajador.AllowDBNull = false
             Me.columnIDTipoTrabajador.Unique = true
+            Me.columnPuesto.MaxLength = 255
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3583,7 +3631,7 @@ Partial Public Class BDHotelDataSet
     Partial Public Class TrabajadoresDataTable
         Inherits Global.System.Data.TypedTableBase(Of TrabajadoresRow)
         
-        Private columnIDTrabajadores As Global.System.Data.DataColumn
+        Private columnIDTrabajador As Global.System.Data.DataColumn
         
         Private columnIDTipoTrabajador As Global.System.Data.DataColumn
         
@@ -3626,9 +3674,9 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public ReadOnly Property IDTrabajadoresColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property IDTrabajadorColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnIDTrabajadores
+                Return Me.columnIDTrabajador
             End Get
         End Property
         
@@ -3698,8 +3746,8 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function FindByIDTrabajadores(ByVal IDTrabajadores As Integer) As TrabajadoresRow
-            Return CType(Me.Rows.Find(New Object() {IDTrabajadores}),TrabajadoresRow)
+        Public Function FindByIDTrabajador(ByVal IDTrabajador As Integer) As TrabajadoresRow
+            Return CType(Me.Rows.Find(New Object() {IDTrabajador}),TrabajadoresRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3719,7 +3767,7 @@ Partial Public Class BDHotelDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnIDTrabajadores = MyBase.Columns("IDTrabajadores")
+            Me.columnIDTrabajador = MyBase.Columns("IDTrabajador")
             Me.columnIDTipoTrabajador = MyBase.Columns("IDTipoTrabajador")
             Me.columnNombre = MyBase.Columns("Nombre")
         End Sub
@@ -3727,18 +3775,18 @@ Partial Public Class BDHotelDataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnIDTrabajadores = New Global.System.Data.DataColumn("IDTrabajadores", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnIDTrabajadores)
+            Me.columnIDTrabajador = New Global.System.Data.DataColumn("IDTrabajador", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIDTrabajador)
             Me.columnIDTipoTrabajador = New Global.System.Data.DataColumn("IDTipoTrabajador", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnIDTipoTrabajador)
             Me.columnNombre = New Global.System.Data.DataColumn("Nombre", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNombre)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDTrabajadores}, true))
-            Me.columnIDTrabajadores.AutoIncrement = true
-            Me.columnIDTrabajadores.AutoIncrementSeed = -1
-            Me.columnIDTrabajadores.AutoIncrementStep = -1
-            Me.columnIDTrabajadores.AllowDBNull = false
-            Me.columnIDTrabajadores.Unique = true
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnIDTrabajador}, true))
+            Me.columnIDTrabajador.AutoIncrement = true
+            Me.columnIDTrabajador.AutoIncrementSeed = -1
+            Me.columnIDTrabajador.AutoIncrementStep = -1
+            Me.columnIDTrabajador.AllowDBNull = false
+            Me.columnIDTrabajador.Unique = true
             Me.columnNombre.MaxLength = 255
         End Sub
         
@@ -3912,6 +3960,21 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Nombre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableActividades.NombreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Nombre' de la tabla 'Actividades' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableActividades.NombreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function IsImporteActividadNull() As Boolean
             Return Me.IsNull(Me.tableActividades.ImporteActividadColumn)
         End Function
@@ -3920,6 +3983,18 @@ Partial Public Class BDHotelDataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Sub SetImporteActividadNull()
             Me(Me.tableActividades.ImporteActividadColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsNombreNull() As Boolean
+            Return Me.IsNull(Me.tableActividades.NombreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetNombreNull()
+            Me(Me.tableActividades.NombreColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4185,6 +4260,17 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property IDFactura() As Integer
+            Get
+                Return CType(Me(Me.tableFacturas.IDFacturaColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableFacturas.IDFacturaColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Property IDTrabajador() As Integer
             Get
                 Return CType(Me(Me.tableFacturas.IDTrabajadorColumn),Integer)
@@ -4309,10 +4395,10 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property IDTipo() As Integer
+        Public Property IDTipo() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableHabitaciones.IDTipoColumn),Integer)
+                    Return CType(Me(Me.tableHabitaciones.IDTipoColumn),String)
                 Catch e As Global.System.InvalidCastException
                     Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IDTipo' de la tabla 'Habitaciones' es DBNull.", e)
                 End Try
@@ -4575,6 +4661,33 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Property Nombre() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableServicios.NombreColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Nombre' de la tabla 'Servicios' es DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableServicios.NombreColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Function IsNombreNull() As Boolean
+            Return Me.IsNull(Me.tableServicios.NombreColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
+        Public Sub SetNombreNull()
+            Me(Me.tableServicios.NombreColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Public Function GetServXClienteRows() As ServXClienteRow()
             If (Me.Table.ChildRelations("ServiciosServXCliente") Is Nothing) Then
                 Return New ServXClienteRow(-1) {}
@@ -4661,9 +4774,9 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property IDTipo() As Integer
+        Public Property IDTipo() As String
             Get
-                Return CType(Me(Me.tableTipoHabitación.IDTipoColumn),Integer)
+                Return CType(Me(Me.tableTipoHabitación.IDTipoColumn),String)
             End Get
             Set
                 Me(Me.tableTipoHabitación.IDTipoColumn) = value
@@ -4709,29 +4822,29 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property IDTrabajador() As Integer
+        Public Property Puesto() As String
             Get
                 Try 
-                    Return CType(Me(Me.tableTipoTrabajador.IDTrabajadorColumn),Integer)
+                    Return CType(Me(Me.tableTipoTrabajador.PuestoColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'IDTrabajador' de la tabla 'TipoTrabajador' es DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("El valor de la columna 'Puesto' de la tabla 'TipoTrabajador' es DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableTipoTrabajador.IDTrabajadorColumn) = value
+                Me(Me.tableTipoTrabajador.PuestoColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Function IsIDTrabajadorNull() As Boolean
-            Return Me.IsNull(Me.tableTipoTrabajador.IDTrabajadorColumn)
+        Public Function IsPuestoNull() As Boolean
+            Return Me.IsNull(Me.tableTipoTrabajador.PuestoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Sub SetIDTrabajadorNull()
-            Me(Me.tableTipoTrabajador.IDTrabajadorColumn) = Global.System.Convert.DBNull
+        Public Sub SetPuestoNull()
+            Me(Me.tableTipoTrabajador.PuestoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4762,12 +4875,12 @@ Partial Public Class BDHotelDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
-        Public Property IDTrabajadores() As Integer
+        Public Property IDTrabajador() As Integer
             Get
-                Return CType(Me(Me.tableTrabajadores.IDTrabajadoresColumn),Integer)
+                Return CType(Me(Me.tableTrabajadores.IDTrabajadorColumn),Integer)
             End Get
             Set
-                Me(Me.tableTrabajadores.IDTrabajadoresColumn) = value
+                Me(Me.tableTrabajadores.IDTrabajadorColumn) = value
             End Set
         End Property
         
@@ -5375,39 +5488,48 @@ Namespace BDHotelDataSetTableAdapters
             tableMapping.DataSetTable = "Actividades"
             tableMapping.ColumnMappings.Add("IDActividades", "IDActividades")
             tableMapping.ColumnMappings.Add("ImporteActividad", "ImporteActividad")
+            tableMapping.ColumnMappings.Add("Nombre", "Nombre")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Actividades` WHERE ((`IDActividades` = ?) AND ((? = 1 AND `ImporteAc"& _ 
-                "tividad` IS NULL) OR (`ImporteActividad` = ?)))"
+                "tividad` IS NULL) OR (`ImporteActividad` = ?)) AND ((? = 1 AND `Nombre` IS NULL)"& _ 
+                " OR (`Nombre` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDActividades", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDActividades", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ImporteActividad", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ImporteActividad", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ImporteActividad", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ImporteActividad", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Nombre", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Nombre", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Actividades` (`IDActividades`, `ImporteActividad`) VALUES (?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Actividades` (`IDActividades`, `ImporteActividad`, `Nombre`) VALUES "& _ 
+                "(?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDActividades", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDActividades", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ImporteActividad", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ImporteActividad", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Nombre", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `Actividades` SET `IDActividades` = ?, `ImporteActividad` = ? WHERE ((`IDA"& _ 
-                "ctividades` = ?) AND ((? = 1 AND `ImporteActividad` IS NULL) OR (`ImporteActivid"& _ 
-                "ad` = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Actividades` SET `IDActividades` = ?, `ImporteActividad` = ?, `Nombre` = "& _ 
+                "? WHERE ((`IDActividades` = ?) AND ((? = 1 AND `ImporteActividad` IS NULL) OR (`"& _ 
+                "ImporteActividad` = ?)) AND ((? = 1 AND `Nombre` IS NULL) OR (`Nombre` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDActividades", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDActividades", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ImporteActividad", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ImporteActividad", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Nombre", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDActividades", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDActividades", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ImporteActividad", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ImporteActividad", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_ImporteActividad", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ImporteActividad", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Nombre", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Nombre", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString2
+            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5416,7 +5538,7 @@ Namespace BDHotelDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT IDActividades, ImporteActividad FROM Actividades"
+            Me._commandCollection(0).CommandText = "SELECT IDActividades, ImporteActividad, Nombre FROM Actividades"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -5476,7 +5598,7 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_IDActividades As Integer, ByVal Original_ImporteActividad As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_IDActividades As Integer, ByVal Original_ImporteActividad As Global.System.Nullable(Of Decimal), ByVal Original_Nombre As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IDActividades,Integer)
             If (Original_ImporteActividad.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -5484,6 +5606,13 @@ Namespace BDHotelDataSetTableAdapters
             Else
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Nombre Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Nombre,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -5504,12 +5633,17 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal IDActividades As Integer, ByVal ImporteActividad As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function Insert(ByVal IDActividades As Integer, ByVal ImporteActividad As Global.System.Nullable(Of Decimal), ByVal Nombre As String) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(IDActividades,Integer)
             If (ImporteActividad.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = CType(ImporteActividad.Value,Decimal)
             Else
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            End If
+            If (Nombre Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(2).Value = CType(Nombre,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -5530,20 +5664,32 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal IDActividades As Integer, ByVal ImporteActividad As Global.System.Nullable(Of Decimal), ByVal Original_IDActividades As Integer, ByVal Original_ImporteActividad As Global.System.Nullable(Of Decimal)) As Integer
+        Public Overloads Overridable Function Update(ByVal IDActividades As Integer, ByVal ImporteActividad As Global.System.Nullable(Of Decimal), ByVal Nombre As String, ByVal Original_IDActividades As Integer, ByVal Original_ImporteActividad As Global.System.Nullable(Of Decimal), ByVal Original_Nombre As String) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(IDActividades,Integer)
             If (ImporteActividad.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(ImporteActividad.Value,Decimal)
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_IDActividades,Integer)
-            If (Original_ImporteActividad.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_ImporteActividad.Value,Decimal)
+            If (Nombre Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Nombre,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_IDActividades,Integer)
+            If (Original_ImporteActividad.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_ImporteActividad.Value,Decimal)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+            End If
+            If (Original_Nombre Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Nombre,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -5564,8 +5710,8 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ImporteActividad As Global.System.Nullable(Of Decimal), ByVal Original_IDActividades As Integer, ByVal Original_ImporteActividad As Global.System.Nullable(Of Decimal)) As Integer
-            Return Me.Update(Original_IDActividades, ImporteActividad, Original_IDActividades, Original_ImporteActividad)
+        Public Overloads Overridable Function Update(ByVal ImporteActividad As Global.System.Nullable(Of Decimal), ByVal Nombre As String, ByVal Original_IDActividades As Integer, ByVal Original_ImporteActividad As Global.System.Nullable(Of Decimal), ByVal Original_Nombre As String) As Integer
+            Return Me.Update(Original_IDActividades, ImporteActividad, Nombre, Original_IDActividades, Original_ImporteActividad, Original_Nombre)
         End Function
     End Class
     
@@ -5723,7 +5869,7 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString2
+            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6066,7 +6212,7 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString2
+            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6443,6 +6589,7 @@ Namespace BDHotelDataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Facturas"
+            tableMapping.ColumnMappings.Add("IDFactura", "IDFactura")
             tableMapping.ColumnMappings.Add("IDTrabajador", "IDTrabajador")
             tableMapping.ColumnMappings.Add("DNI", "DNI")
             tableMapping.ColumnMappings.Add("ImporteTotal", "ImporteTotal")
@@ -6450,9 +6597,11 @@ Namespace BDHotelDataSetTableAdapters
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Facturas` WHERE ((`IDTrabajador` = ?) AND (`DNI` = ?) AND ((? = 1 AN"& _ 
-                "D `ImporteTotal` IS NULL) OR (`ImporteTotal` = ?)) AND (`Fecha` = ?))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Facturas` WHERE ((`IDFactura` = ?) AND (`IDTrabajador` = ?) AND (`DN"& _ 
+                "I` = ?) AND ((? = 1 AND `ImporteTotal` IS NULL) OR (`ImporteTotal` = ?)) AND (`F"& _ 
+                "echa` = ?))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDFactura", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDFactura", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajador", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_DNI", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DNI", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ImporteTotal", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ImporteTotal", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -6470,13 +6619,14 @@ Namespace BDHotelDataSetTableAdapters
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `Facturas` SET `IDTrabajador` = ?, `DNI` = ?, `ImporteTotal` = ?, `Fecha` "& _ 
-                "= ? WHERE ((`IDTrabajador` = ?) AND (`DNI` = ?) AND ((? = 1 AND `ImporteTotal` I"& _ 
-                "S NULL) OR (`ImporteTotal` = ?)) AND (`Fecha` = ?))"
+                "= ? WHERE ((`IDFactura` = ?) AND (`IDTrabajador` = ?) AND (`DNI` = ?) AND ((? = "& _ 
+                "1 AND `ImporteTotal` IS NULL) OR (`ImporteTotal` = ?)) AND (`Fecha` = ?))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajador", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("DNI", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DNI", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ImporteTotal", Global.System.Data.OleDb.OleDbType.Currency, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ImporteTotal", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Fecha", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Fecha", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDFactura", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDFactura", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajador", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_DNI", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "DNI", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_ImporteTotal", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ImporteTotal", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -6488,7 +6638,7 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString2
+            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6497,7 +6647,7 @@ Namespace BDHotelDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT IDTrabajador, DNI, ImporteTotal, Fecha FROM Facturas"
+            Me._commandCollection(0).CommandText = "SELECT IDFactura, IDTrabajador, DNI, ImporteTotal, Fecha FROM Facturas"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -6557,21 +6707,22 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_IDTrabajador As Integer, ByVal Original_DNI As String, ByVal Original_ImporteTotal As Global.System.Nullable(Of Decimal), ByVal Original_Fecha As Date) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IDTrabajador,Integer)
+        Public Overloads Overridable Function Delete(ByVal Original_IDFactura As Integer, ByVal Original_IDTrabajador As Integer, ByVal Original_DNI As String, ByVal Original_ImporteTotal As Global.System.Nullable(Of Decimal), ByVal Original_Fecha As Date) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IDFactura,Integer)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_IDTrabajador,Integer)
             If (Original_DNI Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DNI")
             Else
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_DNI,String)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_DNI,String)
             End If
             If (Original_ImporteTotal.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(Original_ImporteTotal.Value,Decimal)
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_ImporteTotal.Value,Decimal)
             Else
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(3).Value = Global.System.DBNull.Value
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_Fecha,Date)
+            Me.Adapter.DeleteCommand.Parameters(5).Value = CType(Original_Fecha,Date)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6623,7 +6774,7 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal IDTrabajador As Integer, ByVal DNI As String, ByVal ImporteTotal As Global.System.Nullable(Of Decimal), ByVal Fecha As Date, ByVal Original_IDTrabajador As Integer, ByVal Original_DNI As String, ByVal Original_ImporteTotal As Global.System.Nullable(Of Decimal), ByVal Original_Fecha As Date) As Integer
+        Public Overloads Overridable Function Update(ByVal IDTrabajador As Integer, ByVal DNI As String, ByVal ImporteTotal As Global.System.Nullable(Of Decimal), ByVal Fecha As Date, ByVal Original_IDFactura As Integer, ByVal Original_IDTrabajador As Integer, ByVal Original_DNI As String, ByVal Original_ImporteTotal As Global.System.Nullable(Of Decimal), ByVal Original_Fecha As Date) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(IDTrabajador,Integer)
             If (DNI Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("DNI")
@@ -6636,20 +6787,21 @@ Namespace BDHotelDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Fecha,Date)
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_IDTrabajador,Integer)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_IDFactura,Integer)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_IDTrabajador,Integer)
             If (Original_DNI Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_DNI")
             Else
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_DNI,String)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_DNI,String)
             End If
             If (Original_ImporteTotal.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_ImporteTotal.Value,Decimal)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_ImporteTotal.Value,Decimal)
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Fecha,Date)
+            Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_Fecha,Date)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6669,8 +6821,8 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal ImporteTotal As Global.System.Nullable(Of Decimal), ByVal Original_IDTrabajador As Integer, ByVal Original_DNI As String, ByVal Original_ImporteTotal As Global.System.Nullable(Of Decimal), ByVal Original_Fecha As Date) As Integer
-            Return Me.Update(Original_IDTrabajador, Original_DNI, ImporteTotal, Original_Fecha, Original_IDTrabajador, Original_DNI, Original_ImporteTotal, Original_Fecha)
+        Public Overloads Overridable Function Update(ByVal ImporteTotal As Global.System.Nullable(Of Decimal), ByVal Original_IDFactura As Integer, ByVal Original_IDTrabajador As Integer, ByVal Original_DNI As String, ByVal Original_ImporteTotal As Global.System.Nullable(Of Decimal), ByVal Original_Fecha As Date) As Integer
+            Return Me.Update(Original_IDTrabajador, Original_DNI, ImporteTotal, Original_Fecha, Original_IDFactura, Original_IDTrabajador, Original_DNI, Original_ImporteTotal, Original_Fecha)
         End Function
     End Class
     
@@ -6815,13 +6967,13 @@ Namespace BDHotelDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_NumCamas", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NumCamas", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_NumCamas", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NumCamas", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IDTipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `Habitaciones` (`NumCamas`, `IDTipo`) VALUES (?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("NumCamas", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NumCamas", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `Habitaciones` SET `NumCamas` = ?, `IDTipo` = ? WHERE ((`NumHabitacion` = "& _ 
@@ -6829,19 +6981,19 @@ Namespace BDHotelDataSetTableAdapters
                 "ipo` IS NULL) OR (`IDTipo` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("NumCamas", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NumCamas", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_NumHabitacion", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NumHabitacion", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_NumCamas", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NumCamas", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_NumCamas", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NumCamas", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IDTipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString2
+            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -6910,7 +7062,7 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_NumHabitacion As Integer, ByVal Original_NumCamas As Global.System.Nullable(Of Integer), ByVal Original_IDTipo As Integer) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_NumHabitacion As Integer, ByVal Original_NumCamas As Global.System.Nullable(Of Integer), ByVal Original_IDTipo As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_NumHabitacion,Integer)
             If (Original_NumCamas.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -6919,8 +7071,12 @@ Namespace BDHotelDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
-            Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_IDTipo,Integer)
+            If (Original_IDTipo Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_IDTipo")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(4).Value = CType(Original_IDTipo,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6940,13 +7096,17 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal NumCamas As Global.System.Nullable(Of Integer), ByVal IDTipo As Integer) As Integer
+        Public Overloads Overridable Function Insert(ByVal NumCamas As Global.System.Nullable(Of Integer), ByVal IDTipo As String) As Integer
             If (NumCamas.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(NumCamas.Value,Integer)
             Else
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.InsertCommand.Parameters(1).Value = CType(IDTipo,Integer)
+            If (IDTipo Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("IDTipo")
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(IDTipo,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -6966,13 +7126,17 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NumCamas As Global.System.Nullable(Of Integer), ByVal IDTipo As Integer, ByVal Original_NumHabitacion As Integer, ByVal Original_NumCamas As Global.System.Nullable(Of Integer), ByVal Original_IDTipo As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal NumCamas As Global.System.Nullable(Of Integer), ByVal IDTipo As String, ByVal Original_NumHabitacion As Integer, ByVal Original_NumCamas As Global.System.Nullable(Of Integer), ByVal Original_IDTipo As String) As Integer
             If (NumCamas.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(NumCamas.Value,Integer)
             Else
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(IDTipo,Integer)
+            If (IDTipo Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("IDTipo")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(IDTipo,String)
+            End If
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_NumHabitacion,Integer)
             If (Original_NumCamas.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
@@ -6981,8 +7145,12 @@ Namespace BDHotelDataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
             End If
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_IDTipo,Integer)
+            If (Original_IDTipo Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_IDTipo")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_IDTipo,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7195,7 +7363,7 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString2
+            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7580,30 +7748,39 @@ Namespace BDHotelDataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Servicios"
             tableMapping.ColumnMappings.Add("IDServicios", "IDServicios")
+            tableMapping.ColumnMappings.Add("Nombre", "Nombre")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Servicios` WHERE ((`IDServicios` = ?))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Servicios` WHERE ((`IDServicios` = ?) AND ((? = 1 AND `Nombre` IS NU"& _ 
+                "LL) OR (`Nombre` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDServicios", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDServicios", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Nombre", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Nombre", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Servicios` (`IDServicios`) VALUES (?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `Servicios` (`IDServicios`, `Nombre`) VALUES (?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDServicios", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDServicios", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Nombre", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `Servicios` SET `IDServicios` = ? WHERE ((`IDServicios` = ?))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `Servicios` SET `IDServicios` = ?, `Nombre` = ? WHERE ((`IDServicios` = ?)"& _ 
+                " AND ((? = 1 AND `Nombre` IS NULL) OR (`Nombre` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDServicios", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDServicios", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Nombre", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDServicios", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDServicios", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Nombre", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Nombre", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString2
+            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7612,7 +7789,7 @@ Namespace BDHotelDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT IDServicios FROM Servicios"
+            Me._commandCollection(0).CommandText = "SELECT IDServicios, Nombre FROM Servicios"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -7672,8 +7849,15 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_IDServicios As Integer) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_IDServicios As Integer, ByVal Original_Nombre As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IDServicios,Integer)
+            If (Original_Nombre Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Nombre,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7693,8 +7877,13 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal IDServicios As Integer) As Integer
+        Public Overloads Overridable Function Insert(ByVal IDServicios As Integer, ByVal Nombre As String) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(IDServicios,Integer)
+            If (Nombre Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Nombre,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7714,9 +7903,21 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal IDServicios As Integer, ByVal Original_IDServicios As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal IDServicios As Integer, ByVal Nombre As String, ByVal Original_IDServicios As Integer, ByVal Original_Nombre As String) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(IDServicios,Integer)
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Original_IDServicios,Integer)
+            If (Nombre Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Nombre,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_IDServicios,Integer)
+            If (Original_Nombre Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Nombre,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -7736,8 +7937,8 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Original_IDServicios As Integer) As Integer
-            Return Me.Update(Original_IDServicios, Original_IDServicios)
+        Public Overloads Overridable Function Update(ByVal Nombre As String, ByVal Original_IDServicios As Integer, ByVal Original_Nombre As String) As Integer
+            Return Me.Update(Original_IDServicios, Nombre, Original_IDServicios, Original_Nombre)
         End Function
     End Class
     
@@ -7895,7 +8096,7 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString2
+            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8184,25 +8385,25 @@ Namespace BDHotelDataSetTableAdapters
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM `TipoHabitación` WHERE ((`IDTipo` = ?))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `TipoHabitación` (`IDTipo`) VALUES (?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `TipoHabitación` SET `IDTipo` = ? WHERE ((`IDTipo` = ?))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipo", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString2
+            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8271,8 +8472,12 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_IDTipo As Integer) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IDTipo,Integer)
+        Public Overloads Overridable Function Delete(ByVal Original_IDTipo As String) As Integer
+            If (Original_IDTipo Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_IDTipo")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IDTipo,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -8292,8 +8497,12 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal IDTipo As Integer) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(IDTipo,Integer)
+        Public Overloads Overridable Function Insert(ByVal IDTipo As String) As Integer
+            If (IDTipo Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("IDTipo")
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(IDTipo,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -8313,9 +8522,17 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal IDTipo As Integer, ByVal Original_IDTipo As Integer) As Integer
-            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(IDTipo,Integer)
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Original_IDTipo,Integer)
+        Public Overloads Overridable Function Update(ByVal IDTipo As String, ByVal Original_IDTipo As String) As Integer
+            If (IDTipo Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("IDTipo")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(IDTipo,String)
+            End If
+            If (Original_IDTipo Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_IDTipo")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Original_IDTipo,String)
+            End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -8335,7 +8552,7 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Original_IDTipo As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal Original_IDTipo As String) As Integer
             Return Me.Update(Original_IDTipo, Original_IDTipo)
         End Function
     End Class
@@ -8468,40 +8685,39 @@ Namespace BDHotelDataSetTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "TipoTrabajador"
             tableMapping.ColumnMappings.Add("IDTipoTrabajador", "IDTipoTrabajador")
-            tableMapping.ColumnMappings.Add("IDTrabajador", "IDTrabajador")
+            tableMapping.ColumnMappings.Add("Puesto", "Puesto")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `TipoTrabajador` WHERE ((`IDTipoTrabajador` = ?) AND ((? = 1 AND `IDT"& _ 
-                "rabajador` IS NULL) OR (`IDTrabajador` = ?)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `TipoTrabajador` WHERE ((`IDTipoTrabajador` = ?) AND ((? = 1 AND `Pue"& _ 
+                "sto` IS NULL) OR (`Puesto` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTipoTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipoTrabajador", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IDTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajador", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajador", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Puesto", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Puesto", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Puesto", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Puesto", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO `TipoTrabajador` (`IDTipoTrabajador`, `IDTrabajador`) VALUES (?, ?)"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `TipoTrabajador` (`IDTipoTrabajador`, `Puesto`) VALUES (?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTipoTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipoTrabajador", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajador", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Puesto", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Puesto", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE `TipoTrabajador` SET `IDTipoTrabajador` = ?, `IDTrabajador` = ? WHERE ((`I"& _ 
-                "DTipoTrabajador` = ?) AND ((? = 1 AND `IDTrabajador` IS NULL) OR (`IDTrabajador`"& _ 
-                " = ?)))"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `TipoTrabajador` SET `IDTipoTrabajador` = ?, `Puesto` = ? WHERE ((`IDTipoT"& _ 
+                "rabajador` = ?) AND ((? = 1 AND `Puesto` IS NULL) OR (`Puesto` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTipoTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipoTrabajador", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajador", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Puesto", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Puesto", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTipoTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipoTrabajador", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IDTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajador", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajador", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Puesto", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Puesto", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_Puesto", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Puesto", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString2
+            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8510,7 +8726,7 @@ Namespace BDHotelDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT IDTipoTrabajador, IDTrabajador FROM TipoTrabajador"
+            Me._commandCollection(0).CommandText = "SELECT IDTipoTrabajador, Puesto FROM TipoTrabajador"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -8570,14 +8786,14 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_IDTipoTrabajador As Integer, ByVal Original_IDTrabajador As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_IDTipoTrabajador As Integer, ByVal Original_Puesto As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IDTipoTrabajador,Integer)
-            If (Original_IDTrabajador.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_IDTrabajador.Value,Integer)
-            Else
+            If (Original_Puesto Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Puesto,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -8598,12 +8814,12 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal IDTipoTrabajador As Integer, ByVal IDTrabajador As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Insert(ByVal IDTipoTrabajador As Integer, ByVal Puesto As String) As Integer
             Me.Adapter.InsertCommand.Parameters(0).Value = CType(IDTipoTrabajador,Integer)
-            If (IDTrabajador.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(1).Value = CType(IDTrabajador.Value,Integer)
-            Else
+            If (Puesto Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Puesto,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -8624,20 +8840,20 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal IDTipoTrabajador As Integer, ByVal IDTrabajador As Global.System.Nullable(Of Integer), ByVal Original_IDTipoTrabajador As Integer, ByVal Original_IDTrabajador As Global.System.Nullable(Of Integer)) As Integer
+        Public Overloads Overridable Function Update(ByVal IDTipoTrabajador As Integer, ByVal Puesto As String, ByVal Original_IDTipoTrabajador As Integer, ByVal Original_Puesto As String) As Integer
             Me.Adapter.UpdateCommand.Parameters(0).Value = CType(IDTipoTrabajador,Integer)
-            If (IDTrabajador.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(IDTrabajador.Value,Integer)
-            Else
+            If (Puesto Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Puesto,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_IDTipoTrabajador,Integer)
-            If (Original_IDTrabajador.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_IDTrabajador.Value,Integer)
-            Else
+            If (Original_Puesto Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_Puesto,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -8658,8 +8874,8 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal IDTrabajador As Global.System.Nullable(Of Integer), ByVal Original_IDTipoTrabajador As Integer, ByVal Original_IDTrabajador As Global.System.Nullable(Of Integer)) As Integer
-            Return Me.Update(Original_IDTipoTrabajador, IDTrabajador, Original_IDTipoTrabajador, Original_IDTrabajador)
+        Public Overloads Overridable Function Update(ByVal Puesto As String, ByVal Original_IDTipoTrabajador As Integer, ByVal Original_Puesto As String) As Integer
+            Return Me.Update(Original_IDTipoTrabajador, Puesto, Original_IDTipoTrabajador, Original_Puesto)
         End Function
     End Class
     
@@ -8790,17 +9006,17 @@ Namespace BDHotelDataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Trabajadores"
-            tableMapping.ColumnMappings.Add("IDTrabajadores", "IDTrabajadores")
+            tableMapping.ColumnMappings.Add("IDTrabajador", "IDTrabajador")
             tableMapping.ColumnMappings.Add("IDTipoTrabajador", "IDTipoTrabajador")
             tableMapping.ColumnMappings.Add("Nombre", "Nombre")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Trabajadores` WHERE ((`IDTrabajadores` = ?) AND ((? = 1 AND `IDTipoT"& _ 
-                "rabajador` IS NULL) OR (`IDTipoTrabajador` = ?)) AND ((? = 1 AND `Nombre` IS NUL"& _ 
-                "L) OR (`Nombre` = ?)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `Trabajadores` WHERE ((`IDTrabajador` = ?) AND ((? = 1 AND `IDTipoTra"& _ 
+                "bajador` IS NULL) OR (`IDTipoTrabajador` = ?)) AND ((? = 1 AND `Nombre` IS NULL)"& _ 
+                " OR (`Nombre` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTrabajadores", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajadores", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajador", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IDTipoTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipoTrabajador", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTipoTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipoTrabajador", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Nombre", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -8814,12 +9030,12 @@ Namespace BDHotelDataSetTableAdapters
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `Trabajadores` SET `IDTipoTrabajador` = ?, `Nombre` = ? WHERE ((`IDTrabaja"& _ 
-                "dores` = ?) AND ((? = 1 AND `IDTipoTrabajador` IS NULL) OR (`IDTipoTrabajador` ="& _ 
-                " ?)) AND ((? = 1 AND `Nombre` IS NULL) OR (`Nombre` = ?)))"
+                "dor` = ?) AND ((? = 1 AND `IDTipoTrabajador` IS NULL) OR (`IDTipoTrabajador` = ?"& _ 
+                ")) AND ((? = 1 AND `Nombre` IS NULL) OR (`Nombre` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IDTipoTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipoTrabajador", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Nombre", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTrabajadores", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajadores", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTrabajador", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_IDTipoTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipoTrabajador", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_IDTipoTrabajador", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "IDTipoTrabajador", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_Nombre", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "Nombre", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -8830,7 +9046,7 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.OleDb.OleDbConnection()
-            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString2
+            Me._connection.ConnectionString = Global.AplicacionHotel.My.MySettings.Default.BDHotelConnectionString
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8839,7 +9055,7 @@ Namespace BDHotelDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT IDTrabajadores, IDTipoTrabajador, Nombre FROM Trabajadores"
+            Me._commandCollection(0).CommandText = "SELECT IDTrabajador, IDTipoTrabajador, Nombre FROM Trabajadores"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
@@ -8899,8 +9115,8 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_IDTrabajadores As Integer, ByVal Original_IDTipoTrabajador As Global.System.Nullable(Of Integer), ByVal Original_Nombre As String) As Integer
-            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IDTrabajadores,Integer)
+        Public Overloads Overridable Function Delete(ByVal Original_IDTrabajador As Integer, ByVal Original_IDTipoTrabajador As Global.System.Nullable(Of Integer), ByVal Original_Nombre As String) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_IDTrabajador,Integer)
             If (Original_IDTipoTrabajador.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_IDTipoTrabajador.Value,Integer)
@@ -8964,7 +9180,7 @@ Namespace BDHotelDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal IDTipoTrabajador As Global.System.Nullable(Of Integer), ByVal Nombre As String, ByVal Original_IDTrabajadores As Integer, ByVal Original_IDTipoTrabajador As Global.System.Nullable(Of Integer), ByVal Original_Nombre As String) As Integer
+        Public Overloads Overridable Function Update(ByVal IDTipoTrabajador As Global.System.Nullable(Of Integer), ByVal Nombre As String, ByVal Original_IDTrabajador As Integer, ByVal Original_IDTipoTrabajador As Global.System.Nullable(Of Integer), ByVal Original_Nombre As String) As Integer
             If (IDTipoTrabajador.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(IDTipoTrabajador.Value,Integer)
             Else
@@ -8975,7 +9191,7 @@ Namespace BDHotelDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Nombre,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_IDTrabajadores,Integer)
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_IDTrabajador,Integer)
             If (Original_IDTipoTrabajador.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
                 Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_IDTipoTrabajador.Value,Integer)

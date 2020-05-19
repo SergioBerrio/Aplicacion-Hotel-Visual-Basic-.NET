@@ -1,7 +1,7 @@
 ﻿Imports System.Data.OleDb
 Imports System.Reflection.Emit
 
-Public Class FormDirector
+Public Class FormDarAltaTrabajadores
     Dim conexion As New OleDbConnection
     Dim posicion As Integer
     Dim posicionFinal As Integer
@@ -18,26 +18,16 @@ Public Class FormDirector
         posicionFinal = registro2.Tables("Trabajadores").Rows.Count - 1
     End Sub
     Private Sub FormDirector_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BDHotelDataSet.Facturas' Puede moverla o quitarla según sea necesario.
-        Me.FacturasTableAdapter.Fill(Me.BDHotelDataSet.Facturas)
-        'TODO: esta línea de código carga datos en la tabla 'BDHotelDataSet.Trabajadores' Puede moverla o quitarla según sea necesario.
-        Me.TrabajadoresTableAdapter.Fill(Me.BDHotelDataSet.Trabajadores)
+        'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet1.Trabajadores' Puede moverla o quitarla según sea necesario.
+        Me.TrabajadoresTableAdapter.Fill(Me.BdHotelDataSet1.Trabajadores)
 
-        cmbTipoTrabajador.Items.Add("Conserje")
-        cmbTipoTrabajador.Items.Add("Recepcionista")
-        cmbTipoTrabajador.Items.Add("Cocina")
-        cmbTipoTrabajador.Items.Add("Animación")
-        cmbTipoTrabajador.Items.Add("Socorrista")
-        cmbTipoTrabajador.Items.Add("Personal de seguridad")
-        cmbTipoTrabajador.Items.Add("Limpieza")
-        cmbTipoTrabajador.Items.Add("Mantenimiento")
-        cmbTipoTrabajador.Items.Add("Gobernanta")
-        cmbTipoTrabajador.Items.Add("Camarera de habitación")
-        cmbTipoTrabajador.Items.Add("Servicio de barra y mesa")
+        txtbIDTrabajador.Text = Val(txtbIDTrabajador.Text) + 1
 
         Try
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
             conexion.Open()
+
+            cargarCombo()
 
             MsgBox("Se ha establecido la conexión con la base de datos!!", MsgBoxStyle.Information, "información")
             CargarDatosDataGridView()
@@ -47,7 +37,12 @@ Public Class FormDirector
     End Sub
 
     Private Sub btnDarAltaTrabajador_Click(sender As Object, e As EventArgs) Handles btnDarAltaTrabajador.Click
-        dgvDarAltaTrabajadores.Rows.Add(txtbIDTrabajador.Text, cmbTipoTrabajador.Text, txtbNombre.Text)
+        'Dim tabla As New DataTable(txtbIDTrabajador.Text)
+        'tabla.Rows.Add(cmbTipoTrabajador.Text)
+        'tabla.Rows.Add(txtbNombre.Text)
+        'dgvDarAltaTrabajadores.Rows.Add(tabla)
+
+        BdHotelDataSet1.Trabajadores.Rows.Add(6, 4, "Pepe")
         txtbIDTrabajador.Text = ""
         cmbTipoTrabajador.Text = ""
         txtbNombre.Text = String.Empty
@@ -55,15 +50,17 @@ Public Class FormDirector
         txtbIDTrabajador.Clear()
         txtbNombre.Clear()
 
-        comando = New OleDb.OleDbCommand("INSERT INTO Trabajadores(IDTrabajadores, IDTipoTrabajador, Nombre)" & Chr(13) &
-                                         "VALUES(txtIDTrabajador, cmbTipoTrabajador, txtbNombre)", conexion)
-        comando.Parameters.AddWithValue("@IDTrabajadores", txtbIDTrabajador.Text.ToUpper)
-        comando.Parameters.AddWithValue("@IDTipoTrabajador", cmbTipoTrabajador.Text.ToUpper)
-        comando.Parameters.AddWithValue("@Nombre", txtbNombre.Text.ToUpper)
+        comando = New OleDbCommand("INSERT INTO Trabajadores(IDTrabajador, IDTipoTrabajador, Nombre)" & Chr(13) &
+                                         "VALUES(txtIDTrabajdor, cmbTipoTrabajador, txtbNombre)", conexion)
+        comando.Parameters.AddWithValue("@IDTrabajador", txtbIDTrabajador.Text)
+        comando.Parameters.AddWithValue("@IDTipoTrabajador", cmbTipoTrabajador.Text)
+        comando.Parameters.AddWithValue("@Nombre", txtbNombre.Text)
         comando.ExecuteNonQuery()
         conexion.Close()
 
-        MsgBox("Datos de los trabajadores almacenados correctamente!!")
+        Me.TrabajadoresTableAdapter.Fill(Me.BdHotelDataSet1.Trabajadores)
+
+        MsgBox("Datos de los trabajadores almacenados correctamente!!", MsgBoxStyle.Information, "Información")
     End Sub
 
     Private Sub btnAtras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
@@ -72,22 +69,25 @@ Public Class FormDirector
     End Sub
 
     Private Sub btnEliminarTrabajador_Click(sender As Object, e As EventArgs) Handles btnEliminarTrabajador.Click
-        dgvDarAltaTrabajadores.Rows.RemoveAt(fila)
+        dgvDarAltaTrabajadores.Rows.Remove(dgvDarAltaTrabajadores.CurrentRow)
 
         Dim eliminarRegistro As String
         eliminarRegistro = "DELETE * FROM Trabajadores"
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
+
+        conexion.Close()
     End Sub
 
-    Public fila As Integer
+    Public Sub cargarCombo()
+        Dim tabla As New DataTable
+        Dim oleDb As String = "SELECT IDTipoTrabajador, Puesto FROM TipoTrabajador"
+        Dim adp As New OleDbDataAdapter(oleDb, conexion)
+        adp.Fill(tabla)
 
-    Private Sub dgvDarAltaTrabajadores_CellClick(sender As Object, e As DataGridViewCellEventArgs)
-        fila = 0
-        fila = dgvDarAltaTrabajadores.CurrentCell.RowIndex.ToString()
-    End Sub
+        cmbTipoTrabajador.DataSource = tabla
 
-    Private Sub dgvDarAltaTrabajadores_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvDarAltaTrabajadores.CellContentClick
-
+        cmbTipoTrabajador.DisplayMember = "Puesto"
+        cmbTipoTrabajador.ValueMember = "IDTipoTrabajador"
     End Sub
 End Class

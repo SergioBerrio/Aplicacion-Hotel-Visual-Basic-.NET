@@ -71,16 +71,14 @@ Public Class FormVerFacturas
     End Sub
 
     Private Sub btnEliminarFactura_Click(sender As Object, e As EventArgs) Handles btnEliminarReserva.Click
+        dgvFacturas.Rows.Remove(dgvFacturas.CurrentRow)
+
         Dim eliminarRegistro As String
-        eliminarRegistro = "DELETE * FROM Facturas WHERE IDFactura = " & FormHacerFacturas.txtbDNI.Text & ""
+        eliminarRegistro = "DELETE * FROM Facturas WHERE IDFactura = " & FormHacerFacturas.txtbIDTrabajador.Text & ""
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
-
-        If dgvFacturas.Rows.Count > 0 Then
-            dgvFacturas.Rows.RemoveAt(dgvFacturas.CurrentRow.Index)
-        End If
+        MsgBox("Registro eliminado", MsgBoxStyle.Information, "Eliminado")
 
         conexion.Close()
-
     End Sub
 End Class

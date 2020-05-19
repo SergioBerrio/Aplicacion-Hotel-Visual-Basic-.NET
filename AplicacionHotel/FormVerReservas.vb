@@ -34,7 +34,7 @@ Public Class FormVerReservas
     End Sub
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        FormRecepcion.Show()
+        FormEntrada.Show()
         Me.Hide()
     End Sub
 
@@ -75,9 +75,8 @@ Public Class FormVerReservas
         eliminarRegistro = "DELETE * FROM Reservas WHERE IDReserva = " & FormReservaHabitaciones.txtbIDReserva.Text & ""
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
+        MsgBox("Registro eliminado", MsgBoxStyle.Information, "Eliminado")
 
-        If dgvReservas.Rows.Count > 0 Then
-            dgvReservas.Rows.RemoveAt(dgvReservas.CurrentRow.Index)
-        End If
+        conexion.Close()
     End Sub
 End Class

@@ -1,20 +1,20 @@
 ﻿Public Class FormRecepcion
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        FormVerReservas.Show()
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnVerReservas.Click
+        FormVerReservas2.Show()
         Me.Hide()
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnHacerFacturas.Click
         FormHacerFacturas.Show()
         Me.Hide()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnVerClientes.Click
         FormVerClientes.Show()
         Me.Hide()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnVerFacturas.Click
         FormVerFacturas.Show()
         Me.Hide()
     End Sub
@@ -24,8 +24,8 @@
         Me.Hide()
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        FormReservaHabitaciones.Show()
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles btnHacerReserva.Click
+        FormReservaHabitaciones2.Show()
         Me.Hide()
     End Sub
 End Class
