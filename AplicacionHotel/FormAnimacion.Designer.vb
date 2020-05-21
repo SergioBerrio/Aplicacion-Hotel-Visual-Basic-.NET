@@ -23,74 +23,84 @@ Partial Class FormAnimacion
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.txtbIDActividad = New System.Windows.Forms.TextBox()
-        Me.lblImporteActividad = New System.Windows.Forms.Label()
-        Me.lblIDActividad = New System.Windows.Forms.Label()
-        Me.btnEliminarActividad = New System.Windows.Forms.Button()
+        Me.dgvActividades = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ActividadesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BdHotelDataSet11 = New AplicacionHotel.BDHotelDataSet1()
         Me.btnAtras = New System.Windows.Forms.Button()
         Me.btnAgregarActividad = New System.Windows.Forms.Button()
-        Me.gb1 = New System.Windows.Forms.GroupBox()
+        Me.btnEliminarActividad = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblImporte = New System.Windows.Forms.Label()
+        Me.lblIDActividad = New System.Windows.Forms.Label()
+        Me.txtbImporte = New System.Windows.Forms.TextBox()
+        Me.txtbIDActividad = New System.Windows.Forms.TextBox()
+        Me.lblNombre = New System.Windows.Forms.Label()
         Me.cmbNombre = New System.Windows.Forms.ComboBox()
-        Me.lblNombreActividad = New System.Windows.Forms.Label()
-        Me.dgvActividades = New System.Windows.Forms.DataGridView()
-        Me.IDActividadesDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ImporteActividadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.NombreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.gbBuscar = New System.Windows.Forms.GroupBox()
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.txtbBuscar = New System.Windows.Forms.TextBox()
+        Me.lblBuscar = New System.Windows.Forms.Label()
+        Me.ActividadesTableAdapter1 = New AplicacionHotel.BDHotelDataSet1TableAdapters.ActividadesTableAdapter()
+        Me.btnAnterior = New System.Windows.Forms.Button()
+        Me.btnSiguiente = New System.Windows.Forms.Button()
         Me.ActividadesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BdHotelDataSet1 = New AplicacionHotel.BDHotelDataSet()
-        Me.ActividadesTableAdapter1 = New AplicacionHotel.BDHotelDataSetTableAdapters.ActividadesTableAdapter()
-        Me.cmbImporte = New System.Windows.Forms.ComboBox()
-        Me.gb1.SuspendLayout()
         CType(Me.dgvActividades, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ActividadesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        Me.gbBuscar.SuspendLayout()
         CType(Me.ActividadesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BdHotelDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'txtbIDActividad
+        'dgvActividades
         '
-        Me.txtbIDActividad.Enabled = False
-        Me.txtbIDActividad.Location = New System.Drawing.Point(21, 61)
-        Me.txtbIDActividad.Name = "txtbIDActividad"
-        Me.txtbIDActividad.Size = New System.Drawing.Size(163, 22)
-        Me.txtbIDActividad.TabIndex = 1
+        Me.dgvActividades.AutoGenerateColumns = False
+        Me.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvActividades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
+        Me.dgvActividades.DataSource = Me.ActividadesBindingSource1
+        Me.dgvActividades.Location = New System.Drawing.Point(21, 22)
+        Me.dgvActividades.Name = "dgvActividades"
+        Me.dgvActividades.Size = New System.Drawing.Size(345, 345)
+        Me.dgvActividades.TabIndex = 13
         '
-        'lblImporteActividad
+        'DataGridViewTextBoxColumn1
         '
-        Me.lblImporteActividad.AutoSize = True
-        Me.lblImporteActividad.Location = New System.Drawing.Point(18, 173)
-        Me.lblImporteActividad.Name = "lblImporteActividad"
-        Me.lblImporteActividad.Size = New System.Drawing.Size(130, 16)
-        Me.lblImporteActividad.TabIndex = 14
-        Me.lblImporteActividad.Text = "Importe de actividad"
+        Me.DataGridViewTextBoxColumn1.DataPropertyName = "IDActividades"
+        Me.DataGridViewTextBoxColumn1.HeaderText = "IDActividades"
+        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
         '
-        'lblIDActividad
+        'DataGridViewTextBoxColumn2
         '
-        Me.lblIDActividad.AutoSize = True
-        Me.lblIDActividad.Location = New System.Drawing.Point(18, 27)
-        Me.lblIDActividad.Name = "lblIDActividad"
-        Me.lblIDActividad.Size = New System.Drawing.Size(112, 16)
-        Me.lblIDActividad.TabIndex = 12
-        Me.lblIDActividad.Text = "ID de la actividad"
+        Me.DataGridViewTextBoxColumn2.DataPropertyName = "Nombre"
+        Me.DataGridViewTextBoxColumn2.HeaderText = "Nombre"
+        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         '
-        'btnEliminarActividad
+        'DataGridViewTextBoxColumn3
         '
-        Me.btnEliminarActividad.BackColor = System.Drawing.Color.Firebrick
-        Me.btnEliminarActividad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEliminarActividad.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnEliminarActividad.Location = New System.Drawing.Point(634, 152)
-        Me.btnEliminarActividad.Name = "btnEliminarActividad"
-        Me.btnEliminarActividad.Size = New System.Drawing.Size(135, 74)
-        Me.btnEliminarActividad.TabIndex = 5
-        Me.btnEliminarActividad.Text = "Eliminar actividad"
-        Me.btnEliminarActividad.UseVisualStyleBackColor = False
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "ImporteActividad"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "ImporteActividad"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        '
+        'ActividadesBindingSource1
+        '
+        Me.ActividadesBindingSource1.DataMember = "Actividades"
+        Me.ActividadesBindingSource1.DataSource = Me.BdHotelDataSet11
+        '
+        'BdHotelDataSet11
+        '
+        Me.BdHotelDataSet11.DataSetName = "BDHotelDataSet1"
+        Me.BdHotelDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'btnAtras
         '
         Me.btnAtras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAtras.Location = New System.Drawing.Point(634, 360)
+        Me.btnAtras.Location = New System.Drawing.Point(643, 358)
         Me.btnAtras.Name = "btnAtras"
-        Me.btnAtras.Size = New System.Drawing.Size(135, 74)
-        Me.btnAtras.TabIndex = 6
+        Me.btnAtras.Size = New System.Drawing.Size(131, 70)
+        Me.btnAtras.TabIndex = 9
         Me.btnAtras.Text = "Atrás"
         Me.btnAtras.UseVisualStyleBackColor = True
         '
@@ -99,140 +109,215 @@ Partial Class FormAnimacion
         Me.btnAgregarActividad.BackColor = System.Drawing.Color.RoyalBlue
         Me.btnAgregarActividad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAgregarActividad.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnAgregarActividad.Location = New System.Drawing.Point(634, 28)
+        Me.btnAgregarActividad.Location = New System.Drawing.Point(643, 22)
         Me.btnAgregarActividad.Name = "btnAgregarActividad"
-        Me.btnAgregarActividad.Size = New System.Drawing.Size(135, 74)
-        Me.btnAgregarActividad.TabIndex = 4
+        Me.btnAgregarActividad.Size = New System.Drawing.Size(131, 79)
+        Me.btnAgregarActividad.TabIndex = 7
         Me.btnAgregarActividad.Text = "Agregar actividad"
         Me.btnAgregarActividad.UseVisualStyleBackColor = False
         '
-        'gb1
+        'btnEliminarActividad
         '
-        Me.gb1.Controls.Add(Me.cmbImporte)
-        Me.gb1.Controls.Add(Me.cmbNombre)
-        Me.gb1.Controls.Add(Me.lblNombreActividad)
-        Me.gb1.Controls.Add(Me.txtbIDActividad)
-        Me.gb1.Controls.Add(Me.lblImporteActividad)
-        Me.gb1.Controls.Add(Me.lblIDActividad)
-        Me.gb1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gb1.Location = New System.Drawing.Point(389, 21)
-        Me.gb1.Name = "gb1"
-        Me.gb1.Size = New System.Drawing.Size(214, 254)
-        Me.gb1.TabIndex = 1
-        Me.gb1.TabStop = False
-        Me.gb1.Text = "Datos de actividad"
+        Me.btnEliminarActividad.BackColor = System.Drawing.Color.Firebrick
+        Me.btnEliminarActividad.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarActividad.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnEliminarActividad.Location = New System.Drawing.Point(643, 190)
+        Me.btnEliminarActividad.Name = "btnEliminarActividad"
+        Me.btnEliminarActividad.Size = New System.Drawing.Size(131, 80)
+        Me.btnEliminarActividad.TabIndex = 8
+        Me.btnEliminarActividad.Text = "Eliminar actividad"
+        Me.btnEliminarActividad.UseVisualStyleBackColor = False
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.lblImporte)
+        Me.GroupBox1.Controls.Add(Me.lblIDActividad)
+        Me.GroupBox1.Controls.Add(Me.txtbImporte)
+        Me.GroupBox1.Controls.Add(Me.txtbIDActividad)
+        Me.GroupBox1.Controls.Add(Me.lblNombre)
+        Me.GroupBox1.Controls.Add(Me.cmbNombre)
+        Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(387, 22)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(222, 248)
+        Me.GroupBox1.TabIndex = 1
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Datos de las actividades"
+        '
+        'lblImporte
+        '
+        Me.lblImporte.AutoSize = True
+        Me.lblImporte.Location = New System.Drawing.Point(17, 166)
+        Me.lblImporte.Name = "lblImporte"
+        Me.lblImporte.Size = New System.Drawing.Size(53, 16)
+        Me.lblImporte.TabIndex = 5
+        Me.lblImporte.Text = "Importe"
+        '
+        'lblIDActividad
+        '
+        Me.lblIDActividad.AutoSize = True
+        Me.lblIDActividad.Location = New System.Drawing.Point(17, 28)
+        Me.lblIDActividad.Name = "lblIDActividad"
+        Me.lblIDActividad.Size = New System.Drawing.Size(98, 16)
+        Me.lblIDActividad.TabIndex = 4
+        Me.lblIDActividad.Text = "ID de actividad"
+        '
+        'txtbImporte
+        '
+        Me.txtbImporte.Enabled = False
+        Me.txtbImporte.Location = New System.Drawing.Point(20, 197)
+        Me.txtbImporte.Name = "txtbImporte"
+        Me.txtbImporte.Size = New System.Drawing.Size(176, 22)
+        Me.txtbImporte.TabIndex = 4
+        '
+        'txtbIDActividad
+        '
+        Me.txtbIDActividad.Location = New System.Drawing.Point(20, 52)
+        Me.txtbIDActividad.Name = "txtbIDActividad"
+        Me.txtbIDActividad.Size = New System.Drawing.Size(175, 22)
+        Me.txtbIDActividad.TabIndex = 2
+        '
+        'lblNombre
+        '
+        Me.lblNombre.AutoSize = True
+        Me.lblNombre.Location = New System.Drawing.Point(17, 87)
+        Me.lblNombre.Name = "lblNombre"
+        Me.lblNombre.Size = New System.Drawing.Size(57, 16)
+        Me.lblNombre.TabIndex = 1
+        Me.lblNombre.Text = "Nombre"
         '
         'cmbNombre
         '
         Me.cmbNombre.FormattingEnabled = True
-        Me.cmbNombre.Location = New System.Drawing.Point(21, 131)
+        Me.cmbNombre.Location = New System.Drawing.Point(20, 118)
         Me.cmbNombre.Name = "cmbNombre"
-        Me.cmbNombre.Size = New System.Drawing.Size(163, 24)
-        Me.cmbNombre.TabIndex = 2
+        Me.cmbNombre.Size = New System.Drawing.Size(176, 24)
+        Me.cmbNombre.TabIndex = 3
         '
-        'lblNombreActividad
+        'gbBuscar
         '
-        Me.lblNombreActividad.AutoSize = True
-        Me.lblNombreActividad.Location = New System.Drawing.Point(18, 96)
-        Me.lblNombreActividad.Name = "lblNombreActividad"
-        Me.lblNombreActividad.Size = New System.Drawing.Size(134, 16)
-        Me.lblNombreActividad.TabIndex = 16
-        Me.lblNombreActividad.Text = "Nombre de actividad"
+        Me.gbBuscar.Controls.Add(Me.btnBuscar)
+        Me.gbBuscar.Controls.Add(Me.txtbBuscar)
+        Me.gbBuscar.Controls.Add(Me.lblBuscar)
+        Me.gbBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbBuscar.Location = New System.Drawing.Point(387, 288)
+        Me.gbBuscar.Name = "gbBuscar"
+        Me.gbBuscar.Size = New System.Drawing.Size(222, 140)
+        Me.gbBuscar.TabIndex = 5
+        Me.gbBuscar.TabStop = False
+        Me.gbBuscar.Text = "Buscador"
         '
-        'dgvActividades
+        'btnBuscar
         '
-        Me.dgvActividades.AllowUserToDeleteRows = False
-        Me.dgvActividades.AutoGenerateColumns = False
-        Me.dgvActividades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvActividades.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDActividadesDataGridViewTextBoxColumn, Me.ImporteActividadDataGridViewTextBoxColumn, Me.NombreDataGridViewTextBoxColumn})
-        Me.dgvActividades.DataSource = Me.ActividadesBindingSource
-        Me.dgvActividades.Location = New System.Drawing.Point(19, 21)
-        Me.dgvActividades.Name = "dgvActividades"
-        Me.dgvActividades.ReadOnly = True
-        Me.dgvActividades.Size = New System.Drawing.Size(344, 413)
-        Me.dgvActividades.TabIndex = 7
+        Me.btnBuscar.BackColor = System.Drawing.Color.Green
+        Me.btnBuscar.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnBuscar.Location = New System.Drawing.Point(20, 88)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(176, 33)
+        Me.btnBuscar.TabIndex = 7
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.UseVisualStyleBackColor = False
         '
-        'IDActividadesDataGridViewTextBoxColumn
+        'txtbBuscar
         '
-        Me.IDActividadesDataGridViewTextBoxColumn.DataPropertyName = "IDActividades"
-        Me.IDActividadesDataGridViewTextBoxColumn.HeaderText = "IDActividades"
-        Me.IDActividadesDataGridViewTextBoxColumn.Name = "IDActividadesDataGridViewTextBoxColumn"
-        Me.IDActividadesDataGridViewTextBoxColumn.ReadOnly = True
+        Me.txtbBuscar.Location = New System.Drawing.Point(20, 57)
+        Me.txtbBuscar.Name = "txtbBuscar"
+        Me.txtbBuscar.Size = New System.Drawing.Size(175, 22)
+        Me.txtbBuscar.TabIndex = 6
         '
-        'ImporteActividadDataGridViewTextBoxColumn
+        'lblBuscar
         '
-        Me.ImporteActividadDataGridViewTextBoxColumn.DataPropertyName = "ImporteActividad"
-        Me.ImporteActividadDataGridViewTextBoxColumn.HeaderText = "ImporteActividad"
-        Me.ImporteActividadDataGridViewTextBoxColumn.Name = "ImporteActividadDataGridViewTextBoxColumn"
-        Me.ImporteActividadDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'NombreDataGridViewTextBoxColumn
-        '
-        Me.NombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre"
-        Me.NombreDataGridViewTextBoxColumn.HeaderText = "Nombre"
-        Me.NombreDataGridViewTextBoxColumn.Name = "NombreDataGridViewTextBoxColumn"
-        Me.NombreDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ActividadesBindingSource
-        '
-        Me.ActividadesBindingSource.DataMember = "Actividades"
-        Me.ActividadesBindingSource.DataSource = Me.BdHotelDataSet1
-        '
-        'BdHotelDataSet1
-        '
-        Me.BdHotelDataSet1.DataSetName = "BDHotelDataSet"
-        Me.BdHotelDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.lblBuscar.AutoSize = True
+        Me.lblBuscar.Location = New System.Drawing.Point(17, 31)
+        Me.lblBuscar.Name = "lblBuscar"
+        Me.lblBuscar.Size = New System.Drawing.Size(81, 16)
+        Me.lblBuscar.TabIndex = 0
+        Me.lblBuscar.Text = "Identificador"
         '
         'ActividadesTableAdapter1
         '
         Me.ActividadesTableAdapter1.ClearBeforeFill = True
         '
-        'cmbImporte
+        'btnAnterior
         '
-        Me.cmbImporte.FormattingEnabled = True
-        Me.cmbImporte.Location = New System.Drawing.Point(21, 210)
-        Me.cmbImporte.Name = "cmbImporte"
-        Me.cmbImporte.Size = New System.Drawing.Size(163, 24)
-        Me.cmbImporte.TabIndex = 17
+        Me.btnAnterior.BackColor = System.Drawing.Color.Orange
+        Me.btnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAnterior.Location = New System.Drawing.Point(21, 376)
+        Me.btnAnterior.Name = "btnAnterior"
+        Me.btnAnterior.Size = New System.Drawing.Size(131, 52)
+        Me.btnAnterior.TabIndex = 10
+        Me.btnAnterior.Text = "Anterior"
+        Me.btnAnterior.UseVisualStyleBackColor = False
+        '
+        'btnSiguiente
+        '
+        Me.btnSiguiente.BackColor = System.Drawing.Color.Orange
+        Me.btnSiguiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSiguiente.Location = New System.Drawing.Point(235, 376)
+        Me.btnSiguiente.Name = "btnSiguiente"
+        Me.btnSiguiente.Size = New System.Drawing.Size(131, 52)
+        Me.btnSiguiente.TabIndex = 11
+        Me.btnSiguiente.Text = "Siguiente"
+        Me.btnSiguiente.UseVisualStyleBackColor = False
+        '
+        'ActividadesBindingSource
+        '
+        Me.ActividadesBindingSource.DataMember = "Actividades"
         '
         'FormAnimacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.gb1)
-        Me.Controls.Add(Me.dgvActividades)
+        Me.Controls.Add(Me.btnSiguiente)
+        Me.Controls.Add(Me.btnAnterior)
+        Me.Controls.Add(Me.gbBuscar)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnEliminarActividad)
-        Me.Controls.Add(Me.btnAtras)
         Me.Controls.Add(Me.btnAgregarActividad)
+        Me.Controls.Add(Me.btnAtras)
+        Me.Controls.Add(Me.dgvActividades)
         Me.Name = "FormAnimacion"
         Me.Text = "FormAnimacion"
-        Me.gb1.ResumeLayout(False)
-        Me.gb1.PerformLayout()
         CType(Me.dgvActividades, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ActividadesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.gbBuscar.ResumeLayout(False)
+        Me.gbBuscar.PerformLayout()
         CType(Me.ActividadesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BdHotelDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents txtbIDActividad As TextBox
-    Friend WithEvents lblImporteActividad As Label
-    Friend WithEvents lblIDActividad As Label
-    Friend WithEvents btnEliminarActividad As Button
+
+    Friend WithEvents dgvActividades As DataGridView
+    Friend WithEvents BDHotelDataSet1 As BDHotelDataSet1
+    Friend WithEvents ActividadesBindingSource As BindingSource
+    Friend WithEvents ActividadesTableAdapter As BDHotelDataSet1TableAdapters.ActividadesTableAdapter
+    Friend WithEvents IDActividadesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ImporteActividadDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents btnAtras As Button
     Friend WithEvents btnAgregarActividad As Button
-    Friend WithEvents ActividadesTableAdapter As BDHotelDataSetTableAdapters.ActividadesTableAdapter
-    Friend WithEvents gb1 As GroupBox
-    Friend WithEvents ActXClienteTableAdapter As BDHotelDataSetTableAdapters.ActXClienteTableAdapter
-    Friend WithEvents BDHotelDataSet As BDHotelDataSet
-    Friend WithEvents dgvActividades As DataGridView
-    Friend WithEvents ActividadesTableAdapter1 As BDHotelDataSetTableAdapters.ActividadesTableAdapter
-    Friend WithEvents lblNombreActividad As Label
+    Friend WithEvents btnEliminarActividad As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents gbBuscar As GroupBox
     Friend WithEvents cmbNombre As ComboBox
-    Friend WithEvents BdHotelDataSet1 As BDHotelDataSet
-    Friend WithEvents IDActividadesDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ImporteActividadDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents ActividadesBindingSource As BindingSource
-    Friend WithEvents cmbImporte As ComboBox
+    Friend WithEvents txtbImporte As TextBox
+    Friend WithEvents txtbIDActividad As TextBox
+    Friend WithEvents lblNombre As Label
+    Friend WithEvents txtbBuscar As TextBox
+    Friend WithEvents lblBuscar As Label
+    Friend WithEvents lblImporte As Label
+    Friend WithEvents lblIDActividad As Label
+    Friend WithEvents BdHotelDataSet11 As BDHotelDataSet1
+    Friend WithEvents ActividadesBindingSource1 As BindingSource
+    Friend WithEvents ActividadesTableAdapter1 As BDHotelDataSet1TableAdapters.ActividadesTableAdapter
+    Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
+    Friend WithEvents btnBuscar As Button
+    Friend WithEvents btnAnterior As Button
+    Friend WithEvents btnSiguiente As Button
 End Class

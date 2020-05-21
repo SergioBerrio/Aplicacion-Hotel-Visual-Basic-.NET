@@ -1,4 +1,5 @@
 ﻿Imports System.Data.OleDb
+Imports System.Runtime.CompilerServices
 
 Public Class FormAnimacion
     Dim conexion As New OleDbConnection
@@ -6,6 +7,7 @@ Public Class FormAnimacion
     Dim posicionFinal As Integer
     Dim adaptador2 As New OleDbDataAdapter
     Dim registro2 As New DataSet
+    Dim tabla As New DataTable
 
     Private Sub CargarDatosDataGridView()
         Dim consulta As String
@@ -24,8 +26,8 @@ Public Class FormAnimacion
     End Sub
 
     Private Sub FormAnimacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet1.Actividades' Puede moverla o quitarla según sea necesario.
-        Me.ActividadesTableAdapter1.Fill(Me.BdHotelDataSet1.Actividades)
+        'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet11.Actividades' Puede moverla o quitarla según sea necesario.
+        Me.ActividadesTableAdapter1.Fill(Me.BdHotelDataSet11.Actividades)
 
         txtbIDActividad.Text = Val(txtbIDActividad.Text) + 1
 
@@ -33,12 +35,15 @@ Public Class FormAnimacion
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
             conexion.Open()
 
+            Dim consulta As String = "SELECT IDActividades, Nombre, ImporteActividad FROM Actividades"
+            Dim comando As New OleDbCommand(consulta, conexion)
+            Dim adaptadorTabla As New OleDbDataAdapter(consulta, conexion)
+            adaptadorTabla.Fill(tabla)
             cargarCombo()
-            cargarImporte()
 
             conexion.Close()
             MsgBox("Se ha establecido la conexión con la base de datos!!", MsgBoxStyle.Information, "Información")
-            'CargarDatosDataGridView()
+            CargarDatosDataGridView()
         Catch ex As Exception
             MsgBox("No se ha podido establecer la conexión!!", MsgBoxStyle.Critical, "Error")
         End Try
@@ -54,10 +59,10 @@ Public Class FormAnimacion
         'txtbImporte.Clear()
 
         comando = New OleDbCommand("INSERT INTO Actividades(IDActividades, Nombre, ImporteActividad)" & Chr(13) &
-                                         "VALUES(txtIDActividad, cmbNombre, txtImporteActividad)", conexion)
+                                         "VALUES(txtIDActividad, cmbNombre, txtImporte)", conexion)
         comando.Parameters.AddWithValue("@IDActividades", txtbIDActividad.Text)
         comando.Parameters.AddWithValue("@Nombre", cmbNombre.Text)
-        comando.Parameters.AddWithValue("@ImporteActividad", cmbImporte.Text)
+        comando.Parameters.AddWithValue("@ImporteActividad", txtbImporte.Text)
         comando.ExecuteNonQuery()
         conexion.Close()
 
@@ -74,28 +79,69 @@ Public Class FormAnimacion
     End Sub
 
     Public Sub cargarCombo()
-        Dim tabla As New DataTable
-        Dim consulta As String = "SELECT IDActividades, Nombre FROM Actividades"
-        Dim comando As New OleDbCommand(consulta, conexion)
-        Dim adaptadorTabla As New OleDbDataAdapter(consulta, conexion)
-        adaptadorTabla.Fill(tabla)
-
         cmbNombre.DataSource = tabla
 
         cmbNombre.DisplayMember = "Nombre"
         cmbNombre.ValueMember = "IDActividades"
     End Sub
 
-    Public Sub cargarImporte()
-        Dim tabla As New DataTable
-        Dim consulta As String = "SELECT IDActividades, ImporteActividad FROM Actividades"
-        Dim comando As New OleDbCommand(consulta, conexion)
-        Dim adaptadorTabla As New OleDbDataAdapter(consulta, conexion)
-        adaptadorTabla.Fill(tabla)
+    Private Sub cmbNombre_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbNombre.SelectedIndexChanged
+        Dim precio = tabla.Rows(cmbNombre.SelectedIndex)("ImporteActividad")
+        txtbImporte.Text = precio
+    End Sub
 
-        cmbImporte.DataSource = tabla
+    Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        Dim consulta As String
+        Dim registro As Boolean
 
-        cmbImporte.DisplayMember = "ImporteActividad"
-        cmbImporte.ValueMember = "IDActividades"
+        If txtbBuscar.Text <> "" Then
+            consulta = "SELECT * FROM Actividades WHERE IDActividades = " & txtbBuscar.Text & ""
+            adaptador2 = New OleDbDataAdapter(consulta, conexion)
+            registro2 = New DataSet
+            adaptador2.Fill(registro2, "Actividades")
+            registro = registro2.Tables("Actividades").Rows.Count
+
+            If registro <> 0 Then
+                dgvActividades.DataSource = registro2
+                dgvActividades.DataMember = "Actividades"
+            Else
+                MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
+                conexion.Close()
+            End If
+        End If
+    End Sub
+
+    Private Sub btnSiguiente_Click(sender As Object, e As EventArgs) Handles btnSiguiente.Click
+        Dim actual As Integer = dgvActividades.CurrentCell.RowIndex
+        Dim siguiente As Integer = actual + 1
+
+        Try
+            If dgvActividades.Rows.Count > siguiente Then
+                dgvActividades.CurrentCell = dgvActividades.Rows(siguiente).Cells(0)
+                dgvActividades.Rows(siguiente).Selected = True
+            Else
+                MsgBox("Has llegado al final", MsgBoxStyle.Critical, "Advertencia")
+            End If
+
+        Catch ex As Exception
+            MsgBox("No se realizó el proceso por: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnAnterior_Click(sender As Object, e As EventArgs) Handles btnAnterior.Click
+        Dim actual As Integer = dgvActividades.CurrentCell.RowIndex
+        Dim atras As Integer = actual - 1
+
+        Try
+            If atras >= 0 Then
+                dgvActividades.CurrentCell = dgvActividades.Rows(atras).Cells(0)
+                dgvActividades.Rows(atras).Selected = True
+            Else
+                MsgBox("Has llegado al principio", MsgBoxStyle.Critical, "Advertencia")
+            End If
+
+        Catch ex As Exception
+            MsgBox("No se realizó el proceso por: " & ex.Message)
+        End Try
     End Sub
 End Class

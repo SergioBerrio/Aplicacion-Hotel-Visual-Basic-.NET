@@ -48,7 +48,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OleDb, Version=4.0.1.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.OleDb.4.7.1\lib\net461\System.Data.OleDb.dll</HintPath>
@@ -78,10 +80,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BDHotelDataSet.Designer.vb">
+    <Compile Include="BDHotelDataSet1.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BDHotelDataSet.xsd</DependentUpon>
+      <DependentUpon>BDHotelDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Datos\ConexionDatos.vb" />
     <Compile Include="FormAnimacion.Designer.vb">
@@ -90,22 +92,16 @@
     <Compile Include="FormAnimacion.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCamarerasPiso.Designer.vb">
-      <DependentUpon>FormCamarerasPiso.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormCamarerasPiso.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FormCocina.Designer.vb">
       <DependentUpon>FormCocina.vb</DependentUpon>
     </Compile>
     <Compile Include="FormCocina.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDarAltaTrabajadores.Designer.vb">
-      <DependentUpon>FormDarAltaTrabajadores.vb</DependentUpon>
+    <Compile Include="FormDirector.Designer.vb">
+      <DependentUpon>FormDirector.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormDarAltaTrabajadores.vb">
+    <Compile Include="FormDirector.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormEntrada.Designer.vb">
@@ -211,10 +207,10 @@
     <Compile Include="FormSeguridad.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormServicioMesaBarra.Designer.vb">
-      <DependentUpon>FormServicioMesaBarra.vb</DependentUpon>
+    <Compile Include="FormServiciosHotel.Designer.vb">
+      <DependentUpon>FormServiciosHotel.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormServicioMesaBarra.vb">
+    <Compile Include="FormServiciosHotel.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormSocorrista.Designer.vb">
@@ -270,11 +266,20 @@
     <EmbeddedResource Include="FormAnimacion.resx">
       <DependentUpon>FormAnimacion.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDarAltaTrabajadores.resx">
-      <DependentUpon>FormDarAltaTrabajadores.vb</DependentUpon>
+    <EmbeddedResource Include="FormCocina.resx">
+      <DependentUpon>FormCocina.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConserjeria.resx">
+      <DependentUpon>FormConserjeria.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDirector.resx">
+      <DependentUpon>FormDirector.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormEntrada.resx">
       <DependentUpon>FormEntrada.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGobernanta.resx">
+      <DependentUpon>FormGobernanta.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormHacerFacturas.resx">
       <DependentUpon>FormHacerFacturas.vb</DependentUpon>
@@ -285,11 +290,20 @@
     <EmbeddedResource Include="FormInicioSesionTrabajadores.resx">
       <DependentUpon>FormInicioSesionTrabajadores.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLimpieza.resx">
+      <DependentUpon>FormLimpieza.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMantenimiento.resx">
+      <DependentUpon>FormMantenimiento.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormPantallaTrabajadores.resx">
       <DependentUpon>FormPantallaTrabajadores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPantallaTrabajadores2.resx">
       <DependentUpon>FormPantallaTrabajadores2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPapelFactura.resx">
+      <DependentUpon>FormPapelFactura.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRecepcion.resx">
       <DependentUpon>FormRecepcion.vb</DependentUpon>
@@ -306,8 +320,14 @@
     <EmbeddedResource Include="FormReservasClientes.resx">
       <DependentUpon>FormReservasClientes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormServicioMesaBarra.resx">
-      <DependentUpon>FormServicioMesaBarra.vb</DependentUpon>
+    <EmbeddedResource Include="FormSeguridad.resx">
+      <DependentUpon>FormSeguridad.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormServiciosHotel.resx">
+      <DependentUpon>FormServiciosHotel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSocorrista.resx">
+      <DependentUpon>FormSocorrista.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVerClientes.resx">
       <DependentUpon>FormVerClientes.vb</DependentUpon>
@@ -329,16 +349,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="BDHotelDataSet.xsc">
-      <DependentUpon>BDHotelDataSet.xsd</DependentUpon>
+    <None Include="BDHotelDataSet1.xsc">
+      <DependentUpon>BDHotelDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="BDHotelDataSet.xsd">
+    <None Include="BDHotelDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BDHotelDataSet.Designer.vb</LastGenOutput>
+      <LastGenOutput>BDHotelDataSet1.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="BDHotelDataSet.xss">
-      <DependentUpon>BDHotelDataSet.xsd</DependentUpon>
+    <None Include="BDHotelDataSet1.xss">
+      <DependentUpon>BDHotelDataSet1.xsd</DependentUpon>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

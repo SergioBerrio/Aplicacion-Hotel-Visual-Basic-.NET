@@ -31,23 +31,27 @@ Partial Class FormInicio
         '
         'btnEntrar
         '
+        Me.btnEntrar.BackColor = System.Drawing.Color.DodgerBlue
         Me.btnEntrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEntrar.ForeColor = System.Drawing.SystemColors.Control
         Me.btnEntrar.Location = New System.Drawing.Point(139, 330)
         Me.btnEntrar.Name = "btnEntrar"
         Me.btnEntrar.Size = New System.Drawing.Size(218, 77)
         Me.btnEntrar.TabIndex = 0
         Me.btnEntrar.Text = "Entrar"
-        Me.btnEntrar.UseVisualStyleBackColor = True
+        Me.btnEntrar.UseVisualStyleBackColor = False
         '
         'btnSalir
         '
+        Me.btnSalir.BackColor = System.Drawing.Color.Firebrick
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.ForeColor = System.Drawing.SystemColors.Control
         Me.btnSalir.Location = New System.Drawing.Point(410, 331)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(216, 76)
         Me.btnSalir.TabIndex = 1
         Me.btnSalir.Text = "Salir"
-        Me.btnSalir.UseVisualStyleBackColor = True
+        Me.btnSalir.UseVisualStyleBackColor = False
         '
         'lblMensaje
         '

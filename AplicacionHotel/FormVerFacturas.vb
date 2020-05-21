@@ -19,8 +19,8 @@ Public Class FormVerFacturas
     End Sub
 
     Private Sub FormVerFacturas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BDHotelDataSet2.Facturas' Puede moverla o quitarla según sea necesario.
-        Me.FacturasTableAdapter1.Fill(Me.BDHotelDataSet2.Facturas)
+        'TODO: esta línea de código carga datos en la tabla 'BDHotelDataSet11.Facturas' Puede moverla o quitarla según sea necesario.
+        Me.FacturasTableAdapter2.Fill(Me.BDHotelDataSet11.Facturas)
 
         Try
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
@@ -80,5 +80,47 @@ Public Class FormVerFacturas
         MsgBox("Registro eliminado", MsgBoxStyle.Information, "Eliminado")
 
         conexion.Close()
+    End Sub
+
+    Private Sub btnBuscarID_Click(sender As Object, e As EventArgs) Handles btnBuscarID.Click
+        Dim consulta As String
+        Dim registro As Boolean
+
+        If txtbBuscarID.Text <> "" Then
+            consulta = "SELECT * FROM Facturas WHERE IDFactura = " & txtbBuscarID.Text & ""
+            adaptador2 = New OleDbDataAdapter(consulta, conexion)
+            registro2 = New DataSet
+            adaptador2.Fill(registro2, "Facturas")
+            registro = registro2.Tables("Facturas").Rows.Count
+
+            If registro <> 0 Then
+                dgvFacturas.DataSource = registro2
+                dgvFacturas.DataMember = "Facturas"
+            Else
+                MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
+                conexion.Close()
+            End If
+        End If
+    End Sub
+
+    Private Sub btnBucarDNI_Click(sender As Object, e As EventArgs) Handles btnBucarDNI.Click
+        Dim consulta As String
+        Dim registro As Boolean
+
+        If txtbDNI.Text <> "" Then
+            consulta = "SELECT * FROM Facturas WHERE DNI = " & txtbDNI.Text & ""
+            adaptador2 = New OleDbDataAdapter(consulta, conexion)
+            registro2 = New DataSet
+            adaptador2.Fill(registro2, "Facturas")
+            registro = registro2.Tables("Facturas").Rows.Count
+
+            If registro <> 0 Then
+                dgvFacturas.DataSource = registro2
+                dgvFacturas.DataMember = "Facturas"
+            Else
+                MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
+                conexion.Close()
+            End If
+        End If
     End Sub
 End Class

@@ -88,6 +88,7 @@ Partial Class FormEntrada
         '
         Me.gbClientes.Controls.Add(Me.btnVerReservas)
         Me.gbClientes.Controls.Add(Me.btnReserva)
+        Me.gbClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbClientes.Location = New System.Drawing.Point(100, 167)
         Me.gbClientes.Name = "gbClientes"
         Me.gbClientes.Size = New System.Drawing.Size(604, 115)
@@ -98,6 +99,7 @@ Partial Class FormEntrada
         'gbTrabajadores
         '
         Me.gbTrabajadores.Controls.Add(Me.btnControl)
+        Me.gbTrabajadores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbTrabajadores.Location = New System.Drawing.Point(100, 301)
         Me.gbTrabajadores.Name = "gbTrabajadores"
         Me.gbTrabajadores.Size = New System.Drawing.Size(254, 110)

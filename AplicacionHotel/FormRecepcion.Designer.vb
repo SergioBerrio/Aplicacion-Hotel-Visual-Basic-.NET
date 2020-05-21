@@ -32,43 +32,47 @@ Partial Class FormRecepcion
         '
         'btnVerReservas
         '
+        Me.btnVerReservas.BackColor = System.Drawing.Color.Goldenrod
         Me.btnVerReservas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVerReservas.Location = New System.Drawing.Point(90, 185)
         Me.btnVerReservas.Name = "btnVerReservas"
         Me.btnVerReservas.Size = New System.Drawing.Size(232, 74)
         Me.btnVerReservas.TabIndex = 3
         Me.btnVerReservas.Text = "Ver reservas de los clientes"
-        Me.btnVerReservas.UseVisualStyleBackColor = True
+        Me.btnVerReservas.UseVisualStyleBackColor = False
         '
         'btnVerClientes
         '
+        Me.btnVerClientes.BackColor = System.Drawing.Color.Goldenrod
         Me.btnVerClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVerClientes.Location = New System.Drawing.Point(90, 310)
         Me.btnVerClientes.Name = "btnVerClientes"
         Me.btnVerClientes.Size = New System.Drawing.Size(232, 74)
         Me.btnVerClientes.TabIndex = 5
         Me.btnVerClientes.Text = "Ver clientes"
-        Me.btnVerClientes.UseVisualStyleBackColor = True
+        Me.btnVerClientes.UseVisualStyleBackColor = False
         '
         'btnVerFacturas
         '
+        Me.btnVerFacturas.BackColor = System.Drawing.Color.Goldenrod
         Me.btnVerFacturas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnVerFacturas.Location = New System.Drawing.Point(469, 185)
         Me.btnVerFacturas.Name = "btnVerFacturas"
         Me.btnVerFacturas.Size = New System.Drawing.Size(232, 74)
         Me.btnVerFacturas.TabIndex = 4
         Me.btnVerFacturas.Text = "Ver facturas"
-        Me.btnVerFacturas.UseVisualStyleBackColor = True
+        Me.btnVerFacturas.UseVisualStyleBackColor = False
         '
         'btnHacerFacturas
         '
+        Me.btnHacerFacturas.BackColor = System.Drawing.Color.Goldenrod
         Me.btnHacerFacturas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHacerFacturas.Location = New System.Drawing.Point(469, 61)
         Me.btnHacerFacturas.Name = "btnHacerFacturas"
         Me.btnHacerFacturas.Size = New System.Drawing.Size(232, 74)
         Me.btnHacerFacturas.TabIndex = 2
         Me.btnHacerFacturas.Text = "Hacer facturas"
-        Me.btnHacerFacturas.UseVisualStyleBackColor = True
+        Me.btnHacerFacturas.UseVisualStyleBackColor = False
         '
         'btnAtras
         '
@@ -82,13 +86,14 @@ Partial Class FormRecepcion
         '
         'btnHacerReserva
         '
+        Me.btnHacerReserva.BackColor = System.Drawing.Color.Goldenrod
         Me.btnHacerReserva.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnHacerReserva.Location = New System.Drawing.Point(90, 61)
         Me.btnHacerReserva.Name = "btnHacerReserva"
         Me.btnHacerReserva.Size = New System.Drawing.Size(232, 74)
         Me.btnHacerReserva.TabIndex = 1
         Me.btnHacerReserva.Text = "Hacer reservas de clientes"
-        Me.btnHacerReserva.UseVisualStyleBackColor = True
+        Me.btnHacerReserva.UseVisualStyleBackColor = False
         '
         'FormRecepcion
         '

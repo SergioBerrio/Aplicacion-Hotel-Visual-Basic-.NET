@@ -41,7 +41,7 @@ Partial Class FormReservasClientes
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(177, 329)
+        Me.Button1.Location = New System.Drawing.Point(183, 329)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(186, 64)
         Me.Button1.TabIndex = 11
@@ -136,7 +136,7 @@ Partial Class FormReservasClientes
         'btnAtras
         '
         Me.btnAtras.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAtras.Location = New System.Drawing.Point(428, 329)
+        Me.btnAtras.Location = New System.Drawing.Point(434, 329)
         Me.btnAtras.Name = "btnAtras"
         Me.btnAtras.Size = New System.Drawing.Size(186, 64)
         Me.btnAtras.TabIndex = 12
@@ -156,7 +156,7 @@ Partial Class FormReservasClientes
         Me.gbDatos.Controls.Add(Me.lblNombre)
         Me.gbDatos.Controls.Add(Me.lblDNI)
         Me.gbDatos.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbDatos.Location = New System.Drawing.Point(221, 58)
+        Me.gbDatos.Location = New System.Drawing.Point(227, 58)
         Me.gbDatos.Name = "gbDatos"
         Me.gbDatos.Size = New System.Drawing.Size(336, 236)
         Me.gbDatos.TabIndex = 1

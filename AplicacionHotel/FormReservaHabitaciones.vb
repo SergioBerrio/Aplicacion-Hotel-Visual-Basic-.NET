@@ -1,7 +1,11 @@
-﻿Public Class FormReservaHabitaciones
+﻿Imports System.Data.OleDb
+
+Public Class FormReservaHabitaciones
+    Dim tablaReservaHabitaciones As New DataTable
+
     Private Sub btnReservar_Click(sender As Object, e As EventArgs) Handles btnReservar.Click
-        comando = New OleDb.OleDbCommand("INSERT INTO Reservas(IDReserva, DNI, Fecha, CantPers, FechaInicio, FechaFin, NumHabitacion)" & Chr(13) &
-                                         "VALUES(txtbIDReserva, txtbDNI, txtbFecha, cmbbPersonas, dtpInicio, dtpFin, txtbFecha, txtbNumHabitacion)", conexion)
+        comando = New OleDbCommand("INSERT INTO Reservas(IDReserva, DNI, Fecha, CantPers, FechaInicio, FechaFin, NumHabitacion)" & Chr(13) &
+                                         "VALUES(txtbIDReserva, txtbDNI, txtbFecha, cmbPersonas, dtpInicio, dtpFin, txtbFecha, txtbNumHabitacion)", conexion)
         comando.Parameters.AddWithValue("@IDReserva", txtbIDReserva.Text.ToUpper)
         comando.Parameters.AddWithValue("@DNI", txtbDNICliente.Text.ToUpper)
         comando.Parameters.AddWithValue("@Fecha", txtbFecha.Text.ToUpper)
@@ -11,11 +15,14 @@
         comando.Parameters.AddWithValue("@NumHabitacion", txtbNumeroHabitacion.Text.ToUpper)
         comando.ExecuteNonQuery()
 
-        comando = New OleDb.OleDbCommand("INSERT INTO Habitaciones(NumHabitacion, NumCamas, IDTipo)" & Chr(13) &
-                                         "VALUES(txtbNumeroHabitacion, cmbNumeroCamas, cmbTipoHabitacion)", conexion)
+        comando = New OleDbCommand("INSERT INTO Habitaciones(NumHabitacion, NumCamas, IDTipo)" & Chr(13) &
+                                         "VALUES(txtbNumeroHabitacion, txtbNumeroCamas, cmbTipoHabitacion)", conexion)
         comando.Parameters.AddWithValue("@NumHabitacion", txtbNumeroHabitacion.Text.ToUpper)
-        comando.Parameters.AddWithValue("@NumCamas", cmbNumeroCamas.Text.ToUpper)
-        comando.Parameters.AddWithValue("@IDTipo", cmbTipoHabitacion.Text.ToUpper)
+        comando.Parameters.AddWithValue("@NumCamas", txtbNumeroCamas.Text.ToUpper)
+
+        comando = New OleDbCommand("INSERT INTO TipoHabitacion(IDTipo, Tipo)" & Chr(13) &
+                                         "VALUES(, cmbTipoHabitacion)", conexion)
+        comando.Parameters.AddWithValue("@Tipo", cmbTipoHabitacion.Text.ToUpper)
         comando.ExecuteNonQuery()
 
         MsgBox("Datos de la reserva guardados correctamente!!", MsgBoxStyle.Information, "Información")
@@ -31,9 +38,11 @@
     Private Sub FormReservaHabitaciones_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtbIDReserva.Text = Val(txtbIDReserva.Text) + 1
 
-        txtbIDHabitacion.Text = Val(txtbIDHabitacion.Text) + 1
+        txtbNumeroHabitacion.Text = Val(txtbNumeroHabitacion.Text) + 1
 
         txtbFecha.Text = DateTime.Now.ToString("dd/MM/yyyy")
+
+        txtbDNICliente.Text = FormReservasClientes.txtbDNI.Text
 
         cmbPersonas.Items.Add("1 persona")
         cmbPersonas.Items.Add("2 personas")
@@ -51,23 +60,28 @@
         cmbPersonas.Items.Add("14 personas")
         cmbPersonas.Items.Add("15 personas")
 
-        cmbNumeroCamas.Items.Add("1")
-        cmbNumeroCamas.Items.Add("2")
-        cmbNumeroCamas.Items.Add("3")
-
-        cmbTipoHabitacion.Items.Add("Estándar")
-        cmbTipoHabitacion.Items.Add("Suite presidencial")
-        cmbTipoHabitacion.Items.Add("Suite Luxury")
-        cmbTipoHabitacion.Items.Add("Master Suite")
-        cmbTipoHabitacion.Items.Add("Suite nupcial")
+        Dim consulta As String = "SELECT NumHabitacion, Tipo, NumCamas FROM Habitaciones"
+        Dim comando As New OleDbCommand(consulta, conexion)
+        Dim adaptadorTabla As New OleDbDataAdapter(consulta, conexion)
+        adaptadorTabla.Fill(tablaReservaHabitaciones)
+        cargarComboTipoHabitacion()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnAtras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
         FormReservasClientes.Show()
         Me.Hide()
     End Sub
 
-    Private Sub txtbNumeroHabitacion_TextChanged(sender As Object, e As EventArgs) Handles txtbNumeroHabitacion.TextChanged
-        txtbNumeroHabitacion.Text = Val(txtbNumeroHabitacion.Text) + 1
+    Public Sub cargarComboTipoHabitacion()
+        cmbTipoHabitacion.DataSource = tablaReservaHabitaciones
+
+        cmbTipoHabitacion.DisplayMember = "Tipo"
+        cmbTipoHabitacion.ValueMember = "Tipo"
+    End Sub
+
+    Private Sub cmbTipoHabitacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTipoHabitacion.SelectedIndexChanged
+        Dim camas = tablaReservaHabitaciones.Rows(cmbTipoHabitacion.SelectedIndex)("NumCamas")
+        'Console.WriteLine(camas)
+        txtbNumeroCamas.Text = camas
     End Sub
 End Class

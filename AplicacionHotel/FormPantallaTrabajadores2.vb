@@ -18,7 +18,7 @@
 
     Private Sub btnDirector_Click(sender As Object, e As EventArgs) Handles btnDirector.Click
         MsgBox("Has accedido como puesto de director/administrador!!", MsgBoxStyle.Information, "Información")
-        FormDarAltaTrabajadores.Show()
+        FormDirector.Show()
         Me.Hide()
     End Sub
 
@@ -28,15 +28,9 @@
         Me.Hide()
     End Sub
 
-    Private Sub btnCamareraPiso_Click(sender As Object, e As EventArgs) Handles btnCamareraHabitacion.Click
-        MsgBox("Has accedido como puesto de camarera de piso!!", MsgBoxStyle.Information, "Información")
-        FormCamarerasPiso.Show()
-        Me.Hide()
-    End Sub
-
     Private Sub btnBarraMesa_Click(sender As Object, e As EventArgs) Handles btnBarraMesa.Click
         MsgBox("Has accedido como puesto de servicio de barra y mesa!!", MsgBoxStyle.Information, "Información")
-        FormServicioMesaBarra.Show()
+        FormServiciosHotel.Show()
         Me.Hide()
     End Sub
 End Class
