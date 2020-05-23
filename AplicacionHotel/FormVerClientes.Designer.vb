@@ -170,9 +170,9 @@ Partial Class FormVerClientes
         Me.gbBuscar.Controls.Add(Me.txtbBuscarDNI)
         Me.gbBuscar.Controls.Add(Me.lblBuscar)
         Me.gbBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbBuscar.Location = New System.Drawing.Point(580, 96)
+        Me.gbBuscar.Location = New System.Drawing.Point(580, 76)
         Me.gbBuscar.Name = "gbBuscar"
-        Me.gbBuscar.Size = New System.Drawing.Size(322, 263)
+        Me.gbBuscar.Size = New System.Drawing.Size(322, 283)
         Me.gbBuscar.TabIndex = 6
         Me.gbBuscar.TabStop = False
         Me.gbBuscar.Text = "Buscador"
@@ -181,7 +181,7 @@ Partial Class FormVerClientes
         '
         Me.btnBuscarNombre.BackColor = System.Drawing.Color.Green
         Me.btnBuscarNombre.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnBuscarNombre.Location = New System.Drawing.Point(24, 207)
+        Me.btnBuscarNombre.Location = New System.Drawing.Point(24, 220)
         Me.btnBuscarNombre.Name = "btnBuscarNombre"
         Me.btnBuscarNombre.Size = New System.Drawing.Size(255, 33)
         Me.btnBuscarNombre.TabIndex = 12
@@ -190,7 +190,7 @@ Partial Class FormVerClientes
         '
         'txtbBuscarNombre
         '
-        Me.txtbBuscarNombre.Location = New System.Drawing.Point(24, 176)
+        Me.txtbBuscarNombre.Location = New System.Drawing.Point(24, 189)
         Me.txtbBuscarNombre.Name = "txtbBuscarNombre"
         Me.txtbBuscarNombre.Size = New System.Drawing.Size(255, 22)
         Me.txtbBuscarNombre.TabIndex = 11
@@ -198,7 +198,7 @@ Partial Class FormVerClientes
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(21, 150)
+        Me.Label1.Location = New System.Drawing.Point(21, 163)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(57, 16)
         Me.Label1.TabIndex = 10

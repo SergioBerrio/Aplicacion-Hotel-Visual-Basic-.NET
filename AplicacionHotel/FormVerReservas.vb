@@ -45,7 +45,7 @@ Public Class FormVerReservas
         dgvVerReservas.Rows.Remove(dgvVerReservas.CurrentRow)
 
         Dim eliminarRegistro As String
-        eliminarRegistro = "DELETE * FROM Reservas WHERE IDReserva = " & FormReservaHabitaciones.txtbIDReserva.Text & ""
+        eliminarRegistro = "DELETE FROM Reservas WHERE 'IDReserva = " & FormReservaHabitaciones.txtbIDReserva.Text & "'"
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
     End Sub

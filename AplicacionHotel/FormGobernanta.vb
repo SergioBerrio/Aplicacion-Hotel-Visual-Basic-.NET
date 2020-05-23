@@ -10,7 +10,7 @@ Public Class FormGobernanta
 
     Private Sub CargarDatosDataGridView()
         Dim consulta As String
-        consulta = "SELECT * FROM Trabajadores WHERE Puesto = Limpieza, ORDER BY IDTrabajdor ASC"
+        consulta = "SELECT * FROM Trabajadores WHERE Puesto = 'Limpieza' ORDER BY IDTrabajador ASC"
         adaptador2 = New OleDbDataAdapter(consulta, conexion)
         registro2.Tables.Add("Trabajadores")
         adaptador2.Fill(registro2.Tables("Trabajadores"))
@@ -68,7 +68,7 @@ Public Class FormGobernanta
 
     Private Sub refreshDatagrid()
         Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
-        Dim ole As New OleDbCommand("SELECT * FROM Trabajadores WHERE Puesto = Limpieza, ORDER BY IDTrabajador ASC", con)
+        Dim ole As New OleDbCommand("SELECT * FROM Trabajadores WHERE Puesto = 'Limpieza' ORDER BY IDTrabajador ASC", con)
         Dim ds As New DataSet
         Dim DataAdapter1 As New OleDbDataAdapter
         con.Open()

@@ -40,30 +40,34 @@ Partial Class FormEntrada
         Me.bntAtras1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.bntAtras1.Location = New System.Drawing.Point(460, 327)
         Me.bntAtras1.Name = "bntAtras1"
-        Me.bntAtras1.Size = New System.Drawing.Size(206, 60)
+        Me.bntAtras1.Size = New System.Drawing.Size(206, 78)
         Me.bntAtras1.TabIndex = 4
         Me.bntAtras1.Text = "Atrás"
         Me.bntAtras1.UseVisualStyleBackColor = True
         '
         'btnControl
         '
-        Me.btnControl.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnControl.BackColor = System.Drawing.Color.Orange
+        Me.btnControl.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnControl.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btnControl.Location = New System.Drawing.Point(28, 28)
         Me.btnControl.Name = "btnControl"
-        Me.btnControl.Size = New System.Drawing.Size(196, 59)
+        Me.btnControl.Size = New System.Drawing.Size(196, 76)
         Me.btnControl.TabIndex = 3
         Me.btnControl.Text = "Control de los trabajadores"
-        Me.btnControl.UseVisualStyleBackColor = True
+        Me.btnControl.UseVisualStyleBackColor = False
         '
         'btnReserva
         '
-        Me.btnReserva.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReserva.Location = New System.Drawing.Point(30, 29)
+        Me.btnReserva.BackColor = System.Drawing.Color.Orange
+        Me.btnReserva.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReserva.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnReserva.Location = New System.Drawing.Point(28, 29)
         Me.btnReserva.Name = "btnReserva"
-        Me.btnReserva.Size = New System.Drawing.Size(196, 59)
+        Me.btnReserva.Size = New System.Drawing.Size(196, 70)
         Me.btnReserva.TabIndex = 1
         Me.btnReserva.Text = "Hacer una reserva"
-        Me.btnReserva.UseVisualStyleBackColor = True
+        Me.btnReserva.UseVisualStyleBackColor = False
         '
         'lblMensaje
         '
@@ -76,22 +80,24 @@ Partial Class FormEntrada
         '
         'btnVerReservas
         '
-        Me.btnVerReservas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerReservas.BackColor = System.Drawing.Color.Orange
+        Me.btnVerReservas.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerReservas.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btnVerReservas.Location = New System.Drawing.Point(360, 29)
         Me.btnVerReservas.Name = "btnVerReservas"
-        Me.btnVerReservas.Size = New System.Drawing.Size(206, 59)
+        Me.btnVerReservas.Size = New System.Drawing.Size(206, 70)
         Me.btnVerReservas.TabIndex = 2
         Me.btnVerReservas.Text = "Ver reservas realizadas"
-        Me.btnVerReservas.UseVisualStyleBackColor = True
+        Me.btnVerReservas.UseVisualStyleBackColor = False
         '
         'gbClientes
         '
         Me.gbClientes.Controls.Add(Me.btnVerReservas)
         Me.gbClientes.Controls.Add(Me.btnReserva)
         Me.gbClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbClientes.Location = New System.Drawing.Point(100, 167)
+        Me.gbClientes.Location = New System.Drawing.Point(100, 151)
         Me.gbClientes.Name = "gbClientes"
-        Me.gbClientes.Size = New System.Drawing.Size(604, 115)
+        Me.gbClientes.Size = New System.Drawing.Size(604, 128)
         Me.gbClientes.TabIndex = 1
         Me.gbClientes.TabStop = False
         Me.gbClientes.Text = "Clientes"
@@ -102,7 +108,7 @@ Partial Class FormEntrada
         Me.gbTrabajadores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbTrabajadores.Location = New System.Drawing.Point(100, 301)
         Me.gbTrabajadores.Name = "gbTrabajadores"
-        Me.gbTrabajadores.Size = New System.Drawing.Size(254, 110)
+        Me.gbTrabajadores.Size = New System.Drawing.Size(254, 127)
         Me.gbTrabajadores.TabIndex = 2
         Me.gbTrabajadores.TabStop = False
         Me.gbTrabajadores.Text = "Trabajadores"

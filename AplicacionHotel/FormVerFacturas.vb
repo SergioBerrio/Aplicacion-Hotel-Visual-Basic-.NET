@@ -74,7 +74,7 @@ Public Class FormVerFacturas
         dgvFacturas.Rows.Remove(dgvFacturas.CurrentRow)
 
         Dim eliminarRegistro As String
-        eliminarRegistro = "DELETE * FROM Facturas WHERE IDFactura = " & FormHacerFacturas.txtbIDTrabajador.Text & ""
+        eliminarRegistro = "DELETE FROM Facturas WHERE 'IDFactura = " & FormHacerFacturas.txtbIDTrabajador.Text & "'"
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
         MsgBox("Registro eliminado", MsgBoxStyle.Information, "Eliminado")

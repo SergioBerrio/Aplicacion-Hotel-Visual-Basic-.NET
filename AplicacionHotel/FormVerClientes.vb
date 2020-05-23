@@ -41,7 +41,7 @@ Public Class FormVerClientes
         dgvClientes.Rows.Remove(dgvClientes.CurrentRow)
 
         Dim eliminarRegistro As String
-        eliminarRegistro = "DELETE * FROM Clientes WHERE DNI = " & FormReservasClientes.txtbDNI.Text & ""
+        eliminarRegistro = "DELETE FROM Clientes WHERE DNI = " & FormReservasClientes.txtbDNI.Text & ""
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
     End Sub

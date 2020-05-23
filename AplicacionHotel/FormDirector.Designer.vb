@@ -100,30 +100,30 @@ Partial Class FormDirector
         'txtbIDTrabajador
         '
         Me.txtbIDTrabajador.Enabled = False
-        Me.txtbIDTrabajador.Location = New System.Drawing.Point(31, 54)
+        Me.txtbIDTrabajador.Location = New System.Drawing.Point(16, 59)
         Me.txtbIDTrabajador.Name = "txtbIDTrabajador"
-        Me.txtbIDTrabajador.Size = New System.Drawing.Size(173, 22)
+        Me.txtbIDTrabajador.Size = New System.Drawing.Size(197, 22)
         Me.txtbIDTrabajador.TabIndex = 2
         '
         'txtbNombre
         '
-        Me.txtbNombre.Location = New System.Drawing.Point(31, 194)
+        Me.txtbNombre.Location = New System.Drawing.Point(16, 199)
         Me.txtbNombre.Name = "txtbNombre"
-        Me.txtbNombre.Size = New System.Drawing.Size(173, 22)
+        Me.txtbNombre.Size = New System.Drawing.Size(197, 22)
         Me.txtbNombre.TabIndex = 4
         '
         'cmbPuesto
         '
         Me.cmbPuesto.FormattingEnabled = True
-        Me.cmbPuesto.Location = New System.Drawing.Point(31, 119)
+        Me.cmbPuesto.Location = New System.Drawing.Point(16, 124)
         Me.cmbPuesto.Name = "cmbPuesto"
-        Me.cmbPuesto.Size = New System.Drawing.Size(173, 24)
+        Me.cmbPuesto.Size = New System.Drawing.Size(197, 24)
         Me.cmbPuesto.TabIndex = 3
         '
         'lblIDTrabajador
         '
         Me.lblIDTrabajador.AutoSize = True
-        Me.lblIDTrabajador.Location = New System.Drawing.Point(31, 31)
+        Me.lblIDTrabajador.Location = New System.Drawing.Point(16, 36)
         Me.lblIDTrabajador.Name = "lblIDTrabajador"
         Me.lblIDTrabajador.Size = New System.Drawing.Size(108, 16)
         Me.lblIDTrabajador.TabIndex = 4
@@ -132,7 +132,7 @@ Partial Class FormDirector
         'lblTipoTrabajador
         '
         Me.lblTipoTrabajador.AutoSize = True
-        Me.lblTipoTrabajador.Location = New System.Drawing.Point(31, 89)
+        Me.lblTipoTrabajador.Location = New System.Drawing.Point(16, 94)
         Me.lblTipoTrabajador.Name = "lblTipoTrabajador"
         Me.lblTipoTrabajador.Size = New System.Drawing.Size(134, 16)
         Me.lblTipoTrabajador.TabIndex = 5
@@ -141,7 +141,7 @@ Partial Class FormDirector
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
-        Me.lblNombre.Location = New System.Drawing.Point(31, 158)
+        Me.lblNombre.Location = New System.Drawing.Point(16, 170)
         Me.lblNombre.Name = "lblNombre"
         Me.lblNombre.Size = New System.Drawing.Size(57, 16)
         Me.lblNombre.TabIndex = 6
@@ -178,9 +178,9 @@ Partial Class FormDirector
         Me.btnDarAltaTrabajadores.BackColor = System.Drawing.Color.RoyalBlue
         Me.btnDarAltaTrabajadores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDarAltaTrabajadores.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnDarAltaTrabajadores.Location = New System.Drawing.Point(655, 19)
+        Me.btnDarAltaTrabajadores.Location = New System.Drawing.Point(655, 16)
         Me.btnDarAltaTrabajadores.Name = "btnDarAltaTrabajadores"
-        Me.btnDarAltaTrabajadores.Size = New System.Drawing.Size(133, 73)
+        Me.btnDarAltaTrabajadores.Size = New System.Drawing.Size(133, 85)
         Me.btnDarAltaTrabajadores.TabIndex = 8
         Me.btnDarAltaTrabajadores.Text = "Dar de alta a un trabajador"
         Me.btnDarAltaTrabajadores.UseVisualStyleBackColor = False
@@ -214,24 +214,24 @@ Partial Class FormDirector
         '
         Me.btnBuscar.BackColor = System.Drawing.Color.Green
         Me.btnBuscar.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnBuscar.Location = New System.Drawing.Point(25, 104)
+        Me.btnBuscar.Location = New System.Drawing.Point(13, 104)
         Me.btnBuscar.Name = "btnBuscar"
-        Me.btnBuscar.Size = New System.Drawing.Size(176, 33)
+        Me.btnBuscar.Size = New System.Drawing.Size(197, 33)
         Me.btnBuscar.TabIndex = 7
         Me.btnBuscar.Text = "Buscar"
         Me.btnBuscar.UseVisualStyleBackColor = False
         '
         'txtbBuscar
         '
-        Me.txtbBuscar.Location = New System.Drawing.Point(25, 54)
+        Me.txtbBuscar.Location = New System.Drawing.Point(13, 54)
         Me.txtbBuscar.Name = "txtbBuscar"
-        Me.txtbBuscar.Size = New System.Drawing.Size(176, 22)
+        Me.txtbBuscar.Size = New System.Drawing.Size(197, 22)
         Me.txtbBuscar.TabIndex = 6
         '
         'lblBuscar
         '
         Me.lblBuscar.AutoSize = True
-        Me.lblBuscar.Location = New System.Drawing.Point(22, 28)
+        Me.lblBuscar.Location = New System.Drawing.Point(10, 28)
         Me.lblBuscar.Name = "lblBuscar"
         Me.lblBuscar.Size = New System.Drawing.Size(81, 16)
         Me.lblBuscar.TabIndex = 8
@@ -266,7 +266,7 @@ Partial Class FormDirector
         Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
         Me.btnActualizar.Location = New System.Drawing.Point(655, 282)
         Me.btnActualizar.Name = "btnActualizar"
-        Me.btnActualizar.Size = New System.Drawing.Size(133, 50)
+        Me.btnActualizar.Size = New System.Drawing.Size(133, 76)
         Me.btnActualizar.TabIndex = 14
         Me.btnActualizar.Text = "Actualizar"
         Me.btnActualizar.UseVisualStyleBackColor = False

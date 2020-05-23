@@ -236,10 +236,11 @@ Partial Class FormServiciosHotel
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.SeaGreen
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.SystemColors.Control
         Me.Button1.Location = New System.Drawing.Point(629, 278)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(158, 57)
+        Me.Button1.Size = New System.Drawing.Size(158, 65)
         Me.Button1.TabIndex = 9
         Me.Button1.Text = "Actualizar"
         Me.Button1.UseVisualStyleBackColor = False

@@ -50,10 +50,11 @@ Public Class FormDirector
 
     Private Sub btnDarAltaTrabajadores_Click(sender As Object, e As EventArgs) Handles btnDarAltaTrabajadores.Click
         'dgvTrabajadores.Rows.Add(txtbIDTrabajdor.Text, txtbNombre.Text, cmbPuesto.Text)
-        'txtbNombre.Text = ""
-        'cmbPuesto.Text = String.Empty
 
-        'txtbNombre.Clear()
+        txtbNombre.Text = ""
+        cmbPuesto.Text = String.Empty
+
+        txtbNombre.Clear()
 
         i = i + 1
         txtbIDTrabajador.Text = CStr(i + 1)
@@ -66,7 +67,7 @@ Public Class FormDirector
         comando.ExecuteNonQuery()
         conexion.Close()
 
-        MsgBox("Datos de las actividades almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
+        MsgBox("Datos del trabajador almacenados correctamente!!", MsgBoxStyle.Information, "Información")
     End Sub
 
     Private Sub btnEliminarTrabajador_Click(sender As Object, e As EventArgs) Handles btnEliminarTrabajador.Click
@@ -75,7 +76,7 @@ Public Class FormDirector
         conexion.Open()
 
         Dim eliminarRegistro As String
-        eliminarRegistro = "DELETE * FROM Trabajadores WHERE IDTrabajador = " & txtbIDTrabajador.Text & ""
+        eliminarRegistro = "DELETE FROM Trabajadores WHERE 'IDTrabajador = " & txtbIDTrabajador.Text & "'"
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
     End Sub

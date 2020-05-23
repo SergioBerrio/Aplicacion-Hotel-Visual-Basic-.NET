@@ -42,6 +42,7 @@ Partial Class FormSocorrista
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BdHotelDataSet11 = New AplicacionHotel.BDHotelDataSet1()
         Me.ClientesTableAdapter = New AplicacionHotel.BDHotelDataSet1TableAdapters.ClientesTableAdapter()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.gbBuscar.SuspendLayout()
         CType(Me.dgvSocorrista, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -212,11 +213,24 @@ Partial Class FormSocorrista
         '
         Me.ClientesTableAdapter.ClearBeforeFill = True
         '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.SeaGreen
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button1.Location = New System.Drawing.Point(579, 287)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(322, 65)
+        Me.Button1.TabIndex = 15
+        Me.Button1.Text = "Actualizar"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'FormSocorrista
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(919, 450)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.gbBuscar)
         Me.Controls.Add(Me.btnAtras)
         Me.Controls.Add(Me.btnSiguiente)
@@ -252,4 +266,5 @@ Partial Class FormSocorrista
     Friend WithEvents ApellidosDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TelefonoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EmailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As Button
 End Class

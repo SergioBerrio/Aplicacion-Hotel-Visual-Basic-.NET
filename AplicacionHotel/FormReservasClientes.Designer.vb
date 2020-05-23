@@ -22,7 +22,7 @@ Partial Class FormReservasClientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnReservar = New System.Windows.Forms.Button()
         Me.txtbNombre = New System.Windows.Forms.TextBox()
         Me.txtbDNI = New System.Windows.Forms.TextBox()
         Me.lblNombre = New System.Windows.Forms.Label()
@@ -38,15 +38,16 @@ Partial Class FormReservasClientes
         Me.gbDatos.SuspendLayout()
         Me.SuspendLayout()
         '
-        'Button1
+        'btnReservar
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(183, 329)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(186, 64)
-        Me.Button1.TabIndex = 11
-        Me.Button1.Text = "Acceder a reservar"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnReservar.BackColor = System.Drawing.Color.Orange
+        Me.btnReservar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnReservar.Location = New System.Drawing.Point(183, 329)
+        Me.btnReservar.Name = "btnReservar"
+        Me.btnReservar.Size = New System.Drawing.Size(186, 64)
+        Me.btnReservar.TabIndex = 11
+        Me.btnReservar.Text = "Acceder a reservar"
+        Me.btnReservar.UseVisualStyleBackColor = False
         '
         'txtbNombre
         '
@@ -170,7 +171,7 @@ Partial Class FormReservasClientes
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.gbDatos)
         Me.Controls.Add(Me.btnAtras)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnReservar)
         Me.Name = "FormReservasClientes"
         Me.Text = "FormReservasClientes"
         Me.gbDatos.ResumeLayout(False)
@@ -179,7 +180,7 @@ Partial Class FormReservasClientes
 
     End Sub
 
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnReservar As Button
     Friend WithEvents txtbNombre As TextBox
     Friend WithEvents txtbDNI As TextBox
     Friend WithEvents lblNombre As Label

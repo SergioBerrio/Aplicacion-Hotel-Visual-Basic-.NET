@@ -167,11 +167,11 @@ Partial Class FormGobernanta
         'btnActualizar
         '
         Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
-        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnActualizar.Location = New System.Drawing.Point(521, 273)
+        Me.btnActualizar.Location = New System.Drawing.Point(521, 294)
         Me.btnActualizar.Name = "btnActualizar"
-        Me.btnActualizar.Size = New System.Drawing.Size(153, 51)
+        Me.btnActualizar.Size = New System.Drawing.Size(153, 76)
         Me.btnActualizar.TabIndex = 4
         Me.btnActualizar.Text = "Actualizar"
         Me.btnActualizar.UseVisualStyleBackColor = False

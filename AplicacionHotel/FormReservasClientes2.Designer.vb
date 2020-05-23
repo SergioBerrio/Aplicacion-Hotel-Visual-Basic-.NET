@@ -155,13 +155,14 @@ Partial Class FormReservasClientes2
         '
         'btnAccederReservar
         '
+        Me.btnAccederReservar.BackColor = System.Drawing.Color.Orange
         Me.btnAccederReservar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAccederReservar.Location = New System.Drawing.Point(182, 329)
         Me.btnAccederReservar.Name = "btnAccederReservar"
         Me.btnAccederReservar.Size = New System.Drawing.Size(186, 64)
         Me.btnAccederReservar.TabIndex = 12
         Me.btnAccederReservar.Text = "Acceder a reservar"
-        Me.btnAccederReservar.UseVisualStyleBackColor = True
+        Me.btnAccederReservar.UseVisualStyleBackColor = False
         '
         'FormReservasClientes2
         '

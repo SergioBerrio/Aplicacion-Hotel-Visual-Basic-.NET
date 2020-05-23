@@ -77,7 +77,7 @@ Public Class FormAnimacion
         dgvActividades.Rows.Remove(dgvActividades.CurrentRow)
 
         Dim eliminarRegistro As String
-        eliminarRegistro = "DELETE * FROM Actividades WHERE IDActividades = " & txtbIDActividad.Text & ""
+        eliminarRegistro = "DELETE FROM Actividades WHERE 'IDActividades = " & txtbIDActividad.Text & "'"
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
     End Sub
