@@ -5,6 +5,7 @@ Public Class FormMantenimiento
     Dim adaptador2 As New OleDbDataAdapter
     Dim registro2 As New DataSet
     Dim Mantenimiento As New DataTable
+    Dim i As Integer = 0
 
     Private Sub btnAtras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
         FormPantallaTrabajadores2.Show()
@@ -45,7 +46,7 @@ Public Class FormMantenimiento
         End Try
     End Sub
 
-    Private Sub btnBuscarDNI_Click(sender As Object, e As EventArgs) Handles btnBuscarDNI.Click
+    Private Sub btnBuscarIDIncidencia_Click(sender As Object, e As EventArgs) Handles btnBuscarIDIncidencia.Click
         Dim consulta As String
         Dim registro As Boolean
 
@@ -64,9 +65,10 @@ Public Class FormMantenimiento
                 conexion.Close()
             End If
         End If
+        txtbBuscarIDIncidencia.Clear()
     End Sub
 
-    Private Sub btnBuscarNombre_Click(sender As Object, e As EventArgs) Handles btnBuscarNombre.Click
+    Private Sub btnBuscarEstado_Click(sender As Object, e As EventArgs) Handles btnBuscarEstado.Click
         Dim consulta As String
         Dim registro As Boolean
 
@@ -85,21 +87,33 @@ Public Class FormMantenimiento
                 conexion.Close()
             End If
         End If
+        txtbBuscarEstado.Clear()
     End Sub
 
     Private Sub btnAgregarIncidencia_Click(sender As Object, e As EventArgs) Handles btnAgregarIncidencia.Click
-        dgvMantenimiento.Rows.Add(txtbIDIncidencia.Text, txtbIncidencia.Text, txtbEstado.Text)
-        txtbIDIncidencia.Text = ""
-        txtbIncidencia.Text = ""
-        txtbEstado.Text = ""
+        'txtbIDIncidencia.Text = Val(txtbIDIncidencia.Text) + 1
 
-        txtbIDIncidencia.Clear()
-        txtbIncidencia.Clear()
-        txtbEstado.Clear()
+        If txtbIDIncidencia.Text = "" And txtbEstado.Text = "" Then
+            MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
-        conexion.Close()
+        ElseIf txtbIDIncidencia.Text <> "" And txtbEstado.Text <> "" Then
+            dgvMantenimiento.Rows.Add(txtbIDIncidencia.Text, txtbIncidencia.Text, txtbEstado.Text)
 
-        MsgBox("Datos de las recetas almacenadas correctamente!!")
+            i = i + 1
+            txtbIDIncidencia.Text = CStr(i + 1)
+
+            txtbIncidencia.Text = ""
+            txtbEstado.Text = ""
+
+            txtbIncidencia.Clear()
+            txtbEstado.Clear()
+
+            conexion.Close()
+
+            MsgBox("Datos de las recetas almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
+
+            txtbIDIncidencia.Text = Val(txtbIDIncidencia.Text) + 1
+        End If
     End Sub
 
     Private Sub btnEliminarIncidencia_Click(sender As Object, e As EventArgs) Handles btnEliminarIncidencia.Click
@@ -108,5 +122,36 @@ Public Class FormMantenimiento
         MsgBox("Registro eliminado", MsgBoxStyle.Information, "Eliminado")
 
         conexion.Close()
+    End Sub
+
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        refreshDatagrid()
+    End Sub
+
+    Private Sub refreshDatagrid()
+        Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
+        Dim ole As New OleDbCommand("SELECT * FROM Mantenimiento", con)
+        Dim ds As New DataSet
+        Dim DataAdapter1 As New OleDbDataAdapter
+        con.Open()
+        DataAdapter1.SelectCommand = ole
+        DataAdapter1.Fill(ds, "Mantenimiento")
+        dgvMantenimiento.DataSource = ds
+        dgvMantenimiento.DataMember = "Mantenimiento"
+        con.Close()
+    End Sub
+
+    Private Sub FormMantenimiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtbIDIncidencia.Text = CStr(i + 1)
+
+        Try
+            conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
+            conexion.Open()
+
+            conexion.Close()
+            MsgBox("Se ha establecido la conexión con la base de datos!!", MsgBoxStyle.Information, "Información")
+        Catch ex As Exception
+            MsgBox("No se ha podido establecer la conexión!!", MsgBoxStyle.Critical, "Error")
+        End Try
     End Sub
 End Class

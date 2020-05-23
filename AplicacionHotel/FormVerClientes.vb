@@ -19,8 +19,6 @@ Public Class FormVerClientes
     End Sub
 
     Private Sub FormVerClientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet11.Clientes' Puede moverla o quitarla según sea necesario.
-        Me.ClientesTableAdapter.Fill(Me.BdHotelDataSet11.Clientes)
 
         Try
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
@@ -28,7 +26,7 @@ Public Class FormVerClientes
 
             conexion.Close()
             MsgBox("Se ha establecido la conexión con la base de datos!!", MsgBoxStyle.Information, "Información")
-            'CargarDatosDataGridView()
+            CargarDatosDataGridView()
         Catch ex As Exception
             MsgBox("No se ha podido establecer la conexión!!", MsgBoxStyle.Critical, "Error")
         End Try
@@ -58,7 +56,7 @@ Public Class FormVerClientes
         Dim registro As Boolean
 
         If txtbBuscarDNI.Text <> "" Then
-            consulta = "SELECT * FROM Clientes WHERE DNI = " & txtbBuscarDNI.Text & ""
+            consulta = "SELECT * FROM Clientes WHERE 'DNI = " & txtbBuscarDNI.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Clientes")

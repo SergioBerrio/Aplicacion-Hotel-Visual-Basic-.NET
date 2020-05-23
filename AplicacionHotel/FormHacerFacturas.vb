@@ -8,7 +8,7 @@ Public Class FormHacerFacturas
     Dim registro2 As New DataSet
     Private Sub CargarDatosDataGridView()
         Dim consulta As String
-        consulta = "SELECT * FROM Facturas"
+        consulta = "SELECT * FROM Facturas ORDER BY ASC"
         adaptador2 = New OleDbDataAdapter(consulta, conexion)
         registro2.Tables.Add("Facturas")
         adaptador2.Fill(registro2.Tables("Facturas"))

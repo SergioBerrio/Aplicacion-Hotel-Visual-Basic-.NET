@@ -106,6 +106,7 @@ Public Class FormVerReservas
         ElseIf txtbBuscarID.Text = "" Then
             MsgBox("Inserta un valor", MsgBoxStyle.Critical, "Error")
         End If
+        txtbBuscarID.Clear()
     End Sub
 
     Private Sub btnBuscarDNI_Click(sender As Object, e As EventArgs) Handles btnBuscarDNI.Click
@@ -130,5 +131,6 @@ Public Class FormVerReservas
         ElseIf txtbBuscarDNI.Text = "" Then
             MsgBox("Inserta un valor", MsgBoxStyle.Critical, "Error")
         End If
+        txtbBuscarDNI.Clear()
     End Sub
 End Class

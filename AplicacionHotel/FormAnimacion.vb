@@ -8,6 +8,7 @@ Public Class FormAnimacion
     Dim adaptador2 As New OleDbDataAdapter
     Dim registro2 As New DataSet
     Dim tabla As New DataTable
+    Dim i As Integer = 0
 
     Private Sub CargarDatosDataGridView()
         Dim consulta As String
@@ -29,7 +30,7 @@ Public Class FormAnimacion
         'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet11.Actividades' Puede moverla o quitarla según sea necesario.
         Me.ActividadesTableAdapter1.Fill(Me.BdHotelDataSet11.Actividades)
 
-        txtbIDActividad.Text = Val(txtbIDActividad.Text) + 1
+        txtbIDActividad.Text = CStr(i + 1)
 
         Try
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
@@ -51,12 +52,15 @@ Public Class FormAnimacion
 
     Private Sub btnAgregarActividad_Click(sender As Object, e As EventArgs) Handles btnAgregarActividad.Click
         'dgvActividades.Rows.Add(txtbIDActividad.Text, txtbImporte.Text, cmbNombre.Text)
-        'txtbIDActividad.Text = ""
         'txtbImporte.Text = ""
         'cmbNombre.Text = String.Empty
 
-        'txtbIDActividad.Clear()
         'txtbImporte.Clear()
+
+        i = i + 1
+        txtbIDActividad.Text = CStr(i + 1)
+
+        conexion.Open()
 
         comando = New OleDbCommand("INSERT INTO Actividades(IDActividades, Nombre, ImporteActividad)" & Chr(13) &
                                          "VALUES(txtIDActividad, cmbNombre, txtImporte)", conexion)
@@ -66,7 +70,7 @@ Public Class FormAnimacion
         comando.ExecuteNonQuery()
         conexion.Close()
 
-        MsgBox("Datos de las actividades almacenadas correctamente!!")
+        MsgBox("Datos de las actividades almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
     End Sub
 
     Private Sub btnEliminarActividad_Click(sender As Object, e As EventArgs) Handles btnEliminarActividad.Click
@@ -109,6 +113,7 @@ Public Class FormAnimacion
                 conexion.Close()
             End If
         End If
+        txtbBuscar.Clear()
     End Sub
 
     Private Sub btnSiguiente_Click(sender As Object, e As EventArgs) Handles btnSiguiente.Click
@@ -124,7 +129,7 @@ Public Class FormAnimacion
             End If
 
         Catch ex As Exception
-            MsgBox("No se realizó el proceso por: " & ex.Message)
+            MsgBox("No se realizó el proceso por: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
@@ -141,7 +146,24 @@ Public Class FormAnimacion
             End If
 
         Catch ex As Exception
-            MsgBox("No se realizó el proceso por: " & ex.Message)
+            MsgBox("No se realizó el proceso por: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        refreshDatagrid()
+    End Sub
+
+    Private Sub refreshDatagrid()
+        Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
+        Dim ole As OleDbCommand = New OleDbCommand("SELECT * FROM Actividades", con)
+        Dim ds As DataSet = New DataSet()
+        Dim DataAdapter1 As OleDbDataAdapter = New OleDbDataAdapter()
+        con.Open()
+        DataAdapter1.SelectCommand = ole
+        DataAdapter1.Fill(ds, "Actividades")
+        dgvActividades.DataSource = ds
+        dgvActividades.DataMember = "Actividades"
+        con.Close()
     End Sub
 End Class

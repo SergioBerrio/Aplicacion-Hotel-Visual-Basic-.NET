@@ -37,6 +37,7 @@ Partial Class FormGobernanta
         Me.btnSiguiente = New System.Windows.Forms.Button()
         Me.btnAnterior = New System.Windows.Forms.Button()
         Me.TrabajadoresTableAdapter = New AplicacionHotel.BDHotelDataSet1TableAdapters.TrabajadoresTableAdapter()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         CType(Me.dgvLimpieza, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrabajadoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,7 +55,7 @@ Partial Class FormGobernanta
         Me.dgvLimpieza.Name = "dgvLimpieza"
         Me.dgvLimpieza.ReadOnly = True
         Me.dgvLimpieza.Size = New System.Drawing.Size(343, 358)
-        Me.dgvLimpieza.TabIndex = 7
+        Me.dgvLimpieza.TabIndex = 8
         '
         'IDTrabajadorDataGridViewTextBoxColumn
         '
@@ -133,7 +134,7 @@ Partial Class FormGobernanta
         Me.btnAtras.Location = New System.Drawing.Point(521, 380)
         Me.btnAtras.Name = "btnAtras"
         Me.btnAtras.Size = New System.Drawing.Size(153, 51)
-        Me.btnAtras.TabIndex = 6
+        Me.btnAtras.TabIndex = 7
         Me.btnAtras.Text = "Salir"
         Me.btnAtras.UseVisualStyleBackColor = True
         '
@@ -144,7 +145,7 @@ Partial Class FormGobernanta
         Me.btnSiguiente.Location = New System.Drawing.Point(218, 380)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(138, 51)
-        Me.btnSiguiente.TabIndex = 5
+        Me.btnSiguiente.TabIndex = 6
         Me.btnSiguiente.Text = "Siguiente"
         Me.btnSiguiente.UseVisualStyleBackColor = False
         '
@@ -155,7 +156,7 @@ Partial Class FormGobernanta
         Me.btnAnterior.Location = New System.Drawing.Point(11, 380)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(131, 51)
-        Me.btnAnterior.TabIndex = 4
+        Me.btnAnterior.TabIndex = 5
         Me.btnAnterior.Text = "Anterior"
         Me.btnAnterior.UseVisualStyleBackColor = False
         '
@@ -163,11 +164,24 @@ Partial Class FormGobernanta
         '
         Me.TrabajadoresTableAdapter.ClearBeforeFill = True
         '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnActualizar.Location = New System.Drawing.Point(521, 273)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(153, 51)
+        Me.btnActualizar.TabIndex = 4
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = False
+        '
         'FormGobernanta
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(706, 450)
+        Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.dgvLimpieza)
         Me.Controls.Add(Me.gbBuscar)
         Me.Controls.Add(Me.btnAtras)
@@ -198,4 +212,5 @@ Partial Class FormGobernanta
     Friend WithEvents IDTrabajadorDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PuestoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents btnActualizar As Button
 End Class

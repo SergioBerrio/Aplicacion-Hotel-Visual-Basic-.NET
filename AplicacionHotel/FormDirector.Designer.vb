@@ -30,7 +30,7 @@ Partial Class FormDirector
         Me.TrabajadoresBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BdHotelDataSet11 = New AplicacionHotel.BDHotelDataSet1()
         Me.TrabajadoresTableAdapter = New AplicacionHotel.BDHotelDataSet1TableAdapters.TrabajadoresTableAdapter()
-        Me.txtbIDTrabajdor = New System.Windows.Forms.TextBox()
+        Me.txtbIDTrabajador = New System.Windows.Forms.TextBox()
         Me.txtbNombre = New System.Windows.Forms.TextBox()
         Me.cmbPuesto = New System.Windows.Forms.ComboBox()
         Me.lblIDTrabajador = New System.Windows.Forms.Label()
@@ -46,6 +46,7 @@ Partial Class FormDirector
         Me.lblBuscar = New System.Windows.Forms.Label()
         Me.btnSiguiente = New System.Windows.Forms.Button()
         Me.btnAnterior = New System.Windows.Forms.Button()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         CType(Me.dgvTrabajadores, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrabajadoresBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -96,12 +97,13 @@ Partial Class FormDirector
         '
         Me.TrabajadoresTableAdapter.ClearBeforeFill = True
         '
-        'txtbIDTrabajdor
+        'txtbIDTrabajador
         '
-        Me.txtbIDTrabajdor.Location = New System.Drawing.Point(31, 54)
-        Me.txtbIDTrabajdor.Name = "txtbIDTrabajdor"
-        Me.txtbIDTrabajdor.Size = New System.Drawing.Size(173, 22)
-        Me.txtbIDTrabajdor.TabIndex = 2
+        Me.txtbIDTrabajador.Enabled = False
+        Me.txtbIDTrabajador.Location = New System.Drawing.Point(31, 54)
+        Me.txtbIDTrabajador.Name = "txtbIDTrabajador"
+        Me.txtbIDTrabajador.Size = New System.Drawing.Size(173, 22)
+        Me.txtbIDTrabajador.TabIndex = 2
         '
         'txtbNombre
         '
@@ -152,7 +154,7 @@ Partial Class FormDirector
         Me.gbDatosTrabajadores.Controls.Add(Me.lblIDTrabajador)
         Me.gbDatosTrabajadores.Controls.Add(Me.cmbPuesto)
         Me.gbDatosTrabajadores.Controls.Add(Me.txtbNombre)
-        Me.gbDatosTrabajadores.Controls.Add(Me.txtbIDTrabajdor)
+        Me.gbDatosTrabajadores.Controls.Add(Me.txtbIDTrabajador)
         Me.gbDatosTrabajadores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbDatosTrabajadores.Location = New System.Drawing.Point(386, 16)
         Me.gbDatosTrabajadores.Name = "gbDatosTrabajadores"
@@ -212,7 +214,7 @@ Partial Class FormDirector
         '
         Me.btnBuscar.BackColor = System.Drawing.Color.Green
         Me.btnBuscar.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnBuscar.Location = New System.Drawing.Point(25, 85)
+        Me.btnBuscar.Location = New System.Drawing.Point(25, 104)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(176, 33)
         Me.btnBuscar.TabIndex = 7
@@ -257,11 +259,24 @@ Partial Class FormDirector
         Me.btnAnterior.Text = "Anterior"
         Me.btnAnterior.UseVisualStyleBackColor = False
         '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnActualizar.Location = New System.Drawing.Point(655, 282)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(133, 50)
+        Me.btnActualizar.TabIndex = 14
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = False
+        '
         'FormDirector
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.btnSiguiente)
         Me.Controls.Add(Me.btnAnterior)
         Me.Controls.Add(Me.gbBuscadorTrabajadores)
@@ -290,7 +305,7 @@ Partial Class FormDirector
     Friend WithEvents IDTrabajadorDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents PuestoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NombreDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents txtbIDTrabajdor As TextBox
+    Friend WithEvents txtbIDTrabajador As TextBox
     Friend WithEvents txtbNombre As TextBox
     Friend WithEvents cmbPuesto As ComboBox
     Friend WithEvents lblIDTrabajador As Label
@@ -306,4 +321,5 @@ Partial Class FormDirector
     Friend WithEvents lblBuscar As Label
     Friend WithEvents btnSiguiente As Button
     Friend WithEvents btnAnterior As Button
+    Friend WithEvents btnActualizar As Button
 End Class

@@ -23,8 +23,6 @@ Public Class FormServiciosHotel
         'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet11.Servicios' Puede moverla o quitarla según sea necesario.
         Me.ServiciosTableAdapter.Fill(Me.BdHotelDataSet11.Servicios)
 
-        txtbIDServicio.Text = Val(txtbIDServicio.Text) + 1
-
         Try
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
             conexion.Open()
@@ -55,7 +53,9 @@ Public Class FormServiciosHotel
 
         'txtbIDServicio.Clear()
 
-        comando = New OleDbCommand("INSERT INTO Actividades(IDServicios, Nombre)" & Chr(13) &
+        conexion.Open()
+
+        comando = New OleDbCommand("INSERT INTO Servicios(IDServicios, Nombre)" & Chr(13) &
                                          "VALUES(txtIDServicios, cmbNombre)", conexion)
         comando.Parameters.AddWithValue("@IDServicios", txtbIDServicio.Text)
         comando.Parameters.AddWithValue("@Nombre", cmbNombre.Text)
@@ -63,6 +63,8 @@ Public Class FormServiciosHotel
         conexion.Close()
 
         MsgBox("Datos de las actividades almacenadas correctamente!!")
+
+        txtbIDServicio.Text = Val(txtbIDServicio.Text) + 1
     End Sub
 
     Private Sub btnEliminarServicio_Click(sender As Object, e As EventArgs) Handles btnEliminarServicio.Click
@@ -134,5 +136,22 @@ Public Class FormServiciosHotel
         Catch ex As Exception
             MsgBox("No se realizó el proceso por: " & ex.Message)
         End Try
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        refreshDatagrid()
+    End Sub
+
+    Private Sub refreshDatagrid()
+        Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
+        Dim ole As New OleDbCommand("SELECT * FROM Servicios ORDER BY IDServicios ASC", con)
+        Dim ds As New DataSet
+        Dim DataAdapter1 As New OleDbDataAdapter
+        con.Open()
+        DataAdapter1.SelectCommand = ole
+        DataAdapter1.Fill(ds, "Servicios")
+        dgvServicios.DataSource = ds
+        dgvServicios.DataMember = "Servicios"
+        con.Close()
     End Sub
 End Class

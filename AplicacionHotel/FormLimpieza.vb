@@ -92,6 +92,24 @@ Public Class FormLimpieza
                 conexion.Close()
             End If
         End If
+        txtbBuscarNumero.Clear()
+    End Sub
+
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        refreshDatagrid()
+    End Sub
+
+    Private Sub refreshDatagrid()
+        Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
+        Dim ole As New OleDbCommand("SELECT * FROM Habitaciones", con)
+        Dim ds As New DataSet
+        Dim DataAdapter1 As New OleDbDataAdapter
+        con.Open()
+        DataAdapter1.SelectCommand = ole
+        DataAdapter1.Fill(ds, "Habitaciones")
+        dgvLimpieza.DataSource = ds
+        dgvLimpieza.DataMember = "Habitaciones"
+        con.Close()
     End Sub
 
     Private Sub btnBuscarTipo_Click(sender As Object, e As EventArgs) Handles btnBuscarTipo.Click
@@ -99,7 +117,7 @@ Public Class FormLimpieza
         Dim registro As Boolean
 
         If txtbBuscarTipo.Text <> "" Then
-            consulta = "SELECT * FROM Habitaciones WHERE Tipo = " & txtbBuscarTipo.Text & ""
+            consulta = "SELECT * FROM Habitaciones WHERE 'Tipo = " & txtbBuscarTipo.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Habitaciones")
@@ -113,5 +131,6 @@ Public Class FormLimpieza
                 conexion.Close()
             End If
         End If
+        txtbBuscarTipo.Clear()
     End Sub
 End Class

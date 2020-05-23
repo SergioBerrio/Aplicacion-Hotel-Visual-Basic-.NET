@@ -10,7 +10,7 @@ Public Class FormGobernanta
 
     Private Sub CargarDatosDataGridView()
         Dim consulta As String
-        consulta = "SELECT * FROM Trabajadores"
+        consulta = "SELECT * FROM Trabajadores WHERE Puesto = Limpieza, ORDER BY IDTrabajdor ASC"
         adaptador2 = New OleDbDataAdapter(consulta, conexion)
         registro2.Tables.Add("Trabajadores")
         adaptador2.Fill(registro2.Tables("Trabajadores"))
@@ -45,19 +45,37 @@ Public Class FormGobernanta
         Dim registro As Boolean
 
         If txtbBuscarPuesto.Text <> "" Then
-            consulta = "SELECT * FROM Trabajdores WHERE Puesto = " & txtbBuscarPuesto.Text & ""
+            consulta = "SELECT * FROM Trabajadores WHERE Puesto = " & txtbBuscarPuesto.Text & ""
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
-            adaptador2.Fill(registro2, "Trabajdores")
-            registro = registro2.Tables("Trabajdores").Rows.Count
+            adaptador2.Fill(registro2, "Trabajadores")
+            registro = registro2.Tables("Trabajadores").Rows.Count
 
             If registro <> 0 Then
                 dgvLimpieza.DataSource = registro2
-                dgvLimpieza.DataMember = "Trabajdores"
+                dgvLimpieza.DataMember = "Trabajadores"
             Else
                 MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
                 conexion.Close()
             End If
         End If
+        txtbBuscarPuesto.Clear()
+    End Sub
+
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        refreshDatagrid()
+    End Sub
+
+    Private Sub refreshDatagrid()
+        Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
+        Dim ole As New OleDbCommand("SELECT * FROM Trabajadores WHERE Puesto = Limpieza, ORDER BY IDTrabajador ASC", con)
+        Dim ds As New DataSet
+        Dim DataAdapter1 As New OleDbDataAdapter
+        con.Open()
+        DataAdapter1.SelectCommand = ole
+        DataAdapter1.Fill(ds, "Trabajadores")
+        dgvLimpieza.DataSource = ds
+        dgvLimpieza.DataMember = "Trabajadores"
+        con.Close()
     End Sub
 End Class

@@ -7,10 +7,11 @@ Public Class FormDirector
     Dim adaptador2 As New OleDbDataAdapter
     Dim registro2 As New DataSet
     Dim tabla As New DataTable
+    Dim i As Integer = 0
 
     Private Sub CargarDatosDataGridView()
         Dim consulta As String
-        consulta = "SELECT * FROM Trabajadores"
+        consulta = "SELECT * FROM Trabajadores ORDER BY IDTrabajador ASC"
         adaptador2 = New OleDbDataAdapter(consulta, conexion)
         registro2.Tables.Add("Trabajadores")
         adaptador2.Fill(registro2.Tables("Trabajadores"))
@@ -23,7 +24,7 @@ Public Class FormDirector
         'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet11.Trabajadores' Puede moverla o quitarla según sea necesario.
         Me.TrabajadoresTableAdapter.Fill(Me.BdHotelDataSet11.Trabajadores)
 
-        txtbIDTrabajdor.Text = Val(txtbIDTrabajdor.Text) + 1
+        txtbIDTrabajador.Text = CStr(i + 1)
 
         Try
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
@@ -49,29 +50,32 @@ Public Class FormDirector
 
     Private Sub btnDarAltaTrabajadores_Click(sender As Object, e As EventArgs) Handles btnDarAltaTrabajadores.Click
         'dgvTrabajadores.Rows.Add(txtbIDTrabajdor.Text, txtbNombre.Text, cmbPuesto.Text)
-        'txtbIDTrabajdor.Text = ""
         'txtbNombre.Text = ""
         'cmbPuesto.Text = String.Empty
 
-        'txtbIDTrabajdor.Clear()
         'txtbNombre.Clear()
+
+        i = i + 1
+        txtbIDTrabajador.Text = CStr(i + 1)
 
         comando = New OleDbCommand("INSERT INTO Trabajadores(IDTrabajador, Puesto, Nombre)" & Chr(13) &
                                          "VALUES(txtIDTrabajador, cmbPuesto, txtNombre)", conexion)
-        comando.Parameters.AddWithValue("@IDTrabajador", txtbIDTrabajdor.Text)
+        comando.Parameters.AddWithValue("@IDTrabajador", txtbIDTrabajador.Text)
         comando.Parameters.AddWithValue("@Puesto", cmbPuesto.Text)
         comando.Parameters.AddWithValue("@Nombre", txtbNombre.Text)
         comando.ExecuteNonQuery()
         conexion.Close()
 
-        MsgBox("Datos de las actividades almacenadas correctamente!!")
+        MsgBox("Datos de las actividades almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
     End Sub
 
     Private Sub btnEliminarTrabajador_Click(sender As Object, e As EventArgs) Handles btnEliminarTrabajador.Click
         dgvTrabajadores.Rows.Remove(dgvTrabajadores.CurrentRow)
 
+        conexion.Open()
+
         Dim eliminarRegistro As String
-        eliminarRegistro = "DELETE * FROM Trabajadores WHERE IDTrabajador = " & txtbIDTrabajdor.Text & ""
+        eliminarRegistro = "DELETE * FROM Trabajadores WHERE IDTrabajador = " & txtbIDTrabajador.Text & ""
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
     End Sub
@@ -101,6 +105,7 @@ Public Class FormDirector
                 conexion.Close()
             End If
         End If
+        txtbBuscar.Clear()
     End Sub
 
     Private Sub btnAnterior_Click(sender As Object, e As EventArgs) Handles btnAnterior.Click
@@ -116,7 +121,7 @@ Public Class FormDirector
             End If
 
         Catch ex As Exception
-            MsgBox("No se realizó el proceso por: " & ex.Message)
+            MsgBox("No se realizó el proceso por: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
@@ -133,7 +138,24 @@ Public Class FormDirector
             End If
 
         Catch ex As Exception
-            MsgBox("No se realizó el proceso por: " & ex.Message)
+            MsgBox("No se realizó el proceso por: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        refreshDatagrid()
+    End Sub
+
+    Private Sub refreshDatagrid()
+        Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
+        Dim ole As New OleDbCommand("SELECT * FROM Trabajadores ORDER BY IDTrabajador ASC", con)
+        Dim ds As New DataSet
+        Dim DataAdapter1 As New OleDbDataAdapter
+        con.Open()
+        DataAdapter1.SelectCommand = ole
+        DataAdapter1.Fill(ds, "Trabajadores")
+        dgvTrabajadores.DataSource = ds
+        dgvTrabajadores.DataMember = "Trabajadores"
+        con.Close()
     End Sub
 End Class

@@ -23,10 +23,10 @@ Partial Class FormMantenimiento
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.gbBuscar = New System.Windows.Forms.GroupBox()
-        Me.btnBuscarNombre = New System.Windows.Forms.Button()
+        Me.btnBuscarEstado = New System.Windows.Forms.Button()
         Me.txtbBuscarEstado = New System.Windows.Forms.TextBox()
         Me.lblEstado = New System.Windows.Forms.Label()
-        Me.btnBuscarDNI = New System.Windows.Forms.Button()
+        Me.btnBuscarIDIncidencia = New System.Windows.Forms.Button()
         Me.txtbBuscarIDIncidencia = New System.Windows.Forms.TextBox()
         Me.lblIDIncidencia = New System.Windows.Forms.Label()
         Me.btnAtras = New System.Windows.Forms.Button()
@@ -45,6 +45,7 @@ Partial Class FormMantenimiento
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtbIDIncidencia = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         Me.gbBuscar.SuspendLayout()
         CType(Me.dgvMantenimiento, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbDatosIncidencia.SuspendLayout()
@@ -52,10 +53,10 @@ Partial Class FormMantenimiento
         '
         'gbBuscar
         '
-        Me.gbBuscar.Controls.Add(Me.btnBuscarNombre)
+        Me.gbBuscar.Controls.Add(Me.btnBuscarEstado)
         Me.gbBuscar.Controls.Add(Me.txtbBuscarEstado)
         Me.gbBuscar.Controls.Add(Me.lblEstado)
-        Me.gbBuscar.Controls.Add(Me.btnBuscarDNI)
+        Me.gbBuscar.Controls.Add(Me.btnBuscarIDIncidencia)
         Me.gbBuscar.Controls.Add(Me.txtbBuscarIDIncidencia)
         Me.gbBuscar.Controls.Add(Me.lblIDIncidencia)
         Me.gbBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -66,16 +67,16 @@ Partial Class FormMantenimiento
         Me.gbBuscar.TabStop = False
         Me.gbBuscar.Text = "Buscador"
         '
-        'btnBuscarNombre
+        'btnBuscarEstado
         '
-        Me.btnBuscarNombre.BackColor = System.Drawing.Color.Green
-        Me.btnBuscarNombre.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnBuscarNombre.Location = New System.Drawing.Point(24, 207)
-        Me.btnBuscarNombre.Name = "btnBuscarNombre"
-        Me.btnBuscarNombre.Size = New System.Drawing.Size(255, 33)
-        Me.btnBuscarNombre.TabIndex = 9
-        Me.btnBuscarNombre.Text = "Buscar"
-        Me.btnBuscarNombre.UseVisualStyleBackColor = False
+        Me.btnBuscarEstado.BackColor = System.Drawing.Color.Green
+        Me.btnBuscarEstado.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnBuscarEstado.Location = New System.Drawing.Point(24, 207)
+        Me.btnBuscarEstado.Name = "btnBuscarEstado"
+        Me.btnBuscarEstado.Size = New System.Drawing.Size(255, 33)
+        Me.btnBuscarEstado.TabIndex = 9
+        Me.btnBuscarEstado.Text = "Buscar"
+        Me.btnBuscarEstado.UseVisualStyleBackColor = False
         '
         'txtbBuscarEstado
         '
@@ -93,16 +94,16 @@ Partial Class FormMantenimiento
         Me.lblEstado.TabIndex = 10
         Me.lblEstado.Text = "Estado"
         '
-        'btnBuscarDNI
+        'btnBuscarIDIncidencia
         '
-        Me.btnBuscarDNI.BackColor = System.Drawing.Color.Green
-        Me.btnBuscarDNI.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnBuscarDNI.Location = New System.Drawing.Point(24, 93)
-        Me.btnBuscarDNI.Name = "btnBuscarDNI"
-        Me.btnBuscarDNI.Size = New System.Drawing.Size(255, 33)
-        Me.btnBuscarDNI.TabIndex = 7
-        Me.btnBuscarDNI.Text = "Buscar"
-        Me.btnBuscarDNI.UseVisualStyleBackColor = False
+        Me.btnBuscarIDIncidencia.BackColor = System.Drawing.Color.Green
+        Me.btnBuscarIDIncidencia.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnBuscarIDIncidencia.Location = New System.Drawing.Point(24, 93)
+        Me.btnBuscarIDIncidencia.Name = "btnBuscarIDIncidencia"
+        Me.btnBuscarIDIncidencia.Size = New System.Drawing.Size(255, 33)
+        Me.btnBuscarIDIncidencia.TabIndex = 7
+        Me.btnBuscarIDIncidencia.Text = "Buscar"
+        Me.btnBuscarIDIncidencia.UseVisualStyleBackColor = False
         '
         'txtbBuscarIDIncidencia
         '
@@ -126,7 +127,7 @@ Partial Class FormMantenimiento
         Me.btnAtras.Location = New System.Drawing.Point(705, 442)
         Me.btnAtras.Name = "btnAtras"
         Me.btnAtras.Size = New System.Drawing.Size(153, 51)
-        Me.btnAtras.TabIndex = 12
+        Me.btnAtras.TabIndex = 13
         Me.btnAtras.Text = "Salir"
         Me.btnAtras.UseVisualStyleBackColor = True
         '
@@ -137,7 +138,7 @@ Partial Class FormMantenimiento
         Me.btnSiguiente.Location = New System.Drawing.Point(219, 447)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(138, 51)
-        Me.btnSiguiente.TabIndex = 14
+        Me.btnSiguiente.TabIndex = 15
         Me.btnSiguiente.Text = "Siguiente"
         Me.btnSiguiente.UseVisualStyleBackColor = False
         '
@@ -147,7 +148,7 @@ Partial Class FormMantenimiento
         Me.btnAnterior.Location = New System.Drawing.Point(12, 447)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(131, 51)
-        Me.btnAnterior.TabIndex = 13
+        Me.btnAnterior.TabIndex = 14
         Me.btnAnterior.Text = "Anterior"
         Me.btnAnterior.UseVisualStyleBackColor = False
         '
@@ -160,7 +161,7 @@ Partial Class FormMantenimiento
         Me.dgvMantenimiento.Name = "dgvMantenimiento"
         Me.dgvMantenimiento.ReadOnly = True
         Me.dgvMantenimiento.Size = New System.Drawing.Size(345, 421)
-        Me.dgvMantenimiento.TabIndex = 15
+        Me.dgvMantenimiento.TabIndex = 16
         '
         'Column1
         '
@@ -254,6 +255,7 @@ Partial Class FormMantenimiento
         '
         'txtbIDIncidencia
         '
+        Me.txtbIDIncidencia.Enabled = False
         Me.txtbIDIncidencia.Location = New System.Drawing.Point(24, 53)
         Me.txtbIDIncidencia.Name = "txtbIDIncidencia"
         Me.txtbIDIncidencia.Size = New System.Drawing.Size(255, 22)
@@ -268,11 +270,24 @@ Partial Class FormMantenimiento
         Me.Label3.TabIndex = 7
         Me.Label3.Text = "ID de incidencia"
         '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnActualizar.Location = New System.Drawing.Point(705, 300)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(153, 50)
+        Me.btnActualizar.TabIndex = 12
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = False
+        '
         'FormMantenimiento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(876, 510)
+        Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.gbDatosIncidencia)
         Me.Controls.Add(Me.btnEliminarIncidencia)
         Me.Controls.Add(Me.btnAgregarIncidencia)
@@ -293,10 +308,10 @@ Partial Class FormMantenimiento
     End Sub
 
     Friend WithEvents gbBuscar As GroupBox
-    Friend WithEvents btnBuscarNombre As Button
+    Friend WithEvents btnBuscarEstado As Button
     Friend WithEvents txtbBuscarEstado As TextBox
     Friend WithEvents lblEstado As Label
-    Friend WithEvents btnBuscarDNI As Button
+    Friend WithEvents btnBuscarIDIncidencia As Button
     Friend WithEvents txtbBuscarIDIncidencia As TextBox
     Friend WithEvents lblIDIncidencia As Label
     Friend WithEvents btnAtras As Button
@@ -315,4 +330,5 @@ Partial Class FormMantenimiento
     Friend WithEvents Label3 As Label
     Friend WithEvents txtbIncidencia As TextBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents btnActualizar As Button
 End Class

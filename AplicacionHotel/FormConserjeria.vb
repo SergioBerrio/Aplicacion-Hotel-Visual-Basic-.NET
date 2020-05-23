@@ -20,9 +20,6 @@ Public Class FormConserjeria
     End Sub
 
     Private Sub FormConserjeria_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet11.Clientes' Puede moverla o quitarla según sea necesario.
-        Me.ClientesTableAdapter.Fill(Me.BdHotelDataSet11.Clientes)
-
         Try
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
             conexion.Open()
@@ -62,6 +59,7 @@ Public Class FormConserjeria
         ElseIf txtbBuscarDNI.Text = "" Then
             MsgBox("Inserta un valor", MsgBoxStyle.Critical, "Error")
         End If
+        txtbBuscarDNI.Clear()
     End Sub
 
     Private Sub btnBuscarNombre_Click(sender As Object, e As EventArgs) Handles btnBuscarNombre.Click
@@ -86,6 +84,7 @@ Public Class FormConserjeria
         ElseIf txtbBuscarDNI.Text = "" Then
             MsgBox("Inserta un valor", MsgBoxStyle.Critical, "Error")
         End If
+        txtbBuscarNombre.Clear()
     End Sub
 
     Private Sub btnAnterior_Click(sender As Object, e As EventArgs) Handles btnAnterior.Click
@@ -100,7 +99,7 @@ Public Class FormConserjeria
                 MsgBox("Has llegado al principio", MsgBoxStyle.Critical, "Advertencia")
             End If
         Catch ex As Exception
-            MsgBox("No se realizó el proceso por: " & ex.Message)
+            MsgBox("No se realizó el proceso por: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
@@ -116,7 +115,24 @@ Public Class FormConserjeria
                 MsgBox("Has llegado al final", MsgBoxStyle.Critical, "Advertencia")
             End If
         Catch ex As Exception
-            MsgBox("No se realizó el proceso por: " & ex.Message)
+            MsgBox("No se realizó el proceso por: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        refreshDatagrid()
+    End Sub
+
+    Private Sub refreshDatagrid()
+        Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
+        Dim ole As New OleDbCommand("SELECT * FROM Clientes", con)
+        Dim ds As New DataSet()
+        Dim DataAdapter1 As New OleDbDataAdapter()
+        con.Open()
+        DataAdapter1.SelectCommand = ole
+        DataAdapter1.Fill(ds, "Clientes")
+        dgvConserjeria.DataSource = ds
+        dgvConserjeria.DataMember = "Clientes"
+        con.Close()
     End Sub
 End Class

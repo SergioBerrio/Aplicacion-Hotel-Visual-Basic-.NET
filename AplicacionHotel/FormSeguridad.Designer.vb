@@ -32,8 +32,17 @@ Partial Class FormSeguridad
         Me.btnAtras = New System.Windows.Forms.Button()
         Me.btnSiguiente = New System.Windows.Forms.Button()
         Me.btnAnterior = New System.Windows.Forms.Button()
+        Me.gbDatosReceta = New System.Windows.Forms.GroupBox()
+        Me.txtbZona = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.txtbIDZona = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnEliminarRecetas = New System.Windows.Forms.Button()
+        Me.btnAgregarRecetas = New System.Windows.Forms.Button()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         CType(Me.dgvSeguridad, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbBuscar.SuspendLayout()
+        Me.gbDatosReceta.SuspendLayout()
         Me.SuspendLayout()
         '
         'dgvSeguridad
@@ -45,7 +54,7 @@ Partial Class FormSeguridad
         Me.dgvSeguridad.Name = "dgvSeguridad"
         Me.dgvSeguridad.ReadOnly = True
         Me.dgvSeguridad.Size = New System.Drawing.Size(245, 358)
-        Me.dgvSeguridad.TabIndex = 7
+        Me.dgvSeguridad.TabIndex = 13
         '
         'Column1
         '
@@ -65,10 +74,10 @@ Partial Class FormSeguridad
         Me.gbBuscar.Controls.Add(Me.txtbBuscarZona)
         Me.gbBuscar.Controls.Add(Me.lblZona)
         Me.gbBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbBuscar.Location = New System.Drawing.Point(279, 12)
+        Me.gbBuscar.Location = New System.Drawing.Point(275, 213)
         Me.gbBuscar.Name = "gbBuscar"
-        Me.gbBuscar.Size = New System.Drawing.Size(386, 157)
-        Me.gbBuscar.TabIndex = 1
+        Me.gbBuscar.Size = New System.Drawing.Size(284, 157)
+        Me.gbBuscar.TabIndex = 4
         Me.gbBuscar.TabStop = False
         Me.gbBuscar.Text = "Buscador"
         '
@@ -78,8 +87,8 @@ Partial Class FormSeguridad
         Me.btnBuscarZona.ForeColor = System.Drawing.SystemColors.Control
         Me.btnBuscarZona.Location = New System.Drawing.Point(24, 91)
         Me.btnBuscarZona.Name = "btnBuscarZona"
-        Me.btnBuscarZona.Size = New System.Drawing.Size(346, 33)
-        Me.btnBuscarZona.TabIndex = 3
+        Me.btnBuscarZona.Size = New System.Drawing.Size(252, 33)
+        Me.btnBuscarZona.TabIndex = 6
         Me.btnBuscarZona.Text = "Buscar"
         Me.btnBuscarZona.UseVisualStyleBackColor = False
         '
@@ -87,8 +96,8 @@ Partial Class FormSeguridad
         '
         Me.txtbBuscarZona.Location = New System.Drawing.Point(24, 60)
         Me.txtbBuscarZona.Name = "txtbBuscarZona"
-        Me.txtbBuscarZona.Size = New System.Drawing.Size(346, 22)
-        Me.txtbBuscarZona.TabIndex = 2
+        Me.txtbBuscarZona.Size = New System.Drawing.Size(252, 22)
+        Me.txtbBuscarZona.TabIndex = 5
         '
         'lblZona
         '
@@ -102,10 +111,10 @@ Partial Class FormSeguridad
         'btnAtras
         '
         Me.btnAtras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAtras.Location = New System.Drawing.Point(519, 380)
+        Me.btnAtras.Location = New System.Drawing.Point(576, 376)
         Me.btnAtras.Name = "btnAtras"
-        Me.btnAtras.Size = New System.Drawing.Size(153, 51)
-        Me.btnAtras.TabIndex = 6
+        Me.btnAtras.Size = New System.Drawing.Size(96, 55)
+        Me.btnAtras.TabIndex = 12
         Me.btnAtras.Text = "Salir"
         Me.btnAtras.UseVisualStyleBackColor = True
         '
@@ -116,7 +125,7 @@ Partial Class FormSeguridad
         Me.btnSiguiente.Location = New System.Drawing.Point(157, 380)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(100, 51)
-        Me.btnSiguiente.TabIndex = 5
+        Me.btnSiguiente.TabIndex = 10
         Me.btnSiguiente.Text = "Siguiente"
         Me.btnSiguiente.UseVisualStyleBackColor = False
         '
@@ -127,15 +136,102 @@ Partial Class FormSeguridad
         Me.btnAnterior.Location = New System.Drawing.Point(11, 380)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(90, 51)
-        Me.btnAnterior.TabIndex = 4
+        Me.btnAnterior.TabIndex = 9
         Me.btnAnterior.Text = "Anterior"
         Me.btnAnterior.UseVisualStyleBackColor = False
+        '
+        'gbDatosReceta
+        '
+        Me.gbDatosReceta.Controls.Add(Me.txtbZona)
+        Me.gbDatosReceta.Controls.Add(Me.Label2)
+        Me.gbDatosReceta.Controls.Add(Me.txtbIDZona)
+        Me.gbDatosReceta.Controls.Add(Me.Label1)
+        Me.gbDatosReceta.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbDatosReceta.Location = New System.Drawing.Point(275, 12)
+        Me.gbDatosReceta.Name = "gbDatosReceta"
+        Me.gbDatosReceta.Size = New System.Drawing.Size(397, 185)
+        Me.gbDatosReceta.TabIndex = 1
+        Me.gbDatosReceta.TabStop = False
+        Me.gbDatosReceta.Text = "Datos de  las zonas disponibles"
+        '
+        'txtbZona
+        '
+        Me.txtbZona.Location = New System.Drawing.Point(24, 137)
+        Me.txtbZona.Name = "txtbZona"
+        Me.txtbZona.Size = New System.Drawing.Size(362, 22)
+        Me.txtbZona.TabIndex = 3
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(26, 109)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 16)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Zona"
+        '
+        'txtbIDZona
+        '
+        Me.txtbIDZona.Enabled = False
+        Me.txtbIDZona.Location = New System.Drawing.Point(24, 62)
+        Me.txtbIDZona.Name = "txtbIDZona"
+        Me.txtbIDZona.Size = New System.Drawing.Size(362, 22)
+        Me.txtbIDZona.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(21, 36)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(72, 16)
+        Me.Label1.TabIndex = 7
+        Me.Label1.Text = "ID de zona"
+        '
+        'btnEliminarRecetas
+        '
+        Me.btnEliminarRecetas.BackColor = System.Drawing.Color.Firebrick
+        Me.btnEliminarRecetas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarRecetas.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnEliminarRecetas.Location = New System.Drawing.Point(576, 291)
+        Me.btnEliminarRecetas.Name = "btnEliminarRecetas"
+        Me.btnEliminarRecetas.Size = New System.Drawing.Size(96, 58)
+        Me.btnEliminarRecetas.TabIndex = 8
+        Me.btnEliminarRecetas.Text = "Eliminar zonas"
+        Me.btnEliminarRecetas.UseVisualStyleBackColor = False
+        '
+        'btnAgregarRecetas
+        '
+        Me.btnAgregarRecetas.BackColor = System.Drawing.Color.RoyalBlue
+        Me.btnAgregarRecetas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAgregarRecetas.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnAgregarRecetas.Location = New System.Drawing.Point(576, 213)
+        Me.btnAgregarRecetas.Name = "btnAgregarRecetas"
+        Me.btnAgregarRecetas.Size = New System.Drawing.Size(96, 58)
+        Me.btnAgregarRecetas.TabIndex = 7
+        Me.btnAgregarRecetas.Text = "Agregar zonas"
+        Me.btnAgregarRecetas.UseVisualStyleBackColor = False
+        '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnActualizar.Location = New System.Drawing.Point(354, 382)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(130, 47)
+        Me.btnActualizar.TabIndex = 11
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = False
         '
         'FormSeguridad
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(684, 450)
+        Me.ClientSize = New System.Drawing.Size(684, 438)
+        Me.Controls.Add(Me.btnActualizar)
+        Me.Controls.Add(Me.gbDatosReceta)
+        Me.Controls.Add(Me.btnEliminarRecetas)
+        Me.Controls.Add(Me.btnAgregarRecetas)
         Me.Controls.Add(Me.dgvSeguridad)
         Me.Controls.Add(Me.gbBuscar)
         Me.Controls.Add(Me.btnAtras)
@@ -146,6 +242,8 @@ Partial Class FormSeguridad
         CType(Me.dgvSeguridad, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbBuscar.ResumeLayout(False)
         Me.gbBuscar.PerformLayout()
+        Me.gbDatosReceta.ResumeLayout(False)
+        Me.gbDatosReceta.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -160,4 +258,12 @@ Partial Class FormSeguridad
     Friend WithEvents btnAnterior As Button
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents gbDatosReceta As GroupBox
+    Friend WithEvents txtbZona As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents txtbIDZona As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents btnEliminarRecetas As Button
+    Friend WithEvents btnAgregarRecetas As Button
+    Friend WithEvents btnActualizar As Button
 End Class

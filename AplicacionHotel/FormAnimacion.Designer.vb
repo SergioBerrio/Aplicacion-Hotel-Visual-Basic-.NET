@@ -47,6 +47,7 @@ Partial Class FormAnimacion
         Me.btnAnterior = New System.Windows.Forms.Button()
         Me.btnSiguiente = New System.Windows.Forms.Button()
         Me.ActividadesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.btnActualizar = New System.Windows.Forms.Button()
         CType(Me.dgvActividades, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ActividadesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -100,7 +101,7 @@ Partial Class FormAnimacion
         Me.btnAtras.Location = New System.Drawing.Point(643, 358)
         Me.btnAtras.Name = "btnAtras"
         Me.btnAtras.Size = New System.Drawing.Size(131, 70)
-        Me.btnAtras.TabIndex = 9
+        Me.btnAtras.TabIndex = 10
         Me.btnAtras.Text = "Atrás"
         Me.btnAtras.UseVisualStyleBackColor = True
         '
@@ -124,7 +125,7 @@ Partial Class FormAnimacion
         Me.btnEliminarActividad.Location = New System.Drawing.Point(643, 190)
         Me.btnEliminarActividad.Name = "btnEliminarActividad"
         Me.btnEliminarActividad.Size = New System.Drawing.Size(131, 80)
-        Me.btnEliminarActividad.TabIndex = 8
+        Me.btnEliminarActividad.TabIndex = 9
         Me.btnEliminarActividad.Text = "Eliminar actividad"
         Me.btnEliminarActividad.UseVisualStyleBackColor = False
         '
@@ -245,7 +246,7 @@ Partial Class FormAnimacion
         Me.btnAnterior.Location = New System.Drawing.Point(21, 376)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(131, 52)
-        Me.btnAnterior.TabIndex = 10
+        Me.btnAnterior.TabIndex = 11
         Me.btnAnterior.Text = "Anterior"
         Me.btnAnterior.UseVisualStyleBackColor = False
         '
@@ -256,7 +257,7 @@ Partial Class FormAnimacion
         Me.btnSiguiente.Location = New System.Drawing.Point(235, 376)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(131, 52)
-        Me.btnSiguiente.TabIndex = 11
+        Me.btnSiguiente.TabIndex = 12
         Me.btnSiguiente.Text = "Siguiente"
         Me.btnSiguiente.UseVisualStyleBackColor = False
         '
@@ -264,11 +265,24 @@ Partial Class FormAnimacion
         '
         Me.ActividadesBindingSource.DataMember = "Actividades"
         '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnActualizar.Location = New System.Drawing.Point(643, 127)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(130, 47)
+        Me.btnActualizar.TabIndex = 8
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = False
+        '
         'FormAnimacion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.btnSiguiente)
         Me.Controls.Add(Me.btnAnterior)
         Me.Controls.Add(Me.gbBuscar)
@@ -320,4 +334,5 @@ Partial Class FormAnimacion
     Friend WithEvents btnBuscar As Button
     Friend WithEvents btnAnterior As Button
     Friend WithEvents btnSiguiente As Button
+    Friend WithEvents btnActualizar As Button
 End Class

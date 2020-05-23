@@ -101,6 +101,7 @@ Public Class FormVerFacturas
                 conexion.Close()
             End If
         End If
+        txtbBuscarID.Clear()
     End Sub
 
     Private Sub btnBucarDNI_Click(sender As Object, e As EventArgs) Handles btnBucarDNI.Click
@@ -108,7 +109,7 @@ Public Class FormVerFacturas
         Dim registro As Boolean
 
         If txtbDNI.Text <> "" Then
-            consulta = "SELECT * FROM Facturas WHERE DNI = " & txtbDNI.Text & ""
+            consulta = "SELECT * FROM Facturas WHERE 'DNI = " & txtbDNI.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Facturas")
@@ -122,5 +123,6 @@ Public Class FormVerFacturas
                 conexion.Close()
             End If
         End If
+        txtbDNI.Clear()
     End Sub
 End Class

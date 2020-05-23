@@ -21,9 +21,9 @@ Public Class FormReservaHabitaciones2
         comando.ExecuteNonQuery()
 
         comando = New OleDb.OleDbCommand("INSERT INTO Habitaciones(NumHabitacion, NumCamas, IDTipo)" & Chr(13) &
-                                         "VALUES(txtbNumeroHabitacion, cmbNumeroCamas, cmbTipoHabitacion)", conexion)
+                                         "VALUES(txtbNumeroHabitacion, txtbNumeroCamas, cmbTipoHabitacion)", conexion)
         comando.Parameters.AddWithValue("@NumHabitacion", txtbNumeroHabitacion.Text.ToUpper)
-        comando.Parameters.AddWithValue("@NumCamas", cmbNumeroCamas.Text.ToUpper)
+        comando.Parameters.AddWithValue("@NumCamas", txtbNumeroCamas.Text.ToUpper)
         comando.Parameters.AddWithValue("@IDTipo", cmbTipoHabitacion.Text.ToUpper)
         comando.ExecuteNonQuery()
 
@@ -44,6 +44,8 @@ Public Class FormReservaHabitaciones2
 
         txtbFecha.Text = DateTime.Now.ToString("dd/MM/yyyy")
 
+        txtbDNICliente.Text = FormReservasClientes.txtbDNI.Text
+
         cmbPersonas.Items.Add("1 persona")
         cmbPersonas.Items.Add("2 personas")
         cmbPersonas.Items.Add("3 personas")
@@ -60,7 +62,7 @@ Public Class FormReservaHabitaciones2
         cmbPersonas.Items.Add("14 personas")
         cmbPersonas.Items.Add("15 personas")
 
-        Dim consulta As String = "SELECT NumHabitaciones, NumCamas, Tipo, FROM Actividades"
+        Dim consulta As String = "SELECT NumHabitacion, Tipo, NumCamas FROM Habitaciones"
         Dim comando As New OleDbCommand(consulta, conexion)
         Dim adaptadorTabla As New OleDbDataAdapter(consulta, conexion)
         adaptadorTabla.Fill(tabalaReservaHabitaciones2)
@@ -84,6 +86,6 @@ Public Class FormReservaHabitaciones2
     Private Sub cmbTipoHabitacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTipoHabitacion.SelectedIndexChanged
         Dim camas = tabalaReservaHabitaciones2.Rows(cmbTipoHabitacion.SelectedIndex)("NumCamas")
         'Console.WriteLine(camas)
-        cmbNumeroCamas.Text = camas
+        txtbNumeroCamas.Text = camas
     End Sub
 End Class

@@ -101,6 +101,7 @@ Public Class FormVerReservas2
                 conexion.Close()
             End If
         End If
+        txtbBuscarID.Clear()
     End Sub
 
     Private Sub btnBuscarDNI_Click(sender As Object, e As EventArgs) Handles btnBuscarDNI.Click
@@ -108,7 +109,7 @@ Public Class FormVerReservas2
         Dim registro As Boolean
 
         If txtbBuscarDNI.Text <> "" Then
-            consulta = "SELECT * FROM Reservas WHERE DNI = " & txtbBuscarID.Text & ""
+            consulta = "SELECT * FROM Reservas WHERE 'DNI = " & txtbBuscarDNI.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Reservas")
@@ -122,5 +123,6 @@ Public Class FormVerReservas2
                 conexion.Close()
             End If
         End If
+        txtbBuscarDNI.Clear()
     End Sub
 End Class

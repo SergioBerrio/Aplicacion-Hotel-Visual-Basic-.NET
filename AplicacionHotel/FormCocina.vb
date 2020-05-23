@@ -5,6 +5,7 @@ Public Class FormCocina
     Dim adaptador2 As New OleDbDataAdapter
     Dim registro2 As New DataSet
     Dim Cocina As New DataTable
+    Dim i As Integer = 0
 
     Private Sub btnAtras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
         FormPantallaTrabajadores.Show()
@@ -24,7 +25,7 @@ Public Class FormCocina
             End If
 
         Catch ex As Exception
-            MsgBox("No se realizó el proceso por: " & ex.Message)
+            MsgBox("No se realizó el proceso por: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
@@ -41,23 +42,33 @@ Public Class FormCocina
             End If
 
         Catch ex As Exception
-            MsgBox("No se realizó el proceso por: " & ex.Message)
+            MsgBox("No se realizó el proceso por: " & ex.Message, MsgBoxStyle.Critical, "Error")
         End Try
     End Sub
 
     Private Sub btnAgregarRecetas_Click(sender As Object, e As EventArgs) Handles btnAgregarRecetas.Click
-        dgvCocina.Rows.Add(txtbIDReceta.Text, txtbNombreReceta.Text, txtbIngredientes.Text)
-        txtbIDReceta.Text = ""
-        txtbNombreReceta.Text = ""
-        txtbIngredientes.Text = ""
+        If txtbNombreReceta.Text = "" And txtbIngredientes.Text = "" Then
+            MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
-        txtbIDReceta.Clear()
-        txtbNombreReceta.Clear()
-        txtbIngredientes.Clear()
+        ElseIf txtbNombreReceta.Text <> "" And txtbIngredientes.Text <> "" Then
+            dgvCocina.Rows.Add(txtbIDReceta.Text, txtbNombreReceta.Text, txtbIngredientes.Text)
 
-        conexion.Close()
+            i = i + 1
+            txtbIDReceta.Text = CStr(i + 1)
 
-        MsgBox("Datos de las recetas almacenadas correctamente!!")
+            txtbNombreReceta.Text = ""
+            txtbIngredientes.Text = ""
+
+            txtbNombreReceta.Clear()
+            txtbIngredientes.Clear()
+
+
+            conexion.Close()
+
+            MsgBox("Datos de las recetas almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
+
+            txtbIDReceta.Text = CStr(i + 1)
+        End If
     End Sub
 
     Private Sub btnEliminarRecetas_Click(sender As Object, e As EventArgs) Handles btnEliminarRecetas.Click
@@ -66,6 +77,8 @@ Public Class FormCocina
         MsgBox("Registro eliminado", MsgBoxStyle.Information, "Eliminado")
 
         conexion.Close()
+
+        txtbIDReceta.Text = 1
     End Sub
 
     Private Sub btnBuscarReceta_Click(sender As Object, e As EventArgs) Handles btnBuscarReceta.Click
@@ -87,9 +100,12 @@ Public Class FormCocina
                 conexion.Close()
             End If
         End If
+        txtbBuscarReceta.Clear()
     End Sub
 
     Private Sub FormCocina_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtbIDReceta.Text = CStr(i + 1)
+
         Try
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
             conexion.Open()

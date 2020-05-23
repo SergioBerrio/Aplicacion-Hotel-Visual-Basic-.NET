@@ -43,6 +43,7 @@ Partial Class FormServiciosHotel
         Me.lblBuscar = New System.Windows.Forms.Label()
         Me.btnSiguiente = New System.Windows.Forms.Button()
         Me.btnAnterior = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.dgvServicios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ServiciosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,7 +60,7 @@ Partial Class FormServiciosHotel
         Me.dgvServicios.Location = New System.Drawing.Point(16, 18)
         Me.dgvServicios.Name = "dgvServicios"
         Me.dgvServicios.Size = New System.Drawing.Size(243, 351)
-        Me.dgvServicios.TabIndex = 0
+        Me.dgvServicios.TabIndex = 13
         '
         'IDServiciosDataGridViewTextBoxColumn
         '
@@ -112,6 +113,7 @@ Partial Class FormServiciosHotel
         '
         'txtbIDServicio
         '
+        Me.txtbIDServicio.Enabled = False
         Me.txtbIDServicio.Location = New System.Drawing.Point(21, 81)
         Me.txtbIDServicio.Name = "txtbIDServicio"
         Me.txtbIDServicio.Size = New System.Drawing.Size(254, 22)
@@ -165,7 +167,7 @@ Partial Class FormServiciosHotel
         Me.btnAtras.Location = New System.Drawing.Point(629, 367)
         Me.btnAtras.Name = "btnAtras"
         Me.btnAtras.Size = New System.Drawing.Size(159, 70)
-        Me.btnAtras.TabIndex = 9
+        Me.btnAtras.TabIndex = 10
         Me.btnAtras.Text = "Atrás"
         Me.btnAtras.UseVisualStyleBackColor = True
         '
@@ -184,12 +186,14 @@ Partial Class FormServiciosHotel
         '
         'btnBuscar
         '
+        Me.btnBuscar.BackColor = System.Drawing.Color.Green
+        Me.btnBuscar.ForeColor = System.Drawing.SystemColors.Control
         Me.btnBuscar.Location = New System.Drawing.Point(20, 111)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(255, 33)
         Me.btnBuscar.TabIndex = 6
         Me.btnBuscar.Text = "Buscar"
-        Me.btnBuscar.UseVisualStyleBackColor = True
+        Me.btnBuscar.UseVisualStyleBackColor = False
         '
         'txtbBuscar
         '
@@ -214,7 +218,7 @@ Partial Class FormServiciosHotel
         Me.btnSiguiente.Location = New System.Drawing.Point(168, 377)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(91, 61)
-        Me.btnSiguiente.TabIndex = 11
+        Me.btnSiguiente.TabIndex = 12
         Me.btnSiguiente.Text = "Siguiente"
         Me.btnSiguiente.UseVisualStyleBackColor = False
         '
@@ -225,15 +229,27 @@ Partial Class FormServiciosHotel
         Me.btnAnterior.Location = New System.Drawing.Point(16, 377)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(90, 61)
-        Me.btnAnterior.TabIndex = 10
+        Me.btnAnterior.TabIndex = 11
         Me.btnAnterior.Text = "Anterior"
         Me.btnAnterior.UseVisualStyleBackColor = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.SeaGreen
+        Me.Button1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Button1.Location = New System.Drawing.Point(629, 278)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(158, 57)
+        Me.Button1.TabIndex = 9
+        Me.Button1.Text = "Actualizar"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'FormServiciosHotel
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnSiguiente)
         Me.Controls.Add(Me.btnAnterior)
         Me.Controls.Add(Me.gbBuscar)
@@ -275,4 +291,5 @@ Partial Class FormServiciosHotel
     Friend WithEvents lblBuscar As Label
     Friend WithEvents btnSiguiente As Button
     Friend WithEvents btnAnterior As Button
+    Friend WithEvents Button1 As Button
 End Class

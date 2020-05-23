@@ -185,6 +185,7 @@ Partial Class FormHacerFacturas
         '
         'txtbFecha
         '
+        Me.txtbFecha.Enabled = False
         Me.txtbFecha.Location = New System.Drawing.Point(22, 308)
         Me.txtbFecha.Name = "txtbFecha"
         Me.txtbFecha.Size = New System.Drawing.Size(176, 22)

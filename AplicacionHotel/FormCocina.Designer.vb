@@ -56,7 +56,7 @@ Partial Class FormCocina
         Me.gbBuscar.Location = New System.Drawing.Point(714, 19)
         Me.gbBuscar.Name = "gbBuscar"
         Me.gbBuscar.Size = New System.Drawing.Size(311, 184)
-        Me.gbBuscar.TabIndex = 13
+        Me.gbBuscar.TabIndex = 5
         Me.gbBuscar.TabStop = False
         Me.gbBuscar.Text = "Buscador"
         '
@@ -67,7 +67,7 @@ Partial Class FormCocina
         Me.btnBuscarReceta.Location = New System.Drawing.Point(24, 125)
         Me.btnBuscarReceta.Name = "btnBuscarReceta"
         Me.btnBuscarReceta.Size = New System.Drawing.Size(255, 34)
-        Me.btnBuscarReceta.TabIndex = 9
+        Me.btnBuscarReceta.TabIndex = 7
         Me.btnBuscarReceta.Text = "Buscar"
         Me.btnBuscarReceta.UseVisualStyleBackColor = False
         '
@@ -76,7 +76,7 @@ Partial Class FormCocina
         Me.txtbBuscarReceta.Location = New System.Drawing.Point(24, 62)
         Me.txtbBuscarReceta.Name = "txtbBuscarReceta"
         Me.txtbBuscarReceta.Size = New System.Drawing.Size(255, 22)
-        Me.txtbBuscarReceta.TabIndex = 8
+        Me.txtbBuscarReceta.TabIndex = 6
         '
         'lblBuscar
         '
@@ -93,7 +93,7 @@ Partial Class FormCocina
         Me.btnAtras.Location = New System.Drawing.Point(714, 304)
         Me.btnAtras.Name = "btnAtras"
         Me.btnAtras.Size = New System.Drawing.Size(314, 51)
-        Me.btnAtras.TabIndex = 10
+        Me.btnAtras.TabIndex = 12
         Me.btnAtras.Text = "Salir"
         Me.btnAtras.UseVisualStyleBackColor = True
         '
@@ -128,7 +128,7 @@ Partial Class FormCocina
         Me.dgvCocina.Name = "dgvCocina"
         Me.dgvCocina.ReadOnly = True
         Me.dgvCocina.Size = New System.Drawing.Size(345, 269)
-        Me.dgvCocina.TabIndex = 7
+        Me.dgvCocina.TabIndex = 13
         '
         'Column1
         '
@@ -156,7 +156,7 @@ Partial Class FormCocina
         Me.btnAgregarRecetas.Location = New System.Drawing.Point(381, 294)
         Me.btnAgregarRecetas.Name = "btnAgregarRecetas"
         Me.btnAgregarRecetas.Size = New System.Drawing.Size(131, 58)
-        Me.btnAgregarRecetas.TabIndex = 14
+        Me.btnAgregarRecetas.TabIndex = 10
         Me.btnAgregarRecetas.Text = "Agregar recetas"
         Me.btnAgregarRecetas.UseVisualStyleBackColor = False
         '
@@ -168,7 +168,7 @@ Partial Class FormCocina
         Me.btnEliminarRecetas.Location = New System.Drawing.Point(563, 297)
         Me.btnEliminarRecetas.Name = "btnEliminarRecetas"
         Me.btnEliminarRecetas.Size = New System.Drawing.Size(129, 58)
-        Me.btnEliminarRecetas.TabIndex = 15
+        Me.btnEliminarRecetas.TabIndex = 11
         Me.btnEliminarRecetas.Text = "Eliminar recetas"
         Me.btnEliminarRecetas.UseVisualStyleBackColor = False
         '
@@ -184,7 +184,7 @@ Partial Class FormCocina
         Me.gbDatosReceta.Location = New System.Drawing.Point(381, 19)
         Me.gbDatosReceta.Name = "gbDatosReceta"
         Me.gbDatosReceta.Size = New System.Drawing.Size(311, 262)
-        Me.gbDatosReceta.TabIndex = 16
+        Me.gbDatosReceta.TabIndex = 1
         Me.gbDatosReceta.TabStop = False
         Me.gbDatosReceta.Text = "Datos de  las recetas"
         '
@@ -193,7 +193,7 @@ Partial Class FormCocina
         Me.txtbIngredientes.Location = New System.Drawing.Point(24, 218)
         Me.txtbIngredientes.Name = "txtbIngredientes"
         Me.txtbIngredientes.Size = New System.Drawing.Size(255, 22)
-        Me.txtbIngredientes.TabIndex = 13
+        Me.txtbIngredientes.TabIndex = 4
         '
         'lblIngredientes
         '
@@ -209,7 +209,7 @@ Partial Class FormCocina
         Me.txtbNombreReceta.Location = New System.Drawing.Point(24, 137)
         Me.txtbNombreReceta.Name = "txtbNombreReceta"
         Me.txtbNombreReceta.Size = New System.Drawing.Size(255, 22)
-        Me.txtbNombreReceta.TabIndex = 11
+        Me.txtbNombreReceta.TabIndex = 3
         '
         'Label2
         '
@@ -222,10 +222,11 @@ Partial Class FormCocina
         '
         'txtbIDReceta
         '
+        Me.txtbIDReceta.Enabled = False
         Me.txtbIDReceta.Location = New System.Drawing.Point(24, 62)
         Me.txtbIDReceta.Name = "txtbIDReceta"
         Me.txtbIDReceta.Size = New System.Drawing.Size(255, 22)
-        Me.txtbIDReceta.TabIndex = 8
+        Me.txtbIDReceta.TabIndex = 2
         '
         'Label1
         '

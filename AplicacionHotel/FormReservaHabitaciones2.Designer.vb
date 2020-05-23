@@ -23,7 +23,6 @@ Partial Class FormReservaHabitaciones2
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.cmbTipoHabitacion = New System.Windows.Forms.ComboBox()
-        Me.cmbNumeroCamas = New System.Windows.Forms.ComboBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtbNumeroHabitacion = New System.Windows.Forms.TextBox()
@@ -42,6 +41,7 @@ Partial Class FormReservaHabitaciones2
         Me.lblEmail = New System.Windows.Forms.Label()
         Me.txtbDNICliente = New System.Windows.Forms.TextBox()
         Me.lblDNI = New System.Windows.Forms.Label()
+        Me.txtbNumeroCamas = New System.Windows.Forms.TextBox()
         Me.SuspendLayout()
         '
         'cmbTipoHabitacion
@@ -51,14 +51,6 @@ Partial Class FormReservaHabitaciones2
         Me.cmbTipoHabitacion.Name = "cmbTipoHabitacion"
         Me.cmbTipoHabitacion.Size = New System.Drawing.Size(139, 21)
         Me.cmbTipoHabitacion.TabIndex = 5
-        '
-        'cmbNumeroCamas
-        '
-        Me.cmbNumeroCamas.FormattingEnabled = True
-        Me.cmbNumeroCamas.Location = New System.Drawing.Point(586, 188)
-        Me.cmbNumeroCamas.Name = "cmbNumeroCamas"
-        Me.cmbNumeroCamas.Size = New System.Drawing.Size(139, 21)
-        Me.cmbNumeroCamas.TabIndex = 9
         '
         'Label4
         '
@@ -223,13 +215,21 @@ Partial Class FormReservaHabitaciones2
         Me.lblDNI.TabIndex = 30
         Me.lblDNI.Text = "DNI del cliente"
         '
+        'txtbNumeroCamas
+        '
+        Me.txtbNumeroCamas.Enabled = False
+        Me.txtbNumeroCamas.Location = New System.Drawing.Point(586, 191)
+        Me.txtbNumeroCamas.Name = "txtbNumeroCamas"
+        Me.txtbNumeroCamas.Size = New System.Drawing.Size(139, 20)
+        Me.txtbNumeroCamas.TabIndex = 9
+        '
         'FormReservaHabitaciones2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.txtbNumeroCamas)
         Me.Controls.Add(Me.cmbTipoHabitacion)
-        Me.Controls.Add(Me.cmbNumeroCamas)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.txtbNumeroHabitacion)
@@ -256,7 +256,6 @@ Partial Class FormReservaHabitaciones2
     End Sub
 
     Friend WithEvents cmbTipoHabitacion As ComboBox
-    Friend WithEvents cmbNumeroCamas As ComboBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents txtbNumeroHabitacion As TextBox
@@ -275,4 +274,5 @@ Partial Class FormReservaHabitaciones2
     Friend WithEvents lblEmail As Label
     Friend WithEvents txtbDNICliente As TextBox
     Friend WithEvents lblDNI As Label
+    Friend WithEvents txtbNumeroCamas As TextBox
 End Class

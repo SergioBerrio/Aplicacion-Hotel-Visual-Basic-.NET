@@ -20,8 +20,6 @@ Public Class FormSocorrista
     End Sub
 
     Private Sub FormSocorrista_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet11.Clientes' Puede moverla o quitarla según sea necesario.
-        Me.ClientesTableAdapter.Fill(Me.BdHotelDataSet11.Clientes)
 
         Try
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
@@ -79,7 +77,7 @@ Public Class FormSocorrista
         Dim registro As Boolean
 
         If txtbBuscarDNI.Text <> "" Then
-            consulta = "SELECT * FROM Clientes WHERE DNI = " & txtbBuscarDNI.Text & ""
+            consulta = "SELECT * FROM Clientes WHERE 'DNI = " & txtbBuscarDNI.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Clientes")
@@ -93,6 +91,7 @@ Public Class FormSocorrista
                 conexion.Close()
             End If
         End If
+        txtbBuscarDNI.Clear()
     End Sub
 
     Private Sub btnBuscarNombre_Click(sender As Object, e As EventArgs) Handles btnBuscarNombre.Click
@@ -114,5 +113,6 @@ Public Class FormSocorrista
                 conexion.Close()
             End If
         End If
+        txtbBuscarNombre.Clear()
     End Sub
 End Class

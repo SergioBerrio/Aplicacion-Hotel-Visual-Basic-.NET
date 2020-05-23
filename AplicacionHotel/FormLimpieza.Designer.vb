@@ -40,6 +40,7 @@ Partial Class FormLimpieza
         Me.NumCamasDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HabitacionesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.HabitacionesTableAdapter = New AplicacionHotel.BDHotelDataSet1TableAdapters.HabitacionesTableAdapter()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         Me.gbBuscar.SuspendLayout()
         CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvLimpieza, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,10 +120,10 @@ Partial Class FormLimpieza
         'btnAtras
         '
         Me.btnAtras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAtras.Location = New System.Drawing.Point(530, 387)
+        Me.btnAtras.Location = New System.Drawing.Point(549, 387)
         Me.btnAtras.Name = "btnAtras"
-        Me.btnAtras.Size = New System.Drawing.Size(153, 51)
-        Me.btnAtras.TabIndex = 8
+        Me.btnAtras.Size = New System.Drawing.Size(134, 51)
+        Me.btnAtras.TabIndex = 9
         Me.btnAtras.Text = "Salir"
         Me.btnAtras.UseVisualStyleBackColor = True
         '
@@ -164,7 +165,7 @@ Partial Class FormLimpieza
         Me.dgvLimpieza.Name = "dgvLimpieza"
         Me.dgvLimpieza.ReadOnly = True
         Me.dgvLimpieza.Size = New System.Drawing.Size(343, 358)
-        Me.dgvLimpieza.TabIndex = 9
+        Me.dgvLimpieza.TabIndex = 10
         '
         'NumHabitacionDataGridViewTextBoxColumn
         '
@@ -196,11 +197,24 @@ Partial Class FormLimpieza
         '
         Me.HabitacionesTableAdapter.ClearBeforeFill = True
         '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnActualizar.Location = New System.Drawing.Point(383, 387)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(136, 50)
+        Me.btnActualizar.TabIndex = 8
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = False
+        '
         'FormLimpieza
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(709, 450)
+        Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.dgvLimpieza)
         Me.Controls.Add(Me.gbBuscar)
         Me.Controls.Add(Me.btnAtras)
@@ -233,4 +247,5 @@ Partial Class FormLimpieza
     Friend WithEvents NumHabitacionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TipoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents NumCamasDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents btnActualizar As Button
 End Class

@@ -39,13 +39,16 @@ Partial Class FormConserjeria
         Me.ApellidosDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TelefonoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.EmailDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ClientesBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.BdHotelDataSet11 = New AplicacionHotel.BDHotelDataSet1()
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesTableAdapter = New AplicacionHotel.BDHotelDataSet1TableAdapters.ClientesTableAdapter()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         Me.gbBuscar.SuspendLayout()
         CType(Me.dgvConserjeria, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClientesBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'gbBuscar
@@ -60,7 +63,7 @@ Partial Class FormConserjeria
         Me.gbBuscar.Location = New System.Drawing.Point(578, 21)
         Me.gbBuscar.Name = "gbBuscar"
         Me.gbBuscar.Size = New System.Drawing.Size(322, 263)
-        Me.gbBuscar.TabIndex = 13
+        Me.gbBuscar.TabIndex = 1
         Me.gbBuscar.TabStop = False
         Me.gbBuscar.Text = "Buscador"
         '
@@ -70,8 +73,8 @@ Partial Class FormConserjeria
         Me.btnBuscarNombre.ForeColor = System.Drawing.SystemColors.Control
         Me.btnBuscarNombre.Location = New System.Drawing.Point(24, 207)
         Me.btnBuscarNombre.Name = "btnBuscarNombre"
-        Me.btnBuscarNombre.Size = New System.Drawing.Size(255, 33)
-        Me.btnBuscarNombre.TabIndex = 12
+        Me.btnBuscarNombre.Size = New System.Drawing.Size(271, 33)
+        Me.btnBuscarNombre.TabIndex = 5
         Me.btnBuscarNombre.Text = "Buscar"
         Me.btnBuscarNombre.UseVisualStyleBackColor = False
         '
@@ -79,8 +82,8 @@ Partial Class FormConserjeria
         '
         Me.txtbBuscarNombre.Location = New System.Drawing.Point(24, 176)
         Me.txtbBuscarNombre.Name = "txtbBuscarNombre"
-        Me.txtbBuscarNombre.Size = New System.Drawing.Size(255, 22)
-        Me.txtbBuscarNombre.TabIndex = 11
+        Me.txtbBuscarNombre.Size = New System.Drawing.Size(271, 22)
+        Me.txtbBuscarNombre.TabIndex = 4
         '
         'lblNombre
         '
@@ -97,8 +100,8 @@ Partial Class FormConserjeria
         Me.btnBuscarDNI.ForeColor = System.Drawing.SystemColors.Control
         Me.btnBuscarDNI.Location = New System.Drawing.Point(24, 93)
         Me.btnBuscarDNI.Name = "btnBuscarDNI"
-        Me.btnBuscarDNI.Size = New System.Drawing.Size(255, 33)
-        Me.btnBuscarDNI.TabIndex = 9
+        Me.btnBuscarDNI.Size = New System.Drawing.Size(271, 33)
+        Me.btnBuscarDNI.TabIndex = 3
         Me.btnBuscarDNI.Text = "Buscar"
         Me.btnBuscarDNI.UseVisualStyleBackColor = False
         '
@@ -106,8 +109,8 @@ Partial Class FormConserjeria
         '
         Me.txtbBuscarDNI.Location = New System.Drawing.Point(24, 62)
         Me.txtbBuscarDNI.Name = "txtbBuscarDNI"
-        Me.txtbBuscarDNI.Size = New System.Drawing.Size(255, 22)
-        Me.txtbBuscarDNI.TabIndex = 8
+        Me.txtbBuscarDNI.Size = New System.Drawing.Size(271, 22)
+        Me.txtbBuscarDNI.TabIndex = 2
         '
         'lblDNI
         '
@@ -121,10 +124,10 @@ Partial Class FormConserjeria
         'btnAtras
         '
         Me.btnAtras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAtras.Location = New System.Drawing.Point(578, 388)
+        Me.btnAtras.Location = New System.Drawing.Point(602, 377)
         Me.btnAtras.Name = "btnAtras"
-        Me.btnAtras.Size = New System.Drawing.Size(323, 51)
-        Me.btnAtras.TabIndex = 10
+        Me.btnAtras.Size = New System.Drawing.Size(271, 62)
+        Me.btnAtras.TabIndex = 9
         Me.btnAtras.Text = "Salir"
         Me.btnAtras.UseVisualStyleBackColor = True
         '
@@ -132,10 +135,10 @@ Partial Class FormConserjeria
         '
         Me.btnSiguiente.BackColor = System.Drawing.Color.Orange
         Me.btnSiguiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSiguiente.Location = New System.Drawing.Point(372, 388)
+        Me.btnSiguiente.Location = New System.Drawing.Point(372, 377)
         Me.btnSiguiente.Name = "btnSiguiente"
-        Me.btnSiguiente.Size = New System.Drawing.Size(183, 51)
-        Me.btnSiguiente.TabIndex = 9
+        Me.btnSiguiente.Size = New System.Drawing.Size(183, 62)
+        Me.btnSiguiente.TabIndex = 8
         Me.btnSiguiente.Text = "Siguiente"
         Me.btnSiguiente.UseVisualStyleBackColor = False
         '
@@ -143,10 +146,10 @@ Partial Class FormConserjeria
         '
         Me.btnAnterior.BackColor = System.Drawing.Color.Orange
         Me.btnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAnterior.Location = New System.Drawing.Point(14, 388)
+        Me.btnAnterior.Location = New System.Drawing.Point(14, 377)
         Me.btnAnterior.Name = "btnAnterior"
-        Me.btnAnterior.Size = New System.Drawing.Size(183, 51)
-        Me.btnAnterior.TabIndex = 8
+        Me.btnAnterior.Size = New System.Drawing.Size(183, 62)
+        Me.btnAnterior.TabIndex = 7
         Me.btnAnterior.Text = "Anterior"
         Me.btnAnterior.UseVisualStyleBackColor = False
         '
@@ -156,12 +159,12 @@ Partial Class FormConserjeria
         Me.dgvConserjeria.AutoGenerateColumns = False
         Me.dgvConserjeria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvConserjeria.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DNIDataGridViewTextBoxColumn, Me.NombreDataGridViewTextBoxColumn, Me.ApellidosDataGridViewTextBoxColumn, Me.TelefonoDataGridViewTextBoxColumn, Me.EmailDataGridViewTextBoxColumn})
-        Me.dgvConserjeria.DataSource = Me.ClientesBindingSource
+        Me.dgvConserjeria.DataSource = Me.ClientesBindingSource1
         Me.dgvConserjeria.Location = New System.Drawing.Point(11, 21)
         Me.dgvConserjeria.Name = "dgvConserjeria"
         Me.dgvConserjeria.ReadOnly = True
         Me.dgvConserjeria.Size = New System.Drawing.Size(544, 340)
-        Me.dgvConserjeria.TabIndex = 7
+        Me.dgvConserjeria.TabIndex = 10
         '
         'DNIDataGridViewTextBoxColumn
         '
@@ -198,10 +201,10 @@ Partial Class FormConserjeria
         Me.EmailDataGridViewTextBoxColumn.Name = "EmailDataGridViewTextBoxColumn"
         Me.EmailDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'ClientesBindingSource
+        'ClientesBindingSource1
         '
-        Me.ClientesBindingSource.DataMember = "Clientes"
-        Me.ClientesBindingSource.DataSource = Me.BdHotelDataSet11
+        Me.ClientesBindingSource1.DataMember = "Clientes"
+        Me.ClientesBindingSource1.DataSource = Me.BdHotelDataSet11
         '
         'BdHotelDataSet11
         '
@@ -212,11 +215,24 @@ Partial Class FormConserjeria
         '
         Me.ClientesTableAdapter.ClearBeforeFill = True
         '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnActualizar.Location = New System.Drawing.Point(602, 303)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(271, 58)
+        Me.btnActualizar.TabIndex = 6
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = False
+        '
         'FormConserjeria
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(923, 450)
+        Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.gbBuscar)
         Me.Controls.Add(Me.btnAtras)
         Me.Controls.Add(Me.btnSiguiente)
@@ -227,8 +243,9 @@ Partial Class FormConserjeria
         Me.gbBuscar.ResumeLayout(False)
         Me.gbBuscar.PerformLayout()
         CType(Me.dgvConserjeria, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClientesBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -244,7 +261,6 @@ Partial Class FormConserjeria
     Friend WithEvents btnSiguiente As Button
     Friend WithEvents btnAnterior As Button
     Friend WithEvents dgvConserjeria As DataGridView
-    Friend WithEvents BdHotelDataSet11 As BDHotelDataSet1
     Friend WithEvents ClientesBindingSource As BindingSource
     Friend WithEvents ClientesTableAdapter As BDHotelDataSet1TableAdapters.ClientesTableAdapter
     Friend WithEvents DNIDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -252,4 +268,7 @@ Partial Class FormConserjeria
     Friend WithEvents ApellidosDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents TelefonoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents EmailDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents ClientesBindingSource1 As BindingSource
+    Friend WithEvents BdHotelDataSet11 As BDHotelDataSet1
+    Friend WithEvents btnActualizar As Button
 End Class

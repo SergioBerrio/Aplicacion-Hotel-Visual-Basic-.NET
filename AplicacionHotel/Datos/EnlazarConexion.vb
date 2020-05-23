@@ -1,6 +1,6 @@
 ﻿Imports System.Data
 Imports System.Data.OleDb
-Module Modulo1
+Module EnlazarConexion
     Public conexion As New OleDbConnection
     Public estado As String
     Public comando As New OleDbCommand
