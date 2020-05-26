@@ -1,10 +1,10 @@
 ﻿Imports System.Data.OleDb
+Imports System.Data.SqlClient
 
 Public Class FormCocina
     Dim conexion As New OleDbConnection
     Dim adaptador2 As New OleDbDataAdapter
     Dim registro2 As New DataSet
-    Dim Cocina As New DataTable
     Dim i As Integer = 0
 
     Private Sub btnAtras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
@@ -62,7 +62,6 @@ Public Class FormCocina
             txtbNombreReceta.Clear()
             txtbIngredientes.Clear()
 
-
             conexion.Close()
 
             MsgBox("Datos de las recetas almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
@@ -85,8 +84,8 @@ Public Class FormCocina
         Dim consulta As String
         Dim registro As Boolean
 
-        If txtbBuscarReceta.Text <> "" Then
-            consulta = "SELECT * FROM Cocina WHERE IDReceta = " & txtbBuscarReceta.Text & ""
+        If txtbBuscarIDReceta.Text <> "" Then
+            consulta = "SELECT * FROM Cocina WHERE IDReceta = " & txtbBuscarIDReceta.Text & ""
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Recetas")
@@ -100,7 +99,10 @@ Public Class FormCocina
                 conexion.Close()
             End If
         End If
-        txtbBuscarReceta.Clear()
+
+        Buscar()
+
+        txtbBuscarIDReceta.Clear()
     End Sub
 
     Private Sub FormCocina_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -115,5 +117,15 @@ Public Class FormCocina
         Catch ex As Exception
             MsgBox("No se ha podido establecer la conexión!!", MsgBoxStyle.Critical, "Error")
         End Try
+    End Sub
+
+    Private Sub Buscar()
+        Dim cocina As New DataTable()
+        Dim consulta As String
+        consulta = ("SELECT * FROM cocina WHERE IDRecetas = " & txtbBuscarIDReceta.Text & "")
+        Dim datos As New OleDbDataAdapter(consulta, conexion)
+        datos.Fill(cocina)
+
+        Me.dgvCocina.DataSource = cocina
     End Sub
 End Class

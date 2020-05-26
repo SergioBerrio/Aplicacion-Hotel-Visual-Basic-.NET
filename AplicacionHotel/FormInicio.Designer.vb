@@ -22,11 +22,12 @@ Partial Class FormInicio
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormInicio))
         Me.btnEntrar = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.lblMensaje = New System.Windows.Forms.Label()
-        Me.p1 = New System.Windows.Forms.Panel()
-        Me.p1.SuspendLayout()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnEntrar
@@ -55,34 +56,38 @@ Partial Class FormInicio
         '
         'lblMensaje
         '
+        Me.lblMensaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblMensaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMensaje.Location = New System.Drawing.Point(35, 28)
+        Me.lblMensaje.Location = New System.Drawing.Point(139, 172)
         Me.lblMensaje.Name = "lblMensaje"
-        Me.lblMensaje.Size = New System.Drawing.Size(415, 84)
-        Me.lblMensaje.TabIndex = 2
-        Me.lblMensaje.Text = "Bienvenido al hotel Paradise Ressort," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "su hotel de confianza"
+        Me.lblMensaje.Size = New System.Drawing.Size(487, 140)
+        Me.lblMensaje.TabIndex = 3
+        Me.lblMensaje.Text = "Bienvenido al hotel Paradise Resort," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "su hotel de confianza"
         Me.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'p1
+        'PictureBox1
         '
-        Me.p1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.p1.Controls.Add(Me.lblMensaje)
-        Me.p1.Location = New System.Drawing.Point(139, 152)
-        Me.p1.Name = "p1"
-        Me.p1.Size = New System.Drawing.Size(487, 142)
-        Me.p1.TabIndex = 4
+        Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.PictureBox1.Image = Global.AplicacionHotel.My.Resources.Resources.free_horizontal_on_white_by_logaster
+        Me.PictureBox1.InitialImage = CType(resources.GetObject("PictureBox1.InitialImage"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(220, 26)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(321, 127)
+        Me.PictureBox1.TabIndex = 4
+        Me.PictureBox1.TabStop = False
         '
         'FormInicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.p1)
+        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.lblMensaje)
         Me.Controls.Add(Me.btnSalir)
         Me.Controls.Add(Me.btnEntrar)
         Me.Name = "FormInicio"
         Me.Text = "FormInicio"
-        Me.p1.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -90,5 +95,5 @@ Partial Class FormInicio
     Friend WithEvents btnEntrar As Button
     Friend WithEvents btnSalir As Button
     Friend WithEvents lblMensaje As Label
-    Friend WithEvents p1 As Panel
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

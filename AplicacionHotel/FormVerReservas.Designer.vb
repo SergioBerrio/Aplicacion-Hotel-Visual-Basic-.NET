@@ -45,6 +45,7 @@ Partial Class FormVerReservas
         Me.btnBuscarID = New System.Windows.Forms.Button()
         Me.txtbBuscarID = New System.Windows.Forms.TextBox()
         Me.lblBuscarID = New System.Windows.Forms.Label()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         CType(Me.dgvVerReservas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReservasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -78,7 +79,7 @@ Partial Class FormVerReservas
         Me.btnEliminarReservas.BackColor = System.Drawing.Color.Firebrick
         Me.btnEliminarReservas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarReservas.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnEliminarReservas.Location = New System.Drawing.Point(768, 306)
+        Me.btnEliminarReservas.Location = New System.Drawing.Point(768, 322)
         Me.btnEliminarReservas.Name = "btnEliminarReservas"
         Me.btnEliminarReservas.Size = New System.Drawing.Size(212, 54)
         Me.btnEliminarReservas.TabIndex = 6
@@ -182,7 +183,7 @@ Partial Class FormVerReservas
         Me.gbBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbBuscar.Location = New System.Drawing.Point(768, 15)
         Me.gbBuscar.Name = "gbBuscar"
-        Me.gbBuscar.Size = New System.Drawing.Size(212, 274)
+        Me.gbBuscar.Size = New System.Drawing.Size(212, 236)
         Me.gbBuscar.TabIndex = 1
         Me.gbBuscar.TabStop = False
         Me.gbBuscar.Text = "Buscador"
@@ -191,7 +192,7 @@ Partial Class FormVerReservas
         '
         Me.btnBuscarDNI.BackColor = System.Drawing.Color.Green
         Me.btnBuscarDNI.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnBuscarDNI.Location = New System.Drawing.Point(17, 226)
+        Me.btnBuscarDNI.Location = New System.Drawing.Point(15, 196)
         Me.btnBuscarDNI.Name = "btnBuscarDNI"
         Me.btnBuscarDNI.Size = New System.Drawing.Size(176, 33)
         Me.btnBuscarDNI.TabIndex = 5
@@ -200,7 +201,7 @@ Partial Class FormVerReservas
         '
         'txtbBuscarDNI
         '
-        Me.txtbBuscarDNI.Location = New System.Drawing.Point(17, 198)
+        Me.txtbBuscarDNI.Location = New System.Drawing.Point(15, 168)
         Me.txtbBuscarDNI.Name = "txtbBuscarDNI"
         Me.txtbBuscarDNI.Size = New System.Drawing.Size(175, 22)
         Me.txtbBuscarDNI.TabIndex = 4
@@ -208,7 +209,7 @@ Partial Class FormVerReservas
         'lblBuscarNombre
         '
         Me.lblBuscarNombre.AutoSize = True
-        Me.lblBuscarNombre.Location = New System.Drawing.Point(12, 168)
+        Me.lblBuscarNombre.Location = New System.Drawing.Point(10, 138)
         Me.lblBuscarNombre.Name = "lblBuscarNombre"
         Me.lblBuscarNombre.Size = New System.Drawing.Size(31, 16)
         Me.lblBuscarNombre.TabIndex = 11
@@ -218,7 +219,7 @@ Partial Class FormVerReservas
         '
         Me.btnBuscarID.BackColor = System.Drawing.Color.Green
         Me.btnBuscarID.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnBuscarID.Location = New System.Drawing.Point(15, 101)
+        Me.btnBuscarID.Location = New System.Drawing.Point(15, 87)
         Me.btnBuscarID.Name = "btnBuscarID"
         Me.btnBuscarID.Size = New System.Drawing.Size(176, 33)
         Me.btnBuscarID.TabIndex = 3
@@ -227,7 +228,7 @@ Partial Class FormVerReservas
         '
         'txtbBuscarID
         '
-        Me.txtbBuscarID.Location = New System.Drawing.Point(16, 73)
+        Me.txtbBuscarID.Location = New System.Drawing.Point(16, 59)
         Me.txtbBuscarID.Name = "txtbBuscarID"
         Me.txtbBuscarID.Size = New System.Drawing.Size(175, 22)
         Me.txtbBuscarID.TabIndex = 2
@@ -235,17 +236,30 @@ Partial Class FormVerReservas
         'lblBuscarID
         '
         Me.lblBuscarID.AutoSize = True
-        Me.lblBuscarID.Location = New System.Drawing.Point(14, 43)
+        Me.lblBuscarID.Location = New System.Drawing.Point(14, 29)
         Me.lblBuscarID.Name = "lblBuscarID"
         Me.lblBuscarID.Size = New System.Drawing.Size(89, 16)
         Me.lblBuscarID.TabIndex = 8
         Me.lblBuscarID.Text = "ID de reserva"
+        '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnActualizar.Location = New System.Drawing.Point(768, 268)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(212, 50)
+        Me.btnActualizar.TabIndex = 11
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = False
         '
         'FormVerReservas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(992, 450)
+        Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.gbBuscar)
         Me.Controls.Add(Me.dgvVerReservas)
         Me.Controls.Add(Me.btnAtras)
@@ -285,4 +299,5 @@ Partial Class FormVerReservas
     Friend WithEvents btnBuscarID As Button
     Friend WithEvents txtbBuscarID As TextBox
     Friend WithEvents lblBuscarID As Label
+    Friend WithEvents btnActualizar As Button
 End Class

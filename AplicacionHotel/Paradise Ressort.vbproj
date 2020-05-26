@@ -376,6 +376,7 @@
     <Content Include="BBDD\BDHotel.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\free_horizontal_on_white_by_logaster.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

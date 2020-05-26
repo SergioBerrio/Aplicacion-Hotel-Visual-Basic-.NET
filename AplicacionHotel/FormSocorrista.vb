@@ -77,7 +77,7 @@ Public Class FormSocorrista
         Dim registro As Boolean
 
         If txtbBuscarDNI.Text <> "" Then
-            consulta = "SELECT * FROM Clientes WHERE 'DNI = " & txtbBuscarDNI.Text & "'"
+            consulta = "SELECT * FROM Clientes WHERE DNI = '" & txtbBuscarDNI.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Clientes")
@@ -99,7 +99,7 @@ Public Class FormSocorrista
         Dim registro As Boolean
 
         If txtbBuscarNombre.Text <> "" Then
-            consulta = "SELECT * FROM Clientes WHERE Nombre = " & txtbBuscarNombre.Text & ""
+            consulta = "SELECT * FROM Clientes WHERE Nombre = '" & txtbBuscarNombre.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Clientes")
@@ -122,14 +122,14 @@ Public Class FormSocorrista
 
     Private Sub refreshDatagrid()
         Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
-        Dim ole As New OleDbCommand("SELECT * FROM tabla ORDER BY IDServicios ASC", con)
+        Dim ole As New OleDbCommand("SELECT * FROM Clientes", con)
         Dim ds As New DataSet
         Dim DataAdapter1 As New OleDbDataAdapter
         con.Open()
         DataAdapter1.SelectCommand = ole
-        DataAdapter1.Fill(ds, "tabla")
+        DataAdapter1.Fill(ds, "Clientes")
         dgvSocorrista.DataSource = ds
-        dgvSocorrista.DataMember = "tabla"
+        dgvSocorrista.DataMember = "Clientes"
         con.Close()
     End Sub
 End Class

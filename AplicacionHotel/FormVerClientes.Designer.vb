@@ -59,7 +59,7 @@ Partial Class FormVerClientes
         Me.dgvClientes.Location = New System.Drawing.Point(13, 19)
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.Size = New System.Drawing.Size(544, 340)
-        Me.dgvClientes.TabIndex = 0
+        Me.dgvClientes.TabIndex = 9
         '
         'DNIDataGridViewTextBoxColumn
         '
@@ -112,7 +112,7 @@ Partial Class FormVerClientes
         Me.btnAnterior.Location = New System.Drawing.Point(16, 386)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(183, 51)
-        Me.btnAnterior.TabIndex = 1
+        Me.btnAnterior.TabIndex = 6
         Me.btnAnterior.Text = "Anterior"
         Me.btnAnterior.UseVisualStyleBackColor = False
         '
@@ -123,7 +123,7 @@ Partial Class FormVerClientes
         Me.btnSiguiente.Location = New System.Drawing.Point(374, 386)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(183, 51)
-        Me.btnSiguiente.TabIndex = 2
+        Me.btnSiguiente.TabIndex = 7
         Me.btnSiguiente.Text = "Siguiente"
         Me.btnSiguiente.UseVisualStyleBackColor = False
         '
@@ -133,7 +133,7 @@ Partial Class FormVerClientes
         Me.btnAtras.Location = New System.Drawing.Point(580, 386)
         Me.btnAtras.Name = "btnAtras"
         Me.btnAtras.Size = New System.Drawing.Size(323, 51)
-        Me.btnAtras.TabIndex = 3
+        Me.btnAtras.TabIndex = 8
         Me.btnAtras.Text = "Salir"
         Me.btnAtras.UseVisualStyleBackColor = True
         '
@@ -142,7 +142,7 @@ Partial Class FormVerClientes
         Me.btnCrearClientes.BackColor = System.Drawing.Color.RoyalBlue
         Me.btnCrearClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCrearClientes.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnCrearClientes.Location = New System.Drawing.Point(576, 19)
+        Me.btnCrearClientes.Location = New System.Drawing.Point(580, 308)
         Me.btnCrearClientes.Name = "btnCrearClientes"
         Me.btnCrearClientes.Size = New System.Drawing.Size(137, 51)
         Me.btnCrearClientes.TabIndex = 4
@@ -154,7 +154,7 @@ Partial Class FormVerClientes
         Me.btnEliminarClientes.BackColor = System.Drawing.Color.Firebrick
         Me.btnEliminarClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarClientes.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnEliminarClientes.Location = New System.Drawing.Point(768, 19)
+        Me.btnEliminarClientes.Location = New System.Drawing.Point(768, 308)
         Me.btnEliminarClientes.Name = "btnEliminarClientes"
         Me.btnEliminarClientes.Size = New System.Drawing.Size(135, 51)
         Me.btnEliminarClientes.TabIndex = 5
@@ -170,10 +170,10 @@ Partial Class FormVerClientes
         Me.gbBuscar.Controls.Add(Me.txtbBuscarDNI)
         Me.gbBuscar.Controls.Add(Me.lblBuscar)
         Me.gbBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbBuscar.Location = New System.Drawing.Point(580, 76)
+        Me.gbBuscar.Location = New System.Drawing.Point(580, 19)
         Me.gbBuscar.Name = "gbBuscar"
-        Me.gbBuscar.Size = New System.Drawing.Size(322, 283)
-        Me.gbBuscar.TabIndex = 6
+        Me.gbBuscar.Size = New System.Drawing.Size(322, 274)
+        Me.gbBuscar.TabIndex = 1
         Me.gbBuscar.TabStop = False
         Me.gbBuscar.Text = "Buscador"
         '
@@ -211,7 +211,7 @@ Partial Class FormVerClientes
         Me.btnBuscarDNI.Location = New System.Drawing.Point(24, 93)
         Me.btnBuscarDNI.Name = "btnBuscarDNI"
         Me.btnBuscarDNI.Size = New System.Drawing.Size(255, 33)
-        Me.btnBuscarDNI.TabIndex = 9
+        Me.btnBuscarDNI.TabIndex = 3
         Me.btnBuscarDNI.Text = "Buscar"
         Me.btnBuscarDNI.UseVisualStyleBackColor = False
         '
@@ -220,7 +220,7 @@ Partial Class FormVerClientes
         Me.txtbBuscarDNI.Location = New System.Drawing.Point(24, 62)
         Me.txtbBuscarDNI.Name = "txtbBuscarDNI"
         Me.txtbBuscarDNI.Size = New System.Drawing.Size(255, 22)
-        Me.txtbBuscarDNI.TabIndex = 8
+        Me.txtbBuscarDNI.TabIndex = 2
         '
         'lblBuscar
         '

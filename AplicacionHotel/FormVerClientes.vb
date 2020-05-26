@@ -56,7 +56,7 @@ Public Class FormVerClientes
         Dim registro As Boolean
 
         If txtbBuscarDNI.Text <> "" Then
-            consulta = "SELECT * FROM Clientes WHERE 'DNI = " & txtbBuscarDNI.Text & "'"
+            consulta = "SELECT * FROM Clientes WHERE DNI = '" & txtbBuscarDNI.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Clientes")
@@ -77,7 +77,7 @@ Public Class FormVerClientes
         Dim registro As Boolean
 
         If txtbBuscarNombre.Text <> "" Then
-            consulta = "SELECT * FROM Clientes WHERE Nombre = " & txtbBuscarNombre.Text & ""
+            consulta = "SELECT * FROM Clientes WHERE Nombre = '" & txtbBuscarNombre.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Clientes")

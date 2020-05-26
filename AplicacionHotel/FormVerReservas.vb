@@ -114,7 +114,7 @@ Public Class FormVerReservas
         Dim registro As Boolean
 
         If txtbBuscarDNI.Text <> "" Then
-            consulta = "SELECT * FROM Reservas WHERE 'DNI = " & txtbBuscarDNI.Text & "'"
+            consulta = "SELECT * FROM Reservas WHERE DNI = '" & txtbBuscarDNI.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Reservas")
@@ -132,5 +132,22 @@ Public Class FormVerReservas
             MsgBox("Inserta un valor", MsgBoxStyle.Critical, "Error")
         End If
         txtbBuscarDNI.Clear()
+    End Sub
+
+    Private Sub refreshDatagrid()
+        Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
+        Dim ole As New OleDbCommand("SELECT * FROM Reservas ORDER BY IDReserva ASC", con)
+        Dim ds As New DataSet
+        Dim DataAdapter1 As New OleDbDataAdapter
+        con.Open()
+        DataAdapter1.SelectCommand = ole
+        DataAdapter1.Fill(ds, "Trabajadores")
+        dgvVerReservas.DataSource = ds
+        dgvVerReservas.DataMember = "Trabajadores"
+        con.Close()
+    End Sub
+
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        refreshDatagrid()
     End Sub
 End Class

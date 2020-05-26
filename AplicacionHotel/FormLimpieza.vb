@@ -117,7 +117,7 @@ Public Class FormLimpieza
         Dim registro As Boolean
 
         If txtbBuscarTipo.Text <> "" Then
-            consulta = "SELECT * FROM Habitaciones WHERE 'Tipo = " & txtbBuscarTipo.Text & "'"
+            consulta = "SELECT * FROM Habitaciones WHERE Tipo = '" & txtbBuscarTipo.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Habitaciones")

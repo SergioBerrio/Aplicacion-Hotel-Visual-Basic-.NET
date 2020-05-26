@@ -50,24 +50,28 @@ Public Class FormDirector
 
     Private Sub btnDarAltaTrabajadores_Click(sender As Object, e As EventArgs) Handles btnDarAltaTrabajadores.Click
         'dgvTrabajadores.Rows.Add(txtbIDTrabajdor.Text, txtbNombre.Text, cmbPuesto.Text)
+        If txtbNombre.Text = "" Then
+            MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
-        txtbNombre.Text = ""
-        cmbPuesto.Text = String.Empty
+        ElseIf txtbNombre.Text <> "" Then
+            txtbNombre.Text = ""
+            cmbPuesto.Text = String.Empty
 
-        txtbNombre.Clear()
+            txtbNombre.Clear()
 
-        i = i + 1
-        txtbIDTrabajador.Text = CStr(i + 1)
+            i = i + 1
+            txtbIDTrabajador.Text = CStr(i + 1)
 
-        comando = New OleDbCommand("INSERT INTO Trabajadores(IDTrabajador, Puesto, Nombre)" & Chr(13) &
-                                         "VALUES(txtIDTrabajador, cmbPuesto, txtNombre)", conexion)
-        comando.Parameters.AddWithValue("@IDTrabajador", txtbIDTrabajador.Text)
-        comando.Parameters.AddWithValue("@Puesto", cmbPuesto.Text)
-        comando.Parameters.AddWithValue("@Nombre", txtbNombre.Text)
-        comando.ExecuteNonQuery()
-        conexion.Close()
+            comando = New OleDbCommand("INSERT INTO Trabajadores(IDTrabajador, Puesto, Nombre)" & Chr(13) &
+                                             "VALUES(txtIDTrabajador, cmbPuesto, txtNombre)", conexion)
+            comando.Parameters.AddWithValue("@IDTrabajador", txtbIDTrabajador.Text)
+            comando.Parameters.AddWithValue("@Puesto", cmbPuesto.Text)
+            comando.Parameters.AddWithValue("@Nombre", txtbNombre.Text)
+            comando.ExecuteNonQuery()
+            conexion.Close()
 
-        MsgBox("Datos del trabajador almacenados correctamente!!", MsgBoxStyle.Information, "Información")
+            MsgBox("Datos del trabajador almacenados correctamente!!", MsgBoxStyle.Information, "Información")
+        End If
     End Sub
 
     Private Sub btnEliminarTrabajador_Click(sender As Object, e As EventArgs) Handles btnEliminarTrabajador.Click
@@ -91,6 +95,7 @@ Public Class FormDirector
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
         Dim consulta As String
         Dim registro As Boolean
+
         If txtbBuscar.Text <> "" Then
             consulta = "SELECT * FROM Trabajadores WHERE IDTrabajador = " & txtbBuscar.Text & ""
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
@@ -105,6 +110,8 @@ Public Class FormDirector
                 MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
                 conexion.Close()
             End If
+        ElseIf txtbBuscar.Text = "" Then
+            MsgBox("Inserta un valor", MsgBoxStyle.Critical, "Error")
         End If
         txtbBuscar.Clear()
     End Sub

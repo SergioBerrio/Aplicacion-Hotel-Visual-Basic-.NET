@@ -32,11 +32,9 @@ Partial Class FormHacerFacturas
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtbIDReserva = New System.Windows.Forms.TextBox()
         Me.lblFecha = New System.Windows.Forms.Label()
-        Me.lblImporteTotal = New System.Windows.Forms.Label()
         Me.lblDNI = New System.Windows.Forms.Label()
         Me.lblIDTrabajador = New System.Windows.Forms.Label()
         Me.txtbFecha = New System.Windows.Forms.TextBox()
-        Me.txtbImporteTotal = New System.Windows.Forms.TextBox()
         Me.txtbDNICliente = New System.Windows.Forms.TextBox()
         Me.txtbIDTrabajador = New System.Windows.Forms.TextBox()
         Me.dgvHacerFacturas = New System.Windows.Forms.DataGridView()
@@ -48,6 +46,7 @@ Partial Class FormHacerFacturas
         Me.FacturasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.BdHotelDataSet11 = New AplicacionHotel.BDHotelDataSet1()
         Me.FacturasTableAdapter = New AplicacionHotel.BDHotelDataSet1TableAdapters.FacturasTableAdapter()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         Me.gbFactura.SuspendLayout()
         CType(Me.dgvHacerFacturas, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FacturasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,17 +114,15 @@ Partial Class FormHacerFacturas
         Me.gbFactura.Controls.Add(Me.Label1)
         Me.gbFactura.Controls.Add(Me.txtbIDReserva)
         Me.gbFactura.Controls.Add(Me.lblFecha)
-        Me.gbFactura.Controls.Add(Me.lblImporteTotal)
         Me.gbFactura.Controls.Add(Me.lblDNI)
         Me.gbFactura.Controls.Add(Me.lblIDTrabajador)
         Me.gbFactura.Controls.Add(Me.txtbFecha)
-        Me.gbFactura.Controls.Add(Me.txtbImporteTotal)
         Me.gbFactura.Controls.Add(Me.txtbDNICliente)
         Me.gbFactura.Controls.Add(Me.txtbIDTrabajador)
         Me.gbFactura.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbFactura.Location = New System.Drawing.Point(593, 18)
         Me.gbFactura.Name = "gbFactura"
-        Me.gbFactura.Size = New System.Drawing.Size(225, 353)
+        Me.gbFactura.Size = New System.Drawing.Size(225, 266)
         Me.gbFactura.TabIndex = 1
         Me.gbFactura.TabStop = False
         Me.gbFactura.Text = "Datos de la factura"
@@ -150,20 +147,11 @@ Partial Class FormHacerFacturas
         'lblFecha
         '
         Me.lblFecha.AutoSize = True
-        Me.lblFecha.Location = New System.Drawing.Point(19, 279)
+        Me.lblFecha.Location = New System.Drawing.Point(19, 207)
         Me.lblFecha.Name = "lblFecha"
         Me.lblFecha.Size = New System.Drawing.Size(46, 16)
         Me.lblFecha.TabIndex = 9
         Me.lblFecha.Text = "Fecha"
-        '
-        'lblImporteTotal
-        '
-        Me.lblImporteTotal.AutoSize = True
-        Me.lblImporteTotal.Location = New System.Drawing.Point(19, 210)
-        Me.lblImporteTotal.Name = "lblImporteTotal"
-        Me.lblImporteTotal.Size = New System.Drawing.Size(81, 16)
-        Me.lblImporteTotal.TabIndex = 8
-        Me.lblImporteTotal.Text = "Importe total"
         '
         'lblDNI
         '
@@ -186,17 +174,10 @@ Partial Class FormHacerFacturas
         'txtbFecha
         '
         Me.txtbFecha.Enabled = False
-        Me.txtbFecha.Location = New System.Drawing.Point(22, 308)
+        Me.txtbFecha.Location = New System.Drawing.Point(22, 226)
         Me.txtbFecha.Name = "txtbFecha"
         Me.txtbFecha.Size = New System.Drawing.Size(176, 22)
         Me.txtbFecha.TabIndex = 5
-        '
-        'txtbImporteTotal
-        '
-        Me.txtbImporteTotal.Location = New System.Drawing.Point(22, 240)
-        Me.txtbImporteTotal.Name = "txtbImporteTotal"
-        Me.txtbImporteTotal.Size = New System.Drawing.Size(176, 22)
-        Me.txtbImporteTotal.TabIndex = 4
         '
         'txtbDNICliente
         '
@@ -276,11 +257,24 @@ Partial Class FormHacerFacturas
         '
         Me.FacturasTableAdapter.ClearBeforeFill = True
         '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnActualizar.Location = New System.Drawing.Point(593, 307)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(221, 64)
+        Me.btnActualizar.TabIndex = 11
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = False
+        '
         'FormHacerFacturas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(853, 450)
+        Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.dgvHacerFacturas)
         Me.Controls.Add(Me.gbFactura)
         Me.Controls.Add(Me.btnHacerFactura)
@@ -315,13 +309,12 @@ Partial Class FormHacerFacturas
     Friend WithEvents ImporteTotalDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FechaDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents lblFecha As Label
-    Friend WithEvents lblImporteTotal As Label
     Friend WithEvents lblDNI As Label
     Friend WithEvents lblIDTrabajador As Label
     Friend WithEvents txtbFecha As TextBox
-    Friend WithEvents txtbImporteTotal As TextBox
     Friend WithEvents txtbDNICliente As TextBox
     Friend WithEvents txtbIDTrabajador As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents txtbIDReserva As TextBox
+    Friend WithEvents btnActualizar As Button
 End Class

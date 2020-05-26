@@ -28,6 +28,13 @@ Partial Class FormVerFacturas
         Me.btnSiguiente = New System.Windows.Forms.Button()
         Me.btnSalir = New System.Windows.Forms.Button()
         Me.dgvFacturas = New System.Windows.Forms.DataGridView()
+        Me.IDFacturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IDTrabajadorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DNIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ImporteTotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FacturasBindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
+        Me.BdHotelDataSet11 = New AplicacionHotel.BDHotelDataSet1()
         Me.FacturasBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
         Me.FacturasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FacturasTableAdapter2 = New AplicacionHotel.BDHotelDataSet1TableAdapters.FacturasTableAdapter()
@@ -40,21 +47,15 @@ Partial Class FormVerFacturas
         Me.txtbDNI = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.FacturasBindingSource2 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.BdHotelDataSet11 = New AplicacionHotel.BDHotelDataSet1()
-        Me.FacturasBindingSource3 = New System.Windows.Forms.BindingSource(Me.components)
-        Me.IDFacturaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IDTrabajadorDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DNIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ImporteTotalDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FechaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         CType(Me.dgvFacturas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.FacturasBindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FacturasBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FacturasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbBuscadorID.SuspendLayout()
         Me.gbBuscadorNombre.SuspendLayout()
         CType(Me.FacturasBindingSource2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.FacturasBindingSource3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnEliminarReserva
@@ -62,10 +63,10 @@ Partial Class FormVerFacturas
         Me.btnEliminarReserva.BackColor = System.Drawing.Color.Firebrick
         Me.btnEliminarReserva.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEliminarReserva.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnEliminarReserva.Location = New System.Drawing.Point(594, 8)
+        Me.btnEliminarReserva.Location = New System.Drawing.Point(594, 322)
         Me.btnEliminarReserva.Name = "btnEliminarReserva"
         Me.btnEliminarReserva.Size = New System.Drawing.Size(274, 47)
-        Me.btnEliminarReserva.TabIndex = 2
+        Me.btnEliminarReserva.TabIndex = 7
         Me.btnEliminarReserva.Text = "Eliminar facturas"
         Me.btnEliminarReserva.UseVisualStyleBackColor = False
         '
@@ -77,7 +78,7 @@ Partial Class FormVerFacturas
         Me.btnAnterior.Location = New System.Drawing.Point(12, 391)
         Me.btnAnterior.Name = "btnAnterior"
         Me.btnAnterior.Size = New System.Drawing.Size(191, 47)
-        Me.btnAnterior.TabIndex = 3
+        Me.btnAnterior.TabIndex = 8
         Me.btnAnterior.Text = "Anterior"
         Me.btnAnterior.UseVisualStyleBackColor = False
         '
@@ -85,10 +86,10 @@ Partial Class FormVerFacturas
         '
         Me.btnSiguiente.BackColor = System.Drawing.Color.Orange
         Me.btnSiguiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSiguiente.Location = New System.Drawing.Point(264, 391)
+        Me.btnSiguiente.Location = New System.Drawing.Point(366, 391)
         Me.btnSiguiente.Name = "btnSiguiente"
-        Me.btnSiguiente.Size = New System.Drawing.Size(191, 47)
-        Me.btnSiguiente.TabIndex = 4
+        Me.btnSiguiente.Size = New System.Drawing.Size(191, 49)
+        Me.btnSiguiente.TabIndex = 9
         Me.btnSiguiente.Text = "Siguiente"
         Me.btnSiguiente.UseVisualStyleBackColor = False
         '
@@ -98,7 +99,7 @@ Partial Class FormVerFacturas
         Me.btnSalir.Location = New System.Drawing.Point(594, 391)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(274, 47)
-        Me.btnSalir.TabIndex = 5
+        Me.btnSalir.TabIndex = 10
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
@@ -113,101 +114,7 @@ Partial Class FormVerFacturas
         Me.dgvFacturas.Name = "dgvFacturas"
         Me.dgvFacturas.ReadOnly = True
         Me.dgvFacturas.Size = New System.Drawing.Size(545, 361)
-        Me.dgvFacturas.TabIndex = 6
-        '
-        'FacturasTableAdapter2
-        '
-        Me.FacturasTableAdapter2.ClearBeforeFill = True
-        '
-        'gbBuscadorID
-        '
-        Me.gbBuscadorID.Controls.Add(Me.btnBuscarID)
-        Me.gbBuscadorID.Controls.Add(Me.txtbBuscarID)
-        Me.gbBuscadorID.Controls.Add(Me.lblBuscar)
-        Me.gbBuscadorID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbBuscadorID.Location = New System.Drawing.Point(594, 65)
-        Me.gbBuscadorID.Name = "gbBuscadorID"
-        Me.gbBuscadorID.Size = New System.Drawing.Size(274, 156)
-        Me.gbBuscadorID.TabIndex = 1
-        Me.gbBuscadorID.TabStop = False
-        Me.gbBuscadorID.Text = "ID de factura"
-        '
-        'btnBuscarID
-        '
-        Me.btnBuscarID.BackColor = System.Drawing.Color.Green
-        Me.btnBuscarID.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnBuscarID.Location = New System.Drawing.Point(34, 106)
-        Me.btnBuscarID.Name = "btnBuscarID"
-        Me.btnBuscarID.Size = New System.Drawing.Size(215, 33)
-        Me.btnBuscarID.TabIndex = 10
-        Me.btnBuscarID.Text = "Buscar"
-        Me.btnBuscarID.UseVisualStyleBackColor = False
-        '
-        'txtbBuscarID
-        '
-        Me.txtbBuscarID.Location = New System.Drawing.Point(34, 67)
-        Me.txtbBuscarID.Name = "txtbBuscarID"
-        Me.txtbBuscarID.Size = New System.Drawing.Size(215, 22)
-        Me.txtbBuscarID.TabIndex = 9
-        '
-        'lblBuscar
-        '
-        Me.lblBuscar.AutoSize = True
-        Me.lblBuscar.Location = New System.Drawing.Point(31, 41)
-        Me.lblBuscar.Name = "lblBuscar"
-        Me.lblBuscar.Size = New System.Drawing.Size(83, 16)
-        Me.lblBuscar.TabIndex = 8
-        Me.lblBuscar.Text = "ID de factura"
-        '
-        'gbBuscadorNombre
-        '
-        Me.gbBuscadorNombre.Controls.Add(Me.btnBucarDNI)
-        Me.gbBuscadorNombre.Controls.Add(Me.txtbDNI)
-        Me.gbBuscadorNombre.Controls.Add(Me.Label1)
-        Me.gbBuscadorNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.gbBuscadorNombre.Location = New System.Drawing.Point(594, 227)
-        Me.gbBuscadorNombre.Name = "gbBuscadorNombre"
-        Me.gbBuscadorNombre.Size = New System.Drawing.Size(274, 142)
-        Me.gbBuscadorNombre.TabIndex = 7
-        Me.gbBuscadorNombre.TabStop = False
-        Me.gbBuscadorNombre.Text = "DNI"
-        '
-        'btnBucarDNI
-        '
-        Me.btnBucarDNI.BackColor = System.Drawing.Color.Green
-        Me.btnBucarDNI.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnBucarDNI.Location = New System.Drawing.Point(34, 91)
-        Me.btnBucarDNI.Name = "btnBucarDNI"
-        Me.btnBucarDNI.Size = New System.Drawing.Size(215, 33)
-        Me.btnBucarDNI.TabIndex = 10
-        Me.btnBucarDNI.Text = "Buscar"
-        Me.btnBucarDNI.UseVisualStyleBackColor = False
-        '
-        'txtbDNI
-        '
-        Me.txtbDNI.Location = New System.Drawing.Point(34, 52)
-        Me.txtbDNI.Name = "txtbDNI"
-        Me.txtbDNI.Size = New System.Drawing.Size(215, 22)
-        Me.txtbDNI.TabIndex = 9
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(31, 26)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(31, 16)
-        Me.Label1.TabIndex = 8
-        Me.Label1.Text = "DNI"
-        '
-        'BdHotelDataSet11
-        '
-        Me.BdHotelDataSet11.DataSetName = "BDHotelDataSet1"
-        Me.BdHotelDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'FacturasBindingSource3
-        '
-        Me.FacturasBindingSource3.DataMember = "Facturas"
-        Me.FacturasBindingSource3.DataSource = Me.BdHotelDataSet11
+        Me.dgvFacturas.TabIndex = 11
         '
         'IDFacturaDataGridViewTextBoxColumn
         '
@@ -244,11 +151,118 @@ Partial Class FormVerFacturas
         Me.FechaDataGridViewTextBoxColumn.Name = "FechaDataGridViewTextBoxColumn"
         Me.FechaDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'FacturasBindingSource3
+        '
+        Me.FacturasBindingSource3.DataMember = "Facturas"
+        Me.FacturasBindingSource3.DataSource = Me.BdHotelDataSet11
+        '
+        'BdHotelDataSet11
+        '
+        Me.BdHotelDataSet11.DataSetName = "BDHotelDataSet1"
+        Me.BdHotelDataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'FacturasTableAdapter2
+        '
+        Me.FacturasTableAdapter2.ClearBeforeFill = True
+        '
+        'gbBuscadorID
+        '
+        Me.gbBuscadorID.Controls.Add(Me.btnBuscarID)
+        Me.gbBuscadorID.Controls.Add(Me.txtbBuscarID)
+        Me.gbBuscadorID.Controls.Add(Me.lblBuscar)
+        Me.gbBuscadorID.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbBuscadorID.Location = New System.Drawing.Point(594, 8)
+        Me.gbBuscadorID.Name = "gbBuscadorID"
+        Me.gbBuscadorID.Size = New System.Drawing.Size(274, 156)
+        Me.gbBuscadorID.TabIndex = 1
+        Me.gbBuscadorID.TabStop = False
+        Me.gbBuscadorID.Text = "ID de factura"
+        '
+        'btnBuscarID
+        '
+        Me.btnBuscarID.BackColor = System.Drawing.Color.Green
+        Me.btnBuscarID.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnBuscarID.Location = New System.Drawing.Point(34, 106)
+        Me.btnBuscarID.Name = "btnBuscarID"
+        Me.btnBuscarID.Size = New System.Drawing.Size(215, 33)
+        Me.btnBuscarID.TabIndex = 3
+        Me.btnBuscarID.Text = "Buscar"
+        Me.btnBuscarID.UseVisualStyleBackColor = False
+        '
+        'txtbBuscarID
+        '
+        Me.txtbBuscarID.Location = New System.Drawing.Point(34, 67)
+        Me.txtbBuscarID.Name = "txtbBuscarID"
+        Me.txtbBuscarID.Size = New System.Drawing.Size(215, 22)
+        Me.txtbBuscarID.TabIndex = 2
+        '
+        'lblBuscar
+        '
+        Me.lblBuscar.AutoSize = True
+        Me.lblBuscar.Location = New System.Drawing.Point(31, 41)
+        Me.lblBuscar.Name = "lblBuscar"
+        Me.lblBuscar.Size = New System.Drawing.Size(83, 16)
+        Me.lblBuscar.TabIndex = 8
+        Me.lblBuscar.Text = "ID de factura"
+        '
+        'gbBuscadorNombre
+        '
+        Me.gbBuscadorNombre.Controls.Add(Me.btnBucarDNI)
+        Me.gbBuscadorNombre.Controls.Add(Me.txtbDNI)
+        Me.gbBuscadorNombre.Controls.Add(Me.Label1)
+        Me.gbBuscadorNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.gbBuscadorNombre.Location = New System.Drawing.Point(594, 170)
+        Me.gbBuscadorNombre.Name = "gbBuscadorNombre"
+        Me.gbBuscadorNombre.Size = New System.Drawing.Size(274, 142)
+        Me.gbBuscadorNombre.TabIndex = 4
+        Me.gbBuscadorNombre.TabStop = False
+        Me.gbBuscadorNombre.Text = "DNI"
+        '
+        'btnBucarDNI
+        '
+        Me.btnBucarDNI.BackColor = System.Drawing.Color.Green
+        Me.btnBucarDNI.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnBucarDNI.Location = New System.Drawing.Point(34, 91)
+        Me.btnBucarDNI.Name = "btnBucarDNI"
+        Me.btnBucarDNI.Size = New System.Drawing.Size(215, 33)
+        Me.btnBucarDNI.TabIndex = 6
+        Me.btnBucarDNI.Text = "Buscar"
+        Me.btnBucarDNI.UseVisualStyleBackColor = False
+        '
+        'txtbDNI
+        '
+        Me.txtbDNI.Location = New System.Drawing.Point(34, 52)
+        Me.txtbDNI.Name = "txtbDNI"
+        Me.txtbDNI.Size = New System.Drawing.Size(215, 22)
+        Me.txtbDNI.TabIndex = 5
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(31, 26)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(31, 16)
+        Me.Label1.TabIndex = 8
+        Me.Label1.Text = "DNI"
+        '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnActualizar.Location = New System.Drawing.Point(218, 392)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(133, 47)
+        Me.btnActualizar.TabIndex = 12
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = False
+        '
         'FormVerFacturas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(888, 450)
+        Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.gbBuscadorNombre)
         Me.Controls.Add(Me.gbBuscadorID)
         Me.Controls.Add(Me.dgvFacturas)
@@ -259,6 +273,8 @@ Partial Class FormVerFacturas
         Me.Name = "FormVerFacturas"
         Me.Text = "FormVerFacturas"
         CType(Me.dgvFacturas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.FacturasBindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FacturasBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FacturasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.gbBuscadorID.ResumeLayout(False)
@@ -266,8 +282,6 @@ Partial Class FormVerFacturas
         Me.gbBuscadorNombre.ResumeLayout(False)
         Me.gbBuscadorNombre.PerformLayout()
         CType(Me.FacturasBindingSource2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.FacturasBindingSource3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -300,4 +314,5 @@ Partial Class FormVerFacturas
     Friend WithEvents FacturasBindingSource3 As BindingSource
     Friend WithEvents BdHotelDataSet11 As BDHotelDataSet1
     Friend WithEvents FacturasBindingSource2 As BindingSource
+    Friend WithEvents btnActualizar As Button
 End Class

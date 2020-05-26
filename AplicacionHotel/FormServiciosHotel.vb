@@ -7,6 +7,7 @@ Public Class FormServiciosHotel
     Dim adaptador2 As New OleDbDataAdapter
     Dim registro2 As New DataSet
     Dim tabla As New DataTable
+    Dim i As Integer = 3
 
     Private Sub CargarDatosDataGridView()
         Dim consulta As String
@@ -21,7 +22,9 @@ Public Class FormServiciosHotel
 
     Private Sub FormServiciosHotel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet11.Servicios' Puede moverla o quitarla según sea necesario.
-        Me.ServiciosTableAdapter.Fill(Me.BdHotelDataSet11.Servicios)
+        'Me.ServiciosTableAdapter.Fill(Me.BdHotelDataSet11.Servicios)
+
+        txtbIDServicio.Text = CStr(i + 1)
 
         Try
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
@@ -47,28 +50,32 @@ Public Class FormServiciosHotel
     End Sub
 
     Private Sub btnAgregarServicio_Click(sender As Object, e As EventArgs) Handles btnAgregarServicio.Click
-        'dgvServicios.Rows.Add(txtbIDServicio.Text, cmbNombre.Text)
-        'txtbIDServicio.Text = ""
-        'cmbNombre.Text = String.Empty
+        If cmbNombre.Text = "" Then
+            MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
-        'txtbIDServicio.Clear()
+        ElseIf cmbNombre.Text = "" Then
+            i = i + 1
+            txtbIDServicio.Text = CStr(i + 1)
 
-        conexion.Open()
+            conexion.Open()
 
-        comando = New OleDbCommand("INSERT INTO Servicios(IDServicios, Nombre)" & Chr(13) &
-                                         "VALUES(txtIDServicios, cmbNombre)", conexion)
-        comando.Parameters.AddWithValue("@IDServicios", txtbIDServicio.Text)
-        comando.Parameters.AddWithValue("@Nombre", cmbNombre.Text)
-        comando.ExecuteNonQuery()
-        conexion.Close()
+            comando = New OleDbCommand("INSERT INTO Servicios(IDServicios, Nombre)" & Chr(13) &
+                                             "VALUES(txtbIDServicios, cmbNombre)", conexion)
+            comando.Parameters.AddWithValue("@IDServicios", txtbIDServicio.Text)
+            comando.Parameters.AddWithValue("@Nombre", cmbNombre.Text)
+            comando.ExecuteNonQuery()
+            conexion.Close()
 
-        MsgBox("Datos de las actividades almacenadas correctamente!!")
+            MsgBox("Datos de las actividades almacenadas correctamente!!")
 
-        txtbIDServicio.Text = Val(txtbIDServicio.Text) + 1
+            txtbIDServicio.Text = Val(txtbIDServicio.Text) + 1
+        End If
     End Sub
 
     Private Sub btnEliminarServicio_Click(sender As Object, e As EventArgs) Handles btnEliminarServicio.Click
         dgvServicios.Rows.Remove(dgvServicios.CurrentRow)
+
+        conexion.Open()
 
         Dim eliminarRegistro As String
         eliminarRegistro = "DELETE * FROM Servicios WHERE IDServicios = " & txtbIDServicio.Text & ""

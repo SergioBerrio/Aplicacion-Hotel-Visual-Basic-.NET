@@ -42,12 +42,11 @@ Public Class FormConserjeria
         Dim registro As Boolean
 
         If txtbBuscarDNI.Text <> "" Then
-            consulta = "SELECT * FROM Clientes WHERE 'DNI = " & txtbBuscarDNI.Text & "'"
+            consulta = "SELECT * FROM Clientes WHERE DNI = '" & txtbBuscarDNI.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Clientes")
             registro = registro2.Tables("Clientes").Rows.Count
-            txtbBuscarDNI.Clear()
 
             If registro <> 0 Then
                 dgvConserjeria.DataSource = registro2
@@ -56,8 +55,6 @@ Public Class FormConserjeria
                 MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
                 conexion.Close()
             End If
-        ElseIf txtbBuscarDNI.Text = "" Then
-            MsgBox("Inserta un valor", MsgBoxStyle.Critical, "Error")
         End If
         txtbBuscarDNI.Clear()
     End Sub
@@ -67,12 +64,11 @@ Public Class FormConserjeria
         Dim registro As Boolean
 
         If txtbBuscarNombre.Text <> "" Then
-            consulta = "SELECT * FROM Clientes WHERE Nombre = " & txtbBuscarNombre.Text & ""
+            consulta = "SELECT * FROM Clientes WHERE Nombre = '" & txtbBuscarNombre.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Clientes")
             registro = registro2.Tables("Clientes").Rows.Count
-            txtbBuscarNombre.Clear()
 
             If registro <> 0 Then
                 dgvConserjeria.DataSource = registro2
@@ -81,8 +77,6 @@ Public Class FormConserjeria
                 MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
                 conexion.Close()
             End If
-        ElseIf txtbBuscarDNI.Text = "" Then
-            MsgBox("Inserta un valor", MsgBoxStyle.Critical, "Error")
         End If
         txtbBuscarNombre.Clear()
     End Sub

@@ -24,15 +24,12 @@ Partial Class FormCocina
     Private Sub InitializeComponent()
         Me.gbBuscar = New System.Windows.Forms.GroupBox()
         Me.btnBuscarReceta = New System.Windows.Forms.Button()
-        Me.txtbBuscarReceta = New System.Windows.Forms.TextBox()
+        Me.txtbBuscarIDReceta = New System.Windows.Forms.TextBox()
         Me.lblBuscar = New System.Windows.Forms.Label()
         Me.btnAtras = New System.Windows.Forms.Button()
         Me.btnSiguiente = New System.Windows.Forms.Button()
         Me.btnAnterior = New System.Windows.Forms.Button()
         Me.dgvCocina = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnAgregarRecetas = New System.Windows.Forms.Button()
         Me.btnEliminarRecetas = New System.Windows.Forms.Button()
         Me.gbDatosReceta = New System.Windows.Forms.GroupBox()
@@ -42,6 +39,9 @@ Partial Class FormCocina
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtbIDReceta = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.IDRecetas = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nombre = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Ingredientes = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.gbBuscar.SuspendLayout()
         CType(Me.dgvCocina, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.gbDatosReceta.SuspendLayout()
@@ -50,7 +50,7 @@ Partial Class FormCocina
         'gbBuscar
         '
         Me.gbBuscar.Controls.Add(Me.btnBuscarReceta)
-        Me.gbBuscar.Controls.Add(Me.txtbBuscarReceta)
+        Me.gbBuscar.Controls.Add(Me.txtbBuscarIDReceta)
         Me.gbBuscar.Controls.Add(Me.lblBuscar)
         Me.gbBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbBuscar.Location = New System.Drawing.Point(714, 19)
@@ -71,12 +71,12 @@ Partial Class FormCocina
         Me.btnBuscarReceta.Text = "Buscar"
         Me.btnBuscarReceta.UseVisualStyleBackColor = False
         '
-        'txtbBuscarReceta
+        'txtbBuscarIDReceta
         '
-        Me.txtbBuscarReceta.Location = New System.Drawing.Point(24, 62)
-        Me.txtbBuscarReceta.Name = "txtbBuscarReceta"
-        Me.txtbBuscarReceta.Size = New System.Drawing.Size(255, 22)
-        Me.txtbBuscarReceta.TabIndex = 6
+        Me.txtbBuscarIDReceta.Location = New System.Drawing.Point(24, 62)
+        Me.txtbBuscarIDReceta.Name = "txtbBuscarIDReceta"
+        Me.txtbBuscarIDReceta.Size = New System.Drawing.Size(255, 22)
+        Me.txtbBuscarIDReceta.TabIndex = 6
         '
         'lblBuscar
         '
@@ -123,30 +123,12 @@ Partial Class FormCocina
         '
         Me.dgvCocina.AllowUserToDeleteRows = False
         Me.dgvCocina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvCocina.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3})
+        Me.dgvCocina.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IDRecetas, Me.Nombre, Me.Ingredientes})
         Me.dgvCocina.Location = New System.Drawing.Point(12, 12)
         Me.dgvCocina.Name = "dgvCocina"
         Me.dgvCocina.ReadOnly = True
         Me.dgvCocina.Size = New System.Drawing.Size(345, 269)
         Me.dgvCocina.TabIndex = 13
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "IDRecetas"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Nombre"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Ingredientes"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
         '
         'btnAgregarRecetas
         '
@@ -237,6 +219,24 @@ Partial Class FormCocina
         Me.Label1.TabIndex = 7
         Me.Label1.Text = "ID de receta"
         '
+        'IDRecetas
+        '
+        Me.IDRecetas.HeaderText = "IDRecetas"
+        Me.IDRecetas.Name = "IDRecetas"
+        Me.IDRecetas.ReadOnly = True
+        '
+        'Nombre
+        '
+        Me.Nombre.HeaderText = "Nombre"
+        Me.Nombre.Name = "Nombre"
+        Me.Nombre.ReadOnly = True
+        '
+        'Ingredientes
+        '
+        Me.Ingredientes.HeaderText = "Ingredientes"
+        Me.Ingredientes.Name = "Ingredientes"
+        Me.Ingredientes.ReadOnly = True
+        '
         'FormCocina
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -263,15 +263,12 @@ Partial Class FormCocina
 
     Friend WithEvents gbBuscar As GroupBox
     Friend WithEvents btnBuscarReceta As Button
-    Friend WithEvents txtbBuscarReceta As TextBox
+    Friend WithEvents txtbBuscarIDReceta As TextBox
     Friend WithEvents lblBuscar As Label
     Friend WithEvents btnAtras As Button
     Friend WithEvents btnSiguiente As Button
     Friend WithEvents btnAnterior As Button
     Friend WithEvents dgvCocina As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
     Friend WithEvents btnAgregarRecetas As Button
     Friend WithEvents btnEliminarRecetas As Button
     Friend WithEvents gbDatosReceta As GroupBox
@@ -281,4 +278,7 @@ Partial Class FormCocina
     Friend WithEvents Label2 As Label
     Friend WithEvents txtbIDReceta As TextBox
     Friend WithEvents Label1 As Label
+    Friend WithEvents IDRecetas As DataGridViewTextBoxColumn
+    Friend WithEvents Nombre As DataGridViewTextBoxColumn
+    Friend WithEvents Ingredientes As DataGridViewTextBoxColumn
 End Class

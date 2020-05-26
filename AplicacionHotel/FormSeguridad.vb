@@ -31,7 +31,7 @@ Public Class FormSeguridad
         Dim registro As Boolean
 
         If txtbBuscarZona.Text <> "" Then
-            consulta = "SELECT * FROM Seguridad WHERE Zona = " & txtbBuscarZona.Text & ""
+            consulta = "SELECT * FROM Seguridad WHERE Zona = '" & txtbBuscarZona.Text & "'"
             adaptador2 = New OleDbDataAdapter(consulta, conexion)
             registro2 = New DataSet
             adaptador2.Fill(registro2, "Seguridad")
@@ -82,7 +82,6 @@ Public Class FormSeguridad
     End Sub
 
     Private Sub btnAgregarRecetas_Click(sender As Object, e As EventArgs) Handles btnAgregarRecetas.Click
-        'txtbIDReceta.Text = Val(txtbIDReceta.Text) + 1
         If txtbIDZona.Text = "" And txtbZona.Text = "" Then
             MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
@@ -95,7 +94,6 @@ Public Class FormSeguridad
             txtbZona.Text = ""
 
             txtbZona.Clear()
-
 
             conexion.Close()
 

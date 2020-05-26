@@ -5,7 +5,7 @@
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles btnHacerFacturas.Click
-        FormHacerFacturas.Show()
+        FormPapelFactura.Show()
         Me.Hide()
     End Sub
 

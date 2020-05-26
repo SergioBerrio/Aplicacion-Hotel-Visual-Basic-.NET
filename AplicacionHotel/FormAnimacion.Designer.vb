@@ -173,6 +173,7 @@ Partial Class FormAnimacion
         '
         'txtbIDActividad
         '
+        Me.txtbIDActividad.Enabled = False
         Me.txtbIDActividad.Location = New System.Drawing.Point(20, 52)
         Me.txtbIDActividad.Name = "txtbIDActividad"
         Me.txtbIDActividad.Size = New System.Drawing.Size(175, 22)

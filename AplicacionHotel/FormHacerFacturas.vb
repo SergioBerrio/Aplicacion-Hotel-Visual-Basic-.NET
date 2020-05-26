@@ -8,7 +8,7 @@ Public Class FormHacerFacturas
     Dim registro2 As New DataSet
     Private Sub CargarDatosDataGridView()
         Dim consulta As String
-        consulta = "SELECT * FROM Facturas ORDER BY ASC"
+        consulta = "SELECT * FROM Facturas ORDER BY IDFactura ASC"
         adaptador2 = New OleDbDataAdapter(consulta, conexion)
         registro2.Tables.Add("Facturas")
         adaptador2.Fill(registro2.Tables("Facturas"))
@@ -42,23 +42,15 @@ Public Class FormHacerFacturas
     End Sub
 
     Private Sub btnAgregarFactura_Click(sender As Object, e As EventArgs) Handles btnAgregarFactura.Click
-        'dgvHacerFacturas.Rows.Add(txtbIDTrabajador.Text, txtbDNICliente.Text, txtbImporteTotal.Text, txtbFecha.Text)
-        'txtbIDTrabajador.Text = ""
-        'txtbDNICliente.Text = ""
-        'txtbImporteTotal.Text = ""
-        'txtbFecha.Text = ""
-
-        'txtbIDTrabajador.Clear()
-        'txtbDNICliente.Clear()
-        'txtbImporteTotal.Clear()
-        'txtbFecha.Clear()
+        txtbIDTrabajador.Clear()
+        txtbDNICliente.Clear()
+        txtbFecha.Clear()
 
         comando = New OleDbCommand("INSERT INTO Facturas(IDFactura, IDTrabajador, DNI, ImporteTotal, Fecha)" & Chr(13) &
-                                         "VALUES(txtbIDFactura, txtbIDTrabajador, txtbDNICliente, txtbImporteTotal, txbFecha)", conexion)
+                                            "VALUES(txtbIDFactura, txtbIDTrabajador, txtbDNICliente, txtbImporteTotal, txbFecha)", conexion)
         comando.Parameters.AddWithValue("@IDFactura", txtbIDReserva.Text)
         comando.Parameters.AddWithValue("@IDTrabajador", txtbIDTrabajador.Text)
         comando.Parameters.AddWithValue("@DNI", txtbDNICliente.Text)
-        comando.Parameters.AddWithValue("@ImporteTotal", txtbImporteTotal.Text)
         comando.Parameters.AddWithValue("@Fecha", txtbFecha.Text)
         comando.ExecuteNonQuery()
         conexion.Close()
@@ -66,11 +58,12 @@ Public Class FormHacerFacturas
         Me.FacturasTableAdapter.Fill(Me.BdHotelDataSet11.Facturas)
 
         MsgBox("Datos de los trabajadores almacenados correctamente!!", MsgBoxStyle.Information, "Información")
+
     End Sub
 
     Private Sub btnHacerFactura_Click(sender As Object, e As EventArgs) Handles btnHacerFactura.Click
-        'FormPapelFactura.Show()
-        'Me.Hide()
+        FormPapelFactura.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btnAnterior_Click(sender As Object, e As EventArgs) Handles btnAnterior.Click
@@ -106,5 +99,22 @@ Public Class FormHacerFacturas
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
         FormRecepcion.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        refreshDatagrid()
+    End Sub
+
+    Private Sub refreshDatagrid()
+        Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
+        Dim ole As New OleDbCommand("SELECT * FROM Facturas ORDER BY IDFactura ASC", con)
+        Dim ds As New DataSet
+        Dim DataAdapter1 As New OleDbDataAdapter
+        con.Open()
+        DataAdapter1.SelectCommand = ole
+        DataAdapter1.Fill(ds, "Facturas")
+        dgvHacerFacturas.DataSource = ds
+        dgvHacerFacturas.DataMember = "Facturas"
+        con.Close()
     End Sub
 End Class

@@ -8,7 +8,7 @@ Public Class FormAnimacion
     Dim adaptador2 As New OleDbDataAdapter
     Dim registro2 As New DataSet
     Dim tabla As New DataTable
-    Dim i As Integer = 0
+    Dim i As Integer = 6
 
     Private Sub CargarDatosDataGridView()
         Dim consulta As String
@@ -28,7 +28,7 @@ Public Class FormAnimacion
 
     Private Sub FormAnimacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet11.Actividades' Puede moverla o quitarla según sea necesario.
-        Me.ActividadesTableAdapter1.Fill(Me.BdHotelDataSet11.Actividades)
+        'Me.ActividadesTableAdapter1.Fill(Me.BdHotelDataSet11.Actividades)
 
         txtbIDActividad.Text = CStr(i + 1)
 
@@ -51,30 +51,31 @@ Public Class FormAnimacion
     End Sub
 
     Private Sub btnAgregarActividad_Click(sender As Object, e As EventArgs) Handles btnAgregarActividad.Click
-        'dgvActividades.Rows.Add(txtbIDActividad.Text, txtbImporte.Text, cmbNombre.Text)
-        'txtbImporte.Text = ""
-        'cmbNombre.Text = String.Empty
+        If txtbIDActividad.Text = "" Then
+            MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
-        'txtbImporte.Clear()
+        ElseIf txtbIDActividad.Text <> "" And cmbNombre.Text <> "" Then
+            i = i + 1
+            txtbIDActividad.Text = CStr(i + 1)
 
-        i = i + 1
-        txtbIDActividad.Text = CStr(i + 1)
+            conexion.Open()
 
-        conexion.Open()
+            comando = New OleDbCommand("INSERT INTO Actividades(IDActividades, Nombre, ImporteActividad)" & Chr(13) &
+                                             "VALUES(txtbIDActividad, cmbNombre, txtbImporte)", conexion)
+            comando.Parameters.AddWithValue("@IDActividades", txtbIDActividad.Text)
+            comando.Parameters.AddWithValue("@Nombre", cmbNombre.Text)
+            comando.Parameters.AddWithValue("@ImporteActividad", txtbImporte.Text)
+            comando.ExecuteNonQuery()
+            conexion.Close()
 
-        comando = New OleDbCommand("INSERT INTO Actividades(IDActividades, Nombre, ImporteActividad)" & Chr(13) &
-                                         "VALUES(txtIDActividad, cmbNombre, txtImporte)", conexion)
-        comando.Parameters.AddWithValue("@IDActividades", txtbIDActividad.Text)
-        comando.Parameters.AddWithValue("@Nombre", cmbNombre.Text)
-        comando.Parameters.AddWithValue("@ImporteActividad", txtbImporte.Text)
-        comando.ExecuteNonQuery()
-        conexion.Close()
-
-        MsgBox("Datos de las actividades almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
+            MsgBox("Datos de las actividades almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
+        End If
     End Sub
 
     Private Sub btnEliminarActividad_Click(sender As Object, e As EventArgs) Handles btnEliminarActividad.Click
         dgvActividades.Rows.Remove(dgvActividades.CurrentRow)
+
+        conexion.Open()
 
         Dim eliminarRegistro As String
         eliminarRegistro = "DELETE FROM Actividades WHERE 'IDActividades = " & txtbIDActividad.Text & "'"
@@ -155,10 +156,10 @@ Public Class FormAnimacion
     End Sub
 
     Private Sub refreshDatagrid()
-        Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
-        Dim ole As OleDbCommand = New OleDbCommand("SELECT * FROM Actividades", con)
-        Dim ds As DataSet = New DataSet()
-        Dim DataAdapter1 As OleDbDataAdapter = New OleDbDataAdapter()
+        Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
+        Dim ole As New OleDbCommand("SELECT * FROM Actividades", con)
+        Dim ds As New DataSet()
+        Dim DataAdapter1 As New OleDbDataAdapter()
         con.Open()
         DataAdapter1.SelectCommand = ole
         DataAdapter1.Fill(ds, "Actividades")

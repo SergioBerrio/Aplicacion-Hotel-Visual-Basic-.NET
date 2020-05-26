@@ -127,4 +127,21 @@ Public Class FormVerReservas2
         End If
         txtbBuscarDNI.Clear()
     End Sub
+
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        refreshDatagrid()
+    End Sub
+
+    Private Sub refreshDatagrid()
+        Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
+        Dim ole As New OleDbCommand("SELECT * FROM Reservas ORDER BY IDReserva ASC", con)
+        Dim ds As New DataSet
+        Dim DataAdapter1 As New OleDbDataAdapter
+        con.Open()
+        DataAdapter1.SelectCommand = ole
+        DataAdapter1.Fill(ds, "Trabajadores")
+        dgvVerReservas.DataSource = ds
+        dgvVerReservas.DataMember = "Trabajadores"
+        con.Close()
+    End Sub
 End Class

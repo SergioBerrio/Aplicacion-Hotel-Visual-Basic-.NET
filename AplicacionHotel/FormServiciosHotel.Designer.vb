@@ -105,7 +105,7 @@ Partial Class FormServiciosHotel
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(18, 57)
+        Me.Label2.Location = New System.Drawing.Point(18, 42)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(90, 16)
         Me.Label2.TabIndex = 4
@@ -114,7 +114,7 @@ Partial Class FormServiciosHotel
         'txtbIDServicio
         '
         Me.txtbIDServicio.Enabled = False
-        Me.txtbIDServicio.Location = New System.Drawing.Point(21, 81)
+        Me.txtbIDServicio.Location = New System.Drawing.Point(21, 66)
         Me.txtbIDServicio.Name = "txtbIDServicio"
         Me.txtbIDServicio.Size = New System.Drawing.Size(254, 22)
         Me.txtbIDServicio.TabIndex = 2
@@ -215,9 +215,9 @@ Partial Class FormServiciosHotel
         '
         Me.btnSiguiente.BackColor = System.Drawing.Color.Orange
         Me.btnSiguiente.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSiguiente.Location = New System.Drawing.Point(168, 377)
+        Me.btnSiguiente.Location = New System.Drawing.Point(148, 377)
         Me.btnSiguiente.Name = "btnSiguiente"
-        Me.btnSiguiente.Size = New System.Drawing.Size(91, 61)
+        Me.btnSiguiente.Size = New System.Drawing.Size(111, 61)
         Me.btnSiguiente.TabIndex = 12
         Me.btnSiguiente.Text = "Siguiente"
         Me.btnSiguiente.UseVisualStyleBackColor = False
@@ -228,7 +228,7 @@ Partial Class FormServiciosHotel
         Me.btnAnterior.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAnterior.Location = New System.Drawing.Point(16, 377)
         Me.btnAnterior.Name = "btnAnterior"
-        Me.btnAnterior.Size = New System.Drawing.Size(90, 61)
+        Me.btnAnterior.Size = New System.Drawing.Size(111, 61)
         Me.btnAnterior.TabIndex = 11
         Me.btnAnterior.Text = "Anterior"
         Me.btnAnterior.UseVisualStyleBackColor = False
