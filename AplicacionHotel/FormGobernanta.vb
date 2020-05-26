@@ -63,10 +63,10 @@ Public Class FormGobernanta
     End Sub
 
     Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        refreshDatagrid()
+        actualizarDatagrid()
     End Sub
 
-    Private Sub refreshDatagrid()
+    Private Sub actualizarDatagrid()
         Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
         Dim ole As New OleDbCommand("SELECT * FROM Trabajadores WHERE Puesto = 'Limpieza' ORDER BY IDTrabajador ASC", con)
         Dim ds As New DataSet

@@ -49,7 +49,7 @@ Partial Class FormPantallaTrabajadores2
         Me.btnBarraMesa.Name = "btnBarraMesa"
         Me.btnBarraMesa.Size = New System.Drawing.Size(150, 117)
         Me.btnBarraMesa.TabIndex = 11
-        Me.btnBarraMesa.Text = "Entrar como servicio de barra y mesa"
+        Me.btnBarraMesa.Text = "Entrar como servicios de hotel"
         Me.btnBarraMesa.UseVisualStyleBackColor = False
         '
         'btnGobernanta

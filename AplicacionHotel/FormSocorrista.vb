@@ -117,10 +117,10 @@ Public Class FormSocorrista
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        refreshDatagrid()
+        actualizarDatagrid()
     End Sub
 
-    Private Sub refreshDatagrid()
+    Private Sub actualizarDatagrid()
         Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
         Dim ole As New OleDbCommand("SELECT * FROM Clientes", con)
         Dim ds As New DataSet

@@ -96,7 +96,7 @@ Partial Class FormGobernanta
         Me.gbBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbBuscar.Location = New System.Drawing.Point(385, 12)
         Me.gbBuscar.Name = "gbBuscar"
-        Me.gbBuscar.Size = New System.Drawing.Size(289, 157)
+        Me.gbBuscar.Size = New System.Drawing.Size(289, 216)
         Me.gbBuscar.TabIndex = 1
         Me.gbBuscar.TabStop = False
         Me.gbBuscar.Text = "Buscador"
@@ -105,16 +105,16 @@ Partial Class FormGobernanta
         '
         Me.btnBuscarPuesto.BackColor = System.Drawing.Color.Green
         Me.btnBuscarPuesto.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnBuscarPuesto.Location = New System.Drawing.Point(24, 91)
+        Me.btnBuscarPuesto.Location = New System.Drawing.Point(24, 144)
         Me.btnBuscarPuesto.Name = "btnBuscarPuesto"
-        Me.btnBuscarPuesto.Size = New System.Drawing.Size(243, 33)
+        Me.btnBuscarPuesto.Size = New System.Drawing.Size(243, 51)
         Me.btnBuscarPuesto.TabIndex = 3
         Me.btnBuscarPuesto.Text = "Buscar"
         Me.btnBuscarPuesto.UseVisualStyleBackColor = False
         '
         'txtbBuscarPuesto
         '
-        Me.txtbBuscarPuesto.Location = New System.Drawing.Point(24, 60)
+        Me.txtbBuscarPuesto.Location = New System.Drawing.Point(24, 73)
         Me.txtbBuscarPuesto.Name = "txtbBuscarPuesto"
         Me.txtbBuscarPuesto.Size = New System.Drawing.Size(243, 22)
         Me.txtbBuscarPuesto.TabIndex = 2
@@ -122,7 +122,7 @@ Partial Class FormGobernanta
         'lblPuesto
         '
         Me.lblPuesto.AutoSize = True
-        Me.lblPuesto.Location = New System.Drawing.Point(21, 34)
+        Me.lblPuesto.Location = New System.Drawing.Point(21, 39)
         Me.lblPuesto.Name = "lblPuesto"
         Me.lblPuesto.Size = New System.Drawing.Size(50, 16)
         Me.lblPuesto.TabIndex = 10
@@ -131,9 +131,9 @@ Partial Class FormGobernanta
         'btnAtras
         '
         Me.btnAtras.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAtras.Location = New System.Drawing.Point(521, 380)
+        Me.btnAtras.Location = New System.Drawing.Point(385, 380)
         Me.btnAtras.Name = "btnAtras"
-        Me.btnAtras.Size = New System.Drawing.Size(153, 51)
+        Me.btnAtras.Size = New System.Drawing.Size(289, 51)
         Me.btnAtras.TabIndex = 7
         Me.btnAtras.Text = "Salir"
         Me.btnAtras.UseVisualStyleBackColor = True
@@ -169,9 +169,9 @@ Partial Class FormGobernanta
         Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
         Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnActualizar.Location = New System.Drawing.Point(521, 294)
+        Me.btnActualizar.Location = New System.Drawing.Point(385, 265)
         Me.btnActualizar.Name = "btnActualizar"
-        Me.btnActualizar.Size = New System.Drawing.Size(153, 76)
+        Me.btnActualizar.Size = New System.Drawing.Size(289, 63)
         Me.btnActualizar.TabIndex = 4
         Me.btnActualizar.Text = "Actualizar"
         Me.btnActualizar.UseVisualStyleBackColor = False

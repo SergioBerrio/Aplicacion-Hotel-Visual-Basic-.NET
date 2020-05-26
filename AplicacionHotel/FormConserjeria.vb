@@ -114,10 +114,10 @@ Public Class FormConserjeria
     End Sub
 
     Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        refreshDatagrid()
+        actualizarDatagrid()
     End Sub
 
-    Private Sub refreshDatagrid()
+    Private Sub actualizarDatagrid()
         Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
         Dim ole As New OleDbCommand("SELECT * FROM Clientes", con)
         Dim ds As New DataSet()

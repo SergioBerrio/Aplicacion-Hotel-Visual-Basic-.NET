@@ -4,7 +4,6 @@ Public Class FormSeguridad
     Dim conexion As New OleDbConnection
     Dim adaptador2 As New OleDbDataAdapter
     Dim registro2 As New DataSet
-    Dim Seguridad As New DataTable
     Dim i As Integer = 0
 
     Private Sub FormSeguridad_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -24,27 +23,6 @@ Public Class FormSeguridad
     Private Sub btnAtras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
         FormPantallaTrabajadores.Show()
         Me.Hide()
-    End Sub
-
-    Private Sub btnBuscarPuesto_Click(sender As Object, e As EventArgs) Handles btnBuscarZona.Click
-        Dim consulta As String
-        Dim registro As Boolean
-
-        If txtbBuscarZona.Text <> "" Then
-            consulta = "SELECT * FROM Seguridad WHERE Zona = '" & txtbBuscarZona.Text & "'"
-            adaptador2 = New OleDbDataAdapter(consulta, conexion)
-            registro2 = New DataSet
-            adaptador2.Fill(registro2, "Seguridad")
-            registro = registro2.Tables("Seguridad").Rows.Count
-
-            If registro <> 0 Then
-                dgvSeguridad.DataSource = registro2
-                dgvSeguridad.DataMember = "Seguridad"
-            Else
-                MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
-                conexion.Close()
-            End If
-        End If
     End Sub
 
     Private Sub btnAnterior_Click(sender As Object, e As EventArgs) Handles btnAnterior.Click
@@ -97,9 +75,9 @@ Public Class FormSeguridad
 
             conexion.Close()
 
-            MsgBox("Datos de las zonas almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
+            MsgBox("Datos de la zona almacenados correctamente!!", MsgBoxStyle.Information, "Información")
 
-            txtbIDZona.Text = Val(txtbIDZona.Text) + 1
+            txtbIDZona.Text = CStr(i + 1)
         End If
     End Sub
 
@@ -110,19 +88,6 @@ Public Class FormSeguridad
 
         conexion.Close()
 
-        txtbIDZona.Text = 1
-    End Sub
-
-    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
-        Dim ole As OleDbCommand = New OleDbCommand("SELECT * FROM Seguridad", con)
-        Dim ds As DataSet = New DataSet()
-        Dim DataAdapter1 As OleDbDataAdapter = New OleDbDataAdapter()
-        con.Open()
-        DataAdapter1.SelectCommand = ole
-        DataAdapter1.Fill(ds, "Seguridad")
-        dgvSeguridad.DataSource = ds
-        dgvSeguridad.DataMember = "Seguridad"
-        con.Close()
+        txtbIDZona.Text = txtbIDZona.Text - 1
     End Sub
 End Class

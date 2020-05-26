@@ -84,10 +84,6 @@ Public Class FormVerReservas3
         comando.ExecuteNonQuery()
     End Sub
 
-    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        refreshDatagrid()
-    End Sub
-
     Private Sub btnBuscarDNI_Click(sender As Object, e As EventArgs) Handles btnBuscarDNI.Click
         Dim consulta As String
         Dim registro As Boolean
@@ -132,7 +128,11 @@ Public Class FormVerReservas3
         txtbBuscarID.Clear()
     End Sub
 
-    Private Sub refreshDatagrid()
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        actualizarDatagrid()
+    End Sub
+
+    Private Sub actualizarDatagrid()
         Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
         Dim ole As New OleDbCommand("SELECT * FROM Reservas ORDER BY IDReserva ASC", con)
         Dim ds As New DataSet

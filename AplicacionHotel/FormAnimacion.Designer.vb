@@ -271,9 +271,9 @@ Partial Class FormAnimacion
         Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
         Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnActualizar.Location = New System.Drawing.Point(643, 127)
+        Me.btnActualizar.Location = New System.Drawing.Point(643, 122)
         Me.btnActualizar.Name = "btnActualizar"
-        Me.btnActualizar.Size = New System.Drawing.Size(130, 47)
+        Me.btnActualizar.Size = New System.Drawing.Size(130, 52)
         Me.btnActualizar.TabIndex = 8
         Me.btnActualizar.Text = "Actualizar"
         Me.btnActualizar.UseVisualStyleBackColor = False

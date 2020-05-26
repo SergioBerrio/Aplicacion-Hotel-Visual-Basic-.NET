@@ -116,12 +116,6 @@
     <Compile Include="FormGobernanta.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormHacerFacturas.Designer.vb">
-      <DependentUpon>FormHacerFacturas.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FormHacerFacturas.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FormInicio.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -286,9 +280,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormGobernanta.resx">
       <DependentUpon>FormGobernanta.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormHacerFacturas.resx">
-      <DependentUpon>FormHacerFacturas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormInicio.resx">
       <DependentUpon>FormInicio.vb</DependentUpon>

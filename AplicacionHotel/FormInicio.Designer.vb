@@ -35,7 +35,7 @@ Partial Class FormInicio
         Me.btnEntrar.BackColor = System.Drawing.Color.DodgerBlue
         Me.btnEntrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEntrar.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnEntrar.Location = New System.Drawing.Point(139, 330)
+        Me.btnEntrar.Location = New System.Drawing.Point(139, 346)
         Me.btnEntrar.Name = "btnEntrar"
         Me.btnEntrar.Size = New System.Drawing.Size(218, 77)
         Me.btnEntrar.TabIndex = 0
@@ -47,7 +47,7 @@ Partial Class FormInicio
         Me.btnSalir.BackColor = System.Drawing.Color.Firebrick
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnSalir.Location = New System.Drawing.Point(410, 331)
+        Me.btnSalir.Location = New System.Drawing.Point(410, 347)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(216, 76)
         Me.btnSalir.TabIndex = 1
@@ -58,11 +58,11 @@ Partial Class FormInicio
         '
         Me.lblMensaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.lblMensaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMensaje.Location = New System.Drawing.Point(139, 172)
+        Me.lblMensaje.Location = New System.Drawing.Point(139, 186)
         Me.lblMensaje.Name = "lblMensaje"
         Me.lblMensaje.Size = New System.Drawing.Size(487, 140)
         Me.lblMensaje.TabIndex = 3
-        Me.lblMensaje.Text = "Bienvenido al hotel Paradise Resort," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "su hotel de confianza"
+        Me.lblMensaje.Text = "Bienvenido a Paradise Resort," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "su hotel de confianza"
         Me.lblMensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'PictureBox1
@@ -70,7 +70,7 @@ Partial Class FormInicio
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox1.Image = Global.AplicacionHotel.My.Resources.Resources.free_horizontal_on_white_by_logaster
         Me.PictureBox1.InitialImage = CType(resources.GetObject("PictureBox1.InitialImage"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(222, 22)
+        Me.PictureBox1.Location = New System.Drawing.Point(222, 31)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(340, 138)
         Me.PictureBox1.TabIndex = 4

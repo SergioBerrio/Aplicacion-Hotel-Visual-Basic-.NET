@@ -7,7 +7,7 @@ Public Class FormServiciosHotel
     Dim adaptador2 As New OleDbDataAdapter
     Dim registro2 As New DataSet
     Dim tabla As New DataTable
-    Dim i As Integer = 3
+    Dim i As Integer = 4
 
     Private Sub CargarDatosDataGridView()
         Dim consulta As String
@@ -22,7 +22,7 @@ Public Class FormServiciosHotel
 
     Private Sub FormServiciosHotel_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet11.Servicios' Puede moverla o quitarla según sea necesario.
-        'Me.ServiciosTableAdapter.Fill(Me.BdHotelDataSet11.Servicios)
+        Me.ServiciosTableAdapter.Fill(Me.BdHotelDataSet11.Servicios)
 
         txtbIDServicio.Text = CStr(i + 1)
 
@@ -53,7 +53,7 @@ Public Class FormServiciosHotel
         If cmbNombre.Text = "" Then
             MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
-        ElseIf cmbNombre.Text = "" Then
+        ElseIf cmbNombre.Text <> "" Then
             i = i + 1
             txtbIDServicio.Text = CStr(i + 1)
 
@@ -66,9 +66,9 @@ Public Class FormServiciosHotel
             comando.ExecuteNonQuery()
             conexion.Close()
 
-            MsgBox("Datos de las actividades almacenadas correctamente!!")
+            MsgBox("Datos de las actividades almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
 
-            txtbIDServicio.Text = Val(txtbIDServicio.Text) + 1
+            txtbIDServicio.Text = CStr(i + 1)
         End If
     End Sub
 
@@ -81,6 +81,10 @@ Public Class FormServiciosHotel
         eliminarRegistro = "DELETE * FROM Servicios WHERE IDServicios = " & txtbIDServicio.Text & ""
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
+
+        MsgBox("Registro eliminado", MsgBoxStyle.Information, "Eliminado")
+
+        conexion.Close()
     End Sub
 
     Public Sub cargarCombo()
@@ -109,6 +113,7 @@ Public Class FormServiciosHotel
                 conexion.Close()
             End If
         End If
+        txtbBuscar.Clear()
     End Sub
 
     Private Sub btnAnterior_Click(sender As Object, e As EventArgs) Handles btnAnterior.Click
@@ -146,10 +151,10 @@ Public Class FormServiciosHotel
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        refreshDatagrid()
+        actualizarDatagrid()
     End Sub
 
-    Private Sub refreshDatagrid()
+    Private Sub actualizarDatagrid()
         Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
         Dim ole As New OleDbCommand("SELECT * FROM Servicios ORDER BY IDServicios ASC", con)
         Dim ds As New DataSet

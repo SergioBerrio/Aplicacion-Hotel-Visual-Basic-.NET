@@ -14,7 +14,7 @@ Public Class FormCocina
 
     Private Sub btnAnterior_Click(sender As Object, e As EventArgs) Handles btnAnterior.Click
         Dim actual As Integer = dgvCocina.CurrentCell.RowIndex
-        Dim atras As Integer = actual + 1
+        Dim atras As Integer = actual - 1
 
         Try
             If atras >= 0 Then
@@ -64,7 +64,7 @@ Public Class FormCocina
 
             conexion.Close()
 
-            MsgBox("Datos de las recetas almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
+            MsgBox("Datos de la receta almacenados correctamente!!", MsgBoxStyle.Information, "Información")
 
             txtbIDReceta.Text = CStr(i + 1)
         End If
@@ -77,32 +77,7 @@ Public Class FormCocina
 
         conexion.Close()
 
-        txtbIDReceta.Text = 1
-    End Sub
-
-    Private Sub btnBuscarReceta_Click(sender As Object, e As EventArgs) Handles btnBuscarReceta.Click
-        Dim consulta As String
-        Dim registro As Boolean
-
-        If txtbBuscarIDReceta.Text <> "" Then
-            consulta = "SELECT * FROM Cocina WHERE IDReceta = " & txtbBuscarIDReceta.Text & ""
-            adaptador2 = New OleDbDataAdapter(consulta, conexion)
-            registro2 = New DataSet
-            adaptador2.Fill(registro2, "Recetas")
-            registro = registro2.Tables("Recetas").Rows.Count
-
-            If registro <> 0 Then
-                dgvCocina.DataSource = registro2
-                dgvCocina.DataMember = "Recetas"
-            Else
-                MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
-                conexion.Close()
-            End If
-        End If
-
-        Buscar()
-
-        txtbBuscarIDReceta.Clear()
+        txtbIDReceta.Text = txtbIDReceta.Text - 1
     End Sub
 
     Private Sub FormCocina_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -117,15 +92,5 @@ Public Class FormCocina
         Catch ex As Exception
             MsgBox("No se ha podido establecer la conexión!!", MsgBoxStyle.Critical, "Error")
         End Try
-    End Sub
-
-    Private Sub Buscar()
-        Dim cocina As New DataTable()
-        Dim consulta As String
-        consulta = ("SELECT * FROM cocina WHERE IDRecetas = " & txtbBuscarIDReceta.Text & "")
-        Dim datos As New OleDbDataAdapter(consulta, conexion)
-        datos.Fill(cocina)
-
-        Me.dgvCocina.DataSource = cocina
     End Sub
 End Class

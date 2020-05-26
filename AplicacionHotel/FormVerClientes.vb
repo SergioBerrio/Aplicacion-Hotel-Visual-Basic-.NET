@@ -40,8 +40,10 @@ Public Class FormVerClientes
     Private Sub btnEliminarClientes_Click(sender As Object, e As EventArgs) Handles btnEliminarClientes.Click
         dgvClientes.Rows.Remove(dgvClientes.CurrentRow)
 
+        conexion.Open()
+
         Dim eliminarRegistro As String
-        eliminarRegistro = "DELETE FROM Clientes WHERE DNI = " & FormReservasClientes.txtbDNI.Text & ""
+        eliminarRegistro = "DELETE FROM Clientes WHERE 'DNI = " & FormReservasClientes.txtbDNI.Text & "'"
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
     End Sub
@@ -125,5 +127,22 @@ Public Class FormVerClientes
         Catch ex As Exception
             MsgBox("No se realizó el proceso por: " & ex.Message)
         End Try
+    End Sub
+
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        actualizarDatagrid()
+    End Sub
+
+    Private Sub actualizarDatagrid()
+        Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
+        Dim ole As New OleDbCommand("SELECT * FROM Clientes", con)
+        Dim ds As New DataSet
+        Dim DataAdapter1 As New OleDbDataAdapter
+        con.Open()
+        DataAdapter1.SelectCommand = ole
+        DataAdapter1.Fill(ds, "Clientes")
+        dgvClientes.DataSource = ds
+        dgvClientes.DataMember = "Clientes"
+        con.Close()
     End Sub
 End Class

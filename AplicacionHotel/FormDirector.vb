@@ -49,7 +49,6 @@ Public Class FormDirector
     End Sub
 
     Private Sub btnDarAltaTrabajadores_Click(sender As Object, e As EventArgs) Handles btnDarAltaTrabajadores.Click
-        'dgvTrabajadores.Rows.Add(txtbIDTrabajdor.Text, txtbNombre.Text, cmbPuesto.Text)
         If txtbNombre.Text = "" Then
             MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
@@ -151,10 +150,10 @@ Public Class FormDirector
     End Sub
 
     Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        refreshDatagrid()
+        actualizarDatagrid()
     End Sub
 
-    Private Sub refreshDatagrid()
+    Private Sub actualizarDatagrid()
         Dim con As OleDbConnection = New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
         Dim ole As New OleDbCommand("SELECT * FROM Trabajadores ORDER BY IDTrabajador ASC", con)
         Dim ds As New DataSet

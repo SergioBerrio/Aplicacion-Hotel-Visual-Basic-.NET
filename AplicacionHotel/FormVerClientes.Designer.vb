@@ -44,6 +44,7 @@ Partial Class FormVerClientes
         Me.btnBuscarDNI = New System.Windows.Forms.Button()
         Me.txtbBuscarDNI = New System.Windows.Forms.TextBox()
         Me.lblBuscar = New System.Windows.Forms.Label()
+        Me.btnActualizar = New System.Windows.Forms.Button()
         CType(Me.dgvClientes, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BdHotelDataSet11, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,7 +60,7 @@ Partial Class FormVerClientes
         Me.dgvClientes.Location = New System.Drawing.Point(13, 19)
         Me.dgvClientes.Name = "dgvClientes"
         Me.dgvClientes.Size = New System.Drawing.Size(544, 340)
-        Me.dgvClientes.TabIndex = 9
+        Me.dgvClientes.TabIndex = 10
         '
         'DNIDataGridViewTextBoxColumn
         '
@@ -123,7 +124,7 @@ Partial Class FormVerClientes
         Me.btnSiguiente.Location = New System.Drawing.Point(374, 386)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(183, 51)
-        Me.btnSiguiente.TabIndex = 7
+        Me.btnSiguiente.TabIndex = 8
         Me.btnSiguiente.Text = "Siguiente"
         Me.btnSiguiente.UseVisualStyleBackColor = False
         '
@@ -133,7 +134,7 @@ Partial Class FormVerClientes
         Me.btnAtras.Location = New System.Drawing.Point(580, 386)
         Me.btnAtras.Name = "btnAtras"
         Me.btnAtras.Size = New System.Drawing.Size(323, 51)
-        Me.btnAtras.TabIndex = 8
+        Me.btnAtras.TabIndex = 9
         Me.btnAtras.Text = "Salir"
         Me.btnAtras.UseVisualStyleBackColor = True
         '
@@ -231,11 +232,24 @@ Partial Class FormVerClientes
         Me.lblBuscar.TabIndex = 7
         Me.lblBuscar.Text = "DNI"
         '
+        'btnActualizar
+        '
+        Me.btnActualizar.BackColor = System.Drawing.Color.SeaGreen
+        Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
+        Me.btnActualizar.Location = New System.Drawing.Point(211, 386)
+        Me.btnActualizar.Name = "btnActualizar"
+        Me.btnActualizar.Size = New System.Drawing.Size(153, 50)
+        Me.btnActualizar.TabIndex = 7
+        Me.btnActualizar.Text = "Actualizar"
+        Me.btnActualizar.UseVisualStyleBackColor = False
+        '
         'FormVerClientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(927, 450)
+        Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.gbBuscar)
         Me.Controls.Add(Me.btnEliminarClientes)
         Me.Controls.Add(Me.btnCrearClientes)
@@ -275,4 +289,5 @@ Partial Class FormVerClientes
     Friend WithEvents btnBuscarDNI As Button
     Friend WithEvents txtbBuscarDNI As TextBox
     Friend WithEvents lblBuscar As Label
+    Friend WithEvents btnActualizar As Button
 End Class

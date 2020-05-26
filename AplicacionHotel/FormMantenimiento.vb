@@ -4,7 +4,6 @@ Public Class FormMantenimiento
     Dim conexion As New OleDbConnection
     Dim adaptador2 As New OleDbDataAdapter
     Dim registro2 As New DataSet
-    Dim Mantenimiento As New DataTable
     Dim i As Integer = 0
 
     Private Sub btnAtras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
@@ -46,53 +45,7 @@ Public Class FormMantenimiento
         End Try
     End Sub
 
-    Private Sub btnBuscarIDIncidencia_Click(sender As Object, e As EventArgs) Handles btnBuscarIDIncidencia.Click
-        Dim consulta As String
-        Dim registro As Boolean
-
-        If txtbBuscarIDIncidencia.Text <> "" Then
-            consulta = "SELECT * FROM Mantenimiento WHERE IDIncidencia = " & txtbBuscarIDIncidencia.Text & ""
-            adaptador2 = New OleDbDataAdapter(consulta, conexion)
-            registro2 = New DataSet
-            adaptador2.Fill(registro2, "Mantenimiento")
-            registro = registro2.Tables("Mantenimiento").Rows.Count
-
-            If registro <> 0 Then
-                dgvMantenimiento.DataSource = registro2
-                dgvMantenimiento.DataMember = "Mantenimiento"
-            Else
-                MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
-                conexion.Close()
-            End If
-        End If
-        txtbBuscarIDIncidencia.Clear()
-    End Sub
-
-    Private Sub btnBuscarEstado_Click(sender As Object, e As EventArgs) Handles btnBuscarEstado.Click
-        Dim consulta As String
-        Dim registro As Boolean
-
-        If txtbBuscarEstado.Text <> "" Then
-            consulta = "SELECT * FROM Mantenimiento WHERE Estado = " & txtbBuscarEstado.Text & ""
-            adaptador2 = New OleDbDataAdapter(consulta, conexion)
-            registro2 = New DataSet
-            adaptador2.Fill(registro2, "Mantenimiento")
-            registro = registro2.Tables("Mantenimiento").Rows.Count
-
-            If registro <> 0 Then
-                dgvMantenimiento.DataSource = registro2
-                dgvMantenimiento.DataMember = "Mantenimiento"
-            Else
-                MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
-                conexion.Close()
-            End If
-        End If
-        txtbBuscarEstado.Clear()
-    End Sub
-
     Private Sub btnAgregarIncidencia_Click(sender As Object, e As EventArgs) Handles btnAgregarIncidencia.Click
-        'txtbIDIncidencia.Text = Val(txtbIDIncidencia.Text) + 1
-
         If txtbIDIncidencia.Text = "" And txtbEstado.Text = "" Then
             MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
@@ -110,9 +63,9 @@ Public Class FormMantenimiento
 
             conexion.Close()
 
-            MsgBox("Datos de las recetas almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
+            MsgBox("Datos de la incidencia almacenados correctamente!!", MsgBoxStyle.Information, "Información")
 
-            txtbIDIncidencia.Text = Val(txtbIDIncidencia.Text) + 1
+            txtbIDIncidencia.Text = CStr(i + 1)
         End If
     End Sub
 
@@ -122,23 +75,8 @@ Public Class FormMantenimiento
         MsgBox("Registro eliminado", MsgBoxStyle.Information, "Eliminado")
 
         conexion.Close()
-    End Sub
 
-    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        refreshDatagrid()
-    End Sub
-
-    Private Sub refreshDatagrid()
-        Dim con As New OleDbConnection("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb")
-        Dim ole As New OleDbCommand("SELECT * FROM Mantenimiento", con)
-        Dim ds As New DataSet
-        Dim DataAdapter1 As New OleDbDataAdapter
-        con.Open()
-        DataAdapter1.SelectCommand = ole
-        DataAdapter1.Fill(ds, "Mantenimiento")
-        dgvMantenimiento.DataSource = ds
-        dgvMantenimiento.DataMember = "Mantenimiento"
-        con.Close()
+        txtbIDIncidencia.Text = txtbIDIncidencia.Text - 1
     End Sub
 
     Private Sub FormMantenimiento_Load(sender As Object, e As EventArgs) Handles MyBase.Load
