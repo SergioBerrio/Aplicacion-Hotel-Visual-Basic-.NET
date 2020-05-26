@@ -63,6 +63,26 @@ Namespace My.Resources
         '''<summary>
         '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property columna() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("columna", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property columna2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("columna2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property free_horizontal_on_white_by_logaster() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("free_horizontal_on_white_by_logaster", resourceCulture)

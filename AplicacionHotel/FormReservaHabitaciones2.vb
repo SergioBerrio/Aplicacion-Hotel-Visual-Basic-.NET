@@ -1,7 +1,7 @@
 ﻿Imports System.Data.OleDb
 
 Public Class FormReservaHabitaciones2
-    Dim tablaReservaHabitaciones2 As New DataTable
+    Dim tablaReservaHabitaciones As New DataTable
     Dim i As Integer = 0
 
     Private Sub btnAtras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
@@ -53,35 +53,33 @@ Public Class FormReservaHabitaciones2
 
         txtbDNICliente.Text = FormReservasClientes.txtbDNI.Text
 
+        cmbPersonas.Items.Add("1 persona")
+        cmbPersonas.Items.Add("2 personas")
+        cmbPersonas.Items.Add("3 personas")
+        cmbPersonas.Items.Add("4 personas")
+        cmbPersonas.Items.Add("5 personas")
+        cmbPersonas.Items.Add("6 personas")
+        cmbPersonas.Items.Add("7 personas")
+        cmbPersonas.Items.Add("8 personas")
+        cmbPersonas.Items.Add("9 personas")
+        cmbPersonas.Items.Add("10 personas")
+
         Dim consulta As String = "SELECT NumHabitacion, Tipo, NumCamas FROM Habitaciones"
         Dim comando As New OleDbCommand(consulta, conexion)
         Dim adaptadorTabla As New OleDbDataAdapter(consulta, conexion)
-        adaptadorTabla.Fill(tablaReservaHabitaciones2)
-        cargarNumeroCamas()
-
-        Dim consulta2 As String = "SELECT NumHabitacion, Tipo, NumCamas FROM TipoHabitacion"
-        Dim comando2 As New OleDbCommand(consulta2, conexion)
-        Dim adaptadorTabla2 As New OleDbDataAdapter(consulta2, conexion)
-        adaptadorTabla2.Fill(tablaReservaHabitaciones2)
+        adaptadorTabla.Fill(tablaReservaHabitaciones)
         cargarComboTipoHabitacion()
     End Sub
 
     Public Sub cargarComboTipoHabitacion()
-        cmbTipoHabitacion.DataSource = tablaReservaHabitaciones2
+        cmbTipoHabitacion.DataSource = tablaReservaHabitaciones
 
         cmbTipoHabitacion.DisplayMember = "Tipo"
         cmbTipoHabitacion.ValueMember = "NumHabitacion"
     End Sub
 
-    Public Sub cargarNumeroCamas()
-        cmbTipoHabitacion.DataSource = tablaReservaHabitaciones2
-
-        cmbTipoHabitacion.DisplayMember = "Tipo"
-        cmbTipoHabitacion.ValueMember = "NumCamas"
-    End Sub
-
     Private Sub cmbTipoHabitacion_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTipoHabitacion.SelectedIndexChanged
-        Dim camas = tablaReservaHabitaciones2.Rows(cmbTipoHabitacion.SelectedIndex)("NumCamas")
+        Dim camas = tablaReservaHabitaciones.Rows(cmbTipoHabitacion.SelectedIndex)("NumCamas")
         txtbNumeroCamas.Text = camas
     End Sub
 End Class

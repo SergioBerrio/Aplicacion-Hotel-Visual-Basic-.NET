@@ -71,10 +71,10 @@ Partial Class FormEntrada
         '
         'lblMensaje
         '
-        Me.lblMensaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMensaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMensaje.Location = New System.Drawing.Point(17, 20)
         Me.lblMensaje.Name = "lblMensaje"
-        Me.lblMensaje.Size = New System.Drawing.Size(366, 55)
+        Me.lblMensaje.Size = New System.Drawing.Size(406, 57)
         Me.lblMensaje.TabIndex = 5
         Me.lblMensaje.Text = "Bienvenido a la pantalla de entrada," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "que desea hacer??"
         '
@@ -92,6 +92,7 @@ Partial Class FormEntrada
         '
         'gbClientes
         '
+        Me.gbClientes.BackColor = System.Drawing.SystemColors.Control
         Me.gbClientes.Controls.Add(Me.btnVerReservas)
         Me.gbClientes.Controls.Add(Me.btnReserva)
         Me.gbClientes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -104,6 +105,7 @@ Partial Class FormEntrada
         '
         'gbTrabajadores
         '
+        Me.gbTrabajadores.BackColor = System.Drawing.SystemColors.Control
         Me.gbTrabajadores.Controls.Add(Me.btnControl)
         Me.gbTrabajadores.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gbTrabajadores.Location = New System.Drawing.Point(100, 301)
@@ -117,9 +119,9 @@ Partial Class FormEntrada
         '
         Me.p1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.p1.Controls.Add(Me.lblMensaje)
-        Me.p1.Location = New System.Drawing.Point(197, 32)
+        Me.p1.Location = New System.Drawing.Point(183, 33)
         Me.p1.Name = "p1"
-        Me.p1.Size = New System.Drawing.Size(401, 97)
+        Me.p1.Size = New System.Drawing.Size(442, 97)
         Me.p1.TabIndex = 6
         '
         'FormEntrada

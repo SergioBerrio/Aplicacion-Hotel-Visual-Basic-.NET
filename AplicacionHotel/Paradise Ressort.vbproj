@@ -243,6 +243,12 @@
     <Compile Include="FormVerReservas2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FormVerReservas3.Designer.vb">
+      <DependentUpon>FormVerReservas3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormVerReservas3.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Modelos\Clientes.vb" />
     <Compile Include="Datos\EnlazarConexion.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -340,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormVerReservas2.resx">
       <DependentUpon>FormVerReservas2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVerReservas3.resx">
+      <DependentUpon>FormVerReservas3.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

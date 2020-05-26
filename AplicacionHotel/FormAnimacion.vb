@@ -28,7 +28,7 @@ Public Class FormAnimacion
 
     Private Sub FormAnimacion_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet11.Actividades' Puede moverla o quitarla según sea necesario.
-        'Me.ActividadesTableAdapter1.Fill(Me.BdHotelDataSet11.Actividades)
+        Me.ActividadesTableAdapter1.Fill(Me.BdHotelDataSet11.Actividades)
 
         txtbIDActividad.Text = CStr(i + 1)
 

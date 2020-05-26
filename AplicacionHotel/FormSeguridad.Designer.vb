@@ -194,7 +194,7 @@ Partial Class FormSeguridad
         Me.btnEliminarRecetas.ForeColor = System.Drawing.SystemColors.Control
         Me.btnEliminarRecetas.Location = New System.Drawing.Point(586, 121)
         Me.btnEliminarRecetas.Name = "btnEliminarRecetas"
-        Me.btnEliminarRecetas.Size = New System.Drawing.Size(96, 58)
+        Me.btnEliminarRecetas.Size = New System.Drawing.Size(96, 76)
         Me.btnEliminarRecetas.TabIndex = 8
         Me.btnEliminarRecetas.Text = "Eliminar zona"
         Me.btnEliminarRecetas.UseVisualStyleBackColor = False
@@ -206,7 +206,7 @@ Partial Class FormSeguridad
         Me.btnAgregarRecetas.ForeColor = System.Drawing.SystemColors.Control
         Me.btnAgregarRecetas.Location = New System.Drawing.Point(586, 12)
         Me.btnAgregarRecetas.Name = "btnAgregarRecetas"
-        Me.btnAgregarRecetas.Size = New System.Drawing.Size(96, 58)
+        Me.btnAgregarRecetas.Size = New System.Drawing.Size(96, 74)
         Me.btnAgregarRecetas.TabIndex = 7
         Me.btnAgregarRecetas.Text = "Agregar zona"
         Me.btnAgregarRecetas.UseVisualStyleBackColor = False
@@ -218,7 +218,7 @@ Partial Class FormSeguridad
         Me.btnActualizar.ForeColor = System.Drawing.SystemColors.Control
         Me.btnActualizar.Location = New System.Drawing.Point(586, 263)
         Me.btnActualizar.Name = "btnActualizar"
-        Me.btnActualizar.Size = New System.Drawing.Size(96, 64)
+        Me.btnActualizar.Size = New System.Drawing.Size(96, 78)
         Me.btnActualizar.TabIndex = 11
         Me.btnActualizar.Text = "Actualizar"
         Me.btnActualizar.UseVisualStyleBackColor = False

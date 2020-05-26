@@ -9,9 +9,9 @@ Module EnlazarConexion
         Try
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
             conexion.Open()
-            estado = "conectado"
+            estado = "Conectado"
         Catch ex As Exception
-            estado = "desconectado"
+            estado = "Desconectado"
         End Try
     End Sub
 End Module

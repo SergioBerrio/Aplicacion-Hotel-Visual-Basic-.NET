@@ -116,7 +116,7 @@ Partial Class FormReservaHabitaciones
         '
         Me.btnReservar.BackColor = System.Drawing.Color.Orange
         Me.btnReservar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnReservar.Location = New System.Drawing.Point(45, 316)
+        Me.btnReservar.Location = New System.Drawing.Point(45, 334)
         Me.btnReservar.Name = "btnReservar"
         Me.btnReservar.Size = New System.Drawing.Size(264, 68)
         Me.btnReservar.TabIndex = 10
@@ -166,7 +166,7 @@ Partial Class FormReservaHabitaciones
         'btnAtras
         '
         Me.btnAtras.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAtras.Location = New System.Drawing.Point(468, 316)
+        Me.btnAtras.Location = New System.Drawing.Point(468, 334)
         Me.btnAtras.Name = "btnAtras"
         Me.btnAtras.Size = New System.Drawing.Size(272, 68)
         Me.btnAtras.TabIndex = 11

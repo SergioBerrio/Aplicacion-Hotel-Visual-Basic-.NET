@@ -1,6 +1,6 @@
 ﻿Imports System.Data.OleDb
 
-Public Class FormVerReservas2
+Public Class FormVerReservas3
     Dim conexion As New OleDbConnection
     Dim posicion As Integer
     Dim posicionFinal As Integer
@@ -18,9 +18,9 @@ Public Class FormVerReservas2
         posicionFinal = registro2.Tables("Reservas").Rows.Count - 1
     End Sub
 
-    Private Sub FormVerReservas2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'TODO: esta línea de código carga datos en la tabla 'BdHotelDataSet11.Reservas' Puede moverla o quitarla según sea necesario.
-        Me.ReservasTableAdapter.Fill(Me.BdHotelDataSet11.Reservas)
+    Private Sub FormVerReservas3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta línea de código carga datos en la tabla 'BDHotelDataSet1.Reservas' Puede moverla o quitarla según sea necesario.
+        Me.ReservasTableAdapter.Fill(Me.BDHotelDataSet1.Reservas)
 
         Try
             conexion.ConnectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\USER\source\repos\AplicacionHotel\BDHotel.accdb"
@@ -35,7 +35,7 @@ Public Class FormVerReservas2
     End Sub
 
     Private Sub btnAtras_Click(sender As Object, e As EventArgs) Handles btnAtras.Click
-        FormRecepcion.Show()
+        FormPapelFactura.Show()
         Me.Hide()
     End Sub
 
@@ -84,26 +84,8 @@ Public Class FormVerReservas2
         comando.ExecuteNonQuery()
     End Sub
 
-    Private Sub btnBuscarID_Click(sender As Object, e As EventArgs) Handles btnBuscarID.Click
-        Dim consulta As String
-        Dim registro As Boolean
-
-        If txtbBuscarID.Text <> "" Then
-            consulta = "SELECT * FROM Reservas WHERE IDReserva = " & txtbBuscarID.Text & ""
-            adaptador2 = New OleDbDataAdapter(consulta, conexion)
-            registro2 = New DataSet
-            adaptador2.Fill(registro2, "Reservas")
-            registro = registro2.Tables("Reservas").Rows.Count
-
-            If registro <> 0 Then
-                dgvVerReservas.DataSource = registro2
-                dgvVerReservas.DataMember = "Reservas"
-            Else
-                MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
-                conexion.Close()
-            End If
-        End If
-        txtbBuscarID.Clear()
+    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
+        refreshDatagrid()
     End Sub
 
     Private Sub btnBuscarDNI_Click(sender As Object, e As EventArgs) Handles btnBuscarDNI.Click
@@ -128,8 +110,26 @@ Public Class FormVerReservas2
         txtbBuscarDNI.Clear()
     End Sub
 
-    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        refreshDatagrid()
+    Private Sub btnBuscarID_Click(sender As Object, e As EventArgs) Handles btnBuscarID.Click
+        Dim consulta As String
+        Dim registro As Boolean
+
+        If txtbBuscarID.Text <> "" Then
+            consulta = "SELECT * FROM Reservas WHERE IDReserva = " & txtbBuscarID.Text & ""
+            adaptador2 = New OleDbDataAdapter(consulta, conexion)
+            registro2 = New DataSet
+            adaptador2.Fill(registro2, "Reservas")
+            registro = registro2.Tables("Reservas").Rows.Count
+
+            If registro <> 0 Then
+                dgvVerReservas.DataSource = registro2
+                dgvVerReservas.DataMember = "Reservas"
+            Else
+                MsgBox("No existe el identificador", MsgBoxStyle.Critical, "Error")
+                conexion.Close()
+            End If
+        End If
+        txtbBuscarID.Clear()
     End Sub
 
     Private Sub refreshDatagrid()

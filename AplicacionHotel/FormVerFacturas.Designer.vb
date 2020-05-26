@@ -89,7 +89,7 @@ Partial Class FormVerFacturas
         Me.btnSiguiente.Location = New System.Drawing.Point(366, 391)
         Me.btnSiguiente.Name = "btnSiguiente"
         Me.btnSiguiente.Size = New System.Drawing.Size(191, 49)
-        Me.btnSiguiente.TabIndex = 9
+        Me.btnSiguiente.TabIndex = 10
         Me.btnSiguiente.Text = "Siguiente"
         Me.btnSiguiente.UseVisualStyleBackColor = False
         '
@@ -99,7 +99,7 @@ Partial Class FormVerFacturas
         Me.btnSalir.Location = New System.Drawing.Point(594, 391)
         Me.btnSalir.Name = "btnSalir"
         Me.btnSalir.Size = New System.Drawing.Size(274, 47)
-        Me.btnSalir.TabIndex = 10
+        Me.btnSalir.TabIndex = 11
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
@@ -114,7 +114,7 @@ Partial Class FormVerFacturas
         Me.dgvFacturas.Name = "dgvFacturas"
         Me.dgvFacturas.ReadOnly = True
         Me.dgvFacturas.Size = New System.Drawing.Size(545, 361)
-        Me.dgvFacturas.TabIndex = 11
+        Me.dgvFacturas.TabIndex = 12
         '
         'IDFacturaDataGridViewTextBoxColumn
         '
@@ -253,7 +253,7 @@ Partial Class FormVerFacturas
         Me.btnActualizar.Location = New System.Drawing.Point(218, 392)
         Me.btnActualizar.Name = "btnActualizar"
         Me.btnActualizar.Size = New System.Drawing.Size(133, 47)
-        Me.btnActualizar.TabIndex = 12
+        Me.btnActualizar.TabIndex = 9
         Me.btnActualizar.Text = "Actualizar"
         Me.btnActualizar.UseVisualStyleBackColor = False
         '

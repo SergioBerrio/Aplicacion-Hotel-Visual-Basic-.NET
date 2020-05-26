@@ -141,9 +141,9 @@ Public Class FormVerReservas
         Dim DataAdapter1 As New OleDbDataAdapter
         con.Open()
         DataAdapter1.SelectCommand = ole
-        DataAdapter1.Fill(ds, "Trabajadores")
+        DataAdapter1.Fill(ds, "Reservas")
         dgvVerReservas.DataSource = ds
-        dgvVerReservas.DataMember = "Trabajadores"
+        dgvVerReservas.DataMember = "Reservas"
         con.Close()
     End Sub
 

@@ -35,19 +35,21 @@ Partial Class FormPapelFactura
         Me.txtbImporteActividades = New System.Windows.Forms.TextBox()
         Me.lblImporteActividades = New System.Windows.Forms.Label()
         Me.txtbFecha = New System.Windows.Forms.TextBox()
-        Me.txtbIVA = New System.Windows.Forms.TextBox()
         Me.lblNombre = New System.Windows.Forms.Label()
-        Me.txtbPersonas = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtbTipoHabitacion = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.cmbClientes = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtbDNI = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.nudIVA = New System.Windows.Forms.NumericUpDown()
+        Me.cmbTipoHabitacion = New System.Windows.Forms.ComboBox()
+        Me.cmbNumeroPersonas = New System.Windows.Forms.ComboBox()
         Me.txtbSubtotal = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtbDNI = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.cmbClientes = New System.Windows.Forms.ComboBox()
+        Me.btnVerFacturas = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.nudIVA, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnNuevaFactura
@@ -55,10 +57,10 @@ Partial Class FormPapelFactura
         Me.btnNuevaFactura.BackColor = System.Drawing.Color.RoyalBlue
         Me.btnNuevaFactura.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnNuevaFactura.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnNuevaFactura.Location = New System.Drawing.Point(293, 378)
+        Me.btnNuevaFactura.Location = New System.Drawing.Point(214, 378)
         Me.btnNuevaFactura.Name = "btnNuevaFactura"
-        Me.btnNuevaFactura.Size = New System.Drawing.Size(218, 51)
-        Me.btnNuevaFactura.TabIndex = 15
+        Me.btnNuevaFactura.Size = New System.Drawing.Size(177, 51)
+        Me.btnNuevaFactura.TabIndex = 13
         Me.btnNuevaFactura.Text = "Nueva Factura"
         Me.btnNuevaFactura.UseVisualStyleBackColor = False
         '
@@ -69,18 +71,19 @@ Partial Class FormPapelFactura
         Me.btnCobrar.ForeColor = System.Drawing.SystemColors.Control
         Me.btnCobrar.Location = New System.Drawing.Point(31, 378)
         Me.btnCobrar.Name = "btnCobrar"
-        Me.btnCobrar.Size = New System.Drawing.Size(216, 51)
-        Me.btnCobrar.TabIndex = 14
+        Me.btnCobrar.Size = New System.Drawing.Size(177, 51)
+        Me.btnCobrar.TabIndex = 12
         Me.btnCobrar.Text = "Cobrar"
         Me.btnCobrar.UseVisualStyleBackColor = False
         '
         'txbImporteTotal
         '
+        Me.txbImporteTotal.Enabled = False
         Me.txbImporteTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txbImporteTotal.Location = New System.Drawing.Point(561, 237)
         Me.txbImporteTotal.Name = "txbImporteTotal"
         Me.txbImporteTotal.Size = New System.Drawing.Size(140, 22)
-        Me.txbImporteTotal.TabIndex = 13
+        Me.txbImporteTotal.TabIndex = 11
         '
         'Label5
         '
@@ -108,9 +111,9 @@ Partial Class FormPapelFactura
         Me.lblIVA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblIVA.Location = New System.Drawing.Point(22, 150)
         Me.lblIVA.Name = "lblIVA"
-        Me.lblIVA.Size = New System.Drawing.Size(80, 16)
+        Me.lblIVA.Size = New System.Drawing.Size(66, 16)
         Me.lblIVA.TabIndex = 10
-        Me.lblIVA.Text = "10% de IVA:"
+        Me.lblIVA.Text = "% de IVA:"
         '
         'lblImporteTotal
         '
@@ -135,10 +138,10 @@ Partial Class FormPapelFactura
         'btnSalir
         '
         Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSalir.Location = New System.Drawing.Point(556, 378)
+        Me.btnSalir.Location = New System.Drawing.Point(585, 378)
         Me.btnSalir.Name = "btnSalir"
-        Me.btnSalir.Size = New System.Drawing.Size(206, 51)
-        Me.btnSalir.TabIndex = 16
+        Me.btnSalir.Size = New System.Drawing.Size(177, 51)
+        Me.btnSalir.TabIndex = 14
         Me.btnSalir.Text = "Salir"
         Me.btnSalir.UseVisualStyleBackColor = True
         '
@@ -148,7 +151,7 @@ Partial Class FormPapelFactura
         Me.txtbImporte.Location = New System.Drawing.Point(80, 198)
         Me.txtbImporte.Name = "txtbImporte"
         Me.txtbImporte.Size = New System.Drawing.Size(209, 22)
-        Me.txtbImporte.TabIndex = 17
+        Me.txtbImporte.TabIndex = 8
         '
         'txtbImporteActividades
         '
@@ -156,7 +159,7 @@ Partial Class FormPapelFactura
         Me.txtbImporteActividades.Location = New System.Drawing.Point(458, 198)
         Me.txtbImporteActividades.Name = "txtbImporteActividades"
         Me.txtbImporteActividades.Size = New System.Drawing.Size(243, 22)
-        Me.txtbImporteActividades.TabIndex = 18
+        Me.txtbImporteActividades.TabIndex = 9
         '
         'lblImporteActividades
         '
@@ -175,34 +178,18 @@ Partial Class FormPapelFactura
         Me.txtbFecha.Location = New System.Drawing.Point(437, 81)
         Me.txtbFecha.Name = "txtbFecha"
         Me.txtbFecha.Size = New System.Drawing.Size(264, 22)
-        Me.txtbFecha.TabIndex = 20
-        '
-        'txtbIVA
-        '
-        Me.txtbIVA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbIVA.Location = New System.Drawing.Point(108, 147)
-        Me.txtbIVA.Name = "txtbIVA"
-        Me.txtbIVA.Size = New System.Drawing.Size(181, 22)
-        Me.txtbIVA.TabIndex = 22
+        Me.txtbFecha.TabIndex = 5
         '
         'lblNombre
         '
         Me.lblNombre.AutoSize = True
-        Me.lblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblNombre.Location = New System.Drawing.Point(275, 29)
+        Me.lblNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.lblNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblNombre.Location = New System.Drawing.Point(224, 27)
         Me.lblNombre.Name = "lblNombre"
-        Me.lblNombre.Size = New System.Drawing.Size(249, 29)
+        Me.lblNombre.Size = New System.Drawing.Size(385, 44)
         Me.lblNombre.TabIndex = 23
         Me.lblNombre.Text = "Hotel Paradise Resort"
-        '
-        'txtbPersonas
-        '
-        Me.txtbPersonas.Enabled = False
-        Me.txtbPersonas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbPersonas.Location = New System.Drawing.Point(166, 81)
-        Me.txtbPersonas.Name = "txtbPersonas"
-        Me.txtbPersonas.Size = New System.Drawing.Size(186, 22)
-        Me.txtbPersonas.TabIndex = 25
         '
         'Label1
         '
@@ -213,15 +200,6 @@ Partial Class FormPapelFactura
         Me.Label1.Size = New System.Drawing.Size(138, 16)
         Me.Label1.TabIndex = 24
         Me.Label1.Text = "Número de personas:"
-        '
-        'txtbTipoHabitacion
-        '
-        Me.txtbTipoHabitacion.Enabled = False
-        Me.txtbTipoHabitacion.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbTipoHabitacion.Location = New System.Drawing.Point(437, 147)
-        Me.txtbTipoHabitacion.Name = "txtbTipoHabitacion"
-        Me.txtbTipoHabitacion.Size = New System.Drawing.Size(264, 22)
-        Me.txtbTipoHabitacion.TabIndex = 27
         '
         'Label2
         '
@@ -235,16 +213,16 @@ Partial Class FormPapelFactura
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.nudIVA)
+        Me.GroupBox1.Controls.Add(Me.cmbTipoHabitacion)
+        Me.GroupBox1.Controls.Add(Me.cmbNumeroPersonas)
         Me.GroupBox1.Controls.Add(Me.txtbSubtotal)
         Me.GroupBox1.Controls.Add(Me.Label6)
         Me.GroupBox1.Controls.Add(Me.txtbDNI)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.cmbClientes)
-        Me.GroupBox1.Controls.Add(Me.txtbTipoHabitacion)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.txtbPersonas)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.txtbIVA)
         Me.GroupBox1.Controls.Add(Me.txtbFecha)
         Me.GroupBox1.Controls.Add(Me.lblImporteActividades)
         Me.GroupBox1.Controls.Add(Me.txtbImporteActividades)
@@ -256,39 +234,45 @@ Partial Class FormPapelFactura
         Me.GroupBox1.Controls.Add(Me.lblImporteTotal)
         Me.GroupBox1.Controls.Add(Me.lblEstancia)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(31, 84)
+        Me.GroupBox1.Location = New System.Drawing.Point(31, 72)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(731, 275)
+        Me.GroupBox1.Size = New System.Drawing.Size(731, 287)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos de la factura"
         '
-        'cmbClientes
+        'nudIVA
         '
-        Me.cmbClientes.FormattingEnabled = True
-        Me.cmbClientes.Location = New System.Drawing.Point(80, 28)
-        Me.cmbClientes.Name = "cmbClientes"
-        Me.cmbClientes.Size = New System.Drawing.Size(265, 24)
-        Me.cmbClientes.TabIndex = 28
+        Me.nudIVA.Location = New System.Drawing.Point(96, 149)
+        Me.nudIVA.Name = "nudIVA"
+        Me.nudIVA.Size = New System.Drawing.Size(192, 22)
+        Me.nudIVA.TabIndex = 5
+        Me.nudIVA.Value = New Decimal(New Integer() {10, 0, 0, 0})
         '
-        'Label3
+        'cmbTipoHabitacion
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(387, 34)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(34, 16)
-        Me.Label3.TabIndex = 29
-        Me.Label3.Text = "DNI:"
+        Me.cmbTipoHabitacion.FormattingEnabled = True
+        Me.cmbTipoHabitacion.Location = New System.Drawing.Point(437, 145)
+        Me.cmbTipoHabitacion.Name = "cmbTipoHabitacion"
+        Me.cmbTipoHabitacion.Size = New System.Drawing.Size(264, 24)
+        Me.cmbTipoHabitacion.TabIndex = 7
         '
-        'txtbDNI
+        'cmbNumeroPersonas
         '
-        Me.txtbDNI.Enabled = False
-        Me.txtbDNI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbDNI.Location = New System.Drawing.Point(427, 31)
-        Me.txtbDNI.Name = "txtbDNI"
-        Me.txtbDNI.Size = New System.Drawing.Size(274, 22)
-        Me.txtbDNI.TabIndex = 30
+        Me.cmbNumeroPersonas.FormattingEnabled = True
+        Me.cmbNumeroPersonas.Location = New System.Drawing.Point(166, 78)
+        Me.cmbNumeroPersonas.Name = "cmbNumeroPersonas"
+        Me.cmbNumeroPersonas.Size = New System.Drawing.Size(179, 24)
+        Me.cmbNumeroPersonas.TabIndex = 3
+        '
+        'txtbSubtotal
+        '
+        Me.txtbSubtotal.Enabled = False
+        Me.txtbSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbSubtotal.Location = New System.Drawing.Point(84, 240)
+        Me.txtbSubtotal.Name = "txtbSubtotal"
+        Me.txtbSubtotal.Size = New System.Drawing.Size(205, 22)
+        Me.txtbSubtotal.TabIndex = 10
         '
         'Label6
         '
@@ -300,19 +284,50 @@ Partial Class FormPapelFactura
         Me.Label6.TabIndex = 31
         Me.Label6.Text = "Subtotal:"
         '
-        'txtbSubtotal
+        'txtbDNI
         '
-        Me.txtbSubtotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtbSubtotal.Location = New System.Drawing.Point(84, 240)
-        Me.txtbSubtotal.Name = "txtbSubtotal"
-        Me.txtbSubtotal.Size = New System.Drawing.Size(205, 22)
-        Me.txtbSubtotal.TabIndex = 32
+        Me.txtbDNI.Enabled = False
+        Me.txtbDNI.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbDNI.Location = New System.Drawing.Point(427, 31)
+        Me.txtbDNI.Name = "txtbDNI"
+        Me.txtbDNI.Size = New System.Drawing.Size(274, 22)
+        Me.txtbDNI.TabIndex = 3
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(387, 34)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(34, 16)
+        Me.Label3.TabIndex = 29
+        Me.Label3.Text = "DNI:"
+        '
+        'cmbClientes
+        '
+        Me.cmbClientes.FormattingEnabled = True
+        Me.cmbClientes.Location = New System.Drawing.Point(80, 28)
+        Me.cmbClientes.Name = "cmbClientes"
+        Me.cmbClientes.Size = New System.Drawing.Size(265, 24)
+        Me.cmbClientes.TabIndex = 2
+        '
+        'btnVerFacturas
+        '
+        Me.btnVerFacturas.BackColor = System.Drawing.Color.Orange
+        Me.btnVerFacturas.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnVerFacturas.Location = New System.Drawing.Point(397, 378)
+        Me.btnVerFacturas.Name = "btnVerFacturas"
+        Me.btnVerFacturas.Size = New System.Drawing.Size(177, 51)
+        Me.btnVerFacturas.TabIndex = 24
+        Me.btnVerFacturas.Text = "Ver facturas"
+        Me.btnVerFacturas.UseVisualStyleBackColor = False
         '
         'FormPapelFactura
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.Controls.Add(Me.btnVerFacturas)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.lblNombre)
         Me.Controls.Add(Me.btnSalir)
@@ -322,6 +337,7 @@ Partial Class FormPapelFactura
         Me.Text = "FormPapelFactura"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.nudIVA, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -340,11 +356,8 @@ Partial Class FormPapelFactura
     Friend WithEvents txtbImporteActividades As TextBox
     Friend WithEvents lblImporteActividades As Label
     Friend WithEvents txtbFecha As TextBox
-    Friend WithEvents txtbIVA As TextBox
     Friend WithEvents lblNombre As Label
-    Friend WithEvents txtbPersonas As TextBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents txtbTipoHabitacion As TextBox
     Friend WithEvents Label2 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents cmbClientes As ComboBox
@@ -352,4 +365,8 @@ Partial Class FormPapelFactura
     Friend WithEvents Label3 As Label
     Friend WithEvents txtbSubtotal As TextBox
     Friend WithEvents Label6 As Label
+    Friend WithEvents btnVerFacturas As Button
+    Friend WithEvents cmbTipoHabitacion As ComboBox
+    Friend WithEvents cmbNumeroPersonas As ComboBox
+    Friend WithEvents nudIVA As NumericUpDown
 End Class

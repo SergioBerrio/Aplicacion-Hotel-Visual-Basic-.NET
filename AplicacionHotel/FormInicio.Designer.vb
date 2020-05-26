@@ -33,7 +33,7 @@ Partial Class FormInicio
         'btnEntrar
         '
         Me.btnEntrar.BackColor = System.Drawing.Color.DodgerBlue
-        Me.btnEntrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEntrar.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEntrar.ForeColor = System.Drawing.SystemColors.Control
         Me.btnEntrar.Location = New System.Drawing.Point(139, 330)
         Me.btnEntrar.Name = "btnEntrar"
@@ -45,7 +45,7 @@ Partial Class FormInicio
         'btnSalir
         '
         Me.btnSalir.BackColor = System.Drawing.Color.Firebrick
-        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSalir.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnSalir.ForeColor = System.Drawing.SystemColors.Control
         Me.btnSalir.Location = New System.Drawing.Point(410, 331)
         Me.btnSalir.Name = "btnSalir"
@@ -57,7 +57,7 @@ Partial Class FormInicio
         'lblMensaje
         '
         Me.lblMensaje.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.lblMensaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMensaje.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblMensaje.Location = New System.Drawing.Point(139, 172)
         Me.lblMensaje.Name = "lblMensaje"
         Me.lblMensaje.Size = New System.Drawing.Size(487, 140)
@@ -70,9 +70,9 @@ Partial Class FormInicio
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox1.Image = Global.AplicacionHotel.My.Resources.Resources.free_horizontal_on_white_by_logaster
         Me.PictureBox1.InitialImage = CType(resources.GetObject("PictureBox1.InitialImage"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(220, 26)
+        Me.PictureBox1.Location = New System.Drawing.Point(222, 22)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(321, 127)
+        Me.PictureBox1.Size = New System.Drawing.Size(340, 138)
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
