@@ -71,7 +71,7 @@ Partial Class FormReservaHabitaciones
         Me.txtbDNICliente.Enabled = False
         Me.txtbDNICliente.Location = New System.Drawing.Point(188, 74)
         Me.txtbDNICliente.Name = "txtbDNICliente"
-        Me.txtbDNICliente.Size = New System.Drawing.Size(139, 20)
+        Me.txtbDNICliente.Size = New System.Drawing.Size(139, 22)
         Me.txtbDNICliente.TabIndex = 2
         '
         'lblDNI
@@ -89,7 +89,7 @@ Partial Class FormReservaHabitaciones
         Me.txtbFecha.Enabled = False
         Me.txtbFecha.Location = New System.Drawing.Point(188, 151)
         Me.txtbFecha.Name = "txtbFecha"
-        Me.txtbFecha.Size = New System.Drawing.Size(139, 20)
+        Me.txtbFecha.Size = New System.Drawing.Size(139, 22)
         Me.txtbFecha.TabIndex = 4
         '
         'Label1
@@ -127,14 +127,14 @@ Partial Class FormReservaHabitaciones
         '
         Me.dtpInicio.Location = New System.Drawing.Point(580, 34)
         Me.dtpInicio.Name = "dtpInicio"
-        Me.dtpInicio.Size = New System.Drawing.Size(139, 20)
+        Me.dtpInicio.Size = New System.Drawing.Size(139, 22)
         Me.dtpInicio.TabIndex = 6
         '
         'dtpFin
         '
         Me.dtpFin.Location = New System.Drawing.Point(580, 74)
         Me.dtpFin.Name = "dtpFin"
-        Me.dtpFin.Size = New System.Drawing.Size(139, 20)
+        Me.dtpFin.Size = New System.Drawing.Size(139, 22)
         Me.dtpFin.TabIndex = 7
         '
         'txtbIDReserva
@@ -142,7 +142,7 @@ Partial Class FormReservaHabitaciones
         Me.txtbIDReserva.Enabled = False
         Me.txtbIDReserva.Location = New System.Drawing.Point(188, 37)
         Me.txtbIDReserva.Name = "txtbIDReserva"
-        Me.txtbIDReserva.Size = New System.Drawing.Size(139, 20)
+        Me.txtbIDReserva.Size = New System.Drawing.Size(139, 22)
         Me.txtbIDReserva.TabIndex = 1
         '
         'lblIDReserva
@@ -160,7 +160,7 @@ Partial Class FormReservaHabitaciones
         Me.cmbPersonas.FormattingEnabled = True
         Me.cmbPersonas.Location = New System.Drawing.Point(188, 113)
         Me.cmbPersonas.Name = "cmbPersonas"
-        Me.cmbPersonas.Size = New System.Drawing.Size(139, 21)
+        Me.cmbPersonas.Size = New System.Drawing.Size(139, 24)
         Me.cmbPersonas.TabIndex = 3
         '
         'btnAtras
@@ -178,7 +178,7 @@ Partial Class FormReservaHabitaciones
         Me.txtbNumeroHabitacion.Enabled = False
         Me.txtbNumeroHabitacion.Location = New System.Drawing.Point(580, 115)
         Me.txtbNumeroHabitacion.Name = "txtbNumeroHabitacion"
-        Me.txtbNumeroHabitacion.Size = New System.Drawing.Size(139, 20)
+        Me.txtbNumeroHabitacion.Size = New System.Drawing.Size(139, 22)
         Me.txtbNumeroHabitacion.TabIndex = 8
         '
         'lblNumeroHabitacion
@@ -216,7 +216,7 @@ Partial Class FormReservaHabitaciones
         Me.cmbTipoHabitacion.FormattingEnabled = True
         Me.cmbTipoHabitacion.Location = New System.Drawing.Point(188, 191)
         Me.cmbTipoHabitacion.Name = "cmbTipoHabitacion"
-        Me.cmbTipoHabitacion.Size = New System.Drawing.Size(139, 21)
+        Me.cmbTipoHabitacion.Size = New System.Drawing.Size(139, 24)
         Me.cmbTipoHabitacion.TabIndex = 5
         '
         'txtbNumeroCamas
@@ -224,7 +224,7 @@ Partial Class FormReservaHabitaciones
         Me.txtbNumeroCamas.Enabled = False
         Me.txtbNumeroCamas.Location = New System.Drawing.Point(580, 153)
         Me.txtbNumeroCamas.Name = "txtbNumeroCamas"
-        Me.txtbNumeroCamas.Size = New System.Drawing.Size(139, 20)
+        Me.txtbNumeroCamas.Size = New System.Drawing.Size(139, 22)
         Me.txtbNumeroCamas.TabIndex = 9
         '
         'gb1
@@ -247,6 +247,7 @@ Partial Class FormReservaHabitaciones
         Me.gb1.Controls.Add(Me.lblEmail)
         Me.gb1.Controls.Add(Me.txtbDNICliente)
         Me.gb1.Controls.Add(Me.lblDNI)
+        Me.gb1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.gb1.Location = New System.Drawing.Point(21, 42)
         Me.gb1.Name = "gb1"
         Me.gb1.Size = New System.Drawing.Size(749, 245)

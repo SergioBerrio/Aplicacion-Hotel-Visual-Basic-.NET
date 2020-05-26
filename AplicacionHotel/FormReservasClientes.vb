@@ -11,7 +11,7 @@
             comando.Parameters.AddWithValue("@Apellidos", txtbApellidos.Text.ToUpper)
             comando.Parameters.AddWithValue("@Telefono", txtbTelefono.Text.ToUpper)
             comando.Parameters.AddWithValue("@Email", txtbEmail.Text)
-            'comando.ExecuteNonQuery()
+            comando.ExecuteNonQuery()
 
             MsgBox("Datos personales almacenados correctamente!!", MsgBoxStyle.Information, "Información")
         End If

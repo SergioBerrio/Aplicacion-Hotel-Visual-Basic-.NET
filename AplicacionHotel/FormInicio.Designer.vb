@@ -70,7 +70,7 @@ Partial Class FormInicio
         Me.PictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PictureBox1.Image = Global.AplicacionHotel.My.Resources.Resources.free_horizontal_on_white_by_logaster
         Me.PictureBox1.InitialImage = CType(resources.GetObject("PictureBox1.InitialImage"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(222, 31)
+        Me.PictureBox1.Location = New System.Drawing.Point(219, 31)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(340, 138)
         Me.PictureBox1.TabIndex = 4
