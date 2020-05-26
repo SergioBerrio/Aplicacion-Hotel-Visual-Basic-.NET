@@ -6,7 +6,7 @@ Public Class FormPapelFactura
     Dim i As Integer = 0
 
     Private Sub btnSalir_Click(sender As Object, e As EventArgs) Handles btnSalir.Click
-        FormHacerFacturas.Show()
+        FormRecepcion.Show()
         Me.Hide()
     End Sub
 
