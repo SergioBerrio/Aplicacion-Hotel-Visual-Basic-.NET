@@ -14,8 +14,11 @@ Public Class FormReservaHabitaciones2
             MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
         ElseIf cmbPersonas.Text <> "" And cmbTipoHabitacion.Text <> "" Then
+            i = i + 1
+            txtbIDReserva.Text = CStr(i + 1)
+
             comando = New OleDbCommand("INSERT INTO Reservas(IDReserva, DNI, Fecha, CantPers, FechaInicio, FechaFin, NumHabitacion)" & Chr(13) &
-                                        "VALUES(txtbIDReserva, txtbDNI, txtbFecha, cmbbPersonas, dtpInicio, dtpFin, txtbFecha, txtbNumHabitacion)", conexion)
+                                        "VALUES(txtbIDReserva, txtbDNI, txtbFecha, cmbbPersonas, dtpInicio, dtpFin, txtbNumHabitacion)", conexion)
             comando.Parameters.AddWithValue("@IDReserva", txtbIDReserva.Text.ToUpper)
             comando.Parameters.AddWithValue("@DNI", txtbDNICliente.Text.ToUpper)
             comando.Parameters.AddWithValue("@Fecha", txtbFecha.Text.ToUpper)
@@ -53,16 +56,16 @@ Public Class FormReservaHabitaciones2
 
         txtbDNICliente.Text = FormReservasClientes.txtbDNI.Text
 
-        cmbPersonas.Items.Add("1 persona")
-        cmbPersonas.Items.Add("2 personas")
-        cmbPersonas.Items.Add("3 personas")
-        cmbPersonas.Items.Add("4 personas")
-        cmbPersonas.Items.Add("5 personas")
-        cmbPersonas.Items.Add("6 personas")
-        cmbPersonas.Items.Add("7 personas")
-        cmbPersonas.Items.Add("8 personas")
-        cmbPersonas.Items.Add("9 personas")
-        cmbPersonas.Items.Add("10 personas")
+        cmbPersonas.Items.Add(1)
+        cmbPersonas.Items.Add(2)
+        cmbPersonas.Items.Add(3)
+        cmbPersonas.Items.Add(4)
+        cmbPersonas.Items.Add(5)
+        cmbPersonas.Items.Add(6)
+        cmbPersonas.Items.Add(7)
+        cmbPersonas.Items.Add(8)
+        cmbPersonas.Items.Add(9)
+        cmbPersonas.Items.Add(10)
 
         Dim consulta As String = "SELECT NumHabitacion, Tipo, NumCamas FROM Habitaciones"
         Dim comando As New OleDbCommand(consulta, conexion)
