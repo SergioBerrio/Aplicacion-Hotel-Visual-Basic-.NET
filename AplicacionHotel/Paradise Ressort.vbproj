@@ -243,7 +243,6 @@
     <Compile Include="FormVerReservas3.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Modelos\Clientes.vb" />
     <Compile Include="Datos\EnlazarConexion.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
