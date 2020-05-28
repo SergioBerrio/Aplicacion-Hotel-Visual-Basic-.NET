@@ -233,7 +233,6 @@ Partial Class FormPapelFactura
         Me.nudIVA.Name = "nudIVA"
         Me.nudIVA.Size = New System.Drawing.Size(192, 22)
         Me.nudIVA.TabIndex = 6
-        Me.nudIVA.Value = New Decimal(New Integer() {10, 0, 0, 0})
         '
         'cmbTipoHabitacion
         '

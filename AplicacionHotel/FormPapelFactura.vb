@@ -18,7 +18,7 @@ Public Class FormPapelFactura
         txbImporteTotal.Text = Val(txtbSubtotal.Text) + Val(nudIVA.Text)
 
         comando = New OleDbCommand("INSERT INTO Facturas(IDFactura, IDTrabajador, DNI, ImporteTotal, Fecha)" & Chr(13) &
-                                           "VALUES(txtbIDFactura, txtbIDTrabajador, txtbDNICliente, txtbImporteTotal, txbFecha)", conexion)
+                                           "VALUES(@IDFactura, @IDTrabajador, @DNI, @ImporteTotal, @Fecha)", conexion)
         comando.Parameters.AddWithValue("@IDFactura", i + 1)
         comando.Parameters.AddWithValue("@IDTrabajador", 1)
         comando.Parameters.AddWithValue("@DNI", txtbDNI.Text)
@@ -36,6 +36,10 @@ Public Class FormPapelFactura
         txtbImporteActividades.Clear()
         txtbSubtotal.Clear()
         txbImporteTotal.Clear()
+
+        txtbFecha.Text = DateTime.Now.ToString("dd/MM/yyyy")
+
+        nudIVA.Text = "10%"
     End Sub
 
     Private Sub FormPapelFactura_Load(sender As Object, e As EventArgs) Handles MyBase.Load
