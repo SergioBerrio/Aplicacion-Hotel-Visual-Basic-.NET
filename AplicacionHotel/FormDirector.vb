@@ -7,7 +7,7 @@ Public Class FormDirector
     Dim adaptador2 As New OleDbDataAdapter
     Dim registro2 As New DataSet
     Dim tabla As New DataTable
-    Dim i As Integer = 0
+    Dim i As Integer = 5
 
     Private Sub CargarDatosDataGridView()
         Dim consulta As String
@@ -53,21 +53,17 @@ Public Class FormDirector
             MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
         ElseIf txtbNombre.Text <> "" Then
-            txtbNombre.Text = ""
-            cmbPuesto.Text = String.Empty
-
             txtbNombre.Clear()
 
-            i = i + 1
-            txtbIDTrabajador.Text = CStr(i + 1)
-
             comando = New OleDbCommand("INSERT INTO Trabajadores(IDTrabajador, Puesto, Nombre)" & Chr(13) &
-                                             "VALUES(txtIDTrabajador, cmbPuesto, txtNombre)", conexion)
+                                             "VALUES(@IDTrabajador, @Puesto, @Nombre)", conexion)
             comando.Parameters.AddWithValue("@IDTrabajador", txtbIDTrabajador.Text)
             comando.Parameters.AddWithValue("@Puesto", cmbPuesto.Text)
             comando.Parameters.AddWithValue("@Nombre", txtbNombre.Text)
             comando.ExecuteNonQuery()
             conexion.Close()
+
+            txtbIDTrabajador.Text = CStr(i + 1)
 
             MsgBox("Datos del trabajador almacenados correctamente!!", MsgBoxStyle.Information, "Información")
         End If

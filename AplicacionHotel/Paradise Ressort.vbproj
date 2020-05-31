@@ -85,7 +85,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BDHotelDataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Datos\ConexionDatos.vb" />
     <Compile Include="FormAnimacion.Designer.vb">
       <DependentUpon>FormAnimacion.vb</DependentUpon>
     </Compile>
@@ -359,6 +358,7 @@
     <None Include="BBDD\BDHotelDataSet1.xss">
       <DependentUpon>BDHotelDataSet1.xsd</DependentUpon>
     </None>
+    <None Include="Documentación\Paradise Resort.pdf" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
@@ -377,8 +377,6 @@
     </Content>
     <Content Include="Resources\free_horizontal_on_white_by_logaster.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Documentación\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

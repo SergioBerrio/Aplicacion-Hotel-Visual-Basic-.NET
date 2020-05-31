@@ -56,9 +56,6 @@ Public Class FormCocina
             i = i + 1
             txtbIDReceta.Text = CStr(i + 1)
 
-            txtbNombreReceta.Text = ""
-            txtbIngredientes.Text = ""
-
             txtbNombreReceta.Clear()
             txtbIngredientes.Clear()
 

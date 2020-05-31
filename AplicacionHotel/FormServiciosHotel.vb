@@ -54,21 +54,18 @@ Public Class FormServiciosHotel
             MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
         ElseIf cmbNombre.Text <> "" Then
-            i = i + 1
-            txtbIDServicio.Text = CStr(i + 1)
-
             conexion.Open()
 
             comando = New OleDbCommand("INSERT INTO Servicios(IDServicios, Nombre)" & Chr(13) &
-                                             "VALUES(txtbIDServicios, cmbNombre)", conexion)
+                                             "VALUES(@IDServicios, @Nombre)", conexion)
             comando.Parameters.AddWithValue("@IDServicios", txtbIDServicio.Text)
             comando.Parameters.AddWithValue("@Nombre", cmbNombre.Text)
             comando.ExecuteNonQuery()
             conexion.Close()
 
-            MsgBox("Datos de las actividades almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
-
             txtbIDServicio.Text = CStr(i + 1)
+
+            MsgBox("Datos de los servicios almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
         End If
     End Sub
 
@@ -78,7 +75,7 @@ Public Class FormServiciosHotel
         conexion.Open()
 
         Dim eliminarRegistro As String
-        eliminarRegistro = "DELETE * FROM Servicios WHERE IDServicios = " & txtbIDServicio.Text & ""
+        eliminarRegistro = "DELETE FROM Servicios WHERE IDServicios = " & txtbIDServicio.Text & ""
         comando = New OleDbCommand(eliminarRegistro, conexion)
         comando.ExecuteNonQuery()
 

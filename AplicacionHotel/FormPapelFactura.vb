@@ -15,19 +15,24 @@ Public Class FormPapelFactura
 
         txtbSubtotal.Text = Val(txtbImporte.Text) + Val(txtbImporteActividades.Text)
 
-        txbImporteTotal.Text = Val(txtbSubtotal.Text) + Val(nudIVA.Text)
+        txtbImporteTotal.Text = Val(txtbSubtotal.Text) + Val(nudIVA.Text)
 
         comando = New OleDbCommand("INSERT INTO Facturas(IDFactura, IDTrabajador, DNI, ImporteTotal, Fecha)" & Chr(13) &
                                            "VALUES(@IDFactura, @IDTrabajador, @DNI, @ImporteTotal, @Fecha)", conexion)
         comando.Parameters.AddWithValue("@IDFactura", i + 1)
         comando.Parameters.AddWithValue("@IDTrabajador", 1)
         comando.Parameters.AddWithValue("@DNI", txtbDNI.Text)
-        comando.Parameters.AddWithValue("@ImporteTotal", txbImporteTotal.Text)
+        comando.Parameters.AddWithValue("@ImporteTotal", txtbImporteTotal.Text)
         comando.Parameters.AddWithValue("@Fecha", txtbFecha.Text)
         comando.ExecuteNonQuery()
         conexion.Close()
 
-        MsgBox("El importe total de su estancia es de: " & txbImporteTotal.Text & "€", MsgBoxStyle.Information, "Información")
+        txtbImporte.Clear()
+        txtbImporteActividades.Clear()
+        txtbSubtotal.Clear()
+        txtbImporteTotal.Clear()
+
+        MsgBox("El importe total de su estancia es de: " & txtbImporteTotal.Text & "€", MsgBoxStyle.Information, "Información")
         MsgBox("Importe de la factura cobrado correctamente!!", MsgBoxStyle.Information, "Información")
     End Sub
 
@@ -35,17 +40,13 @@ Public Class FormPapelFactura
         txtbImporte.Clear()
         txtbImporteActividades.Clear()
         txtbSubtotal.Clear()
-        txbImporteTotal.Clear()
+        txtbImporteTotal.Clear()
 
         txtbFecha.Text = DateTime.Now.ToString("dd/MM/yyyy")
-
-        nudIVA.Text = "10%"
     End Sub
 
     Private Sub FormPapelFactura_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         txtbFecha.Text = DateTime.Now.ToString("dd/MM/yyyy")
-
-        nudIVA.Text = "10%"
 
         Dim consulta As String = "SELECT DNI, Nombre, Apellidos, Telefono, Email FROM Clientes"
         Dim comando As New OleDbCommand(consulta, conexion)

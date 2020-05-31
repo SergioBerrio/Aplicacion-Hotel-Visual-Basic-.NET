@@ -24,7 +24,7 @@ Partial Class FormPapelFactura
     Private Sub InitializeComponent()
         Me.btnNuevaFactura = New System.Windows.Forms.Button()
         Me.btnCobrar = New System.Windows.Forms.Button()
-        Me.txbImporteTotal = New System.Windows.Forms.TextBox()
+        Me.txtbImporteTotal = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.lblIVA = New System.Windows.Forms.Label()
@@ -74,14 +74,14 @@ Partial Class FormPapelFactura
         Me.btnCobrar.Text = "Cobrar"
         Me.btnCobrar.UseVisualStyleBackColor = False
         '
-        'txbImporteTotal
+        'txtbImporteTotal
         '
-        Me.txbImporteTotal.Enabled = False
-        Me.txbImporteTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txbImporteTotal.Location = New System.Drawing.Point(561, 237)
-        Me.txbImporteTotal.Name = "txbImporteTotal"
-        Me.txbImporteTotal.Size = New System.Drawing.Size(140, 22)
-        Me.txbImporteTotal.TabIndex = 10
+        Me.txtbImporteTotal.Enabled = False
+        Me.txtbImporteTotal.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtbImporteTotal.Location = New System.Drawing.Point(561, 237)
+        Me.txtbImporteTotal.Name = "txtbImporteTotal"
+        Me.txtbImporteTotal.Size = New System.Drawing.Size(140, 22)
+        Me.txtbImporteTotal.TabIndex = 10
         '
         'Label5
         '
@@ -213,7 +213,7 @@ Partial Class FormPapelFactura
         Me.GroupBox1.Controls.Add(Me.lblImporteActividades)
         Me.GroupBox1.Controls.Add(Me.txtbImporteActividades)
         Me.GroupBox1.Controls.Add(Me.txtbImporte)
-        Me.GroupBox1.Controls.Add(Me.txbImporteTotal)
+        Me.GroupBox1.Controls.Add(Me.txtbImporteTotal)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.lblIVA)
@@ -233,6 +233,7 @@ Partial Class FormPapelFactura
         Me.nudIVA.Name = "nudIVA"
         Me.nudIVA.Size = New System.Drawing.Size(192, 22)
         Me.nudIVA.TabIndex = 6
+        Me.nudIVA.Value = New Decimal(New Integer() {10, 0, 0, 0})
         '
         'cmbTipoHabitacion
         '
@@ -322,7 +323,7 @@ Partial Class FormPapelFactura
 
     Friend WithEvents btnNuevaFactura As Button
     Friend WithEvents btnCobrar As Button
-    Friend WithEvents txbImporteTotal As TextBox
+    Friend WithEvents txtbImporteTotal As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents lblIVA As Label

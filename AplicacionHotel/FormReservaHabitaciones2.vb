@@ -14,25 +14,27 @@ Public Class FormReservaHabitaciones2
             MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
         ElseIf cmbPersonas.Text <> "" And cmbTipoHabitacion.Text <> "" Then
+            txtbDNICliente.Clear()
+
             i = i + 1
             txtbIDReserva.Text = CStr(i + 1)
 
             comando = New OleDbCommand("INSERT INTO Reservas(IDReserva, DNI, Fecha, CantPers, FechaInicio, FechaFin, NumHabitacion)" & Chr(13) &
-                                        "VALUES(txtbIDReserva, txtbDNI, txtbFecha, cmbbPersonas, dtpInicio, dtpFin, txtbNumHabitacion)", conexion)
-            comando.Parameters.AddWithValue("@IDReserva", txtbIDReserva.Text.ToUpper)
-            comando.Parameters.AddWithValue("@DNI", txtbDNICliente.Text.ToUpper)
-            comando.Parameters.AddWithValue("@Fecha", txtbFecha.Text.ToUpper)
-            comando.Parameters.AddWithValue("@CantPers", cmbPersonas.Text.ToUpper)
-            comando.Parameters.AddWithValue("@FechaInicio", dtpInicio.Text.ToUpper)
-            comando.Parameters.AddWithValue("@FechaFin", dtpFin.Text.ToUpper)
-            comando.Parameters.AddWithValue("@NumHabitacion", txtbNumeroHabitacion.Text.ToUpper)
+                                        "VALUES(@IDReserva, @DNI, @Fecha, @CantPers, @FechaInicio, @FechaFin, @NumHabitacion)", conexion)
+            comando.Parameters.AddWithValue("@IDReserva", txtbIDReserva.Text)
+            comando.Parameters.AddWithValue("@DNI", txtbDNICliente.Text)
+            comando.Parameters.AddWithValue("@Fecha", txtbFecha.Text)
+            comando.Parameters.AddWithValue("@CantPers", cmbPersonas.Text)
+            comando.Parameters.AddWithValue("@FechaInicio", dtpInicio.Text)
+            comando.Parameters.AddWithValue("@FechaFin", dtpFin.Text)
+            comando.Parameters.AddWithValue("@NumHabitacion", txtbNumeroHabitacion.Text)
             comando.ExecuteNonQuery()
 
-            comando = New OleDbCommand("INSERT INTO Habitaciones(NumHabitacion, NumCamas, IDTipo)" & Chr(13) &
-                                             "VALUES(txtbNumeroHabitacion, txtbNumeroCamas, cmbTipoHabitacion)", conexion)
-            comando.Parameters.AddWithValue("@NumHabitacion", txtbNumeroHabitacion.Text.ToUpper)
-            comando.Parameters.AddWithValue("@NumCamas", txtbNumeroCamas.Text.ToUpper)
-            comando.Parameters.AddWithValue("@IDTipo", cmbTipoHabitacion.Text.ToUpper)
+            comando = New OleDbCommand("INSERT INTO Habitaciones(NumHabitacion, IDTipo, NumCamas)" & Chr(13) &
+                                             "VALUES(@NumHabitacion, @TipoHabitacion, @NumCamas)", conexion)
+            comando.Parameters.AddWithValue("@NumHabitacion", txtbNumeroHabitacion.Text)
+            comando.Parameters.AddWithValue("@TipoHabitacion", cmbTipoHabitacion.Text)
+            comando.Parameters.AddWithValue("@NumCamas", txtbNumeroCamas.Text)
             comando.ExecuteNonQuery()
 
             MsgBox("Datos de la reserva guardados correctamente!!", MsgBoxStyle.Information, "Información")

@@ -55,18 +55,18 @@ Public Class FormAnimacion
             MsgBox("No se puede agregar sin datos introducidos", MsgBoxStyle.Critical, "Error")
 
         ElseIf txtbIDActividad.Text <> "" And cmbNombre.Text <> "" Then
-            i = i + 1
-            txtbIDActividad.Text = CStr(i + 1)
 
             conexion.Open()
 
             comando = New OleDbCommand("INSERT INTO Actividades(IDActividades, Nombre, ImporteActividad)" & Chr(13) &
-                                             "VALUES(txtbIDActividad, cmbNombre, txtbImporte)", conexion)
+                                             "VALUES(@IDActividades, @Nombre, @ImporteActividad)", conexion)
             comando.Parameters.AddWithValue("@IDActividades", txtbIDActividad.Text)
             comando.Parameters.AddWithValue("@Nombre", cmbNombre.Text)
             comando.Parameters.AddWithValue("@ImporteActividad", txtbImporte.Text)
             comando.ExecuteNonQuery()
             conexion.Close()
+
+            txtbIDActividad.Text = CStr(i + 1)
 
             MsgBox("Datos de las actividades almacenadas correctamente!!", MsgBoxStyle.Information, "Información")
         End If
