@@ -1,4 +1,4 @@
-# Aplicacion-Hotel-Visual-Basic-.NET
+# Aplicación de gestión de hotel en Visual Basic y .NET
 
 <p align="center">
 	<img height="200" src="https://github.com/SergioBerrio/Aplicacion-Hotel-Visual-Basic-.NET/blob/master/AplicacionHotel/Resources/free_horizontal_on_white_by_logaster.png" alt="Paradise Resort Hotel">
