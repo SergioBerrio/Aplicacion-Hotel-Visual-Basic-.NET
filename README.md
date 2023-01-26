@@ -4,16 +4,6 @@
 	<img height="200" src="https://github.com/SergioBerrio/Aplicacion-Hotel-Visual-Basic-.NET/blob/master/AplicacionHotel/Resources/free_horizontal_on_white_by_logaster.png" alt="Paradise Resort Hotel">
 </p>
 
-## Idioma de navegación
-
-### **ES**
-
-La navegación a través de la aplicación es en castellano, aunque podría llegar a traducirse a inglés.
-
-### **EN**
-
-The navigation through the application is in Spanish, but it could be translated to english.
-
 ## Funcionamiento general de la aplicación
 
 ### **ES**
@@ -39,3 +29,13 @@ If we access as a client, the first thing we will access to is the corresponding
 - #### Employee access
 
 If we acces as a employee, the first thing we will have is a login for identify us within the system. Once indentified, we will acces to the panel of departments that are available within the hotel. Each of the departments has its own functions, as well as a small panel to view the data of the database tables.
+
+## Idioma de navegación
+
+### **ES**
+
+La navegación a través de la aplicación es en castellano, aunque podría llegar a traducirse a inglés.
+
+### **EN**
+
+The navigation through the application is in Spanish, but it could be translated to english.
