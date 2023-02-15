@@ -30,6 +30,16 @@ If we access as a client, the first thing we will access to is the corresponding
 
 If we acces as a employee, the first thing we will have is a login for identify us within the system. Once indentified, we will acces to the panel of departments that are available within the hotel. Each of the departments has its own functions, as well as a small panel to view the data of the database tables.
 
+## Carga inicial de datos en la aplicación
+
+### **ES**
+
+La aplicación tiene una carga de datos en el momento de ejcutarla por primera vez. Hay tablas que se llenan con datos por defecto para que la apliación funcione correctamente, principalmente, para que en ciertas tablas de datos de los formularios haya registros con los que poder trabajar, ya sea para usarlos como muestra y poder mostrarlos en campos de texto o usarlos como muestra para poder insertarlos en la tabla correspondiente. 
+
+### **EN**
+
+The application has a data load at the time of executing for the first time. There are some tables that are filled with data by default for the application to work correctly, mainly, so that the in certain data tables of the forms the are records to work with, either to use them as a sample and be able to display them in text fileds or to use them as a sample to be able to insert them into the corresponding table.
+
 ## Idioma de navegación
 
 ### **ES**
